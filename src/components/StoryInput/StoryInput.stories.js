@@ -4,7 +4,7 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs'
 
 /* ------------------------------------------------------------------- */
 
-export default {
+const inputStory = {
   // 컴포넌트 설명을 입력하면 Storybook에 카테고리 되어 표시됩니다.
   title: '디자인 시스템/폼 컨트롤/StoryInput',
   // 데코레이터 설정
@@ -30,6 +30,8 @@ export default {
     },
   },
 }
+
+export default inputStory
 
 // 컴포넌트 템플릿
 // 함수의 복사본을 만드는 표준 JavaScript 기법
