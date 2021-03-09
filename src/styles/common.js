@@ -66,24 +66,20 @@ const a11yHidden = css`
   border: 0;
   padding: 0;
   white-space: nowrap;
-`
 
-const focusVisible = css`
+  /* 화면에 a11y 요소가 보이지 않더라도 포커스 되었을 때 보이기 때문에 포커스 상태에도 감춰질 수 있도록 한다. */
   &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(24, 112, 212, 0const 7);
-
-    &:not(:focus-visible) {
-      outline: none;
-      box-shadow: none;
-    }
-  }
-  &:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(24, 112, 212, 0.7);
+    overflow: inherit;
+    position: inherit;
+    clip: inherit;
+    clip-path: inherit;
+    width: inherit;
+    margin: inherit;
+    border: inherit;
+    padding: inherit;
+    white-space: inherit;
   }
 `
-
 // 커스텀 reset
 
 const resetButton = css`
@@ -105,5 +101,4 @@ export {
   resetButton,
   resetAddress,
   a11yHidden,
-  focusVisible,
 }

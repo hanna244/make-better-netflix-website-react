@@ -228,4 +228,22 @@ export const GlobalStyles = createGlobalStyle`
     cursor: help;
     text-decoration: none;
   }
+
+  *:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.3rem ${getColor('focusVisible')};
+  }
+  *:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+  *:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 0.3rem ${getColor('focusVisible')};
+  }
+
+  button:focus-visible {
+    position: relative;
+    z-index: 100;
+  }
 `
