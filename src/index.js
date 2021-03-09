@@ -11,3 +11,10 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 )
+
+// 서비스 워커 설정
+if (process.env.NODE_ENV === 'production') {
+  import('./serviceWorker')
+    .then((serviceWorker) => serviceWorker.register)
+    .catch((error) => console.error(error.message))
+}
