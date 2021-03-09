@@ -1,0 +1,32 @@
+[
+  {
+    "id": 0,
+    "title": "통신판매업신고번호",
+    "content": "제2018-서울종로-0426호" 
+  },
+  {
+    "id": 1,
+    "title": "전화번호",
+    "content": "00-308-321-0058" 
+  },
+  {
+    "id": 2,
+    "title": "대표",
+    "content": "레지널드 숀 톰프슨" 
+  },
+  {
+    "id": 3,
+    "title": "이메일 주소",
+    "content": "korea@netflix.com" 
+  },
+  {
+    "id": 4,
+    "title": "주소",
+    "content": "대한민국 서울특별시 종로구 우정국로 26, 센트로폴리스 A동 20층 우편번호 03161" 
+  },
+  {
+    "id": 5,
+    "title": "클라우드 호스팅",
+    "content": "Amazon Web Services Inc." 
+  }
+]
