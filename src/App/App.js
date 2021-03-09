@@ -1,11 +1,7 @@
-import { Link } from '../components'
+import Home from '../pages/Home'
 
 function App() {
-  return (
-    <div className="App">
-      <Link children="로그인" />
-    </div>
-  )
+  return <Home />
 }
 
 export default App
