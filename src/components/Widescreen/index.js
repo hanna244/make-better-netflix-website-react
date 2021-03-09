@@ -12,8 +12,8 @@ const Widescreen = () => {
               <h3>{title}</h3>
               <p>{description}</p>
               <div>
-                {/* 오류 : https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md */}
-                {/* <img src={image} art={alt} /> */}
+                {/* 오류 해결 : 대체 텍스트는 {}객체로 전달이 안된다. 즉, 데이터 바인딩이 안된다. */}
+                <img src={image} alt={alt} />
                 <video src={video}></video>
               </div>
             </article>
