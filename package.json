@@ -29,7 +29,8 @@
     "@storybook/preset-create-react-app": "^3.1.6",
     "@storybook/react": "^6.1.21",
     "react-test-renderer": "^17.0.1",
-    "sass": "^1.32.8"
+    "sass": "^1.32.8",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,16 +47,31 @@
     ],
     "rules": {
       "import/no-anonymous-default-export": "off",
-      "jsx-a11y/alt-text": [ 2, {
-        "elements": [ "img", "object", "area", "input[type=\"image\"]" ],
-        "img": ["Image"],
-        "object": ["Object"],
-        "area": ["Area"],
-        "input[type=\"image\"]": ["InputImage"]
-      }]
+      "jsx-a11y/alt-text": [
+        2,
+        {
+          "elements": [
+            "img",
+            "object",
+            "area",
+            "input[type=\"image\"]"
+          ],
+          "img": [
+            "Image"
+          ],
+          "object": [
+            "Object"
+          ],
+          "area": [
+            "Area"
+          ],
+          "input[type=\"image\"]": [
+            "InputImage"
+          ]
+        }
+      ]
     }
   },
-
   "browserslist": {
     "production": [
       ">0.2%",
