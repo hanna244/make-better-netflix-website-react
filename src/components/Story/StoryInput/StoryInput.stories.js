@@ -7,7 +7,8 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs'
 const inputStory = {
   // 컴포넌트 설명을 입력하면 Storybook에 카테고리 되어 표시됩니다.
   title: '디자인 시스템/폼 컨트롤/StoryInput',
-  // 데코레이터 설정
+  // 데코레이터 설정 : 스토리에 임의의 래퍼(wrapper)를 제공하는 한 방법
+  // decorators: [story => <div style={{ padding: '3rem' }}>{story()}</div>],
   decorators: [withKnobs],
   // 컴포넌트 설정
   component: StoryInput,
@@ -39,6 +40,7 @@ const Template = (args) => <StoryInput {...args} />
 
 // sm 사이즈 컴포넌트
 export const SmSize = Template.bind({})
+// storyName을 설정하지 않으면 변수 이름(Sm Size)가 story의 이름이 된다.
 SmSize.storyName = 'Small'
 SmSize.args = {
   id: 'sm-size-kwdj1',
@@ -46,6 +48,7 @@ SmSize.args = {
 }
 SmSize.parameters = {
   viewport: {
+    // 기종 종류 별로 뷰포트 설정 가능
     defaultViewport: 'iphonex',
   },
 }

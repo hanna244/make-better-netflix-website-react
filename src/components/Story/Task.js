@@ -1,5 +1,6 @@
-import React from 'react'
+// src/components/Task.js
 import PropTypes from 'prop-types'
+import React from 'react'
 
 export default function Task({
   task: { id, title, state },
@@ -7,36 +8,49 @@ export default function Task({
   onPinTask,
 }) {
   return (
-    <div className="list-item">
-      <input type="text" value={title} readOnly={true} />
+    <div className={`list-item ${state}`}>
+      <label className="checkbox">
+        <input
+          type="checkbox"
+          defaultChecked={state === 'TASK_ARCHIVED'}
+          disabled={true}
+          name="checked"
+        />
+        <span className="checkbox-custom" onClick={() => onArchiveTask(id)} />
+      </label>
+      <div className="title">
+        <input
+          type="text"
+          value={title}
+          readOnly={true}
+          placeholder="Input title"
+        />
+      </div>
+
+      <div className="actions" onClick={(event) => event.stopPropagation()}>
+        {state !== 'TASK_ARCHIVED' && (
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <a onClick={() => onPinTask(id)}>
+            <span className={`icon-star`} />
+          </a>
+        )}
+      </div>
     </div>
   )
 }
 
-// 컴포넌트 속성 검사를 설정하면 Story 문서에 반영됩니다.
-// 컴포넌트에 필요한 데이터 형태를 명시하려면 React에서 propTypes를 사용하는 것이 가장 좋습니다.
-// 이는 자체적 문서화일 뿐만 아니라, 문제를 조기에 발견하는 데 도움이 됩니다.
 Task.propTypes = {
-  /** label 요소와 input 요소를 연결하는 key */
-  id: PropTypes.string.isRequired,
-  /** UI에 표시되는 레이블 */
-  label: PropTypes.string.isRequired,
-  /** 레이블을 UI에서 감춤 (스크린 리더 사용자에게는 읽힘) */
-  labelHidden: PropTypes.bool,
-  /** 플레이스홀더 */
-  placeholder: PropTypes.string,
-  /** 커스텀 클래스 이름 */
-  className: PropTypes.string,
-  /** 설정 가능한 인풋 타입 */
-  type: PropTypes.oneOf(['text', 'email', 'password', 'search']),
-  /** 인풋 크기 */
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-}
-
-// 컴포넌트 기본 속성을 설정하면 Story 문서에 반영됩니다.
-Task.defaultProps = {
-  type: 'text',
-  className: '',
-  size: 'md',
-  labelHidden: false,
+  /** Composition of the task */
+  task: PropTypes.shape({
+    /** Id of the task */
+    id: PropTypes.string.isRequired,
+    /** Title of the task */
+    title: PropTypes.string.isRequired,
+    /** Current state of the task */
+    state: PropTypes.string.isRequired,
+  }),
+  /** Event to change the task to archived */
+  onArchiveTask: PropTypes.func,
+  /** Event to change the task to pinned */
+  onPinTask: PropTypes.func,
 }
