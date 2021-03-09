@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { LinkButton } from './Link.style'
 
-export default function Link({ children, ...restProps }) {
+export default function Link({ label, ...restProps }) {
   return (
-    <button {...restProps} type="button">
-      {children}
-    </button>
+    <LinkButton {...restProps} type="button">
+      {label}
+    </LinkButton>
   )
 }
 

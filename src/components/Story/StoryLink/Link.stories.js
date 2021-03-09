@@ -17,14 +17,14 @@ const link = {
   // },
   // 전달인자 설정
   args: {
-    children: '로그인',
+    label: '로그인',
   },
   parameters: {
     // 뷰포트 애드온 설정
     viewport: {
       viewports: INITIAL_VIEWPORTS,
       // iPhoneX,XR 만 추출
-      defaultViewport: ['iphonex', 'iphonexr'],
+      defaultViewport: ['iphone6', 'iPad'],
     },
   },
 }
@@ -39,12 +39,12 @@ const Template = (args) => <Link {...args} />
 export const SmSize = Template.bind({})
 SmSize.storyName = 'Small'
 SmSize.args = {
-  id: 'sm-size-kwdj1',
+  id: 'sm-size-idns1',
   size: 'sm',
 }
 SmSize.parameters = {
   viewport: {
-    defaultViewport: 'iphonex',
+    defaultViewport: 'iphone6',
   },
 }
 
@@ -52,12 +52,12 @@ SmSize.parameters = {
 export const MdSize = Template.bind({})
 MdSize.storyName = 'Medium'
 MdSize.args = {
-  id: 'md-size-kwdj5',
+  id: 'md-size-idns5',
   size: 'md',
 }
 MdSize.parameters = {
   viewport: {
-    defaultViewport: 'iphonexr',
+    defaultViewport: 'iPad',
   },
 }
 
@@ -65,7 +65,6 @@ MdSize.parameters = {
 export const LgSize = Template.bind({})
 LgSize.storyName = 'Large'
 LgSize.args = {
-  id: 'lg-size-kwdj8',
+  id: 'lg-size-idns8',
   size: 'lg',
-  labelHidden: boolean('labelHidden', false),
 }
