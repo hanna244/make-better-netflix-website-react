@@ -90,11 +90,16 @@ const resetAddress = css`
   font-style: normal;
 `
 
+const resetHeading = css`
+  margin: 0;
+`
+
 export {
   resetBox,
   resetLink,
   resetList,
   resetDl,
+  resetHeading,
   rwdImg,
   rwdVideo,
   rwdIframeWrapper,
