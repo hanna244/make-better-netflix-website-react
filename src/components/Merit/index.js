@@ -1,10 +1,9 @@
 import React from 'react'
 import {
   Inner,
-  TextWrapper,
+  Wrapper,
   Title,
   SubTitle,
-  MediaWrapper,
   IntroImage,
   IntroVideo,
 } from './Merit.style'
@@ -20,8 +19,8 @@ const Merit = ({ children, direction = 'row', ...restProps }) => {
 Merit.Container = function ({ children, ...restProps }) {
   return <section {...restProps}>{children}</section>
 }
-Merit.TextWrapper = function ({ children, ...restProps }) {
-  return <TextWrapper {...restProps}>{children}</TextWrapper>
+Merit.Wrapper = function ({ children, ...restProps }) {
+  return <Wrapper {...restProps}>{children}</Wrapper>
 }
 Merit.Title = function ({ children, ...restProps }) {
   return <Title {...restProps}>{children}</Title>
@@ -29,14 +28,17 @@ Merit.Title = function ({ children, ...restProps }) {
 Merit.SubTitle = function ({ children, ...restProps }) {
   return <SubTitle {...restProps}>{children}</SubTitle>
 }
-Merit.MediaWrapper = function ({ children, ...restProps }) {
-  return <MediaWrapper {...restProps}>{children}</MediaWrapper>
-}
 Merit.IntroImage = function ({ children, ...restProps }) {
   return <IntroImage {...restProps}>{children}</IntroImage>
 }
 Merit.IntroVideo = function ({ children, ...restProps }) {
-  return <IntroVideo {...restProps}>{children}</IntroVideo>
+  return (
+    // <video /> autoPlay 적용시 카멜케이스 사용하기!
+    // 오류 발견 왜 react에서는 <video />에 muted가 적용되지 않는가?
+    <IntroVideo autoPlay loop muted {...restProps}>
+      {children}
+    </IntroVideo>
+  )
 }
 
 export default Merit
