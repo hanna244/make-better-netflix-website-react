@@ -11,7 +11,7 @@ const NetflixIntro = () => {
     console.log('DOM 마운트 이후 시점')
     console.log(video1Ref)
     console.log(video2Ref)
-  }, [])
+  })
 
   return (
     <Merit.Container>
@@ -27,10 +27,12 @@ const NetflixIntro = () => {
               <Merit.Wrapper>
                 <Merit.IntroImage src={image} alt={alt} />
                 <Merit.IntroVideo
-                  ref={[
-                    video?.indexOf('video-tv-0819') !== -1 ? video1Ref : null,
-                    video?.indexOf('video-devices') !== -1 ? video2Ref : null,
-                  ]}
+                  ref1={
+                    video?.indexOf('video-tv-0819') !== -1 ? video1Ref : null
+                  }
+                  ref2={
+                    video?.indexOf('video-devices') !== -1 ? video2Ref : null
+                  }
                   // ref={video.indexOf?.('m4v') !== -1 ? videoRef : null}
                   src={video}
                 />

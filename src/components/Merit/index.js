@@ -32,10 +32,18 @@ Merit.IntroImage = function ({ children, ...restProps }) {
   return <IntroImage {...restProps}>{children}</IntroImage>
 }
 // forwardRef((props, ref) => {})
-Merit.IntroVideo = React.forwardRef(({ children, ...restProps }, [...ref]) => {
+Merit.IntroVideo = React.forwardRef(({ children, ...restProps }, { ref1 }) => {
   return (
     // <video /> autoPlay 적용시 카멜케이스 사용
-    <IntroVideo ref={ref} autoPlay loop muted {...restProps}>
+    <IntroVideo ref={ref1} autoPlay loop muted {...restProps}>
+      {children}
+    </IntroVideo>
+  )
+})
+Merit.IntroVideo = React.forwardRef(({ children, ...restProps }, { ref2 }) => {
+  return (
+    // <video /> autoPlay 적용시 카멜케이스 사용
+    <IntroVideo ref={ref2} autoPlay loop muted {...restProps}>
       {children}
     </IntroVideo>
   )
