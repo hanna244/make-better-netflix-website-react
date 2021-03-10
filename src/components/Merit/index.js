@@ -17,6 +17,7 @@ const Merit = ({ children, direction = 'row', ...restProps }) => {
 }
 
 Merit.Container = function ({ children, ...restProps }) {
+  Merit.Container.displayName = 'hanna'
   return <section {...restProps}>{children}</section>
 }
 Merit.Wrapper = function ({ children, ...restProps }) {
@@ -31,14 +32,14 @@ Merit.SubTitle = function ({ children, ...restProps }) {
 Merit.IntroImage = function ({ children, ...restProps }) {
   return <IntroImage {...restProps}>{children}</IntroImage>
 }
-Merit.IntroVideo = function ({ children, ...restProps }) {
+// forwardRef((props, ref) => {})
+Merit.IntroVideo = React.forwardRef(({ children, ...restProps }, ref) => {
   return (
-    // <video /> autoPlay 적용시 카멜케이스 사용하기!
-    // 오류 발견 왜 react에서는 <video />에 muted가 적용되지 않는가?
-    <IntroVideo autoPlay loop muted {...restProps}>
+    // <video /> autoPlay 적용시 카멜케이스 사용
+    <IntroVideo ref={ref} autoPlay loop muted {...restProps}>
       {children}
     </IntroVideo>
   )
-}
+})
 
 export default Merit

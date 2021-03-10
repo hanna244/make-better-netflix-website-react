@@ -6,7 +6,7 @@ import meritData from '../../../data/merit.json'
 const NetflixIntro = () => {
   const videoRef = useRef(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('DOM 마운트 이후 시점')
     console.log(videoRef)
   })
@@ -17,14 +17,18 @@ const NetflixIntro = () => {
         ({ title, description, video, image, alt, direction }, index) => {
           console.log(video)
           return (
-            <Merit direction={direction}>
+            <Merit key={uuid()} id={uuid()} direction={direction}>
               <Merit.Wrapper>
                 <Merit.Title children={title} />
                 <Merit.SubTitle children={description} />
               </Merit.Wrapper>
               <Merit.Wrapper>
                 <Merit.IntroImage src={image} alt={alt} />
-                <Merit.IntroVideo ref={videoRef} src={video} />
+                <Merit.IntroVideo
+                  ref={video?.indexOf('m4v') !== -1 ? videoRef : null}
+                  // ref={video.indexOf?.('m4v') !== -1 ? videoRef : null}
+                  src={video}
+                />
               </Merit.Wrapper>
             </Merit>
           )
