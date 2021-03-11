@@ -1,8 +1,10 @@
 import styled from 'styled-components'
+import { getColor } from '../../utils'
 import {
   resetHeading,
   resetPara,
   resetFigure,
+  resetImg,
   rwdImg,
   rwdVideo,
 } from '../../styles/common'
@@ -79,13 +81,33 @@ export const MediaWrapper = styled(Wrapper)`
   }
 `
 
-export const IntroImage = styled.img`
+export const SmallMediaWrapper = styled(Wrapper)`
+  display: flex;
+  align-items: center;
+  width: 21.2rem;
+  margin: 0 auto;
+  padding: 0.6rem 0;
+  border: 1px solid ${getColor('gray')};
+  border-radius: 5px;
+
+  @media (min-width: 60em) {
+    width: 30.2rem;
+  }
+`
+export const IntroNomalImage = styled.img``
+
+export const IntroRwdImage = styled.img`
   ${rwdImg}
   /* position: absolute; */
   margin-top: 1rem;
+
+  @media (min-width: 60em) {
+    margin-top: 0;
+  }
 `
+
 export const IntroVideo = styled.video`
-  /* ${rwdVideo} */
+  ${rwdVideo}
   position: absolute;
   z-index: -100;
   /* 251 / 340 * 100% */

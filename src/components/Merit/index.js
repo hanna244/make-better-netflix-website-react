@@ -5,7 +5,7 @@ import {
   Title,
   Wrapper,
   SubTitle,
-  IntroImage,
+  IntroNomalImage,
   IntroVideo,
 } from './Merit.style'
 
@@ -38,14 +38,18 @@ Merit.Title = function ({ children, ...restProps }) {
 Merit.SubTitle = function ({ children, ...restProps }) {
   return <SubTitle {...restProps}>{children}</SubTitle>
 }
-Merit.IntroImage = function ({ children, ...restProps }) {
-  return <IntroImage {...restProps}>{children}</IntroImage>
+Merit.IntroNomalImage = function ({ children, size, ...restProps }) {
+  return (
+    <IntroNomalImage {...size} {...restProps}>
+      {children}
+    </IntroNomalImage>
+  )
 }
 // forwardRef((props, ref) => {})
-Merit.IntroVideo = React.forwardRef(({ children, ...restProps }, ref) => {
+Merit.IntroVideo = React.forwardRef(({ children, size, ...restProps }, ref) => {
   return (
     // <video /> autoPlay 적용시 카멜케이스 사용
-    <IntroVideo ref={ref} autoPlay loop muted {...restProps}>
+    <IntroVideo ref={ref} autoPlay loop muted {...size} {...restProps}>
       {children}
     </IntroVideo>
   )
