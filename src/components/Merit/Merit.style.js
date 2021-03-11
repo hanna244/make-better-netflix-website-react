@@ -94,17 +94,6 @@ export const SmallMediaWrapper = styled(Wrapper)`
     width: 30.2rem;
   }
 `
-export const IntroNomalImage = styled.img``
-
-export const IntroRwdImage = styled.img`
-  ${rwdImg}
-  /* position: absolute; */
-  margin-top: 1rem;
-
-  @media (min-width: 60em) {
-    margin-top: 0;
-  }
-`
 
 export const IntroVideo = styled.video`
   ${rwdVideo}

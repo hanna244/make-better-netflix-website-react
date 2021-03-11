@@ -38,13 +38,6 @@ Merit.Title = function ({ children, ...restProps }) {
 Merit.SubTitle = function ({ children, ...restProps }) {
   return <SubTitle {...restProps}>{children}</SubTitle>
 }
-Merit.IntroNomalImage = function ({ children, size, ...restProps }) {
-  return (
-    <IntroNomalImage {...size} {...restProps}>
-      {children}
-    </IntroNomalImage>
-  )
-}
 // forwardRef((props, ref) => {})
 Merit.IntroVideo = React.forwardRef(({ children, size, ...restProps }, ref) => {
   return (
