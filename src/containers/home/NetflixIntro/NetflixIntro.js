@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
-import { Merit } from '../../../components'
+import { Merit, Photo } from '../../../components'
 import meritData from '../../../data/merit.json'
 import { resetPara } from '../../../styles/common'
 import { getColor } from '../../../utils'
@@ -9,8 +9,8 @@ import {
   MediaWrapper,
   IntroVideo2,
   SmallMediaWrapper,
-  IntroRwdImage,
 } from '../../../components/Merit/Merit.style'
+import { MainImg } from './NetflixIntro.style'
 
 const SmallContextContainer = styled.div`
   display: flex;
@@ -78,7 +78,8 @@ const NetflixIntro = () => {
               {/*MediaWrapper는 <Merit.Wrapper> 컴포넌트 재사용 및 스타일 확장하여 사용 */}
               {/* 미디어 래퍼 요소라서 figure요소를 사용하기 위해 as 속성 사용  */}
               <MediaWrapper as="figure">
-                <IntroRwdImage
+                <MainImg
+                  rwd="true"
                   src={image}
                   alt={alt}
                   size={{
@@ -88,7 +89,7 @@ const NetflixIntro = () => {
                 />
                 {index === 1 ? (
                   <SmallMediaWrapper>
-                    <Merit.IntroNomalImage
+                    <Photo
                       src={poster}
                       alt={emptyAlt}
                       size={{
@@ -102,7 +103,7 @@ const NetflixIntro = () => {
                         저장 중...
                       </SmallContextSubTitle>
                     </SmallContextContainer>
-                    <Merit.IntroNomalImage
+                    <Photo
                       src={download}
                       alt={emptyAlt}
                       size={{
