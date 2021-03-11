@@ -30,10 +30,24 @@ const NetflixIntro = () => {
               <MediaWrapper as="figure">
                 <Merit.IntroImage src={image} alt={alt} />
                 {index === 0 ? (
-                  <Merit.IntroVideo ref={video1Ref} src={video} />
+                  <Merit.IntroVideo
+                    ref={video1Ref}
+                    src={video}
+                    size={{
+                      width: 251,
+                      height: 141,
+                    }}
+                  />
                 ) : null}
                 {index === 2 ? (
-                  <Merit.IntroVideo ref={video2Ref} src={video} />
+                  <Merit.IntroVideo
+                    ref={video2Ref}
+                    src={video}
+                    size={{
+                      width: 251,
+                      height: 141,
+                    }}
+                  />
                 ) : null}
               </MediaWrapper>
             </Merit>

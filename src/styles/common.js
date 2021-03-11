@@ -93,6 +93,13 @@ const resetAddress = css`
 const resetHeading = css`
   margin: 0;
 `
+const resetPara = css`
+  margin: 0;
+`
+
+const resetFigure = css`
+  margin: 0;
+`
 
 export {
   resetBox,
@@ -100,6 +107,8 @@ export {
   resetList,
   resetDl,
   resetHeading,
+  resetPara,
+  resetFigure,
   rwdImg,
   rwdVideo,
   rwdIframeWrapper,

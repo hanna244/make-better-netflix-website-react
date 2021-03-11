@@ -1,5 +1,12 @@
 import styled from 'styled-components'
-import { resetHeading, resetPara, rwdImg, rwdVideo } from '../../styles/common'
+import {
+import { IntroVideo } from './Merit.style'
+  resetHeading,
+  resetPara,
+  resetFigure,
+  rwdImg,
+  rwdVideo,
+} from '../../styles/common'
 
 export const Inner = styled.article`
   display: flex;
@@ -51,15 +58,37 @@ export const SubTitle = styled.p`
   }
 `
 
+// 스타일 확장 사용하기
+// https://styled-components.com/docs/basics#extending-styles
+// Wrapper 컴포넌트를 사용하려고 했으나 미디어래퍼는 별로도 position을 사용해야 하기 때문에 스타일 확장하여 사용
+export const MediaWrapper = styled(Wrapper)`
+  ${resetFigure}
+  position: relative;
+  max-width: 34rem;
+`
+
 export const IntroImage = styled.img`
   ${rwdImg}
+  /* position: absolute; */
   margin-top: 1rem;
-  width: 33.8rem;
+  max-width: 34rem;
 
   @media (min-width: 60em) {
     width: 48rem;
   }
 `
 export const IntroVideo = styled.video`
-  ${rwdVideo}
+  /* ${rwdVideo} */
+  position: absolute;
+  z-index: -100;
+  /* 251 / 340 * 100% */
+  width: 73.823%;
+  top: 23.529%;
+  left: 12.941%;
+`
+
+// 식 적용이 안된다.
+/* width: ${(props) => cals(props.width / 340 * 100%)}; */
+
+export const IntroVideo2 = styled(IntroVideo)`
 `
