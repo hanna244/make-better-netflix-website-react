@@ -7,25 +7,34 @@ import {
   rwdVideo,
 } from '../../styles/common'
 
+export const Containner = styled.section`
+  display: flex;
+  flex-flow: column nowrap;
+`
+
 export const Inner = styled.article`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 1.8rem;
   // 공간 스타일 top 뱡향으로 주는 것으로 통일
   padding: 2rem 0;
+  max-width: 120rem;
 
   @media (min-width: 60em) {
     flex-direction: ${(props) => props.direction ?? 'row'};
     justify-content: space-between;
+    margin: 0 auto;
   }
 `
 // text와 미디어 요소에 임의의 크기를 주지 않고 자연스럽게 글자의 떨어짐이나 비디오의 크기가 설정될 수 있도록 %로 크기 설정
 export const Wrapper = styled.div`
-  text-align: left;
-  width: 100%;
+  text-align: center;
+  max-width: 34rem;
 
   @media (min-width: 60em) {
-    width: 50%;
+    text-align: left;
+    max-width: 48rem;
   }
 `
 export const Title = styled.h3`

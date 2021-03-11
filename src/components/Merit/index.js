@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  Containner,
   Inner,
   Title,
   Wrapper,
@@ -17,7 +18,7 @@ const Merit = ({ children, direction = 'row', ...restProps }) => {
 }
 
 Merit.Container = function ({ children, ...restProps }) {
-  return <section {...restProps}>{children}</section>
+  return <Containner {...restProps}>{children}</Containner>
 }
 // Tag Name 변경 가능하도록 as 속성 설정
 Merit.Wrapper = function ({ className, children, as, ...restProps }) {
