@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import {
-import { IntroVideo } from './Merit.style'
   resetHeading,
   resetPara,
   resetFigure,
@@ -90,5 +89,4 @@ export const IntroVideo = styled.video`
 // 식 적용이 안된다.
 /* width: ${(props) => cals(props.width / 340 * 100%)}; */
 
-export const IntroVideo2 = styled(IntroVideo)`
-`
+export const IntroVideo2 = styled(IntroVideo)``
