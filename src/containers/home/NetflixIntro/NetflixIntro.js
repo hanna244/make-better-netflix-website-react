@@ -17,7 +17,7 @@ const NetflixIntro = () => {
     <Merit.Container>
       {meritData.map(
         ({ title, description, video, image, alt, direction }, index) => {
-          console.log(video)
+          console.log(index)
           return (
             <Merit key={uuid()} id={uuid()} direction={direction}>
               <Merit.Wrapper>
@@ -26,16 +26,12 @@ const NetflixIntro = () => {
               </Merit.Wrapper>
               <Merit.Wrapper>
                 <Merit.IntroImage src={image} alt={alt} />
-                <Merit.IntroVideo
-                  ref1={
-                    video?.indexOf('video-tv-0819') !== -1 ? video1Ref : null
-                  }
-                  ref2={
-                    video?.indexOf('video-devices') !== -1 ? video2Ref : null
-                  }
-                  // ref={video.indexOf?.('m4v') !== -1 ? videoRef : null}
-                  src={video}
-                />
+                {index === 0 ? (
+                  <Merit.IntroVideo ref={video1Ref} src={video} />
+                ) : null}
+                {index === 2 ? (
+                  <Merit.IntroVideo ref={video2Ref} src={video} />
+                ) : null}
               </Merit.Wrapper>
             </Merit>
           )
