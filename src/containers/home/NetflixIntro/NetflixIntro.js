@@ -2,7 +2,10 @@ import React, { useRef, useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
 import { Merit } from '../../../components'
 import meritData from '../../../data/merit.json'
-import { MediaWrapper } from '../../../components/Merit/Merit.style'
+import {
+  MediaWrapper,
+  IntroVideo2,
+} from '../../../components/Merit/Merit.style'
 
 const NetflixIntro = () => {
   const video1Ref = useRef(null)
@@ -40,7 +43,7 @@ const NetflixIntro = () => {
                   />
                 ) : null}
                 {index === 2 ? (
-                  <Merit.IntroVideo
+                  <IntroVideo2
                     ref={video2Ref}
                     src={video}
                     size={{

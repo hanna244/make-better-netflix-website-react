@@ -64,17 +64,16 @@ export const MediaWrapper = styled(Wrapper)`
   ${resetFigure}
   position: relative;
   max-width: 34rem;
+
+  @media (min-width: 60em) {
+    max-width: 48rem;
+  }
 `
 
 export const IntroImage = styled.img`
   ${rwdImg}
   /* position: absolute; */
   margin-top: 1rem;
-  max-width: 34rem;
-
-  @media (min-width: 60em) {
-    width: 48rem;
-  }
 `
 export const IntroVideo = styled.video`
   /* ${rwdVideo} */
@@ -89,4 +88,8 @@ export const IntroVideo = styled.video`
 // 식 적용이 안된다.
 /* width: ${(props) => cals(props.width / 340 * 100%)}; */
 
-export const IntroVideo2 = styled(IntroVideo)``
+export const IntroVideo2 = styled(IntroVideo)`
+  width: 60%;
+  top: 17.529%;
+  left: 19%;
+`
