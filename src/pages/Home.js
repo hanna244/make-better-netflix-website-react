@@ -1,5 +1,5 @@
 // import { Dufualt } from '../layout/LayoutTypes/Dufualt'
-import { OurStory, NetflixIntro, NetflixFAQ } from '../containers/Home'
+import { NetflixIntro } from '../containers/Home'
 
 function Home() {
   return (
