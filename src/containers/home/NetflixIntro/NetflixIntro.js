@@ -25,7 +25,8 @@ const NetflixIntro = () => {
                 <Merit.Title children={title} />
                 <Merit.SubTitle children={description} />
               </Merit.Wrapper>
-              {/*MediaWrapper는 <Merit.Wrapper> 컴포넌트 재사용 및 스타일 확장하여 사용 것이다. */}
+              {/*MediaWrapper는 <Merit.Wrapper> 컴포넌트 재사용 및 스타일 확장하여 사용 */}
+              {/* 미디어 래퍼 요소라서 figure요소를 사용하기 위해 as 속성 사용  */}
               <MediaWrapper as="figure">
                 <Merit.IntroImage src={image} alt={alt} />
                 {index === 0 ? (

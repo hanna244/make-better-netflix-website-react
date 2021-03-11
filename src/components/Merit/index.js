@@ -20,16 +20,15 @@ Merit.Container = function ({ children, ...restProps }) {
   return <section {...restProps}>{children}</section>
 }
 // Tag Name 변경 가능하도록 as 속성 설정
-Merit.Wrapper = function ({
-  className,
-  children,
-  as: CostomWrapperTagName,
-  ...restProps
-}) {
+Merit.Wrapper = function ({ className, children, as, ...restProps }) {
   return (
-    <CostomWrapperTagName className={className} {...restProps}>
+    // as 속성의 별칭을 사용해서 적용했으나 styled-component의 스타일 적용 변수 이름과 달라서 스타일 적용이 안된다.
+    // styled-component에서 불러오는 이름은 Wrapper이다.
+    // 2차 커밋 : as속성을 리턴 되는 리액트 요소에 적용하지 않았으나 렌더링 시 props로 전달한 as 속성의 tagName 적용 된다.
+    // react 공식 문서에 as 속성이 어딧을까?
+    <Wrapper className={className} {...restProps}>
       {children}
-    </CostomWrapperTagName>
+    </Wrapper>
   )
 }
 Merit.Title = function ({ children, ...restProps }) {
