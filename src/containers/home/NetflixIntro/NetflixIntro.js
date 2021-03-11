@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
 import { Merit } from '../../../components'
 import meritData from '../../../data/merit.json'
+import { MediaWrapper } from '../../../components/Merit/Merit.style'
 
 const NetflixIntro = () => {
   const video1Ref = useRef(null)
@@ -20,11 +21,12 @@ const NetflixIntro = () => {
           console.log(index)
           return (
             <Merit key={uuid()} id={uuid()} direction={direction}>
-              <Merit.Wrapper>
+              <Merit.Wrapper as="div">
                 <Merit.Title children={title} />
                 <Merit.SubTitle children={description} />
               </Merit.Wrapper>
-              <Merit.Wrapper>
+              {/*MediaWrapper는 <Merit.Wrapper> 컴포넌트 재사용 및 스타일 확장하여 사용 것이다. */}
+              <MediaWrapper as="figure">
                 <Merit.IntroImage src={image} alt={alt} />
                 {index === 0 ? (
                   <Merit.IntroVideo ref={video1Ref} src={video} />
@@ -32,7 +34,7 @@ const NetflixIntro = () => {
                 {index === 2 ? (
                   <Merit.IntroVideo ref={video2Ref} src={video} />
                 ) : null}
-              </Merit.Wrapper>
+              </MediaWrapper>
             </Merit>
           )
         }

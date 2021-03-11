@@ -1,8 +1,8 @@
 import React from 'react'
 import {
   Inner,
-  Wrapper,
   Title,
+  Wrapper,
   SubTitle,
   IntroImage,
   IntroVideo,
@@ -19,8 +19,18 @@ const Merit = ({ children, direction = 'row', ...restProps }) => {
 Merit.Container = function ({ children, ...restProps }) {
   return <section {...restProps}>{children}</section>
 }
-Merit.Wrapper = function ({ children, ...restProps }) {
-  return <Wrapper {...restProps}>{children}</Wrapper>
+// Tag Name 변경 가능하도록 as 속성 설정
+Merit.Wrapper = function ({
+  className,
+  children,
+  as: CostomWrapperTagName,
+  ...restProps
+}) {
+  return (
+    <CostomWrapperTagName className={className} {...restProps}>
+      {children}
+    </CostomWrapperTagName>
+  )
 }
 Merit.Title = function ({ children, ...restProps }) {
   return <Title {...restProps}>{children}</Title>
