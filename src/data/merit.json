@@ -12,7 +12,11 @@
     "description": "간편하게 저장하고 빈틈없이 즐겨보세요.",
     "image": "./assets/category=Download.jpg",
     "alt": "넷플릭스 소녀",
+    "subImage": "./assets/poster_stranger_things.jpg",
+    "icon": "./assets/download-icon.gif",
+    "emptyAlt": "",
     "direction": "row-reverse"
+    
   },
   {
     "title": "다양한 디바이스에서 시청하세요.",
