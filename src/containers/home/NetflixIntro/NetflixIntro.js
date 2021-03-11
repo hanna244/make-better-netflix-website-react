@@ -12,9 +12,9 @@ const NetflixIntro = () => {
   const video2Ref = useRef(null)
 
   useEffect(() => {
-    console.log('DOM 마운트 이후 시점')
-    console.log(video1Ref)
-    console.log(video2Ref)
+    // 미디어 접근성을 위해 <video /> muted 속성 추가
+    video1Ref.current.setAttribute('muted', '')
+    video2Ref.current.setAttribute('muted', '')
   })
 
   return (
