@@ -101,6 +101,10 @@ const resetFigure = css`
   margin: 0;
 `
 
+const resetImg = css`
+  max-width: 100%;
+`
+
 export {
   resetBox,
   resetLink,
@@ -109,6 +113,7 @@ export {
   resetHeading,
   resetPara,
   resetFigure,
+  resetImg,
   rwdImg,
   rwdVideo,
   rwdIframeWrapper,
