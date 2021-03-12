@@ -1,4 +1,5 @@
 import React from 'react'
+import { displayName } from '../../utils'
 import {
   Containner,
   Inner,
@@ -9,6 +10,7 @@ import {
 } from './Merit.style'
 
 const Merit = ({ children, direction = 'row', ...restProps }) => {
+  Merit.displayName = `${displayName(Merit)}`
   return (
     <Inner {...restProps} direction={direction}>
       {children}
@@ -17,10 +19,14 @@ const Merit = ({ children, direction = 'row', ...restProps }) => {
 }
 
 Merit.Container = function ({ children, ...restProps }) {
+  // 컴파운드 컴포넌트 displayName 적용 안됨 어떻게 하는 것일까?
+  Merit.Container.displayName = `${displayName(Merit.Container)}`
   return <Containner {...restProps}>{children}</Containner>
 }
 // Tag Name 변경 가능하도록 as 속성 설정
 Merit.Wrapper = function ({ className, children, as, ...restProps }) {
+  // 컴파운드 컴포넌트 displayName 적용 안됨 어떻게 하는 것일까?
+  Merit.Wrapper.displayName = `${displayName(Wrapper)}`
   return (
     // as 속성의 별칭을 사용해서 적용했으나 styled-component의 스타일 적용 변수 이름과 달라서 스타일 적용이 안된다.
     // styled-component에서 불러오는 이름은 Wrapper이다.
