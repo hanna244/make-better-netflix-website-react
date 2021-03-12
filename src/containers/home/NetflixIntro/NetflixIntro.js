@@ -1,45 +1,20 @@
 import React, { useRef, useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
-import { Merit, Photo } from '../../../components'
+import { Merit } from '../../../components'
 import meritData from '../../../data/merit.json'
-import { resetPara } from '../../../styles/common'
-import { getColor } from '../../../utils'
-import styled from 'styled-components'
+
 import {
   MediaWrapper,
   IntroVideo2,
   SmallMediaWrapper,
 } from '../../../components/Merit/Merit.style'
-import { MainImg } from './NetflixIntro.style'
-
-const SmallContextContainer = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  flex: 2;
-  justify-content: center;
-  text-align: left;
-`
-
-const SmallContextTitle = styled.p`
-  ${resetPara}
-  font-weight: bold;
-  font-size: 1rem;
-  line-height: 1.2;
-
-  @media (min-width: 60em) {
-    font-size: 1.4rem;
-  }
-`
-
-const SmallContextSubTitle = styled(SmallContextTitle)`
-  font-size: 0.8rem;
-  line-height: 1.5;
-  color: ${getColor('blue')};
-
-  @media (min-width: 60em) {
-    font-size: 1.2rem;
-  }
-`
+import {
+  MainImg,
+  SubImg,
+  SmallContextContainer,
+  SmallContextTitle,
+  SmallContextSubTitle,
+} from './NetflixIntro.style'
 
 const NetflixIntro = () => {
   const video1Ref = useRef(null)
@@ -79,7 +54,7 @@ const NetflixIntro = () => {
               {/* 미디어 래퍼 요소라서 figure요소를 사용하기 위해 as 속성 사용  */}
               <MediaWrapper as="figure">
                 <MainImg
-                  rwd="true"
+                  rwd
                   src={image}
                   alt={alt}
                   size={{
@@ -89,7 +64,10 @@ const NetflixIntro = () => {
                 />
                 {index === 1 ? (
                   <SmallMediaWrapper>
-                    <Photo
+                    <SubImg
+                      widewidth="6rem"
+                      marginleft="1.2rem"
+                      widemarginleft="1.6rem"
                       src={poster}
                       alt={emptyAlt}
                       size={{
@@ -103,7 +81,10 @@ const NetflixIntro = () => {
                         저장 중...
                       </SmallContextSubTitle>
                     </SmallContextContainer>
-                    <Photo
+                    <SubImg
+                      widewidth="6.3rem"
+                      paddingright="1.1rem"
+                      widepaddingright="1.6rem"
                       src={download}
                       alt={emptyAlt}
                       size={{
