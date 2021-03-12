@@ -1,11 +1,14 @@
 import React from 'react'
-import { Photo as PhotoStyle } from './Photo.style'
 
-function Photo({ children, size, rwd = false, ...restProps }) {
+function Photo({ className, size, alt, rwd, ...restProps }) {
   return (
-    <PhotoStyle rwd={rwd} {...size} {...restProps}>
-      {children}
-    </PhotoStyle>
+    <img
+      rwd={rwd ?? rwd}
+      className={className}
+      alt={alt}
+      {...size}
+      {...restProps}
+    />
   )
 }
 
