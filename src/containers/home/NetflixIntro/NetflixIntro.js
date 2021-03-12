@@ -43,7 +43,6 @@ const NetflixIntro = () => {
           },
           index
         ) => {
-          console.log(index)
           return (
             <Merit key={uuid()} id={uuid()} direction={direction}>
               <Merit.Wrapper as="div">
@@ -54,7 +53,7 @@ const NetflixIntro = () => {
               {/* 미디어 래퍼 요소라서 figure요소를 사용하기 위해 as 속성 사용  */}
               <MediaWrapper as="figure">
                 <MainImg
-                  rwd
+                  rwd="true"
                   src={image}
                   alt={alt}
                   size={{
