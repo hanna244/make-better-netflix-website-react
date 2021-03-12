@@ -5,7 +5,6 @@ import {
   Title,
   Wrapper,
   SubTitle,
-  IntroNomalImage,
   IntroVideo,
 } from './Merit.style'
 
