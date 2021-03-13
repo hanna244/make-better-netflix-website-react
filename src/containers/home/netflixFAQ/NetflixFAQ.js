@@ -1,32 +1,24 @@
 import React from 'react'
 import { v4 as uuid } from 'uuid'
-import styled from 'styled-components'
 import faqData from '../../../data/faq.json'
 import Accordion from '../../../components/Accordion/index'
-import { ContainerStyle as FAQContainer } from '../../../components'
-
-const Heading = styled.h2`
-  margin-top: 6rem;
-  text-align: center;
-  font-weight: bold;
-  font-size: 2.4rem;
-  line-height: 1.2;
-
-  @media (min-width: 60em) {
-    margin-top: 5.4rem;
-    font-size: 4.8rem;
-  }
-`
+import { AppContainer as FAQContainer } from '../../../components'
+import { FAQHeading, FAQButton, FAQButtonImage } from './NetflixFAQ.style'
 
 const NetflixFAQ = () => {
   return (
     <FAQContainer>
-      <Heading>자주 묻는 질문</Heading>
+      <FAQHeading>자주 묻는 질문</FAQHeading>
       <Accordion>
-        {faqData.map(({ question, answer }) => {
+        {faqData.map(({ question, answer, image }) => {
           return (
             <Accordion.Item key={uuid()} id={uuid()}>
-              <Accordion.Head>{question}</Accordion.Head>
+              <Accordion.Head>
+                {question}
+                <FAQButton type="button">
+                  <FAQButtonImage src={image} alt="답변 열림 버튼" />
+                </FAQButton>
+              </Accordion.Head>
               <Accordion.Body>
                 {answer[0] && <p>{answer[0]}</p>}
                 {answer[1] ? <p>{answer[1]}</p> : null}
