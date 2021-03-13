@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const ContainerStyle = styled.div`
+const AppContainer = styled.div`
   padding: 2rem 0;
   margin: 0 1.8rem;
 
@@ -9,4 +9,4 @@ const ContainerStyle = styled.div`
     margin: 0 20rem;
   }
 `
-export default ContainerStyle
+export default AppContainer
