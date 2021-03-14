@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import { AccordionContext } from '../../context/Accordion'
 import { Wrapper, Item, Head, Body } from './Accordion.style'
 
 const Accordion = function Accordion({ children, ...restProps }) {
@@ -6,13 +7,31 @@ const Accordion = function Accordion({ children, ...restProps }) {
 }
 
 Accordion.Item = function AccordionItem({ children, ...restProps }) {
-  return <Item {...restProps}>{children}</Item>
+  const [answerShow, setAnswerShow] = useState(false)
+
+  const changeShow = () => {
+    setAnswerShow(!answerShow)
+  }
+
+  return (
+    <AccordionContext.Provider value={{ answerShow, changeShow }}>
+      <Item {...restProps}>{children}</Item>
+    </AccordionContext.Provider>
+  )
 }
 Accordion.Head = function AccordionHead({ children, ...restProps }) {
-  return <Head {...restProps}>{children}</Head>
+  const context = useContext(AccordionContext)
+  const { changeShow } = context
+  return (
+    <Head onClick={changeShow} {...restProps}>
+      {children}
+    </Head>
+  )
 }
 Accordion.Body = function AccordionBody({ children, ...restProps }) {
-  return <Body {...restProps}>{children}</Body>
+  const context = useContext(AccordionContext)
+  const { answerShow } = context
+  return answerShow ? <Body {...restProps}>{children}</Body> : null
 }
 
 export default Accordion
