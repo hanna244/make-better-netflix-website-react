@@ -18,12 +18,15 @@ export const Head = styled.dt`
   position: relative;
   max-width: 90rem;
   padding: 1.1rem;
+  border: solid ${getColor('black')};
+  border-width: 2.5px 0;
   font-size: 1.5rem;
   line-height: 1.2;
   background: ${getColor('darkGray')};
 
   @media (min-width: 60em) {
     padding: 2.1rem 3rem;
+    border-width: 5px 0;
     font-size: 3.2rem;
   }
 `
@@ -34,7 +37,7 @@ export const Body = styled.dd`
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   border: solid ${getColor('black')};
-  border-width: 2.5px 0;
+  border-width: 1px 0;
 
   @media (min-width: 60em) {
     padding: 2.1rem 3rem;
@@ -44,6 +47,9 @@ export const Body = styled.dd`
   }
   p {
     ${resetPara}
-    margin: 1rem 0;
+    margin: 2.1rem 0;
+  }
+  p:nth-child(2) {
+    margin-top: 3rem;
   }
 `
