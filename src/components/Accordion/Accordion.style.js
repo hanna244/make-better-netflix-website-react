@@ -33,7 +33,6 @@ export const Body = styled.dd`
   background: ${getColor('darkGray')};
   overflow: hidden;
   transition: all 0.3s ease-in-out;
-  height: 0;
   border: solid ${getColor('black')};
   border-width: 2.5px 0;
 
