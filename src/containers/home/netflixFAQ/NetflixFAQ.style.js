@@ -1,5 +1,7 @@
 import styled from 'styled-components'
-import { AppButton, Photo } from '../../../components'
+import { AppButton, Photo, AppPara } from '../../../components'
+
+/* FAQ 스타일링 ----------------------------------------------------------------- */
 
 export const FAQHeading = styled.h2`
   margin-top: 6rem;
@@ -43,5 +45,22 @@ export const FAQButtonImage = styled(Photo)`
     top: 30px;
     bottom: 30px;
     right: 20px;
+  }
+`
+
+/* FAQ 단락 스타일링 ------------------------------------------------------- */
+
+export const FAQPara = styled(AppPara)`
+  max-width: 24.5rem;
+  margin: 3rem auto 0;
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 1.35;
+
+  @media (min-width: 60em) {
+    max-width: 100%;
+    margin-top: 6rem;
+    font-weight: bold;
+    font-size: 1.6rem;
   }
 `

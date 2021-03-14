@@ -3,7 +3,12 @@ import { v4 as uuid } from 'uuid'
 import faqData from '../../../data/faq.json'
 import Accordion from '../../../components/Accordion/index'
 import { AppContainer as FAQContainer } from '../../../components'
-import { FAQHeading, FAQButton, FAQButtonImage } from './NetflixFAQ.style'
+import {
+  FAQHeading,
+  FAQButton,
+  FAQButtonImage,
+  FAQPara,
+} from './NetflixFAQ.style'
 
 const NetflixFAQ = () => {
   return (
@@ -27,6 +32,10 @@ const NetflixFAQ = () => {
           )
         })}
       </Accordion>
+      <FAQPara>
+        시청할 준비가 되셨나요? 멤버십을 등록하거나 재시작하려면 이메일 주소를
+        입력하세요.
+      </FAQPara>
     </FAQContainer>
   )
 }
