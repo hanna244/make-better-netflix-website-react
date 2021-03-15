@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from 'react'
 import PropTypes from 'prop-types'
-import { FormContainer, Title, UserInfo } from './NetflixForm.style'
+import { FormContainer, Title, UserInfo, Message } from './NetflixForm.style'
 
 // forAndId 속성을 자식 컴포넌트에 전달하기 위해서 context 사용
 const FormContext = createContext()
@@ -42,9 +42,27 @@ NetflixForm.Input = function NetflixFormInput({
       id={forAndId}
       name={name}
       {...restProps}
-      plaseholder={children}
+      placeholder={children}
     />
   )
+}
+NetflixForm.Message = function NetflixFormMessage({ children, ...restProps }) {
+  return (
+    <Message role="alert" {...restProps}>
+      {children}
+    </Message>
+  )
+}
+
+/* 속성 검사 ---------------------------------------------------- */
+NetflixForm.propTypes = {
+  forAndId: PropTypes.string.isRequired,
+}
+NetflixForm.Input.propTypes = {
+  type: PropTypes.string.isRequired,
+}
+NetflixForm.Message.propTypes = {
+  children: PropTypes.string.isRequired,
 }
 
 export default NetflixForm

@@ -45,5 +45,18 @@ export const UserInfo = styled.input`
   }
 
   &:invalid {
+    border: solid ${getColor('red')};
+    border-width: 0 0 3px;
+    & ~ strong {
+      display: block;
+    }
   }
+`
+// 굵은 글씨의 강조의 의미를 나타내기 때문에 strong으로 설정
+export const Message = styled.strong`
+  display: none;
+  margin-left: 1.25em;
+  margin-top: 0.5rem;
+  font-size: 1.4rem;
+  color: ${getColor('red')};
 `
