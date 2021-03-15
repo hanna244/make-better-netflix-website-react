@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import React, { createContext, useContext, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { FormContainer, Title, UserInfo, Message } from './NetflixForm.style'
 import './labelState.scss'
@@ -13,34 +7,29 @@ import './labelState.scss'
 const FormContext = createContext()
 
 const NetflixForm = ({ forAndId, children, ...restProps }) => {
-  const ref = useRef(null)
   const [formClass, setInputClass] = useState('')
-  useEffect(() => {
-    const formNode = ref.current
-    console.log(formNode)
+  const [inputValue, setInputValue] = useState('')
+  const ref = useRef(null)
 
-    const handleInput = (e) => {
-      e.target.matches(':invalid')
-        ? setInputClass('invalidState')
-        : setInputClass('validState')
+  const handleInputClass = (e) => {
+    e.target.matches(':invalid')
+      ? setInputClass('invalidState')
+      : setInputClass('validState')
 
-      // 이 방법을 사용하면 length가 0이라도 적용이 안됨
-      // e.target.value.length === 0 ?? setInputClass(null)
+    e.target.value.length === 0
+      ? setInputClass('')
+      : setInputClass('validState')
+  }
 
-      // 이 방법을 사용하면 input에 문자값이 입력이 되지 않음
-      // if (e.target.value.length === 0) {
-      //   setInputClass('')
-      // }
-
-      // console.log(e.target) : input
-      // console.log(e.currentTarget) : div(NetflixForm)
-    }
-
-    formNode.addEventListener('input', handleInput)
-  }, [setInputClass])
+  // input value 업데이트
+  const handleChange = (e) => {
+    setInputValue(e.target.value)
+  }
   return (
     // value={{ forAndId: forAndId }} → 향상된 객체 표기법으로 변경
-    <FormContext.Provider value={{ forAndId }}>
+    <FormContext.Provider
+      value={{ forAndId, handleChange, handleInputClass, inputValue }}
+    >
       <FormContainer ref={ref} className={formClass} {...restProps}>
         {children}
       </FormContainer>
@@ -69,19 +58,16 @@ NetflixForm.Input = function NetflixFormInput({
   type,
   ...restProps
 }) {
-  const [inputValue, setInputValue] = useState('')
   const context = useContext(FormContext)
-
-  const handleChange = (e) => {
-    setInputValue(e.target.value)
-  }
+  const { handleChange, inputValue, handleInputClass, forAndId } = context
 
   return (
     <UserInfo
       onChange={handleChange}
       value={inputValue}
       type={type}
-      id={context.forAndId}
+      onBlur={handleInputClass}
+      id={forAndId}
       name={name}
       {...restProps}
       placeholder={children}
