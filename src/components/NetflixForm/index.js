@@ -14,7 +14,7 @@ const FormContext = createContext()
 
 const NetflixForm = ({ forAndId, children, ...restProps }) => {
   const ref = useRef(null)
-  const [formClass, setInputClass] = useState(null)
+  const [formClass, setInputClass] = useState('')
   useEffect(() => {
     const formNode = ref.current
     console.log(formNode)
@@ -24,13 +24,20 @@ const NetflixForm = ({ forAndId, children, ...restProps }) => {
         ? setInputClass('invalidState')
         : setInputClass('validState')
 
-      e.target.value.trim().length === 0 ?? setInputClass(null)
+      // 이 방법을 사용하면 length가 0이라도 적용이 안됨
+      // e.target.value.length === 0 ?? setInputClass(null)
+
+      // 이 방법을 사용하면 input에 문자값이 입력이 되지 않음
+      // if (e.target.value.length === 0) {
+      //   setInputClass('')
+      // }
+
       // console.log(e.target) : input
       // console.log(e.currentTarget) : div(NetflixForm)
     }
 
     formNode.addEventListener('input', handleInput)
-  }, [])
+  }, [setInputClass])
   return (
     // value={{ forAndId: forAndId }} → 향상된 객체 표기법으로 변경
     <FormContext.Provider value={{ forAndId }}>
@@ -47,10 +54,11 @@ NetflixForm.Label = function NetflixFormLabel({
   ...restProps
 }) {
   const context = useContext(FormContext)
-  const { forAndId } = context
+  // const forAndId = context
+  // console.log(forAndId)
 
   return (
-    <Title htmlFor={forAndId} a11y={a11y} {...restProps}>
+    <Title htmlFor={context.forAndId} a11y={a11y} {...restProps}>
       {children}
     </Title>
   )
@@ -63,7 +71,6 @@ NetflixForm.Input = function NetflixFormInput({
 }) {
   const [inputValue, setInputValue] = useState('')
   const context = useContext(FormContext)
-  const { forAndId } = context
 
   const handleChange = (e) => {
     setInputValue(e.target.value)
@@ -74,7 +81,7 @@ NetflixForm.Input = function NetflixFormInput({
       onChange={handleChange}
       value={inputValue}
       type={type}
-      id={forAndId}
+      id={context.forAndId}
       name={name}
       {...restProps}
       placeholder={children}
