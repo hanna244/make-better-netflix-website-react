@@ -3,6 +3,11 @@ import { a11yHidden } from '../../styles/common.js'
 import AppContainer from '../AppContainer/AppContainer.style.js'
 import { getColor } from '../../utils'
 
+const focusKeyFrames = keyframes`
+  0% {transform: translateY(10px)}
+  100% {transform: translateY(0)}
+`
+
 export const FormContainer = styled(AppContainer)`
   position: relative;
   max-width: 33.9rem;
@@ -11,6 +16,7 @@ export const FormContainer = styled(AppContainer)`
 
   &:focus {
     & > label {
+      animation: ${focusKeyFrames} 0.2s ease-out;
       font-size: 1.2rem;
       top: 6px;
 

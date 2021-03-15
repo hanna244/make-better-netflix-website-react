@@ -35,7 +35,7 @@ export const Head = styled.dt`
 /* styled-components Keyframe */
 const rotateKeyframes = keyframes`
   0% { transform: translateY(-40px) }
-  100% { transform: translateY(0px) }
+  100% { transform: translateY(0) }
 `
 
 export const Body = styled.dd`
