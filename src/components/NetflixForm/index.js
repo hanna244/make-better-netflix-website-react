@@ -22,7 +22,7 @@ NetflixForm.Label = function NetflixFormLabel({
   const context = useContext(FormContext)
   const { forAndId } = context
   return (
-    <Title for={forAndId} a11y={a11y} {...restProps}>
+    <Title htmlFor={forAndId} a11y={a11y} {...restProps}>
       {children}
     </Title>
   )
