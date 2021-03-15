@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { resetList, resetDl, resetPara } from '../../styles/common'
 import getColor from '../../utils/getColor'
 
@@ -16,6 +16,7 @@ export const Item = styled.dl`
 export const Head = styled.dt`
   // 버튼 위치 설정을 위한 position 속성
   position: relative;
+  z-index: 100;
   max-width: 90rem;
   padding: 1.1rem;
   border: solid ${getColor('black')};
@@ -31,12 +32,20 @@ export const Head = styled.dt`
   }
 `
 
+/* styled-components Keyframe */
+const rotateKeyframes = keyframes`
+  0% { transform: translateY(-40px) }
+  100% { transform: translateY(0px) }
+`
+
 export const Body = styled.dd`
+  z-index: -100;
   padding: 0 1.1rem;
   background: ${getColor('darkGray')};
   overflow: hidden;
   border: solid ${getColor('black')};
   border-width: 1px 0;
+  animation: ${rotateKeyframes} 0.3s ease-out;
 
   @media (min-width: 60em) {
     padding: 2.1rem 3rem;

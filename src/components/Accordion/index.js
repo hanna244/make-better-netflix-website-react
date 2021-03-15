@@ -30,19 +30,12 @@ Accordion.Head = function AccordionHead({ children, ...restProps }) {
     </Head>
   )
 }
+
 Accordion.Body = function AccordionBody({ children, ...restProps }) {
   const context = useContext(AccordionContext)
   const { answerShow } = context
 
-  return answerShow ? (
-    <Transition timeout={300} in={true}>
-      {(state) => (
-        <Body classNames={state} {...restProps}>
-          {children}
-        </Body>
-      )}
-    </Transition>
-  ) : null
+  return answerShow ? <Body {...restProps}>{children}</Body> : null
 }
 
 export default Accordion
