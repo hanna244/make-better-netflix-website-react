@@ -14,18 +14,21 @@ Accordion.Item = function AccordionItem({ children, ...restProps }) {
   const changeShow = () => {
     setAnswerShow(!answerShow)
   }
+  const changeClose = () => {
+    setAnswerShow(false)
+  }
 
   return (
-    <AccordionContext.Provider value={{ answerShow, changeShow }}>
+    <AccordionContext.Provider value={{ answerShow, changeShow, changeClose }}>
       <Item {...restProps}>{children}</Item>
     </AccordionContext.Provider>
   )
 }
 Accordion.Head = function AccordionHead({ children, ...restProps }) {
   const context = useContext(AccordionContext)
-  const { changeShow } = context
+  const { changeShow, changeClose } = context
   return (
-    <Head onClick={changeShow} {...restProps}>
+    <Head onClick={changeShow} onBlur={changeClose} {...restProps}>
       {children}
     </Head>
   )
