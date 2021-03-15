@@ -13,20 +13,8 @@ export const FormContainer = styled(AppContainer)`
   max-width: 33.9rem;
   padding: 0;
   margin: 0 auto;
-
-  &:focus {
-    & > label {
-      animation: ${focusKeyFrames} 0.2s ease-out;
-      font-size: 1.2rem;
-      top: 6px;
-
-      left: 20px;
-    }
-
-    & > input {
-      padding: 1.387em 1.25em 0.987em;
-    }
-  }
+  font-size: 1.6rem;
+  line-height: 1.35;
 
   @media (min-width: 60em) {
     max-width: 38rem;
@@ -38,8 +26,6 @@ export const Title = styled.label`
   position: absolute;
   top: 19px;
   left: 20px;
-  font-size: 1.6rem;
-  line-height: 1.35;
   color: ${getColor('gray')};
 `
 
@@ -48,8 +34,16 @@ export const UserInfo = styled.input`
   /* 19/16 = 1.187 */
   /* 20/16 = 1.25 */
   padding: 1.187em 1.25em;
+  &:focus {
+    padding: 1.387em 1.25em 0.987em;
+    & + label {
+      animation: ${focusKeyFrames} 0.2s ease-out;
+      top: 6px;
+      left: 20px;
+      font-size: 1.2rem;
+    }
+  }
 
   &:invalid {
-    /* background: red; */
   }
 `
