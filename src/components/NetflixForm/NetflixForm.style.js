@@ -47,9 +47,14 @@ export const UserInfo = styled.input`
   &:invalid {
     border: solid ${getColor('red')};
     border-width: 0 0 3px;
-    & ~ strong {
+    color: ${getColor('red')};
+    // 하위 항목중 strong 요소 선택
+    & ~ strong[role='alert'] {
       display: block;
     }
+  }
+
+  &:valid {
   }
 `
 // 굵은 글씨의 강조의 의미를 나타내기 때문에 strong으로 설정
