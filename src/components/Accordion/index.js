@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react'
+import { Transition } from 'react-transition-group'
+import './trans.sass'
 import { AccordionContext } from '../../context/Accordion'
 import { Wrapper, Item, Head, Body } from './Accordion.style'
 
@@ -31,7 +33,16 @@ Accordion.Head = function AccordionHead({ children, ...restProps }) {
 Accordion.Body = function AccordionBody({ children, ...restProps }) {
   const context = useContext(AccordionContext)
   const { answerShow } = context
-  return answerShow ? <Body {...restProps}>{children}</Body> : null
+
+  return answerShow ? (
+    <Transition timeout={300} in={true}>
+      {(state) => (
+        <Body classNames={state} {...restProps}>
+          {children}
+        </Body>
+      )}
+    </Transition>
+  ) : null
 }
 
 export default Accordion
