@@ -18,7 +18,7 @@ const NetflixFAQ = () => {
     <FAQContainer>
       <FAQHeading>자주 묻는 질문</FAQHeading>
       <Accordion>
-        {faqData.map(({ question, answer, image }) => {
+        {faqData.map(({ question, answer, image }, index) => {
           return (
             <Accordion.Item key={uuid()} id={uuid()}>
               <Accordion.Head>
@@ -27,10 +27,12 @@ const NetflixFAQ = () => {
                   <FAQButtonImage src={image} alt="답변 열림 버튼" />
                 </FAQButton>
               </Accordion.Head>
-              <Accordion.Body>
-                {answer[0] && <p>{answer[0]}</p>}
-                {answer[1] ? <p>{answer[1]}</p> : null}
-              </Accordion.Body>
+              {question.index === answer.index ? (
+                <Accordion.Body>
+                  {answer[0] && <p>{answer[0]}</p>}
+                  {answer[1] ? <p>{answer[1]}</p> : null}
+                </Accordion.Body>
+              ) : null}
             </Accordion.Item>
           )
         })}
