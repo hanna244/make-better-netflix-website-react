@@ -1,8 +1,11 @@
 import React from 'react'
 import { v4 as uuid } from 'uuid'
 import faqData from '../../../data/faq.json'
-import Accordion from '../../../components/Accordion/index'
-import { AppContainer as FAQContainer } from '../../../components'
+import {
+  AppContainer as FAQContainer,
+  Accordion,
+  NetflixForm,
+} from '../../../components'
 import {
   FAQHeading,
   FAQButton,
@@ -37,6 +40,10 @@ const NetflixFAQ = () => {
         시청할 준비가 되셨나요? 멤버십을 등록하거나 재시작하려면 이메일 주소를
         입력하세요.
       </FAQPara>
+      <NetflixForm forAndId="Email">
+        <NetflixForm.Label>이메일 주소</NetflixForm.Label>
+        <NetflixForm.Input>입력하세요</NetflixForm.Input>
+      </NetflixForm>
     </FAQContainer>
   )
 }
