@@ -53,9 +53,6 @@ export const UserInfo = styled.input`
       display: block;
     }
   }
-
-  &:valid {
-  }
 `
 // 굵은 글씨의 강조의 의미를 나타내기 때문에 strong으로 설정
 export const Message = styled.strong`
