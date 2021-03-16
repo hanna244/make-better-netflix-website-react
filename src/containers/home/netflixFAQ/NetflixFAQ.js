@@ -27,12 +27,10 @@ const NetflixFAQ = () => {
                   <FAQButtonImage src={image} alt="답변 열림 버튼" />
                 </FAQButton>
               </Accordion.Head>
-              {question.index === answer.index ? (
-                <Accordion.Body>
-                  {answer[0] && <p>{answer[0]}</p>}
-                  {answer[1] ? <p>{answer[1]}</p> : null}
-                </Accordion.Body>
-              ) : null}
+              <Accordion.Body>
+                {answer[0] && <p>{answer[0]}</p>}
+                {answer[1] ? <p>{answer[1]}</p> : null}
+              </Accordion.Body>
             </Accordion.Item>
           )
         })}
@@ -42,9 +40,12 @@ const NetflixFAQ = () => {
         시청할 준비가 되셨나요? 멤버십을 등록하거나 재시작하려면 이메일 주소를
         입력하세요.
       </FAQPara>
-      <NetflixForm forAndId="Email">
+      <NetflixForm forAndId="email">
+        <NetflixForm.Input type="email" />
         <NetflixForm.Label>이메일 주소</NetflixForm.Label>
-        <NetflixForm.Input>입력하세요</NetflixForm.Input>
+        <NetflixForm.Message>
+          정확한 이메일 주소를 입력하세요.
+        </NetflixForm.Message>
       </NetflixForm>
     </FAQContainer>
   )
