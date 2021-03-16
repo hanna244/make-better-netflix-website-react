@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Transition } from 'react-transition-group'
-import './trans.sass'
+
 import { AccordionContext } from '../../context/Accordion'
 import { Wrapper, Item, Head, Body } from './Accordion.style'
 
