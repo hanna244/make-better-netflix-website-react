@@ -1,12 +1,12 @@
 import React from 'react'
-import './Button2.sass'
+import { ButtonStyle } from './Button2.style'
 
 const Button2 = (props) => {
-  const { variant = 'primary', children, ...restProps } = props
+  const { children, ...restProps } = props
   return (
-    <button className={`button ${variant}`} {...restProps}>
+    <ButtonStyle className="button" {...restProps}>
       {children}
-    </button>
+    </ButtonStyle>
   )
 }
 

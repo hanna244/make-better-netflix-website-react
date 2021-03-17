@@ -6,6 +6,6 @@ export default {
   component: Button2,
 }
 
-export const primary = () => <Button2 variant="primary">Primary</Button2>
-export const RedButton = () => <Button2 variant="red">Red</Button2>
-export const GreenButton = () => <Button2 variant="green">Green</Button2>
+export const primary = () => <Button2 primary>Primary</Button2>
+export const RedButton = () => <Button2 red>Red</Button2>
+export const GreenButton = () => <Button2 green>Green</Button2>
