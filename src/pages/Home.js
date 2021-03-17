@@ -1,16 +1,5 @@
-// import { Dufualt } from '../layout/LayoutTypes/Dufualt'
-import { NetflixFAQ } from '../containers/Home'
-
 function Home() {
-  return (
-    // <Dufualt>
-    // <OurStory />
-    <>
-      {/* <NetflixIntro /> */}
-      <NetflixFAQ />
-    </>
-    // </Dufualt>
-  )
+  return <div className="home"></div>
 }
 
 export default Home
