@@ -1,10 +1,12 @@
-import classNames from 'classnames'
+// import classNames from 'classnames'
 import { bool, string, func, node, oneOf } from 'prop-types'
-import {
-  button,
-  primary,
-  secondary as secondaryClass,
-} from './Button.module.scss'
+import ButtonStyles from './Button4.style'
+// import ButtonStyle from './Button4.style'
+// import {
+//   button,
+//   primary,
+//   secondary as secondaryClass,
+// } from './Button.module.scss'
 
 /* -------------------------------------------------------------------------- */
 
@@ -18,10 +20,10 @@ const Button = ({
 }) => {
   const Tag = tag
 
-  const composeClasses = classNames(
-    button,
-    secondary ? secondaryClass : primary
-  )
+  // const composeClasses = classNames(
+  //   button,
+  //   secondary ? secondaryClass : primary
+  // )
 
   const customStyle = {
     backgroundColor: bgColor || null,
@@ -30,8 +32,9 @@ const Button = ({
 
   return (
     <Tag
+      css={[ButtonStyles['ButtonStyle']]}
       type={tag === 'button' ? 'button' : null}
-      className={classNames(composeClasses, className)}
+      // className={classNames(composeClasses, className)}
       style={customStyle}
       {...restProps}
     />
