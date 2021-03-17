@@ -1,4 +1,22 @@
+import {
+  layout,
+  backgrounds,
+  viewport,
+  a11y,
+  localization,
+  controls,
+  actions,
+  docs,
+} from './config'
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  layout,
+  backgrounds,
+  viewport,
+  controls,
+  a11y,
+  actions,
+  docs,
 }
+
+export const globalTypes = localization
