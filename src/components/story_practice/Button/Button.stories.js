@@ -4,7 +4,7 @@ import { withDesign } from 'storybook-addon-designs'
 /* -------------------------------------------------------------------------- */
 
 export default {
-  title: 'Components/Form/Button',
+  title: 'Practice/compoenets/Button',
   component: Button,
   decorators: [withDesign],
   parameters: {

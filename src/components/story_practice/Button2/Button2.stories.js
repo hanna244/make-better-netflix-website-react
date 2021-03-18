@@ -3,7 +3,7 @@ import Button2 from './Button2'
 import Center from '../Center/Center'
 
 export default {
-  title: 'Form/Button2',
+  title: 'Practice/compoenets/Button2',
   component: Button2,
   decorators: [(story) => <Center>{story()}</Center>],
 }
