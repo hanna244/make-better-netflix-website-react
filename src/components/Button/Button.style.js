@@ -21,4 +21,8 @@ export const ButtonStyle = styled.button`
     return size === 'small' ? '1.1' : size === 'medium' ? '1.6' : '1.1'
   }};
   background: ${getColor('red')};
+
+  &:hover {
+    background: ${getColor('vividRed')};
+  }
 `
