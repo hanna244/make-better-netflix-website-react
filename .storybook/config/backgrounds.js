@@ -1,5 +1,5 @@
 const backgrounds = {
-  default: 'white',
+  default: 'dark',
   values: [
     { name: 'white', value: '#fff' },
     { name: 'gray', value: '#cecece' },
