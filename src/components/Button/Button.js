@@ -1,7 +1,6 @@
 import React from 'react'
 import { ButtonStyle } from './Button.style'
-import { oneOf, bool, string, func, node } from 'prop-types'
-import backgrounds from '../../../.storybook/config/backgrounds'
+import { oneOf, bool, string, func } from 'prop-types'
 
 const Button = ({
   bgColor,
