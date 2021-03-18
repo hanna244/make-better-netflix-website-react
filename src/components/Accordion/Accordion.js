@@ -1,7 +1,7 @@
 import React from 'react'
 import { Item, Head, Body } from './Accordion.style'
 
-const Accordion = ({ question, answer, ...restProps }) => {
+const Accordion = ({ question, answer = [], ...restProps }) => {
   return (
     <ul {...restProps}>
       <Item>
