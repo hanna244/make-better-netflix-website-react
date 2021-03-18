@@ -24,6 +24,7 @@ const Template = (args) => <LoginButton {...args} />
 export const LoginButtonSmall = Template.bind({})
 LoginButtonSmall.args = {
   label: '로그인',
+  size: 'small',
 }
 LoginButtonSmall.storyName = '로그인 버튼(Small)'
 

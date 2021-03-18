@@ -6,7 +6,7 @@ const LoginButton = ({
   bgColor,
   fgColor,
   tag = 'button',
-  size = 'small',
+  size = 'medium',
   label,
   ...restProps
 }) => {
