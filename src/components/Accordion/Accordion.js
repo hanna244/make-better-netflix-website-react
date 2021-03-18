@@ -7,8 +7,8 @@ const Accordion = ({ question, answer, ...restProps }) => {
       <Item>
         <Head>{question}</Head>
         <Body>
-          <p>{answer[0]}</p>
-          <p>{answer[1]}</p>
+          <p>{answer[0] ?? null}</p>
+          <p>{answer[1] ?? null}</p>
         </Body>
       </Item>
     </ul>
