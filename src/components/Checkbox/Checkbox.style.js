@@ -13,6 +13,13 @@ export const CheckboxWraper = styled.div`
     background: url('./assets/checkbox_invalid.svg') no-repeat center / cover;
   }
 
+  .checkbox {
+    &:focus-within {
+      &::before {
+        box-shadow: 0 0 0 0.3rem ${getColor('focusVisible')};
+      }
+    }
+  }
   .checked::before {
     background: url('./assets/checkbox_valid.svg') no-repeat center / cover;
   }
