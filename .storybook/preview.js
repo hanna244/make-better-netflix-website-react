@@ -1,3 +1,6 @@
+import React from 'react'
+import { GlobalStyles } from '../src/styles/GlobalStyles'
+
 import {
   layout,
   backgrounds,
@@ -20,3 +23,13 @@ export const parameters = {
 }
 
 export const globalTypes = localization
+
+// 클로벌 스타일 적용
+export const decorators = [
+  (Story) => (
+    <>
+      <GlobalStyles />
+      <Story />
+    </>
+  ),
+]
