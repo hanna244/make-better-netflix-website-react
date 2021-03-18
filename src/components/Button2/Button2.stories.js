@@ -5,13 +5,10 @@ import Center from '../Center/Center'
 export default {
   title: 'Form/Button2',
   component: Button2,
+  decorators: [(story) => <Center>{story()}</Center>],
 }
 
-export const Primary = () => (
-  <Center>
-    <Button2 primary>Primary</Button2>
-  </Center>
-)
+export const Primary = () => <Button2 primary>Primary</Button2>
 export const RedButton = () => (
   <Center>
     <Button2 red>Red</Button2>

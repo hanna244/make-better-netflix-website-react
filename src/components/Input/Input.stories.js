@@ -4,6 +4,11 @@ import Input from './Input'
 export default {
   title: 'Form/Input',
   component: Input,
+  argTypes: {
+    size: { control: 'color' },
+    label: { control: 'text' },
+    borderWidth: { control: { type: 'number', min: 0, max: 10 } },
+  },
 }
 
 export const Small = () => <Input size="small" placeholder="Small size" />
