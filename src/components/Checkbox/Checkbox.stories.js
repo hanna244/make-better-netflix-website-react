@@ -24,3 +24,10 @@ InvalidCheckbox.args = {
   label: '로그인 정보 저장',
 }
 InvalidCheckbox.storyName = '체크 박스(비활성화)'
+
+export const ValidCheckbox = Template.bind({})
+ValidCheckbox.args = {
+  ...InvalidCheckbox.args,
+  checked: true,
+}
+ValidCheckbox.storyName = '체크 박스(활성화)'
