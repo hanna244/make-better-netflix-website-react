@@ -1,9 +1,9 @@
 import React from 'react'
 import { ButtonStyle } from './Button.style'
 
-const Button = ({ tag, label, ...restProps }) => {
+const Button = ({ tag, size = 'small', label, ...restProps }) => {
   return (
-    <ButtonStyle as={tag} type="button" {...restProps}>
+    <ButtonStyle size={size} as={tag} type="button" {...restProps}>
       {label}
     </ButtonStyle>
   )

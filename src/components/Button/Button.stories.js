@@ -7,9 +7,15 @@ export default {
 
 const Template = (args) => <Button {...args} />
 
-export const Link = Template.bind({})
-Link.args = {
+export const RouteButtonSmall = Template.bind({})
+RouteButtonSmall.args = {
   label: '로그인',
 }
+RouteButtonSmall.storyName = '링크 버튼(Small)'
 
-Link.storyName = '버튼(Route login)'
+export const SubmitButton = Template.bind({})
+SubmitButton.args = {
+  ...RouteButtonSmall.args,
+  size: 'medium',
+}
+SubmitButton.storyName = '링크 버튼(Medium)'
