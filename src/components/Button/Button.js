@@ -6,7 +6,7 @@ const Button = ({
   bgColor,
   fgColor,
   tag = 'button',
-  size = 'small',
+  size = 'medium',
   label,
   ...restProps
 }) => {

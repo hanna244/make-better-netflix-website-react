@@ -24,6 +24,7 @@ const Template = (args) => <Button {...args} />
 export const RouteButtonSmall = Template.bind({})
 RouteButtonSmall.args = {
   label: '로그인',
+  size: 'small',
 }
 RouteButtonSmall.storyName = '링크 버튼(Small)'
 
