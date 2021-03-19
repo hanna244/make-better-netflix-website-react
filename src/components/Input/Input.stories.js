@@ -20,6 +20,8 @@ export default {
 
 const Template = (args) => <Input {...args} />
 
+/* input Email -------------------------------------------------------------- */
+
 export const EmailNormalInput = Template.bind({})
 EmailNormalInput.args = {
   id: 'userEmail',
@@ -45,3 +47,30 @@ EmailInvalidInput.args = {
   error: true,
 }
 EmailInvalidInput.storyName = '이메일 인풋(invalid, right)'
+
+/* input Email and Phone ---------------------------------------------------- */
+
+export const EmailAndPhoneNormalInput = Template.bind({})
+EmailAndPhoneNormalInput.args = {
+  id: 'userEmail',
+  type: 'text',
+  label: '이메일 주소 또는 폰 번호',
+  alertMessege: '정확한 이메일 주소 또는 폰 번호를 입력하세요.',
+}
+EmailAndPhoneNormalInput.storyName = '이메일/폰 인풋(normal, dark)'
+
+export const EmailAndPhoneValidInput = Template.bind({})
+EmailAndPhoneValidInput.args = {
+  ...EmailAndPhoneNormalInput.args,
+  valid: true,
+  context: 'nana@gamil.com',
+}
+EmailAndPhoneValidInput.storyName = '이메일/폰 인풋(valid, dark)'
+export const EmailAndPhoneInvalidInput = Template.bind({})
+EmailAndPhoneInvalidInput.args = {
+  ...EmailAndPhoneNormalInput.args,
+  invalid: true,
+  context: 'nana',
+  error: true,
+}
+EmailAndPhoneInvalidInput.storyName = '이메일/폰 인풋(invalid, dark)'
