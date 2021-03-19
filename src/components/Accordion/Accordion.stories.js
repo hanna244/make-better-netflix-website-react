@@ -30,6 +30,7 @@ AccordionClose.storyName = '아코디언(Close)'
 export const AccordionOpen = Template.bind({})
 AccordionOpen.args = {
   ...AccordionClose.args,
+  open: true,
   showAnswer: true,
   answer: [
     '넷플릭스는 각종 수상 경력에 빛나는 TV 프로그램, 영화, 애니메이션, 다큐멘터리 등 다양한 콘텐츠를 인터넷 연결이 가능한 수천 종의 디바이스에서 시청할 수 있는 스트리밍 서비스입니다.',

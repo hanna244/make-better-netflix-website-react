@@ -7,6 +7,7 @@ const Accordion = ({
   question,
   showAnswer = false,
   answer,
+  open = false,
   ...restProps
 }) => {
   return (
@@ -19,6 +20,7 @@ const Accordion = ({
             height="40"
             src="./assets/plusIcon.svg"
             alt="답변 보기"
+            open={open}
           />
         </OpenButton>
       </Head>
