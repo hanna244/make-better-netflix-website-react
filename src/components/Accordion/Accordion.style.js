@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 import {
   resetButton,
   resetDl,
@@ -65,5 +65,9 @@ export const PlusImg = styled.img`
   right: 30px;
   bottom: 20px;
   animation: ${({ open }) =>
-    open ? `${changePlus} 0.3s ease-out forwards` : null};
+    open
+      ? css`
+          ${changePlus} 0.3s ease-out forwards
+        `
+      : null};
 `
