@@ -38,7 +38,7 @@ export const OpenButton = styled.button`
   background: none;
 `
 
-export const plusImg = styled.img`
+export const PlusImg = styled.img`
   ${resetImg}
   position: absolute;
   top: 12px;

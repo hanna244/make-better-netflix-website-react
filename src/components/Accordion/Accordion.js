@@ -1,5 +1,5 @@
 import React from 'react'
-import { Item, Head, Body, OpenButton, plusImg } from './Accordion.style'
+import { Item, Head, Body, OpenButton, PlusImg } from './Accordion.style'
 import { v4 as uuid } from 'uuid'
 
 const Accordion = ({
@@ -14,7 +14,7 @@ const Accordion = ({
       <Head>
         {question}
         <OpenButton>
-          <plusImg width="50" src="./assets/plusIcon.svg" alt="답변 보기" />
+          <PlusImg width="50" src="./assets/plusIcon.svg" alt="답변 보기" />
         </OpenButton>
       </Head>
       {showAnswer ? (
