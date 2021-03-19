@@ -1,11 +1,5 @@
 import styled from 'styled-components'
-import {
-  resetButton,
-  resetDl,
-  resetImg,
-  resetList,
-  rwdImg,
-} from '../../styles/common'
+import { resetButton, resetDl, resetImg, resetList } from '../../styles/common'
 import { getColor } from '../../utils'
 
 export const Item = styled.dl`
@@ -14,9 +8,8 @@ export const Item = styled.dl`
 `
 export const Head = styled.dt`
   position: relative;
+  z-index: -10;
   padding: 2.1rem 3rem;
-  border: solid ${getColor('black')};
-  border-width: 0.1rem 0;
   font-size: 3.2rem;
   line-height: 1.2;
   background: ${getColor('darkGray')};
@@ -29,21 +22,20 @@ export const Body = styled(Head)`
 export const OpenButton = styled.button`
   ${resetButton}
   position: absolute;
-  display: flex;
+  z-index: 100;
   width: 100%;
   top: 0;
   left: 0;
   bottom: 0;
-  padding: 0;
+  right: 0;
   background: none;
 `
 
 export const PlusImg = styled.img`
   ${resetImg}
   position: absolute;
-  top: 12px;
-  bottom: 12px;
-  right: 12px;
-  width: 0.85rem;
-  height: auto;
+  width: 2.25rem;
+  top: 20px;
+  right: 30px;
+  bottom: 20px;
 `

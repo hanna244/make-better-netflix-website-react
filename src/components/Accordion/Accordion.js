@@ -14,7 +14,12 @@ const Accordion = ({
       <Head>
         {question}
         <OpenButton>
-          <PlusImg width="50" src="./assets/plusIcon.svg" alt="답변 보기" />
+          <PlusImg
+            width="40"
+            height="40"
+            src="./assets/plusIcon.svg"
+            alt="답변 보기"
+          />
         </OpenButton>
       </Head>
       {showAnswer ? (
