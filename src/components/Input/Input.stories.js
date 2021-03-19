@@ -15,7 +15,6 @@ export default {
   argTypes: {
     fgColor: { control: 'color' },
     bgColor: { control: 'color' },
-    onClick: { action: '버튼 클릭!' },
   },
 }
 
@@ -24,5 +23,8 @@ const Template = (args) => <Input {...args} />
 export const EmailNormalInput = Template.bind({})
 EmailNormalInput.args = {
   id: 'userEmail',
+  type: 'email',
+  label: '이메일 주소',
+  alertMessege: '정확한 이메일 주소를 입력하세요.',
 }
-EmailNormalInput.storyName = '이메일 인풋(normal)'
+EmailNormalInput.storyName = '이메일 인풋(normal, right)'
