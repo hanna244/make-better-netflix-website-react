@@ -16,6 +16,11 @@ export default {
 
 const Template = (args) => <Background {...args} />
 
-export const NetflixBackground = Template.bind({})
-NetflixBackground.args = {}
-NetflixBackground.storyName = '배경(normal)'
+export const BackgroundNormal = Template.bind({})
+BackgroundNormal.storyName = '배경(Normal)'
+
+export const BackgroundDimmed = Template.bind({})
+BackgroundDimmed.args = {
+  dim: true,
+}
+BackgroundDimmed.storyName = '배경(Dimmed)'

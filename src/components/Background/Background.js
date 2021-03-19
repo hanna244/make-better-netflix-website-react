@@ -1,9 +1,9 @@
 import React from 'react'
 import { BackgroundStyle } from './Background.style'
 
-const Background = ({ as, className, children, ...reatProps }) => {
+const Background = ({ dim = false, as, className, children, ...reatProps }) => {
   return (
-    <BackgroundStyle as={as} className={className} {...reatProps}>
+    <BackgroundStyle dim={dim} as={as} className={className} {...reatProps}>
       {children}
     </BackgroundStyle>
   )
