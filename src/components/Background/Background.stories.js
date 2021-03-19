@@ -17,10 +17,14 @@ export default {
 const Template = (args) => <Background {...args} />
 
 export const BackgroundNormal = Template.bind({})
+BackgroundNormal.args = {
+  as: 'div',
+}
 BackgroundNormal.storyName = '배경(Normal)'
 
 export const BackgroundDimmed = Template.bind({})
 BackgroundDimmed.args = {
+  as: 'div',
   dim: true,
 }
 BackgroundDimmed.storyName = '배경(Dimmed)'
