@@ -2,7 +2,7 @@ import Checkbox from './Checkbox'
 import { withDesign } from 'storybook-addon-designs'
 
 export default {
-  title: 'From/Checkbox',
+  title: 'Components/From/Checkbox',
   component: Checkbox,
   decorators: [withDesign],
   parameters: {

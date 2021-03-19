@@ -1,6 +1,6 @@
 import React from 'react'
 import { PromotionButtonStyle, Arrow } from './PromotionButton.style'
-import { oneOf, bool, string, func } from 'prop-types'
+import { oneOf, string, func } from 'prop-types'
 
 const PromotionButton = ({
   bgColor,

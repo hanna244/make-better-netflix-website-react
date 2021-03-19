@@ -2,7 +2,7 @@ import PromotionButton from './PromotionButton'
 import { withDesign } from 'storybook-addon-designs'
 
 export default {
-  title: 'From/Button',
+  title: 'Components/From/Button',
   component: PromotionButton,
   decorators: [withDesign],
   parameters: {
