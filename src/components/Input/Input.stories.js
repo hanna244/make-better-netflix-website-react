@@ -28,3 +28,10 @@ EmailNormalInput.args = {
   alertMessege: '정확한 이메일 주소를 입력하세요.',
 }
 EmailNormalInput.storyName = '이메일 인풋(normal, right)'
+
+export const EmailValidInput = Template.bind({})
+EmailValidInput.args = {
+  ...EmailNormalInput.args,
+  valid: true,
+}
+EmailValidInput.storyName = '이메일 인풋(valid, right)'

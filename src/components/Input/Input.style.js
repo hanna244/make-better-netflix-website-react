@@ -13,6 +13,13 @@ export const InputStyle = styled.input`
   border: none;
   font-size: 1.6rem;
   line-height: 1.35;
+
+  &:valid {
+    & + label {
+      top: ${({ valid }) => (valid ? '10px' : null)};
+      font-size: ${({ valid }) => (valid ? '1.2rem' : null)};
+    }
+  }
 `
 
 export const LabelStyle = styled.label`

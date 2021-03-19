@@ -13,6 +13,8 @@ const Input = ({
   label,
   type,
   id,
+  valid,
+  invalid,
   error,
   alertMessege,
   ...restProps
@@ -23,9 +25,11 @@ const Input = ({
   }
   return (
     <>
-      <FormContainer style={color} {...restProps}>
+      <FormContainer valid invalid style={color} {...restProps}>
         <InputStyle style={background} type={type} id={id} />
-        <LabelStyle htmlFor={id}>{label}</LabelStyle>
+        <LabelStyle valid htmlFor={id}>
+          {label}
+        </LabelStyle>
       </FormContainer>
       {error ? <AlertStyle role="alert">{alertMessege}</AlertStyle> : null}
     </>
@@ -34,6 +38,8 @@ const Input = ({
 
 Input.defaultProps = {
   error: false,
+  valid: false,
+  invalid: false,
 }
 
 export default Input
