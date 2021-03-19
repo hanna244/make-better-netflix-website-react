@@ -22,11 +22,24 @@ export const Head = styled.dt`
   line-height: 1.2;
   background: ${getColor('darkGray')};
 `
+
+// ---- Body 애니메이션 추가
+const changeBody = keyframes`
+  0% {
+    transform: translateY(-82px)
+  }
+  100% {
+    transform: translateY(0)
+  }
+`
+
 export const Body = styled(Head)`
   ${resetList}
   padding: 2.1rem 3rem;
+  z-index: -1000;
   font-size: 2.6rem;
   line-height: 1.5;
+  animation: ${changeBody} 0.3s ease-out;
 
   p {
     ${resetPara}
@@ -47,7 +60,7 @@ export const OpenButton = styled.button`
   right: 0;
   background: none;
 `
-// ---- + 이미지 애니메이션 추가
+// ---- PlusImg 애니메이션 추가
 const changePlus = keyframes`
   0% {
     transform: rotate(0)
