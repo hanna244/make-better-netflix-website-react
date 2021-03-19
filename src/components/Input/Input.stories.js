@@ -52,10 +52,11 @@ EmailInvalidInput.storyName = '이메일 인풋(invalid, right)'
 
 export const EmailAndPhoneNormalInput = Template.bind({})
 EmailAndPhoneNormalInput.args = {
-  id: 'userEmail',
+  id: 'userEmailAndPhone',
   type: 'text',
   label: '이메일 주소 또는 폰 번호',
   alertMessege: '정확한 이메일 주소 또는 폰 번호를 입력하세요.',
+  dark: true,
 }
 EmailAndPhoneNormalInput.storyName = '이메일/폰 인풋(normal, dark)'
 

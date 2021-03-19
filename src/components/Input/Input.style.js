@@ -26,6 +26,8 @@ export const InputStyle = styled.input`
   border: none;
   font-size: 1.6rem;
   line-height: 1.35;
+  background: ${({ dark }) => (dark ? getColor('darkGray') : null)};
+  color: ${({ dark }) => (dark ? getColor('white') : null)};
 
   &:focus {
     padding: 1.587em 1.25em 0.687em;

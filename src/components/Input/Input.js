@@ -17,6 +17,7 @@ const Input = ({
   context,
   valid,
   invalid,
+  dark,
   minLength,
   maxLength,
   error,
@@ -30,7 +31,7 @@ const Input = ({
   }
 
   const inputClass = classNames(
-    'inputValidInvalid',
+    valid || invalid ? 'inputValidInvalid' : null,
     invalid ? 'inputInvalid' : null
   )
 
@@ -51,6 +52,7 @@ const Input = ({
           minLength={minLength}
           maxLength={maxLength}
           id={id}
+          dark={dark}
           onChange={handleInputValueChange}
         />
         <LabelStyle htmlFor={id}>{label}</LabelStyle>
@@ -64,6 +66,7 @@ Input.defaultProps = {
   error: false,
   valid: false,
   invalid: false,
+  dark: false,
   isNormal: false,
   context: '',
   minLength: 4,
