@@ -19,6 +19,17 @@ const Template = (args) => <Frame {...args} />
 export const DeviceFrame = Template.bind({})
 DeviceFrame.args = {
   type: 'device',
-  alt: '',
 }
 DeviceFrame.storyName = '프레임(Device)'
+
+export const DownloadFrame = Template.bind({})
+DownloadFrame.args = {
+  type: 'download',
+}
+DownloadFrame.storyName = '프레임(Download)'
+
+export const TVFrame = Template.bind({})
+TVFrame.args = {
+  type: 'tv',
+}
+TVFrame.storyName = '프레임(TV)'
