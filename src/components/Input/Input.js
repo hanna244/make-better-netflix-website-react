@@ -25,8 +25,8 @@ const Input = ({
   }
   return (
     <>
-      <FormContainer valid invalid style={color} {...restProps}>
-        <InputStyle style={background} type={type} id={id} />
+      <FormContainer invalid style={color} {...restProps}>
+        <InputStyle valid style={background} type={type} id={id} />
         <LabelStyle valid htmlFor={id}>
           {label}
         </LabelStyle>
