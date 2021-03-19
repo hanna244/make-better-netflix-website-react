@@ -18,4 +18,4 @@ const Template = (args) => <Background {...args} />
 
 export const NetflixBackground = Template.bind({})
 NetflixBackground.args = {}
-NetflixBackground.storyName = '넷플릭스 배경'
+NetflixBackground.storyName = '배경(normal)'
