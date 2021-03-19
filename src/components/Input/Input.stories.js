@@ -75,3 +75,31 @@ EmailAndPhoneInvalidInput.args = {
   error: true,
 }
 EmailAndPhoneInvalidInput.storyName = '이메일/폰 인풋(invalid, dark)'
+
+/* input password ----------------------------------------------------------- */
+
+export const PasswordNormalInput = Template.bind({})
+PasswordNormalInput.args = {
+  id: 'userPassword',
+  type: 'password',
+  label: '비밀번호',
+  alertMessege: '비밀번호는 4 - 60자 사이여야 합니다.',
+  dark: true,
+}
+PasswordNormalInput.storyName = '비밀번호 인풋(normal, dark)'
+
+export const PasswordValidInput = Template.bind({})
+PasswordValidInput.args = {
+  ...PasswordNormalInput.args,
+  valid: true,
+  context: 'nana@gamil.com',
+}
+PasswordValidInput.storyName = '비밀번호 인풋(valid, dark)'
+export const PasswordInvalidInput = Template.bind({})
+PasswordInvalidInput.args = {
+  ...PasswordNormalInput.args,
+  invalid: true,
+  context: 'nana',
+  error: true,
+}
+PasswordInvalidInput.storyName = '비밀번호 인풋(invalid, dark)'

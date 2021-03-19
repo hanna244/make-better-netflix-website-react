@@ -3,7 +3,6 @@ import { getColor } from '../../utils'
 
 export const FormContainer = styled.div`
   position: relative;
-  color: ${getColor('gray')};
 
   .inputValidInvalid {
     padding: ${({ valid, invalid }) =>
@@ -16,6 +15,10 @@ export const FormContainer = styled.div`
   }
   .inputInvalid {
     border-bottom: 3px solid ${getColor('red')};
+  }
+
+  & input[type='password'] {
+    letter-spacing: -0.5em;
   }
 `
 
@@ -44,6 +47,8 @@ export const LabelStyle = styled.label`
   left: 20px;
   font-size: 1.6rem;
   line-height: 1.35;
+  color: ${({ dark }) =>
+    dark ? `${getColor('lightGray')}` : `${getColor('gray')}`};
 `
 export const AlertStyle = styled.span`
   display: block;
