@@ -5,6 +5,15 @@ export const FormContainer = styled.div`
   position: relative;
   color: ${getColor('gray')};
 
+  .inputValidInvalid {
+    padding: ${({ valid, invalid }) =>
+      valid || invalid ? '1.587em 1.25em 0.687em' : null};
+    & + label {
+      top: ${({ valid, invalid }) => (valid || invalid ? '10px' : null)};
+      font-size: ${({ valid, invalid }) =>
+        valid || invalid ? '1.2rem' : null};
+    }
+  }
   .inputInvalid {
     border-bottom: 3px solid ${getColor('red')};
   }
@@ -23,20 +32,6 @@ export const InputStyle = styled.input`
     & + label {
       top: 10px;
       font-size: 1.2rem;
-    }
-  }
-  &:valid {
-    padding: ${({ valid }) => (valid ? '1.587em 1.25em 0.687em' : null)};
-    & + label {
-      top: ${({ valid }) => (valid ? '10px' : null)};
-      font-size: ${({ valid }) => (valid ? '1.2rem' : null)};
-    }
-  }
-  &:invalid {
-    padding: ${({ invalid }) => (invalid ? '1.587em 1.25em 0.687em' : null)};
-    & + label {
-      top: ${({ invalid }) => (invalid ? '10px' : null)};
-      font-size: ${({ invalid }) => (invalid ? '1.2rem' : null)};
     }
   }
 `
