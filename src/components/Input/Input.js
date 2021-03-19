@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import { string } from 'prop-types'
 import {
   FormContainer,
@@ -13,12 +13,19 @@ const Input = ({
   label,
   type,
   id,
+  context,
   valid,
   invalid,
   error,
   alertMessege,
   ...restProps
 }) => {
+  const [value, setValue] = useState(context)
+
+  const handleInputValueChange = (e) => {
+    setValue(e.target.value)
+  }
+
   const { background, color } = {
     background: { background: bgColor ?? null },
     color: { color: fgColor ?? null },
@@ -26,8 +33,15 @@ const Input = ({
   return (
     <>
       <FormContainer invalid style={color} {...restProps}>
-        <InputStyle valid style={background} type={type} id={id} />
-        <LabelStyle valid htmlFor={id}>
+        <InputStyle
+          valid={valid}
+          style={background}
+          type={type}
+          value={value}
+          id={id}
+          onChange={handleInputValueChange}
+        />
+        <LabelStyle valid={valid} htmlFor={id}>
           {label}
         </LabelStyle>
       </FormContainer>
@@ -40,6 +54,7 @@ Input.defaultProps = {
   error: false,
   valid: false,
   invalid: false,
+  context: '',
 }
 
 export default Input

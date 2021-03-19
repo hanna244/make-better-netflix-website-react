@@ -15,6 +15,7 @@ export const InputStyle = styled.input`
   line-height: 1.35;
 
   &:valid {
+    padding: ${({ valid }) => (valid ? '1.587em 1.25em 0.687em' : null)};
     & + label {
       top: ${({ valid }) => (valid ? '10px' : null)};
       font-size: ${({ valid }) => (valid ? '1.2rem' : null)};

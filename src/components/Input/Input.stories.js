@@ -26,6 +26,7 @@ EmailNormalInput.args = {
   type: 'email',
   label: '이메일 주소',
   alertMessege: '정확한 이메일 주소를 입력하세요.',
+  valid: false,
 }
 EmailNormalInput.storyName = '이메일 인풋(normal, right)'
 
@@ -33,5 +34,6 @@ export const EmailValidInput = Template.bind({})
 EmailValidInput.args = {
   ...EmailNormalInput.args,
   valid: true,
+  context: 'nana@gamil.com',
 }
 EmailValidInput.storyName = '이메일 인풋(valid, right)'
