@@ -9,7 +9,7 @@ const Frame = ({ alt = '', type, ...restProps }) => {
     case 'download':
       src = './image/category=Download.png'
       break
-    case tv:
+    case 'tv':
       src = './image/category=TV.png'
       break
 

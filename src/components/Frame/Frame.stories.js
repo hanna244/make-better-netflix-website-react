@@ -18,7 +18,7 @@ const Template = (args) => <Frame {...args} />
 
 export const DeviceFrame = Template.bind({})
 DeviceFrame.args = {
-  type: 'divice',
+  type: 'device',
   alt: '',
 }
 DeviceFrame.storyName = '프레임(Device)'
