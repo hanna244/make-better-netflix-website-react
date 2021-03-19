@@ -47,7 +47,7 @@ export const OpenButton = styled.button`
   right: 0;
   background: none;
 `
-
+// ---- + 이미지 애니메이션 추가
 const changePlus = keyframes`
   0% {
     transform: rotate(0)
@@ -64,6 +64,6 @@ export const PlusImg = styled.img`
   top: 20px;
   right: 30px;
   bottom: 20px;
-  animation: ${changePlus} 0.3s ease-out forwards;
-  /* transform: ${({ open }) => (open ? 'rotate(45deg)' : null)}; */
+  animation: ${({ open }) =>
+    open ? `${changePlus} 0.3s ease-out forwards` : null};
 `
