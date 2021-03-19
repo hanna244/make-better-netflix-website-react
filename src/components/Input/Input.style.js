@@ -4,6 +4,9 @@ import { getColor } from '../../utils'
 export const FormContainer = styled.div`
   position: relative;
   color: ${getColor('gray')};
+
+  .inputFocus {
+  }
 `
 
 export const InputStyle = styled.input`
@@ -14,11 +17,25 @@ export const InputStyle = styled.input`
   font-size: 1.6rem;
   line-height: 1.35;
 
+  &:focus {
+    padding: 1.587em 1.25em 0.687em;
+    & + label {
+      top: 10px;
+      font-size: 1.2rem;
+    }
+  }
   &:valid {
     padding: ${({ valid }) => (valid ? '1.587em 1.25em 0.687em' : null)};
     & + label {
       top: ${({ valid }) => (valid ? '10px' : null)};
       font-size: ${({ valid }) => (valid ? '1.2rem' : null)};
+    }
+  }
+  &:invalid {
+    padding: ${({ invalid }) => (invalid ? '1.587em 1.25em 0.687em' : null)};
+    & + label {
+      top: ${({ invalid }) => (invalid ? '10px' : null)};
+      font-size: ${({ invalid }) => (invalid ? '1.2rem' : null)};
     }
   }
 `

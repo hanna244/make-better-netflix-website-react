@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import classNames from 'classnames'
 // import { string } from 'prop-types'
 import {
   FormContainer,
@@ -26,6 +27,11 @@ const Input = ({
     setValue(e.target.value)
   }
 
+  const inputClass = classNames(
+    valid ? 'inputValid' : null,
+    invalid ? 'inputInvalid' : null
+  )
+
   const { background, color } = {
     background: { background: bgColor ?? null },
     color: { color: fgColor ?? null },
@@ -35,15 +41,15 @@ const Input = ({
       <FormContainer invalid style={color} {...restProps}>
         <InputStyle
           valid={valid}
+          invalid={invalid}
           style={background}
           type={type}
           value={value}
+          className={inputClass}
           id={id}
           onChange={handleInputValueChange}
         />
-        <LabelStyle valid={valid} htmlFor={id}>
-          {label}
-        </LabelStyle>
+        <LabelStyle htmlFor={id}>{label}</LabelStyle>
       </FormContainer>
       {error ? <AlertStyle role="alert">{alertMessege}</AlertStyle> : null}
     </>
@@ -54,6 +60,7 @@ Input.defaultProps = {
   error: false,
   valid: false,
   invalid: false,
+  isNormal: false,
   context: '',
 }
 
