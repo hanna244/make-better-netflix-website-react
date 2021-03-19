@@ -1,16 +1,19 @@
 import React from 'react'
+import device from './image/category=Device.png'
+import download from './image/category=Download.png'
+import tv from './image/category=TV.png'
 
 const Frame = ({ alt = '', type, ...restProps }) => {
   let src = ''
   switch (type) {
     case 'device':
-      src = './image/category=Device.png'
+      src = device
       break
     case 'download':
-      src = './image/category=Download.png'
+      src = download
       break
     case 'tv':
-      src = './image/category=TV.png'
+      src = tv
       break
 
     default:
