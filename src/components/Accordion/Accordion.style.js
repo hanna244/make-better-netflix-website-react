@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import {
   resetButton,
   resetDl,
@@ -48,6 +48,15 @@ export const OpenButton = styled.button`
   background: none;
 `
 
+const changePlus = keyframes`
+  0% {
+    transform: rotate(0)
+  }
+  100% {
+    transform: rotate(45deg)
+  }
+`
+
 export const PlusImg = styled.img`
   ${resetImg}
   position: absolute;
@@ -55,5 +64,6 @@ export const PlusImg = styled.img`
   top: 20px;
   right: 30px;
   bottom: 20px;
-  transform: ${({ open }) => (open ? 'rotate(45deg)' : null)};
+  animation: ${changePlus} 0.3s ease-out forwards;
+  /* transform: ${({ open }) => (open ? 'rotate(45deg)' : null)}; */
 `
