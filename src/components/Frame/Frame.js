@@ -1,7 +1,10 @@
 import React from 'react'
-import device from './image/category=Device.png'
-import download from './image/category=Download.png'
-import tv from './image/category=TV.png'
+
+const { device, download, tv } = {
+  device: './assets/category=Device.png',
+  download: './assets/category=Download.png',
+  tv: './assets/category=TV.png',
+}
 
 const Frame = ({ alt = '', type, ...restProps }) => {
   let src = ''
