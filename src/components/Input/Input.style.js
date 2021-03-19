@@ -5,7 +5,8 @@ export const FormContainer = styled.div`
   position: relative;
   color: ${getColor('gray')};
 
-  .inputFocus {
+  .inputInvalid {
+    border-bottom: 3px solid ${getColor('red')};
   }
 `
 

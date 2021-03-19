@@ -42,5 +42,6 @@ EmailInvalidInput.args = {
   ...EmailNormalInput.args,
   invalid: true,
   context: 'nana',
+  error: true,
 }
 EmailInvalidInput.storyName = '이메일 인풋(invalid, right)'

@@ -27,10 +27,7 @@ const Input = ({
     setValue(e.target.value)
   }
 
-  const inputClass = classNames(
-    valid ? 'inputValid' : null,
-    invalid ? 'inputInvalid' : null
-  )
+  const inputClass = classNames(invalid ? 'inputInvalid' : null)
 
   const { background, color } = {
     background: { background: bgColor ?? null },
