@@ -17,6 +17,8 @@ const Input = ({
   context,
   valid,
   invalid,
+  minLength,
+  maxLength,
   error,
   alertMessege,
   ...restProps
@@ -43,6 +45,8 @@ const Input = ({
           type={type}
           value={value}
           className={inputClass}
+          minLength={minLength}
+          maxLength={maxLength}
           id={id}
           onChange={handleInputValueChange}
         />
@@ -59,6 +63,8 @@ Input.defaultProps = {
   invalid: false,
   isNormal: false,
   context: '',
+  minLength: 4,
+  maxLength: 60,
 }
 
 export default Input
