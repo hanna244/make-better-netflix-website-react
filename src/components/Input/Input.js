@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
-// import { string } from 'prop-types'
+import { string, oneOf } from 'prop-types'
 import {
   FormContainer,
   InputStyle,
@@ -14,6 +14,7 @@ const Input = ({
   label,
   type,
   id,
+  name,
   context,
   valid,
   invalid,
@@ -21,7 +22,7 @@ const Input = ({
   minLength,
   maxLength,
   error,
-  alertMessege,
+  errorMessege,
   ...restProps
 }) => {
   const [value, setValue] = useState(context)
@@ -41,7 +42,7 @@ const Input = ({
   }
   return (
     <>
-      <FormContainer invalid style={color} {...restProps}>
+      <FormContainer invalid {...restProps}>
         <InputStyle
           valid={valid}
           invalid={invalid}
@@ -49,15 +50,18 @@ const Input = ({
           type={type}
           value={value}
           className={inputClass}
+          name={name}
           minLength={minLength}
           maxLength={maxLength}
           id={id}
           dark={dark}
           onChange={handleInputValueChange}
         />
-        <LabelStyle htmlFor={id}>{label}</LabelStyle>
+        <LabelStyle style={color} htmlFor={id}>
+          {label}
+        </LabelStyle>
       </FormContainer>
-      {error ? <AlertStyle role="alert">{alertMessege}</AlertStyle> : null}
+      {error ? <AlertStyle role="alert">{errorMessege}</AlertStyle> : null}
     </>
   )
 }
@@ -71,6 +75,19 @@ Input.defaultProps = {
   context: '',
   minLength: 4,
   maxLength: 60,
+}
+
+Input.propTypes = {
+  /** 식별 가능한 고유 아이디 설정은 **필수**입니다. */
+  id: string.isRequired,
+  /** 사용자에게 정보를 제공할 레이블 설정은 **필수**입니다. 비록 화면에 표시되지는 않더라도 스크린 리더 사용자에게 정보를 제공하기 때문입니다. */
+  label: string.isRequired,
+  /** 폼 컨트롤 시, 사용자가 입력한 값과 매칭되는 네임 값을 설정합니다. */
+  name: string,
+  /** 폼의 다크/라이트 모드를 설정할 수 있습니다. */
+  dark: oneOf(['light', 'dark']),
+  /** 버튼 모드를 Secondary 변경 유무를 설정합니다. */
+  size: oneOf(['samll', 'medium']),
 }
 
 export default Input
