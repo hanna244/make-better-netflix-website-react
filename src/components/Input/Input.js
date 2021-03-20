@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
-import { string, oneOf } from 'prop-types'
+import { string, bool } from 'prop-types'
 import {
   FormContainer,
   InputStyle,
@@ -67,14 +67,14 @@ const Input = ({
 }
 
 Input.defaultProps = {
-  error: false,
-  valid: false,
-  invalid: false,
-  dark: false,
-  isNormal: false,
-  context: '',
-  minLength: 4,
-  maxLength: 60,
+  // error: false,
+  // valid: false,
+  // invalid: false,
+  // dark: false,
+  // isNormal: false,
+  // context: '',
+  // minLength: 4,
+  // maxLength: 60,
 }
 
 Input.propTypes = {
@@ -85,9 +85,7 @@ Input.propTypes = {
   /** 폼 컨트롤 시, 사용자가 입력한 값과 매칭되는 네임 값을 설정합니다. */
   name: string,
   /** 폼의 다크/라이트 모드를 설정할 수 있습니다. */
-  dark: oneOf(['light', 'dark']),
-  /** 버튼 모드를 Secondary 변경 유무를 설정합니다. */
-  size: oneOf(['samll', 'medium']),
+  dark: bool,
 }
 
 export default Input
