@@ -17,4 +17,7 @@ export default {
 const Template = (args) => <Favicon {...args} />
 
 export const Favi = Template.bind({})
-Favi.storyName = '넷플릭스 아이콘(favicon)'
+Favi.args = {
+  alt: '넷플릭스 파비콘',
+}
+Favi.storyName = '넷플릭스 파비콘(favicon)'
