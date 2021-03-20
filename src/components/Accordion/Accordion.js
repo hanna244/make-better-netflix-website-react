@@ -52,7 +52,12 @@ const Accordion = ({ question, isOpen, answer, ...restProps }) => {
 
   return (
     <Item
-      onClick={handleAccordion(isOpen)}
+      // 너무 많은 리렌더링 오류의 원인은 이곳에 있다.
+      // ---- 원인
+      // handleAccordion(isOpen) 구문은 함수 실행 구문이기 때문에 React 요소가 렌더링 될 때마다 해당 함수가 실행되어 성능에 문제를 야기한다.
+      // 이를 해결하기 위해 해당 이벤트가 실행 될 때만 handleAccordion 함수를 실행하도록 callback을 사용해야한다.
+      // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+      onClick={() => handleAccordion(isOpen)}
       key={uuid()}
       id={uuid()}
       {...restProps}
