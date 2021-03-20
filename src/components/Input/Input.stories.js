@@ -27,7 +27,7 @@ EmailNormalInput.args = {
   id: 'userEmail',
   type: 'email',
   label: '이메일 주소',
-  alertMessege: '정확한 이메일 주소를 입력하세요.',
+  errorMessege: '정확한 이메일 주소를 입력하세요.',
 }
 EmailNormalInput.storyName = '이메일 인풋(normal, right)'
 
@@ -55,7 +55,7 @@ EmailAndPhoneNormalInput.args = {
   id: 'userEmailAndPhone',
   type: 'text',
   label: '이메일 주소 또는 폰 번호',
-  alertMessege: '정확한 이메일 주소 또는 폰 번호를 입력하세요.',
+  errorMessege: '정확한 이메일 주소 또는 폰 번호를 입력하세요.',
   dark: true,
 }
 EmailAndPhoneNormalInput.storyName = '이메일/폰 인풋(normal, dark)'
@@ -83,7 +83,7 @@ PasswordNormalInput.args = {
   id: 'userPassword',
   type: 'password',
   label: '비밀번호',
-  alertMessege: '비밀번호는 4 - 60자 사이여야 합니다.',
+  errorMessege: '비밀번호는 4 - 60자 사이여야 합니다.',
   dark: true,
 }
 PasswordNormalInput.storyName = '비밀번호 인풋(normal, dark)'
