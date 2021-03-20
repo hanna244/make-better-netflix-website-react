@@ -1,9 +1,9 @@
 import React from 'react'
+import { string, bool } from 'prop-types'
 import { Item, Head, Body, OpenButton, PlusImg } from './Accordion.style'
 import { v4 as uuid } from 'uuid'
 
 const Accordion = ({
-  id,
   question,
   showAnswer = false,
   answer,
@@ -32,6 +32,13 @@ const Accordion = ({
       ) : null}
     </Item>
   )
+}
+
+Accordion.propTypes = {
+  question: string,
+  showAnswer: bool,
+  answer: string,
+  open: bool,
 }
 
 export default Accordion

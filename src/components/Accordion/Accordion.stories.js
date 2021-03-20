@@ -12,11 +12,6 @@ export default {
         'https://www.figma.com/file/OxqbFId2ufYIqjEimukwSD/%EB%84%B7%ED%94%8C%EB%A6%AD%EC%8A%A4(Netflix)?node-id=125%3A112',
     },
   },
-  argTypes: {
-    fgColor: { control: 'color' },
-    bgColor: { control: 'color' },
-    onClick: { action: '버튼 클릭!' },
-  },
 }
 
 const Template = (args) => <Accordion {...args} />
