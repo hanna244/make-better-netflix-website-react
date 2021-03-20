@@ -26,3 +26,4 @@ export const ButtonStyle = styled.button`
     background: ${getColor('vividRed')};
   }
 `
+ButtonStyle.displayName = 'ButtonStyle'

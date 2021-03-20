@@ -12,6 +12,8 @@ export const Item = styled.dl`
   ${resetDl}
   max-width: 90rem;
 `
+Item.displayName = 'Body'
+
 export const Head = styled.dt`
   position: relative;
   z-index: -10;
@@ -22,6 +24,7 @@ export const Head = styled.dt`
   line-height: 1.2;
   background: ${getColor('darkGray')};
 `
+Head.displayName = 'Head'
 
 // ---- Body 애니메이션 추가
 const changeBody = keyframes`
@@ -49,6 +52,8 @@ export const Body = styled(Head)`
     margin-top: 0;
   }
 `
+Body.displayName = 'Body'
+
 export const OpenButton = styled.button`
   ${resetButton}
   position: absolute;
@@ -60,6 +65,8 @@ export const OpenButton = styled.button`
   right: 0;
   background: none;
 `
+OpenButton.displayName = 'OpenButton'
+
 // ---- PlusImg 애니메이션 추가
 const changePlus = keyframes`
   0% {
@@ -84,3 +91,4 @@ export const PlusImg = styled.img`
         `
       : null};
 `
+PlusImg.displayName = 'PlusImg'

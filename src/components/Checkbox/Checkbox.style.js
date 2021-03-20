@@ -24,6 +24,7 @@ export const CheckboxWraper = styled.div`
     background: url('./assets/checkbox_valid.svg') no-repeat center / cover;
   }
 `
+CheckboxWraper.displayName = 'CheckboxWraper'
 
 export const CheckboxLabel = styled.label`
   cursor: pointer;
@@ -31,8 +32,10 @@ export const CheckboxLabel = styled.label`
   line-height: 1.35;
   color: ${getColor('lightGray')};
 `
+CheckboxLabel.displayName = 'CheckboxLabel'
 
 export const CheckboxInput = styled.input`
   margin-right: 0.5rem;
   opacity: 0;
 `
+CheckboxInput.displayName = 'CheckboxInput'

@@ -21,6 +21,7 @@ export const FormContainer = styled.div`
     letter-spacing: -0.5em;
   }
 `
+FormContainer.displayName = 'FormContainer'
 
 export const InputStyle = styled.input`
   max-width: 54rem;
@@ -40,6 +41,7 @@ export const InputStyle = styled.input`
     }
   }
 `
+InputStyle.displayName = 'InputStyle'
 
 export const LabelStyle = styled.label`
   position: absolute;
@@ -50,6 +52,8 @@ export const LabelStyle = styled.label`
   color: ${({ darkmode }) =>
     darkmode ? `${getColor('lightGray')}` : `${getColor('gray')}`};
 `
+LabelStyle.displayName = 'LabelStyle'
+
 export const AlertStyle = styled.span`
   display: block;
   margin-top: 0.5rem;
@@ -59,3 +63,4 @@ export const AlertStyle = styled.span`
   line-height: 1.35;
   color: ${getColor('red')};
 `
+AlertStyle.displayName = 'AlertStyle'

@@ -14,3 +14,4 @@ export const BackgroundStyle = styled.div`
   /* storybook에 보이게 하기 위해 임의로 높이 값 설정  */
   height: 261vh;
 `
+BackgroundStyle.displayName = 'BackgroundStyle'
