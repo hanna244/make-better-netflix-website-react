@@ -38,6 +38,8 @@ PromotionButton.propTypes = {
   fgColor: string,
   /** 버튼 이벤트 리스너는 함수만 설정 가능합니다. */
   onClick: func,
+  /** 사용자 정의 버튼 레이블을 설정할 수 있습니다. */
+  label: string.isRequired,
 }
 
 export default PromotionButton

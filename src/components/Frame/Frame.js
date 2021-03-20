@@ -1,5 +1,5 @@
 import React from 'react'
-import { oneOf } from 'prop-types'
+import { oneOf, string } from 'prop-types'
 
 const Frame = ({ alt = '', type = 'device', ...restProps }) => {
   const { device, download, tv } = Frame.Image
@@ -32,6 +32,8 @@ Frame.Image = {
 Frame.propTypes = {
   /** 이미지의 타입을 선택할 수 있습니다. */
   type: oneOf(['device', 'download', 'tv']),
+  /** 프레임 대체 텍스트는 스크린 리더 사용자에게 읽힐 콘텐츠입니다. 프레임과 동등한 정보를 제공해야 합니다. */
+  alt: string,
 }
 
 export default Frame

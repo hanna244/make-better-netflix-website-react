@@ -33,8 +33,6 @@ Button.propTypes = {
   tag: oneOf(['button', 'a']),
   /** 버튼 모드를 Secondary 변경 유무를 설정합니다. */
   size: oneOf(['samll', 'medium']),
-  /** 버튼을 사용할 수 없도록 설정합니다. */
-  disabled: bool,
   /** 버튼 배경색을 설정합니다. */
   bgColor: string,
   /** 버튼 전경색을 설정합니다. */
@@ -43,6 +41,8 @@ Button.propTypes = {
   className: string,
   /** 버튼 이벤트 리스너는 함수만 설정 가능합니다. */
   onClick: func,
+  /** 사용자 정의 버튼 레이블을 설정할 수 있습니다. */
+  label: string.isRequired,
 }
 
 export default Button
