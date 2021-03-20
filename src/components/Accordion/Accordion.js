@@ -45,9 +45,7 @@ const Accordion = ({ question, isOpen, answer, ...restProps }) => {
     }
   }
 
-  const handleAccordion = useMemo(() => handleOpenCloseAccordion(isShow), [
-    isShow,
-  ])
+  const handleAccordion = useMemo(() => handleOpenCloseAccordion, [isShow])
 
   return (
     <Item onClick={handleAccordion()} key={uuid()} id={uuid()} {...restProps}>
