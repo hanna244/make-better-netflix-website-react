@@ -84,10 +84,10 @@ export const PlusImg = styled.img`
   top: 20px;
   right: 30px;
   bottom: 20px;
-  animation: ${({ open }) =>
-    open
+  animation: ${({ showAnswer }) =>
+    showAnswer
       ? css`
-          ${changePlus} 0.3s ease-out forwards
+          ${changePlus} 0.5s ease-out forwards
         `
       : null};
 `
