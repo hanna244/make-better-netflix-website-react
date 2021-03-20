@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useMemo } from 'react'
 import { string, bool } from 'prop-types'
 import { Item, Head, Body, OpenButton, PlusImg } from './Accordion.style'
 import { v4 as uuid } from 'uuid'
@@ -36,14 +36,17 @@ const Accordion = ({ question, isOpen, answer, ...restProps }) => {
     }, 200)
   }
 
-  const handleOpenCloseAccordion = (accordionState) => {
-    if (accordionState === true) {
-      closeAccordion()
-    }
-    if (accordionState === false) {
-      openAccordion()
-    }
-  }
+  const handleOpenCloseAccordion = useMemo(
+    () => (accordionState) => {
+      if (accordionState === true) {
+        closeAccordion()
+      }
+      if (accordionState === false) {
+        openAccordion()
+      }
+    },
+    [closeAccordion, openAccordion]
+  )
 
   return (
     <Item
