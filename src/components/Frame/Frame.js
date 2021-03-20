@@ -1,13 +1,9 @@
 import React from 'react'
 import { oneOf } from 'prop-types'
 
-const { device, download, tv } = {
-  device: './assets/category=Device.png',
-  download: './assets/category=Download.jpg',
-  tv: './assets/category=TV.png',
-}
-
 const Frame = ({ alt = '', type = 'device', ...restProps }) => {
+  const { device, download, tv } = Frame.Image
+
   let src = ''
   switch (type) {
     case 'device':
@@ -24,6 +20,13 @@ const Frame = ({ alt = '', type = 'device', ...restProps }) => {
       throw new Error('지원하는 이미지가 아닙니다.')
   }
   return <img src={src} alt={alt} {...restProps} />
+}
+
+// 전역이 오염되는 것을 방지하기 위해 컴파운드 방식 사용
+Frame.Image = {
+  device: './assets/category=Device.png',
+  download: './assets/category=Download.jpg',
+  tv: './assets/category=TV.png',
 }
 
 Frame.propTypes = {
