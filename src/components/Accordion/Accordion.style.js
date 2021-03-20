@@ -8,9 +8,35 @@ import {
 } from '../../styles/common'
 import { getColor } from '../../utils'
 
+// ---- Body 애니메이션 추가
+const openStateBody = keyframes`
+  0% {
+    transform: translateY(-82px)
+  }
+  100% {
+    transform: translateY(0)
+  }
+`
+const closeStateBody = keyframes`
+  0% {
+    transform: translateY(0)
+  }
+  100% {
+    transform: translateY(-82px)
+  }
+`
+
 export const Item = styled.dl`
   ${resetDl}
   max-width: 90rem;
+  margin-top: 100px;
+
+  .bodyOpen {
+    animation: ${openStateBody} 0.3s ease-out forwards;
+  }
+  .bodyClose {
+    animation: ${closeStateBody} 0.3s ease-out forwards;
+  }
 `
 Item.displayName = 'Body'
 
@@ -26,23 +52,12 @@ export const Head = styled.dt`
 `
 Head.displayName = 'Head'
 
-// ---- Body 애니메이션 추가
-const changeBody = keyframes`
-  0% {
-    transform: translateY(-82px)
-  }
-  100% {
-    transform: translateY(0)
-  }
-`
-
 export const Body = styled(Head)`
   ${resetList}
   padding: 2.1rem 3rem;
   z-index: -1000;
   font-size: 2.6rem;
   line-height: 1.5;
-  animation: ${changeBody} 0.3s ease-out;
 
   p {
     ${resetPara}

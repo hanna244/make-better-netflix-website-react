@@ -1,11 +1,57 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import { string, bool } from 'prop-types'
 import { Item, Head, Body, OpenButton, PlusImg } from './Accordion.style'
 import { v4 as uuid } from 'uuid'
 
-const Accordion = ({ question, isOpen = false, answer, ...restProps }) => {
+const initialState = {
+  bodyClassName: '',
+  isShow: false,
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'openBodyAndAnimation':
+      return { ...state, bodyClassName: 'bodyOpen', isShow: true }
+    case 'closeAnimation':
+      return { ...state, bodyClassName: 'bodyClose' }
+    case 'closeBody':
+      return { ...state, isShow: false }
+    default:
+      return state
+  }
+}
+
+const Accordion = ({ question, isOpen, answer, ...restProps }) => {
+  const [{ bodyClassName, isShow }, dispatch] = useReducer(
+    reducer,
+    initialState
+  )
+  const openAccordion = () => {
+    dispatch({ type: 'openBodyAndAnimation' })
+  }
+  const closeAccordion = () => {
+    dispatch({ type: 'closeAnimation' })
+    window.setTimeout(() => {
+      dispatch({ type: 'closeBody' })
+    }, 200)
+  }
+
+  const handleOpenCloseAccordion = (accordionState) => {
+    if (accordionState === true) {
+      closeAccordion()
+    }
+    if (accordionState === false) {
+      openAccordion()
+    }
+  }
+
   return (
-    <Item key={uuid()} id={uuid()} {...restProps}>
+    <Item
+      onClick={() => handleOpenCloseAccordion(isShow)}
+      key={uuid()}
+      id={uuid()}
+      {...restProps}
+    >
       <Head>
         {question}
         <OpenButton>
@@ -18,8 +64,8 @@ const Accordion = ({ question, isOpen = false, answer, ...restProps }) => {
           />
         </OpenButton>
       </Head>
-      {isOpen ? (
-        <Body as="dd">
+      {isShow ? (
+        <Body as="dd" className={bodyClassName}>
           {answer
             ? answer.map((item) => {
                 return <p>{item}</p>
