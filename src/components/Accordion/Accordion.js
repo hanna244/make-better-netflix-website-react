@@ -26,12 +26,20 @@ const Accordion = ({
       </Head>
       {showAnswer ? (
         <Body as="dd">
-          <p>{answer[0] ?? null}</p>
-          <p>{answer[1] ?? null}</p>
+          {answer
+            ? answer.map((item) => {
+                return <p>{item}</p>
+              })
+            : null}
         </Body>
       ) : null}
     </Item>
   )
+}
+
+Accordion.defaultProps = {
+  question: '이곳에 질문을 입력하세요.',
+  answer: ['이곳에 답변을 입력하세요.'],
 }
 
 Accordion.propTypes = {
