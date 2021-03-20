@@ -68,12 +68,20 @@ export const OpenButton = styled.button`
 OpenButton.displayName = 'OpenButton'
 
 // ---- PlusImg 애니메이션 추가
-const changePlus = keyframes`
+const openStateIcon = keyframes`
   0% {
     transform: rotate(0)
   }
   100% {
+    transform: rotate(-45deg)
+  }
+`
+const closeStateIcon = keyframes`
+  0% {
     transform: rotate(45deg)
+  }
+  100% {
+    transform: rotate(0)
   }
 `
 
@@ -84,11 +92,13 @@ export const PlusImg = styled.img`
   top: 20px;
   right: 30px;
   bottom: 20px;
-  animation: ${({ showAnswer }) =>
-    showAnswer
+  animation: ${({ isOpen }) =>
+    isOpen
       ? css`
-          ${changePlus} 0.5s ease-out forwards
+          ${openStateIcon} 0.3s ease-out forwards
         `
-      : null};
+      : css`
+          ${closeStateIcon} 0.3s ease-out forwards
+        `};
 `
 PlusImg.displayName = 'PlusImg'
