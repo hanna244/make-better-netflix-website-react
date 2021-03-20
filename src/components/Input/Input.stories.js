@@ -35,7 +35,7 @@ export const EmailValidInput = Template.bind({})
 EmailValidInput.args = {
   ...EmailNormalInput.args,
   valid: true,
-  context: 'nana@gamil.com',
+  initialValue: 'nana@gamil.com',
 }
 EmailValidInput.storyName = '이메일 인풋(valid, right)'
 
@@ -43,8 +43,7 @@ export const EmailInvalidInput = Template.bind({})
 EmailInvalidInput.args = {
   ...EmailNormalInput.args,
   invalid: true,
-  context: 'nana',
-  error: true,
+  initialValue: 'nana',
 }
 EmailInvalidInput.storyName = '이메일 인풋(invalid, right)'
 
@@ -56,7 +55,7 @@ EmailAndPhoneNormalInput.args = {
   type: 'text',
   label: '이메일 주소 또는 폰 번호',
   errorMessege: '정확한 이메일 주소 또는 폰 번호를 입력하세요.',
-  dark: true,
+  darkmode: true,
 }
 EmailAndPhoneNormalInput.storyName = '이메일/폰 인풋(normal, dark)'
 
@@ -64,15 +63,14 @@ export const EmailAndPhoneValidInput = Template.bind({})
 EmailAndPhoneValidInput.args = {
   ...EmailAndPhoneNormalInput.args,
   valid: true,
-  context: 'nana@gamil.com',
+  initialValue: 'nana@gamil.com',
 }
 EmailAndPhoneValidInput.storyName = '이메일/폰 인풋(valid, dark)'
 export const EmailAndPhoneInvalidInput = Template.bind({})
 EmailAndPhoneInvalidInput.args = {
   ...EmailAndPhoneNormalInput.args,
   invalid: true,
-  context: 'nana',
-  error: true,
+  initialValue: 'nana',
 }
 EmailAndPhoneInvalidInput.storyName = '이메일/폰 인풋(invalid, dark)'
 
@@ -83,8 +81,10 @@ PasswordNormalInput.args = {
   id: 'userPassword',
   type: 'password',
   label: '비밀번호',
+  minLength: 4,
+  maxLength: 60,
   errorMessege: '비밀번호는 4 - 60자 사이여야 합니다.',
-  dark: true,
+  darkmode: true,
 }
 PasswordNormalInput.storyName = '비밀번호 인풋(normal, dark)'
 
@@ -92,14 +92,13 @@ export const PasswordValidInput = Template.bind({})
 PasswordValidInput.args = {
   ...PasswordNormalInput.args,
   valid: true,
-  context: 'nana@gamil.com',
+  initialValue: '4732894242',
 }
 PasswordValidInput.storyName = '비밀번호 인풋(valid, dark)'
 export const PasswordInvalidInput = Template.bind({})
 PasswordInvalidInput.args = {
   ...PasswordNormalInput.args,
   invalid: true,
-  context: 'nana',
-  error: true,
+  initialValue: '432',
 }
 PasswordInvalidInput.storyName = '비밀번호 인풋(invalid, dark)'

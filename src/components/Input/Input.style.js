@@ -29,8 +29,8 @@ export const InputStyle = styled.input`
   border: none;
   font-size: 1.6rem;
   line-height: 1.35;
-  background: ${({ dark }) => (dark ? getColor('darkGray') : null)};
-  color: ${({ dark }) => (dark ? getColor('white') : null)};
+  background: ${({ darkmode }) => (darkmode ? getColor('darkGray') : null)};
+  color: ${({ darkmode }) => (darkmode ? getColor('white') : null)};
 
   &:focus {
     padding: 1.587em 1.25em 0.687em;
@@ -47,8 +47,8 @@ export const LabelStyle = styled.label`
   left: 20px;
   font-size: 1.6rem;
   line-height: 1.35;
-  color: ${({ dark }) =>
-    dark ? `${getColor('lightGray')}` : `${getColor('gray')}`};
+  color: ${({ darkmode }) =>
+    darkmode ? `${getColor('lightGray')}` : `${getColor('gray')}`};
 `
 export const AlertStyle = styled.span`
   display: block;

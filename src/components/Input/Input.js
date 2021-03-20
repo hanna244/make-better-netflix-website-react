@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
-import { string, bool } from 'prop-types'
+import { string, bool, number, oneOf } from 'prop-types'
 import {
   FormContainer,
   InputStyle,
@@ -15,17 +15,16 @@ const Input = ({
   type,
   id,
   name,
-  context,
+  initialValue,
   valid,
   invalid,
-  dark,
+  darkmode,
   minLength,
   maxLength,
-  error,
   errorMessege,
   ...restProps
 }) => {
-  const [value, setValue] = useState(context)
+  const [value, setValue] = useState(initialValue)
 
   const handleInputValueChange = (e) => {
     setValue(e.target.value)
@@ -54,27 +53,25 @@ const Input = ({
           minLength={minLength}
           maxLength={maxLength}
           id={id}
-          dark={dark}
+          darkmode={darkmode}
           onChange={handleInputValueChange}
         />
-        <LabelStyle style={color} htmlFor={id}>
+        <LabelStyle darkmode={darkmode} style={color} htmlFor={id}>
           {label}
         </LabelStyle>
       </FormContainer>
-      {error ? <AlertStyle role="alert">{errorMessege}</AlertStyle> : null}
+      {invalid ? <AlertStyle role="alert">{errorMessege}</AlertStyle> : null}
     </>
   )
 }
 
 Input.defaultProps = {
-  // error: false,
-  // valid: false,
-  // invalid: false,
-  // dark: false,
-  // isNormal: false,
-  // context: '',
-  // minLength: 4,
-  // maxLength: 60,
+  valid: false,
+  invalid: false,
+  darkmode: false,
+  initialValue: '',
+  minLength: 4,
+  maxLength: 60,
 }
 
 Input.propTypes = {
@@ -84,8 +81,26 @@ Input.propTypes = {
   label: string.isRequired,
   /** 폼 컨트롤 시, 사용자가 입력한 값과 매칭되는 네임 값을 설정합니다. */
   name: string,
-  /** 폼의 다크/라이트 모드를 설정할 수 있습니다. */
-  dark: bool,
+  /** 인풋의 다크 모드를 설정할 수 있습니다. */
+  darkmode: bool,
+  /** 인풋의 배경색을 설정합니다. */
+  bgColor: string,
+  /** 인풋의 전경색을 설정합니다. */
+  fgColor: string,
+  /** 인풋의 타입을 설정합니다. */
+  type: oneOf(['email', 'text', 'password']),
+  /** 화면에 표시 할 초기 입력 값을 설정할 수 있습니다. */
+  initialValue: string,
+  /** 인풋을 활성화 합니다. */
+  valid: bool,
+  /** 인풋을 비활성화 합니다. */
+  invalid: bool,
+  /** 패스워드 모드 시 최소 입력 글자 수를 설정합니다. */
+  minLength: number,
+  /** 패스워드 모드 시 최대 입력 글자 수를 설정합니다. */
+  maxLength: number,
+  /** 오류를 전달 받으면 메시지를 화면에 표시합니다. */
+  errorMessege: string,
 }
 
 export default Input
