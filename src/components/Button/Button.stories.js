@@ -21,16 +21,22 @@ export default {
 
 const Template = (args) => <Button {...args} />
 
-export const RouteButtonSmall = Template.bind({})
-RouteButtonSmall.args = {
+export const RouteNormalButton = Template.bind({})
+RouteNormalButton.args = {
   label: '로그인',
-  size: 'small',
 }
-RouteButtonSmall.storyName = '링크 버튼(Small)'
+RouteNormalButton.storyName = '링크 버튼(normal)'
 
-export const RouteButtonMedium = Template.bind({})
-RouteButtonMedium.args = {
-  ...RouteButtonSmall.args,
-  size: 'medium',
+export const RouteHoverButton = Template.bind({})
+RouteHoverButton.args = {
+  ...RouteNormalButton.args,
+  hover: true,
 }
-RouteButtonMedium.storyName = '링크 버튼(Medium)'
+RouteHoverButton.storyName = '링크 버튼(hover)'
+
+export const RouteFocusButton = Template.bind({})
+RouteFocusButton.args = {
+  ...RouteNormalButton.args,
+  focus: true,
+}
+RouteFocusButton.storyName = '링크 버튼(focus)'
