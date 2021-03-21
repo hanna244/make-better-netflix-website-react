@@ -31,7 +31,6 @@ export const Item = styled.dl`
   max-width: 90rem;
   /* overflow는 자식 요소가 넘쳐 날 때 사용할 수 있는 속성이다 그러므로 부모요소에게 적용한다.  */
   overflow: hidden;
-  margin-top: 100px;
 
   .bodyOpen {
     animation: ${openStateBody} 0.3s ease-out forwards;
