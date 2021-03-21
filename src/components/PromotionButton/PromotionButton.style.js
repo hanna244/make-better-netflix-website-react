@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { resetImg } from '../../styles/common'
+import { getColor } from '../../utils'
 import { ButtonStyle } from '../Button/Button.style'
 
 export const PromotionButtonStyle = styled(ButtonStyle)`
@@ -8,6 +9,8 @@ export const PromotionButtonStyle = styled(ButtonStyle)`
   font-size: 2.2rem;
   line-height: 1.35;
   letter-spacing: -0.04em;
+  background: ${({ hover }) =>
+    hover ? `${getColor('vividRed')}` : `${getColor('red')}`};
 `
 
 export const Arrow = styled.img`

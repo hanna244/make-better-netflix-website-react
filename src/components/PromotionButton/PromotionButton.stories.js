@@ -21,8 +21,15 @@ export default {
 
 const Template = (args) => <PromotionButton {...args} />
 
-export const PromotionButtonSmall = Template.bind({})
-PromotionButtonSmall.args = {
+export const PromotionNormalButton = Template.bind({})
+PromotionNormalButton.args = {
   label: '30일 무료 이용',
 }
-PromotionButtonSmall.storyName = '프로모션 버튼'
+PromotionNormalButton.storyName = '프로모션 버튼(normal)'
+
+export const PromotionHoverButton = Template.bind({})
+PromotionHoverButton.args = {
+  ...PromotionNormalButton.args,
+  hover: true,
+}
+PromotionHoverButton.storyName = '프로모션 버튼(hover)'
