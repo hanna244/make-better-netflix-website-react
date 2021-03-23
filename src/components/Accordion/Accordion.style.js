@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from 'styled-components'
+import styled from 'styled-components'
 import {
   resetButton,
   resetDl,
@@ -8,36 +8,11 @@ import {
 } from '../../styles/common'
 import { getColor } from '../../utils'
 
-// ---- Body 애니메이션 추가
-const openStateBody = keyframes`
-  0% {
-    transform: translateY(-82px)
-  }
-  100% {
-    transform: translateY(0)
-  }
-`
-const closeStateBody = keyframes`
-  0% {
-    transform: translateY(0)
-  }
-  100% {
-    transform: translateY(-310px)
-  }
-`
-
 export const Item = styled.dl`
   ${resetDl}
   max-width: 90rem;
   /* overflow는 자식 요소가 넘쳐 날 때 사용할 수 있는 속성이다 그러므로 부모요소에게 적용한다.  */
   overflow: hidden;
-
-  .bodyOpen {
-    animation: ${openStateBody} 0.3s ease-out forwards;
-  }
-  .bodyClose {
-    animation: ${closeStateBody} 0.3s ease-out forwards;
-  }
 `
 Item.displayName = 'Body'
 
@@ -67,6 +42,12 @@ export const Body = styled(Head)`
   p:nth-child(1) {
     margin-top: 0;
   }
+
+  &::before,
+  ::after {
+    content: '';
+    display: block;
+  }
 `
 Body.displayName = 'Body'
 
@@ -83,24 +64,6 @@ export const OpenButton = styled.button`
 `
 OpenButton.displayName = 'OpenButton'
 
-// ---- PlusImg 애니메이션 추가
-const openStateIcon = keyframes`
-  0% {
-    transform: rotate(0)
-  }
-  100% {
-    transform: rotate(-45deg)
-  }
-`
-const closeStateIcon = keyframes`
-  0% {
-    transform: rotate(45deg)
-  }
-  100% {
-    transform: rotate(0)
-  }
-`
-
 export const PlusImg = styled.img`
   ${resetImg}
   position: absolute;
@@ -108,13 +71,5 @@ export const PlusImg = styled.img`
   top: 20px;
   right: 30px;
   bottom: 20px;
-  animation: ${({ isOpen }) =>
-    isOpen
-      ? css`
-          ${openStateIcon} 0.3s ease-out forwards
-        `
-      : css`
-          ${closeStateIcon} 0.3s ease-out forwards
-        `};
 `
 PlusImg.displayName = 'PlusImg'

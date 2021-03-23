@@ -1,56 +1,44 @@
-import React, { useReducer, useMemo } from 'react'
-import { string, bool } from 'prop-types'
+import React, { useRef } from 'react'
+// import { string, bool } from 'prop-types'
 import { Item, Head, Body, OpenButton, PlusImg } from './Accordion.style'
 import { v4 as uuid } from 'uuid'
+import { useTransition } from 'react-spring'
 
-function reducer(state, action) {
-  switch (action.type) {
-    case 'openBodyAndAnimation':
-      return { ...state, bodyClassName: 'bodyOpen', isShow: true }
-    case 'closeAnimation':
-      return { ...state, bodyClassName: 'bodyClose' }
-    case 'closeBody':
-      return { ...state, isShow: false }
-    default:
-      return state
-  }
+const getElementStyle = (ref) => {
+  return ref.current ? ref.current.getBoundingClientRect().height : 0
 }
 
-const Accordion = ({ question, isOpen, answer, ...restProps }) => {
-  const [{ bodyClassName, isShow }, dispatch] = useReducer(reducer, {
-    bodyClassName: '',
-    isShow: isOpen,
+const Accordion = ({
+  isVisible,
+  handleOpen,
+  question,
+  isOpen,
+  answer,
+  ...restProps
+}) => {
+  const { visibleStyle, hiddenStyle } = Accordion
+  const bodyRef = useRef(null)
+  const transition = useTransition(isVisible, null, {
+    enter: () => async (next, cancel) => {
+      const height = getElementStyle(bodyRef)
+
+      await next({ height, opacity: 1, overflow: 'visible' })
+      await next(visibleStyle)
+    },
+    leave: () => async (next, cancel) => {
+      const height = getElementStyle(bodyRef)
+
+      await next({ height, opacity: 0 })
+      await next(hiddenStyle)
+
+      isVisible = false
+    },
+
+    from: isVisible ? visibleStyle : hiddenStyle,
   })
 
-  const openAccordion = () => {
-    dispatch({ type: 'openBodyAndAnimation' })
-  }
-  const closeAccordion = () => {
-    dispatch({ type: 'closeAnimation' })
-    window.setTimeout(() => {
-      dispatch({ type: 'closeBody' })
-    }, 400)
-  }
-
-  const handleAccordion = useMemo(
-    () => (accordionState) => {
-      if (accordionState === true) {
-        closeAccordion()
-      }
-      if (accordionState === false) {
-        openAccordion()
-      }
-    },
-    []
-  )
-
   return (
-    <Item
-      onClick={() => handleAccordion(isShow)}
-      key={uuid()}
-      id={uuid()}
-      {...restProps}
-    >
+    <Item key={uuid()} id={uuid()} onClick={handleOpen} {...restProps}>
       <Head>
         {question}
         <OpenButton>
@@ -63,15 +51,17 @@ const Accordion = ({ question, isOpen, answer, ...restProps }) => {
           />
         </OpenButton>
       </Head>
-      {isShow ? (
-        <Body as="dd" className={bodyClassName}>
-          {answer
-            ? answer.map((item) => {
-                return <p>{item}</p>
-              })
-            : null}
-        </Body>
-      ) : null}
+      {transition.map(({ item: show, key, prop }) => {
+        return show ? (
+          <Body style={prop} key={key} as="dd">
+            {answer
+              ? answer.map((item) => {
+                  return <p>{item}</p>
+                })
+              : null}
+          </Body>
+        ) : null
+      })}
     </Item>
   )
 }
@@ -81,13 +71,7 @@ Accordion.defaultProps = {
   answer: ['이곳에 답변을 입력하세요.'],
 }
 
-Accordion.propTypes = {
-  /** 아코디언 메뉴의 헤더에 사용자 정의 질문을 설정할 수 있습니다. */
-  question: string,
-  /** 아코디언 메뉴의 바디(답변)을 열고/닫기 설정할 수 있습니다. */
-  isOpen: bool,
-  /** 아코디언 메뉴의 바디에 사용자 정의 답변을 설정할 수 있습니다. */
-  answer: string,
-}
+Accordion.visibleStyle = { height: 'auto', opacity: 1, overflow: 'visible' }
+Accordion.hiddenStyle = { height: 'auto', opacity: 1, overflow: 'visible' }
 
 export default Accordion
