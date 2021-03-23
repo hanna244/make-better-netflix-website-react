@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 // import { string, bool } from 'prop-types'
 import { Item, Head, Body, OpenButton, PlusImg } from './Accordion.style'
 import { v4 as uuid } from 'uuid'
-import { useTransition } from 'react-spring'
+import { useTransition, animated } from 'react-spring'
 
 const getElementStyle = (ref) => {
   return ref.current ? ref.current.getBoundingClientRect().height : 0
@@ -53,13 +53,15 @@ const Accordion = ({
       </Head>
       {transition.map(({ item: show, key, prop }) => {
         return show ? (
-          <Body style={prop} key={key} as="dd">
-            {answer
-              ? answer.map((item) => {
-                  return <p>{item}</p>
-                })
-              : null}
-          </Body>
+          <animated.div>
+            <Body style={prop} key={key} as="dd">
+              {answer
+                ? answer.map((item) => {
+                    return <p>{item}</p>
+                  })
+                : null}
+            </Body>
+          </animated.div>
         ) : null
       })}
     </Item>
