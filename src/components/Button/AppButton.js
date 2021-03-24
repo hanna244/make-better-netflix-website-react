@@ -3,7 +3,7 @@ import DafaultButton from './DafaultButton'
 import { resetButton } from '../../styles/common'
 import { getColor } from '../../utils'
 
-const ButtonStyle = styled(DafaultButton)`
+const AppButton = styled(DafaultButton)`
   ${resetButton}
   padding: 0.75em 1.25em;
   border-radius: 4px;
@@ -21,6 +21,6 @@ const ButtonStyle = styled(DafaultButton)`
     background: ${getColor('vividRed')};
   }
 `
-ButtonStyle.displayName = 'ButtonStyle'
+AppButton.displayName = 'AppButton'
 
-export default ButtonStyle
+export default AppButton
