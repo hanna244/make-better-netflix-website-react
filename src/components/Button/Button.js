@@ -22,7 +22,7 @@ const Button = ({
       hover={hover}
       focus={focus}
       as={tag}
-      type="button"
+      type={tag === 'a' ? null : 'button'}
       {...restProps}
     >
       {label}
@@ -48,7 +48,7 @@ Button.propTypes = {
   className: string,
   /** 버튼 이벤트 리스너는 함수만 설정 가능합니다. */
   onClick: func,
-  /** 사용자 정의 버튼 레이블을 설정할 수 있습니다. */
+  /** 사용자 정의 버튼 레이블을 설정할 수 있습니다. tag 설정이 <a>라면 label은 null이 됩니다. */
   label: string.isRequired,
   /** 버튼의 hover 상태를 설정할 수 있습니다. */
   hover: bool,
