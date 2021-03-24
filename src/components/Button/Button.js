@@ -1,5 +1,4 @@
 import React from 'react'
-import { ButtonStyle } from './Button.style'
 import { oneOf, bool, string, func } from 'prop-types'
 
 const Button = ({
@@ -9,6 +8,7 @@ const Button = ({
   label,
   hover,
   focus,
+  className,
   ...restProps
 }) => {
   const customStyle = {
@@ -17,7 +17,8 @@ const Button = ({
   }
 
   return (
-    <ButtonStyle
+    <button
+      className={className}
       style={customStyle}
       hover={hover}
       focus={focus}
@@ -26,7 +27,7 @@ const Button = ({
       {...restProps}
     >
       {label}
-    </ButtonStyle>
+    </button>
   )
 }
 
