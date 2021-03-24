@@ -1,5 +1,6 @@
 import React from 'react'
 import { oneOf, bool, string, func } from 'prop-types'
+import ButtonStyle from './Button.style'
 
 const Button = ({
   bgColor,
@@ -17,17 +18,18 @@ const Button = ({
   }
 
   return (
-    <button
+    <ButtonStyle
       className={className}
       style={customStyle}
       hover={hover}
       focus={focus}
       as={tag}
+      href={tag === 'a' ? '' : null}
       type={tag === 'a' ? null : 'button'}
       {...restProps}
     >
       {label}
-    </button>
+    </ButtonStyle>
   )
 }
 

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import Button from './Button'
+import DafaultButton from './DafaultButton'
 import { resetButton } from '../../styles/common'
 import { getColor } from '../../utils'
 
-const ButtonStyle = styled(Button)`
+const ButtonStyle = styled(DafaultButton)`
   ${resetButton}
   padding: 0.75em 1.25em;
   border-radius: 4px;
