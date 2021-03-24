@@ -8,6 +8,7 @@ export { default as Frame } from './Frame/Frame'
 export { default as Logo } from './Logo/Logo'
 export { default as PromotionButton } from './PromotionButton/PromotionButton'
 export { default as SelectIcon } from './SelectIcon/SelectIcon'
+export { default as Container } from './Container/Container'
 
 /* 스타일드 컴포넌트 ---------------------------------------------------------------- */
 export { ButtonStyle } from './Button/Button.style'

@@ -1,6 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Logo } from '../../components'
-import { HeaderHomeLink, HeaderLoginLink } from './Header.style'
+import {
+  HeaderHomeLink,
+  HeaderContainer,
+  HeaderLoginLink,
+} from './Header.style'
 
 const Header = () => {
   // 작업 중 링크 기본 이벤트 제어 설정
@@ -9,12 +13,16 @@ const Header = () => {
   }
 
   return (
-    <Fragment>
-      <HeaderHomeLink onClick={controlLink} href="/">
+    <HeaderContainer
+      paddingVertical="4rem"
+      marginHorizon="12rem"
+      onClick={controlLink}
+    >
+      <HeaderHomeLink href="/">
         <Logo />
       </HeaderHomeLink>
-      <HeaderLoginLink onClick={controlLink} href="login" tag="a" />
-    </Fragment>
+      <HeaderLoginLink href="login" tag="a" />
+    </HeaderContainer>
   )
 }
 

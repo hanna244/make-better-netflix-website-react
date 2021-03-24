@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import { Button } from '../../components'
+import { Button, Container } from '../../components'
 import { resetLink } from '../../styles/common'
 
+export const HeaderContainer = styled(Container)``
 export const HeaderHomeLink = styled.a`
   ${resetLink}
 `
