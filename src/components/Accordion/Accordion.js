@@ -30,8 +30,6 @@ const Accordion = ({
 
       await next({ height, opacity: 0 })
       await next(hiddenStyle)
-
-      isVisible = false
     },
 
     from: isVisible ? visibleStyle : hiddenStyle,
