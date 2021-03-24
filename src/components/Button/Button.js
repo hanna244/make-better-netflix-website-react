@@ -5,10 +5,10 @@ import { oneOf, bool, string, func } from 'prop-types'
 const Button = ({
   bgColor,
   fgColor,
-  tag = 'button',
+  tag,
   label,
-  hover = false,
-  focus = false,
+  hover,
+  focus,
   ...restProps
 }) => {
   const customStyle = {
@@ -28,6 +28,13 @@ const Button = ({
       {label}
     </ButtonStyle>
   )
+}
+
+Button.defaultProps = {
+  label: '로그인',
+  tag: 'button',
+  hover: false,
+  focus: false,
 }
 
 Button.propTypes = {
