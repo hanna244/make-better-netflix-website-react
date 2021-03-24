@@ -1,4 +1,4 @@
-import Button from './Button'
+import Button from './index'
 import { withDesign } from 'storybook-addon-designs'
 
 export default {
@@ -31,6 +31,7 @@ export const RouteHoverButton = Template.bind({})
 RouteHoverButton.args = {
   ...RouteNormalButton.args,
   hover: true,
+  label: '테스트 입니다.',
 }
 RouteHoverButton.storyName = '링크 버튼(hover)'
 
