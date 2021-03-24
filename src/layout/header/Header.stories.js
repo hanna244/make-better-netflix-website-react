@@ -9,4 +9,4 @@ const Template = (args) => <Header {...args} />
 
 export const DefaultHeader = Template.bind({})
 DefaultHeader.args = {}
-DefaultHeader.storyName = '헤더'
+DefaultHeader.storyName = '헤더(normal)'
