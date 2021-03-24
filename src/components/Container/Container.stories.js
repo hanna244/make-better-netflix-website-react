@@ -12,7 +12,6 @@ const Template = (args) => <Container {...args} />
 
 export const NormalContainer = Template.bind({})
 NormalContainer.args = {
-  marginHorizon: 'auto',
   children: <Logo width="350" />,
 }
 NormalContainer.storyName = '컨테이너 버튼(normal)'
