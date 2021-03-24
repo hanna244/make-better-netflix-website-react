@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import { Button, Logo } from '../../components'
 
-export const Header = () => {
+const Header = () => {
   return (
-    <>
-      <p>넷플릭스 헤더</p>
-    </>
+    <Fragment>
+      <Logo />
+      <Button />
+    </Fragment>
   )
 }
+
+export default Header
