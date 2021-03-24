@@ -17,6 +17,7 @@ const Accordion = ({
   ...restProps
 }) => {
   const { visibleStyle, hiddenStyle } = Accordion
+  const isVisibleOnMount = useRef(isVisible)
   const bodyRef = useRef(null)
   const transition = useTransition(isVisible, null, {
     enter: () => async (next, cancel) => {
@@ -30,9 +31,11 @@ const Accordion = ({
 
       await next({ height, opacity: 0 })
       await next(hiddenStyle)
+
+      isVisibleOnMount.current = false
     },
 
-    from: isVisible ? visibleStyle : hiddenStyle,
+    from: isVisibleOnMount.current ? visibleStyle : hiddenStyle,
   })
 
   return (
