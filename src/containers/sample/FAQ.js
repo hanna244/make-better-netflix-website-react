@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Accordion } from '../../components'
+import { A11yHead } from './FAQ.style'
 
 const FAQ = ({
   heddingProps: { as, label, ...props },
@@ -15,9 +16,9 @@ const FAQ = ({
   return (
     <article {...restProps}>
       {children}
-      <h3 as={as} {...props}>
+      <A11yHead as={as} {...props}>
         {label}
-      </h3>
+      </A11yHead>
       <Accordion handleOpen={handleOpen} isVisible={isVisible} />
     </article>
   )
