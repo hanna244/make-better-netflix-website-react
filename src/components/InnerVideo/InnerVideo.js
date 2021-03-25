@@ -3,7 +3,7 @@ import { VideoStyle } from './InnerVideo.style'
 import React, { useEffect, useRef } from 'react'
 
 const InnerVideo = ({ type = 'tv', isMuted = true, ...restProps }) => {
-  const { tv, device } = InnerVideo.Video
+  const { tv, device, noVideo } = InnerVideo.Video
   const videoRef = useRef(null)
 
   useEffect(() => {
@@ -17,6 +17,9 @@ const InnerVideo = ({ type = 'tv', isMuted = true, ...restProps }) => {
       break
     case 'device':
       src = device
+      break
+    case 'noVideo':
+      src = noVideo
       break
 
     default:
@@ -37,11 +40,12 @@ const InnerVideo = ({ type = 'tv', isMuted = true, ...restProps }) => {
 InnerVideo.Video = {
   tv: './assets/video-tv-0819.m4v',
   device: './assets/video-devices.m4v',
+  noVideo: '',
 }
 
 InnerVideo.propTypes = {
   /** 비디오의 타입을 선택할 수 있습니다. */
-  type: oneOf(['tv', 'device']),
+  type: oneOf(['tv', 'device', 'noVideo']),
   /** video 요소의 muted 속성을 추가/제거 할 수 있습니다. */
   isMuted: bool,
 }
