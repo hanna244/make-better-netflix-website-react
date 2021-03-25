@@ -16,6 +16,11 @@ const InnerVideo = ({ type, videoSettingOn = true, ...restProps }) => {
       throw new Error('찾으시는 컨텐츠는 없습니다.')
   }
 
+  // 문자열을 요소의 속성으로 넣는 방법?
+  // autoPlay muted loop 속성을 조건 처리 하는 방법?
+  // const setting = ({ videoSetting }) =>
+  //   videoSetting ? 'autoPlay muted loop' : null
+
   return <video src={src} autoPlay muted loop {...restProps}></video>
 }
 
