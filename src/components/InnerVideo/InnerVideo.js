@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
-const InnerVideo = ({ type, videoSettingOn = true, ...restProps }) => {
+const InnerVideo = ({ type, isMuted, videoSettingOn = true, ...restProps }) => {
   const { tv, device } = InnerVideo.Video
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    isMuted && (videoRef.current.muted = true)
+    // console.log(videoRef.current.muted) → true
+    // 이 코드는 왜 오류인지 모르겠다.
+    // isMuted ? (videoRef.current.muted = true) : null
+  })
 
   let src = ''
   switch (type) {
@@ -16,8 +24,7 @@ const InnerVideo = ({ type, videoSettingOn = true, ...restProps }) => {
       throw new Error('찾으시는 컨텐츠는 없습니다.')
   }
 
-  // 현재 muted 속성이 적용이 안된다. 해결방법은?
-  return <video src={src} autoPlay muted loop {...restProps}></video>
+  return <video ref={videoRef} src={src} autoPlay loop {...restProps}></video>
 }
 
 InnerVideo.Video = {
