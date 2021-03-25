@@ -1,6 +1,5 @@
 /* 컴포넌트 --------------------------------------------------------------------- */
-export { default as AppButton } from './Button/AppButton'
-
+export { default as Button } from './Button/Button'
 export { default as Accordion } from './Accordion/Accordion'
 export { default as Background } from './Background/Background'
 export { default as Checkbox } from './Checkbox/Checkbox'
@@ -10,6 +9,3 @@ export { default as Logo } from './Logo/Logo'
 export { default as PromotionButton } from './PromotionButton/PromotionButton'
 export { default as SelectIcon } from './SelectIcon/SelectIcon'
 export { default as Container } from './Container/Container'
-
-/* 스타일드 컴포넌트 ---------------------------------------------------------------- */
-// export { AppButton } from './Button/AppButton'

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { resetImg } from '../../styles/common'
 import { getColor } from '../../utils'
-import { AppButton } from '../Button/AppButton'
+import { ButtonStyle } from '../Button/Button.style'
 
-export const PromotionButtonStyle = styled(AppButton)`
+export const PromotionButtonStyle = styled(ButtonStyle)`
   padding: 0.9375em 1.25em;
   border-radius: 0;
   font-size: 2.2rem;
