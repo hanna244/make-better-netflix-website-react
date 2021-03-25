@@ -1,4 +1,5 @@
 import React from 'react'
+import { FrameImage } from './Frame.style'
 import { oneOf, string } from 'prop-types'
 
 const Frame = ({ alt = '', type = 'device', ...restProps }) => {
@@ -19,7 +20,7 @@ const Frame = ({ alt = '', type = 'device', ...restProps }) => {
     default:
       throw new Error('지원하는 이미지가 아닙니다.')
   }
-  return <img src={src} alt={alt} {...restProps} />
+  return <FrameImage src={src} alt={alt} {...restProps} />
 }
 
 // 전역이 오염되는 것을 방지하기 위해 컴파운드 방식 사용
