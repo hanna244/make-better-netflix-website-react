@@ -1,26 +1,41 @@
 import { oneOf, string } from 'prop-types'
 import React from 'react'
+import { InnerVideo } from '../../components'
 import {
   Container,
   Head,
-  imageType,
   Description,
   MediaWrapper,
   MeritFrame,
   MeritVideo,
+  TextContainer,
 } from './Merit.style'
 
-const Merit = ({ heading, headingLevel, description, image, video, alt }) => {
+const Merit = ({
+  heading,
+  headingLevel,
+  description,
+  imageType,
+  videoType,
+  alt,
+  direction,
+}) => {
   return (
-    <Container>
-      <Head as={headingLevel}>{heading}</Head>
-      <Description>{description}</Description>
+    <Container direction={direction}>
+      <TextContainer>
+        <Head as={headingLevel}>{heading}</Head>
+        <Description>{description}</Description>
+      </TextContainer>
       <MediaWrapper>
         <MeritFrame type={imageType} alt={alt} />
-        <MeritVideo src={video} autoPlay muted loop></MeritVideo>
+        <MeritVideo type={videoType}></MeritVideo>
       </MediaWrapper>
     </Container>
   )
+}
+
+Merit.defaultProps = {
+  direction: 'row',
 }
 
 Merit.propTypes = {
@@ -30,12 +45,14 @@ Merit.propTypes = {
   headingLevel: oneOf[('h1', 'h2', 'h3', 'h4', 'h5', 'h6')],
   /** 사용자 정의 본문의 내용을 설정할 수 있습니다. */
   description: string,
-  /** 이미지의 타입을 설정할 수 있습니다. */
-  imageType: oneOf(['device', 'download', 'tv']),
-  /** 비디오 주소를 설정할 수 있습니다. */
-  video: string,
+  /** 사용자 정의 이미지를 설정할 수 있습니다. */
+  imageType: string,
+  /** 사용자 정의 비디오를 설정할 수 있습니다. */
+  videoType: string,
   /** 이미지의 대체 텍스트를 설정합니다. */
   alt: string,
+  /** 데스크탑 버전에서 컨텐츠의 정렬 방향을 전환할 수 있습니다. */
+  direction: oneOf(['row', 'row-reverse']),
 }
 
 export default Merit
