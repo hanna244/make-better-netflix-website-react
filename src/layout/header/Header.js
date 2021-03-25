@@ -1,8 +1,8 @@
+import { string } from 'prop-types'
 import React from 'react'
 
 import {
-  OuterContainer,
-  InnerContainer,
+  HeaderContainer,
   HeaderHomeLink,
   HeaderLoginLink,
   HeaderLogo,
@@ -15,19 +15,18 @@ const Header = ({ className, ...restProps }) => {
   }
 
   return (
-    <OuterContainer>
-      <InnerContainer
-        onClick={controlLink}
-        className={className}
-        {...restProps}
-      >
-        <HeaderHomeLink href="/">
-          <HeaderLogo />
-        </HeaderHomeLink>
-        <HeaderLoginLink href="login" tag="a" />
-      </InnerContainer>
-    </OuterContainer>
+    <HeaderContainer onClick={controlLink} className={className} {...restProps}>
+      <HeaderHomeLink href="/">
+        <HeaderLogo />
+      </HeaderHomeLink>
+      <HeaderLoginLink href="login" tag="a" />
+    </HeaderContainer>
   )
+}
+
+Header.propTypes = {
+  /** 사용자 정의 클래스 명을 설정할 수 있습니다. */
+  className: string,
 }
 
 export default Header
