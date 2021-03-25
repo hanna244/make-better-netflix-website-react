@@ -13,7 +13,7 @@ import {
 } from './config'
 
 export const parameters = {
-  layout,
+  layout: 'fullscreen',
   backgrounds,
   viewport,
   controls,
