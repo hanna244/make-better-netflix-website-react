@@ -7,7 +7,7 @@ export const OuterContainer = styled(Container)`
   padding: 4rem 0;
   margin: 0 12rem;
 
-  @media ${device.md} {
+  @media (min-width: 60em) {
     padding: 2.3rem 0;
     margin: 0 1.8rem;
     max-width: 120rem;π
@@ -19,7 +19,7 @@ export const InnerContainer = styled(Container)`
   max-width: 120rem;
 
   /* @media (min-width: 60em) { */
-  @media ${device.md} {
+  @media (min-width: 60em) {
     padding: 0;
     margin: 0 1.8rem;
     max-width: 120rem;
@@ -33,7 +33,7 @@ export const HeaderHomeLink = styled.a`
   height: auto;
 
   /* @media (min-width: 60em) { */
-  @media ${device.md} {
+  @media (min-width: 60em) {
     width: 14rem;
   }
 `
