@@ -1,8 +1,9 @@
 import React from 'react'
 import { string } from 'prop-types'
+import { LogoImage } from './Logo.style'
 
 const Logo = ({ alt, ...restProps }) => {
-  return <img src="./assets/Logo.svg" alt={alt} {...restProps} />
+  return <LogoImage src="./assets/Logo.svg" alt={alt} {...restProps} />
 }
 
 Logo.propTypes = {
