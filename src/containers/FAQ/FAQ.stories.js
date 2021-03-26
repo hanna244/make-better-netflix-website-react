@@ -1,7 +1,7 @@
 import FAQ from './FAQ'
 
 export default {
-  title: 'Containers/Home/FAQ',
+  title: 'Containers/FAQ/FAQ',
   component: FAQ,
 }
 

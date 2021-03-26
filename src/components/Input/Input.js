@@ -70,8 +70,6 @@ Input.defaultProps = {
   invalid: false,
   darkmode: false,
   initialValue: '',
-  minLength: 4,
-  maxLength: 60,
 }
 
 Input.propTypes = {
