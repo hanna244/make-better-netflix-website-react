@@ -20,6 +20,8 @@ const Promotion = () => {
     } else {
       setInputAttr({ valid: `valid="false"` })
     }
+    // 에러 발생. isValidEmail(inputValue)의 결과는 true가 나왔지만 아래 오류가 떠서 invalid="true"가 된다.
+    // index.js:1 Warning: Failed prop type: Invalid prop `invalid` of type `string` supplied to `Input`, expected `boolean`.
     if (!isValidEmail(inputValue)) {
       setInputAttr({ invalid: `invalid="true"` })
     } else {
