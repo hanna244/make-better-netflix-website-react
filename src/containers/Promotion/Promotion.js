@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { isValidEmail, passwordRegEx } from '../../utils'
+import { isValidEmail } from '../../utils/regex'
 import {
   PromotionContainer,
   PromotionInput,
@@ -11,17 +11,19 @@ const Promotion = () => {
   const [inputValue, setInputValue] = useState('')
   const [inputAttr, setInputAttr] = useState({})
 
+  // const passwordRegEx = /^[0-9].{8,60}$/
+  console.log(isValidEmail(inputValue))
+
   const handleInputIsValid = () => {
     if (inputValue.trim().length !== 0) {
       setInputAttr({ valid: `valid="true"` })
     } else {
       setInputAttr({ valid: `valid="false"` })
     }
-
-    if (!passwordRegEx(inputValue)) {
-      setInputAttr({ invalid: `invalid="false"` })
-    } else {
+    if (!isValidEmail(inputValue)) {
       setInputAttr({ invalid: `invalid="true"` })
+    } else {
+      setInputAttr({ invalid: `invalid="false"` })
     }
   }
 
