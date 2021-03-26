@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import classNames from 'classnames'
 import { string, bool, number, oneOf } from 'prop-types'
 import {
@@ -24,11 +24,23 @@ const Input = ({
   errorMessege,
   ...restProps
 }) => {
+  const { onInputComplete } = restProps
   const [value, setValue] = useState(initialValue)
 
   const handleInputValueChange = (e) => {
     setValue(e.target.value)
   }
+  // 아래 코드가 적절한지 드는 의문 2가지
+  // 1) 클래스 컴포넌트의 setState()의 두번째 인자인 callback()함수 기능을 사용하고 싶어서
+  // 함수 컴포넌트에서 useEffet()를 사용한 건데 적절한 사용인지?
+  // 2) 종속성배열 설정시 value하나만 설정하면 경고가 뜨는데 왜 이벤트 함수까지 설정해야하는 건지?
+  // 변경을 감지할 필요가 있는 것은 value 뿐인데?
+  useEffect(() => {
+    onInputComplete(value)
+    return () => {
+      onInputComplete()
+    }
+  }, [onInputComplete, value])
 
   const inputClass = classNames(
     valid || invalid ? 'inputValidInvalid' : null,
