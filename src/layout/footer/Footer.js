@@ -8,7 +8,7 @@ import addressData from '../../data/address.json'
 const Footer = ({ ...restProps }) => {
   return (
     <FooterStyle {...restProps}>
-      <p>질문이 있으신가요? </p> &nbsp
+      <p>질문이 있으신가요? &nbsp;</p>
       <br className="linkBreak" />
       <DefinitionStyle
         link
