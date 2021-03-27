@@ -1,9 +1,16 @@
 import { string } from 'prop-types'
 import { DefinitionStyle } from './Definition.style'
 
-function Definition({ headContext, href, dtContext, link, ddContext }) {
+function Definition({
+  headContext,
+  className,
+  href,
+  dtContext,
+  link,
+  ddContext,
+}) {
   return (
-    <DefinitionStyle>
+    <DefinitionStyle className={className}>
       <b>{dtContext}</b>:
       {link ? <a href={href}> {ddContext}</a> : <span> {ddContext}</span>}
     </DefinitionStyle>
