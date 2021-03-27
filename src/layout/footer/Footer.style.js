@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { resetPara } from '../../styles/common'
+import { resetList, resetPara } from '../../styles/common'
 import { getColor } from '../../utils'
 
 export const FooterStyle = styled.footer`
@@ -10,5 +10,9 @@ export const FooterStyle = styled.footer`
     font-weight: bold;
     font-size: 2rem;
     line-height: 1.4;
+  }
+
+  ul {
+    ${resetList}
   }
 `
