@@ -1,18 +1,24 @@
 import styled from 'styled-components'
-import { resetList, resetPara } from '../../styles/common'
+import { resetList } from '../../styles/common'
 import { getColor } from '../../utils'
+import { Definition } from './compound_components'
 
 export const FooterStyle = styled.footer`
   color: ${getColor('gray')};
-
+`
+export const DefinitionStyle = styled(Definition)`
   p {
-    ${resetPara}
-    font-weight: bold;
-    font-size: 2rem;
-    line-height: 1.4;
-  }
+    margin-top: 4rem;
 
-  ul {
-    ${resetList}
+    @media (min-width: 60em) {
+      margin-top: 5rem;
+      line-height: 1.2;
+    }
   }
+`
+
+export const LinkListStyle = styled.ul`
+  ${resetList}
+  display: grid;
+  grid-template-columns: repeat(2, auto);
 `
