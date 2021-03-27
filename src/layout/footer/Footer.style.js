@@ -25,7 +25,13 @@ export const FooterStyle = styled.footer`
     }
   }
 `
-export const DefinitionStyle = styled(Definition)``
+export const FooterDefinition = styled(Definition)`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 1.4;
+  color: ${getColor('red')};
+`
 
 export const LinkListStyle = styled.ul`
   ${resetList}

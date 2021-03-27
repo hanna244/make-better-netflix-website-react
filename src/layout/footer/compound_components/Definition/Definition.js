@@ -5,7 +5,7 @@ function Definition({ headContext, href, dtContext, link, ddContext }) {
   return (
     <DefinitionStyle>
       <b>{dtContext}</b>:
-      {link ? <a href={href}>{ddContext}</a> : <span>{ddContext}</span>}
+      {link ? <a href={href}> {ddContext}</a> : <span> {ddContext}</span>}
     </DefinitionStyle>
   )
 }
