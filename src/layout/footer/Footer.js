@@ -8,8 +8,9 @@ import addressData from '../../data/address.json'
 const Footer = ({ ...restProps }) => {
   return (
     <FooterStyle {...restProps}>
+      <p>질문이 있으신가요? </p> &nbsp
+      <br className="linkBreak" />
       <DefinitionStyle
-        headContext="질문이 있으신가요?"
         link
         href="tel:+003083210058"
         dtContext="문의 전화"
@@ -35,7 +36,6 @@ const Footer = ({ ...restProps }) => {
           </>
         ))}
         <span>공정거래위원회 통신 판매사업자 정보 보기</span>
-        <br />
       </address>
     </FooterStyle>
   )
