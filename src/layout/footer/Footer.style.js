@@ -33,6 +33,6 @@ export const LinkListStyle = styled.ul`
   grid-template-columns: repeat(2, minmax(0, 16rem));
 
   @media (min-width: 60em) {
-    grid-template-columns: repeat(4, 1ft);
+    grid-template-columns: repeat(4, 1fr);
   }
 `
