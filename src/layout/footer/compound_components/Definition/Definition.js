@@ -3,14 +3,10 @@ import { DefinitionStyle } from './Definition.style'
 
 function Definition({ headContext, href, dtContext, link, ddContext }) {
   return (
-    <>
-      <DefinitionStyle>{headContext}</DefinitionStyle>
-      <br className="linkBreak" />
-      <DefinitionStyle as="span">
-        <b>{dtContext}</b>:
-        {link ? <a href={href}>{ddContext}</a> : <span>{ddContext}</span>}
-      </DefinitionStyle>
-    </>
+    <DefinitionStyle>
+      <b>{dtContext}</b>:
+      {link ? <a href={href}>{ddContext}</a> : <span>{ddContext}</span>}
+    </DefinitionStyle>
   )
 }
 
