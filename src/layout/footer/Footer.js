@@ -8,24 +8,25 @@ import {
   AddressHead,
   AddressStyle,
 } from './Footer.style'
-// import footerLinkData from '../../data/footerLink.json'
+import footerLinkData from '../../data/footerLink.json'
 import addressData from '../../data/address.json'
 
 const Footer = ({ ...restProps }) => {
-  const [linkData, setLinkData] = useState('')
+  // JSON 데이터 동적 import
+  // const [linkData, setLinkData] = useState('')
 
-  const fetchData = () => {
-    import('../../data/footerLink.json')
-      .then((data) => setLinkData(data))
-      .catch((error) => console.error('데이터를 불러오는 것에 실패했습니다.'))
-  }
+  // const fetchData = () => {
+  //   import('../../data/footerLink.json')
+  //     .then((data) => setLinkData(data))
+  //     .catch((error) => console.error('데이터를 불러오는 것에 실패했습니다.'))
+  // }
 
-  useEffect(() => {
-    fetchData()
-  }, [])
+  // useEffect(() => {
+  //   fetchData()
+  // }, [])
 
-  // console.log(asadsdsad)
-  console.log(linkData.default)
+  // console.log(linkData)
+  // console.log(linkData.default)
   return (
     <FooterStyle {...restProps}>
       <p>질문이 있으신가요? &nbsp;</p>
@@ -39,7 +40,7 @@ const Footer = ({ ...restProps }) => {
         테스트 입니다.
       </DefinitionStyle>
       <LinkListStyle>
-        {linkData.default.map((item) => (
+        {footerLinkData.map((item) => (
           <LinkListItem
             label={item.link}
             key={uuid()}
