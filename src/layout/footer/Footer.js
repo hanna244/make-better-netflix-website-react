@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import { Definition, LinkListItem } from './compound_components'
 import {
@@ -12,6 +12,19 @@ import footerLinkData from '../../data/footerLink.json'
 import addressData from '../../data/address.json'
 
 const Footer = ({ ...restProps }) => {
+  const [linkData, setLinkData] = useState({})
+
+  const fetchData = () => {
+    import('../../data/footerLink.json')
+      .then((data) => setLinkData(data))
+      .catch((error) => console.error('데이터를 불러오는 것에 실패했습니다.'))
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  console.log(linkData)
   return (
     <FooterStyle {...restProps}>
       <p>질문이 있으신가요? &nbsp;</p>
