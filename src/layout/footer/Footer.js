@@ -12,7 +12,7 @@ import footerLinkData from '../../data/footerLink.json'
 import addressData from '../../data/address.json'
 
 const Footer = ({ ...restProps }) => {
-  const [linkData, setLinkData] = useState({})
+  const [linkData, setLinkData] = useState('')
 
   const fetchData = () => {
     import('../../data/footerLink.json')
