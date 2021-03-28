@@ -8,7 +8,7 @@ import {
   AddressHead,
   AddressStyle,
 } from './Footer.style'
-import footerLinkData from '../../data/footerLink.json'
+// import footerLinkData from '../../data/footerLink.json'
 import addressData from '../../data/address.json'
 
 const Footer = ({ ...restProps }) => {
@@ -24,7 +24,8 @@ const Footer = ({ ...restProps }) => {
     fetchData()
   }, [])
 
-  console.log(linkData)
+  // console.log(asadsdsad)
+  console.log(linkData.default)
   return (
     <FooterStyle {...restProps}>
       <p>질문이 있으신가요? &nbsp;</p>
@@ -38,7 +39,7 @@ const Footer = ({ ...restProps }) => {
         테스트 입니다.
       </DefinitionStyle>
       <LinkListStyle>
-        {footerLinkData.map((item) => (
+        {linkData.default.map((item) => (
           <LinkListItem
             label={item.link}
             key={uuid()}
