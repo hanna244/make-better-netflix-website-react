@@ -2,7 +2,7 @@ import React from 'react'
 import { string } from 'prop-types'
 import { LogoImage } from './Logo.style'
 
-const Logo = ({ alt = '', ...restProps }) => {
+const Logo = ({ alt, ...restProps }) => {
   return <LogoImage src="./assets/Logo.svg" alt={alt} {...restProps} />
 }
 

@@ -12,7 +12,7 @@ const Template = (args) => <Container {...args} />
 
 export const NormalContainer = Template.bind({})
 NormalContainer.args = {
-  children: <Logo width="350" />,
+  children: <Logo width="350" alt="" />,
 }
 NormalContainer.storyName = '컨테이너 버튼(normal)'
 
