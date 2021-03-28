@@ -17,7 +17,7 @@ const Header = ({ className, ...restProps }) => {
   return (
     <HeaderContainer onClick={controlLink} className={className} {...restProps}>
       <HeaderHomeLink href="/">
-        <HeaderLogo />
+        <HeaderLogo alt="넷플릭스 홈 링크" />
       </HeaderHomeLink>
       <HeaderLoginLink href="login" tag="a" />
     </HeaderContainer>
