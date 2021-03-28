@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { v4 as uuid } from 'uuid'
 import { Definition, LinkListItem } from './compound_components'
 import {
   FooterStyle,
-  FooterDefinition,
+  DefinitionStyle,
   LinkListStyle,
   AddressHead,
   AddressStyle,
@@ -16,12 +16,14 @@ const Footer = ({ ...restProps }) => {
     <FooterStyle {...restProps}>
       <p>질문이 있으신가요? &nbsp;</p>
       <br className="linkBreak" />
-      <FooterDefinition
+      <DefinitionStyle
         link
         href="tel:+003083210058"
         dtContext="문의 전화"
         ddContext="00-308-321-0058"
-      />
+      >
+        테스트 입니다.
+      </DefinitionStyle>
       <LinkListStyle>
         {footerLinkData.map((item) => (
           <LinkListItem
@@ -36,11 +38,16 @@ const Footer = ({ ...restProps }) => {
         <span>넷플릭스서비시스코리아 유한회사</span>
         <br />
         {addressData.map((item) => (
-          <>
-            <Definition dtContext={item.title} ddContext={item.content} />
+          <Fragment key={uuid()}>
+            <Definition
+              dtContext={item.title}
+              ddContext={item.content}
+              id={uuid()}
+            />
             <br />
-          </>
+          </Fragment>
         ))}
+
         <span>공정거래위원회 통신 판매사업자 정보 보기</span>
       </AddressStyle>
     </FooterStyle>
