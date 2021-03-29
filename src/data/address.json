@@ -7,7 +7,8 @@
   {
     "id": 1,
     "title": "전화번호",
-    "content": "00-308-321-0058" 
+    "content": "00-308-321-0058",
+    "tel": "00-308-321-0058"
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
   {
     "id": 3,
     "title": "이메일 주소",
-    "content": "korea@netflix.com" 
+    "content": "korea@netflix.com" ,
+    "email": "korea@netflix.com"
   },
   {
     "id": 4,
