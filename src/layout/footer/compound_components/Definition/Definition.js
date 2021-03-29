@@ -6,23 +6,26 @@ function Definition({
   className,
   href,
   dtContext,
-  link,
+  link = true,
   ddContext,
+  ...resrProps
 }) {
   return (
-    <DefinitionStyle className={className}>
+    <DefinitionStyle className={className} {...resrProps}>
       <b>{dtContext}</b>:
-      {link ? <a href={href}> {ddContext}</a> : <span> {ddContext}</span>}
+      {link ? (
+        <span>
+          <a href={href}>{ddContext}</a>
+        </span>
+      ) : (
+        <span>{ddContext}</span>
+      )}
     </DefinitionStyle>
   )
 }
 
-Definition.defaultProps = {
-  href: '/',
-}
-
 Definition.propTypes = {
-  href: string,
+  href: string.isRequired,
   dtContext: string,
   ddContext: string,
 }
