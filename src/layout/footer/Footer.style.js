@@ -24,6 +24,11 @@ export const FooterStyle = styled.footer`
       display: none;
     }
   }
+
+  a:hover {
+    text-decoration: underline;
+    color: ${getColor('lightGray')};
+  }
 `
 export const DefinitionStyle = styled(Definition)`
   font-weight: bold;
