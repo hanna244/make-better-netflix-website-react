@@ -1,17 +1,25 @@
 import React from 'react'
 import { v4 as uuid } from 'uuid'
 import { array, string } from 'prop-types'
-import { SelectStyle } from './Select.style'
+import { SelectStyle, LabelStyle } from './Select.style'
 import { a11yHidden } from '../../styles/common'
 
-const Select = ({ label, selected = '', id, option, ...restProps }) => {
+const Select = ({
+  labelHidden = false,
+  label,
+  selected = '',
+  id,
+  option,
+  ...restProps
+}) => {
   console.log(option)
+  console.log(labelHidden)
   return (
     <>
       {/* style 속성에 SC 컴포넌트 적용하는 방법?  */}
-      <label style={{ a11yHidden }} htmlFor={id}>
+      <LabelStyle style={{ a11yHidden }} labelHidden={labelHidden} htmlFor={id}>
         {label}
-      </label>
+      </LabelStyle>
       <SelectStyle id={id} {...restProps}>
         {/* {option.map((item) => (
           <option value={item.value.toLowerCase()} key={uuid()} id={uuid()}>

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { a11yHidden } from '../../styles/common'
 import { getColor } from '../../utils'
 
 export const SelectStyle = styled.select`
@@ -13,4 +14,8 @@ export const SelectStyle = styled.select`
   line-height: 1.2;
   background: url('./assets/select_global.svg') no-repeat left 1rem center,
     url('./assets/select_arrow.svg') no-repeat left 8.7rem top 1.95rem;
+`
+
+export const LabelStyle = styled.label`
+  ${(props) => (props.a11yHidden ? a11yHidden : null)}
 `
