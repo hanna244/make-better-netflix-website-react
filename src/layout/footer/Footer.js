@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { v4 as uuid } from 'uuid'
+
+import { Select } from '../../components'
 import { Definition, LinkListItem } from './compound_components'
 import {
   FooterStyle,
@@ -8,6 +10,7 @@ import {
   AddressHead,
   AddressStyle,
 } from './Footer.style'
+
 import footerLinkData from '../../data/footerLink.json'
 import addressData from '../../data/address.json'
 
@@ -57,6 +60,7 @@ const Footer = ({ ...restProps }) => {
           )
         )}
       </LinkListStyle>
+      <Select label="언어 선택" id="language" optoin={['한국어', '영어']} />
       <AddressHead>Netflix 대한민국</AddressHead>
       <AddressStyle>
         <span>
