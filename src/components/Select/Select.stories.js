@@ -9,7 +9,10 @@ const Template = (args) => <Select {...args} />
 
 export const NormalSelect = Template.bind({})
 NormalSelect.args = {
-  option: ['한국어', '영어', '중국어'],
+  option: [
+    { list: '한국어', value: 'korean' },
+    { list: '영어', value: 'english' },
+  ],
   id: 'language',
 }
 NormalSelect.storyName = '셀렉트(normal)'

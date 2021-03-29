@@ -1,7 +1,7 @@
 import React from 'react'
 import { v4 as uuid } from 'uuid'
 import { array, string } from 'prop-types'
-import { SelectStyle, OptionStyle } from './Select.style'
+import { SelectStyle } from './Select.style'
 import { a11yHidden } from '../../styles/common'
 
 const Select = ({ label, selected = '', id, option, ...restProps }) => {
@@ -13,11 +13,16 @@ const Select = ({ label, selected = '', id, option, ...restProps }) => {
       </label>
       <SelectStyle id={id} {...restProps}>
         {option.map((item) => (
-          // includes() 메서드 사용 불가 
-          {item?.includes(selected) ? <OptionStyle selected value={item.toLowerCase()} key={uuid()} id={uuid()}>
-          {item}
-        </OptionStyle> : <OptionStyle value={item.toLowerCase()} key={uuid()} id={uuid()}>
-        {item}</OptionStyle>}
+          <option value={item.value.toLowerCase()} key={uuid()} id={uuid()}>
+            {item.list}
+          </option>
+        ))}
+        {/* {option.map((item) => (
+          // includes() 메서드 사용 시 오류 
+          {item?.includes(selected) ? <option selected value={item.toLowerCase()} key={uuid()} id={uuid()}>
+          {item}</option> 
+          : <option value={item.toLowerCase()} key={uuid()} id={uuid()}>{item}</option>}
+        ) */}
       </SelectStyle>
     </>
   )

@@ -15,7 +15,6 @@ import footerLinkData from '../../data/footerLink.json'
 import addressData from '../../data/address.json'
 
 const Footer = ({ ...restProps }) => {
-  console.log(addressData[3].email)
   // JSON 데이터 동적 import
   // const [linkData, setLinkData] = useState('')
 
@@ -31,6 +30,18 @@ const Footer = ({ ...restProps }) => {
 
   // console.log(linkData)
   // console.log(linkData.default)
+
+  const [value, setValue] = useState('')
+
+  const languageItem = [
+    { list: '한국어', value: 'korean' },
+    { list: '영어', value: 'english' },
+  ]
+
+  const hangleOption = (e) => {
+    setValue(e.target.value)
+  }
+
   return (
     <FooterStyle {...restProps}>
       <p>질문이 있으신가요? &nbsp;</p>
@@ -49,6 +60,7 @@ const Footer = ({ ...restProps }) => {
               label={
                 <>
                   {item.link}
+                  {/* abbr 렌더링 되지 않음  */}
                   <abbr title={item.abbrTitle}>{item.abbr}</abbr>
                 </>
               }
@@ -60,7 +72,15 @@ const Footer = ({ ...restProps }) => {
           )
         )}
       </LinkListStyle>
-      <Select label="언어 선택" id="language" optoin={['한국어', '영어']} />
+      {/* Footer에서 Select 컴포넌트 사용 시  */}
+      {/* Cannot read property 'map' of undefined 라는 오류가 뜸. 원인을 알 수 없음  */}
+      <Select
+        label="언어 선택"
+        id="language"
+        value={value}
+        onChange={hangleOption}
+        optoin={languageItem}
+      />
       <AddressHead>Netflix 대한민국</AddressHead>
       <AddressStyle>
         <span>
