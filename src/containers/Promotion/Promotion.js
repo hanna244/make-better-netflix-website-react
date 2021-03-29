@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { isValidEmail } from '../../utils/regex'
+import { isValidEmail } from '../../utils'
 import {
   PromotionContainer,
   PromotionInput,
