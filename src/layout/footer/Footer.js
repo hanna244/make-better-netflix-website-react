@@ -54,14 +54,20 @@ const Footer = ({ ...restProps }) => {
         <span>넷플릭스서비시스코리아 유한회사</span>
         <br />
         {addressData.map((item) => (
-          // {Object?.keys(item).find(item => item === email || tel)}
           <Fragment key={uuid()}>
-            {item.email || item.tel ? (
+            {item.email ? (
               <Definition
                 dtContext={item.title}
                 ddContext={item.content}
                 id={uuid()}
-                link
+                emailLink
+              />
+            ) : item.tel ? (
+              <Definition
+                dtContext={item.title}
+                ddContext={item.content}
+                id={uuid()}
+                telLink
               />
             ) : (
               <Definition
@@ -70,7 +76,6 @@ const Footer = ({ ...restProps }) => {
                 id={uuid()}
               />
             )}
-
             <br />
           </Fragment>
         ))}
