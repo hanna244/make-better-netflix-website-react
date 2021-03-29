@@ -17,7 +17,9 @@
   },
   {
     "id": 4,
-    "link": "투자 정보"
+    "link": "투자 정보",
+    "abbr": "(IR)",
+    "abbrTitle": "Investor Relations"
   },
   {
     "id": 5,
