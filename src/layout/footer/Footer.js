@@ -56,12 +56,21 @@ const Footer = ({ ...restProps }) => {
         {addressData.map((item) => (
           // {Object?.keys(item).find(item => item === email || tel)}
           <Fragment key={uuid()}>
-            <Definition
-              dtContext={item.title}
-              ddContext={item.content}
-              id={uuid()}
-              {item.email || item.tel ? link : null}
-            ></Definition>
+            {item.email || item.tel ? (
+              <Definition
+                dtContext={item.title}
+                ddContext={item.content}
+                id={uuid()}
+                link
+              />
+            ) : (
+              <Definition
+                dtContext={item.title}
+                ddContext={item.content}
+                id={uuid()}
+              />
+            )}
+
             <br />
           </Fragment>
         ))}
