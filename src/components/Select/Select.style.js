@@ -17,5 +17,5 @@ export const SelectStyle = styled.select`
 `
 
 export const LabelStyle = styled.label`
-  ${(props) => (props.a11yHidden ? a11yHidden : null)}
+  ${(props) => (props.labelHidden ? a11yHidden : null)}
 `
