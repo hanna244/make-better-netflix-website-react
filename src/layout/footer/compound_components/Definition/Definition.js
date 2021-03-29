@@ -1,21 +1,24 @@
-import { string } from 'prop-types'
+import { string, bool } from 'prop-types'
 import { DefinitionStyle } from './Definition.style'
 
 function Definition({
-  headContext,
   className,
-  href,
-  dtContext,
-  link,
   ddContext,
+  dtContext,
+  emailLink,
+  telLink,
   ...resrProps
 }) {
   return (
     <DefinitionStyle className={className} {...resrProps}>
       <b>{dtContext}</b>:
-      {link ? (
+      {emailLink ? (
         <span>
-          <a href={href}>{ddContext}</a>
+          <a href={`mailto:${ddContext}`}>{ddContext}</a>
+        </span>
+      ) : telLink ? (
+        <span>
+          <a href={`tel:${ddContext}`}>{ddContext}</a>
         </span>
       ) : (
         <span>{ddContext}</span>
@@ -25,9 +28,11 @@ function Definition({
 }
 
 Definition.propTypes = {
-  href: string.isRequired,
   dtContext: string,
   ddContext: string,
+  className: string,
+  emailLink: bool,
+  telLink: bool,
 }
 
 export default Definition
