@@ -33,25 +33,37 @@ const Footer = ({ ...restProps }) => {
       <p>질문이 있으신가요? &nbsp;</p>
       <br className="linkBreak" />
       <DefinitionStyle
-        link
-        href="tel:+003083210058"
         dtContext="문의 전화"
         ddContext="00-308-321-0058"
+        telLink
       >
         테스트 입니다.
       </DefinitionStyle>
       <LinkListStyle>
-        {footerLinkData.map((item) => (
-          <LinkListItem
-            label={item.link}
-            key={uuid()}
-            id={uuid()}
-          ></LinkListItem>
-        ))}
+        {footerLinkData.map((item) =>
+          item.abbr ? (
+            <LinkListItem
+              label={
+                <>
+                  {item.link}
+                  <abbr title={item.abbrTitle}>{item.abbr}</abbr>
+                </>
+              }
+              key={uuid()}
+              id={uuid()}
+            />
+          ) : (
+            <LinkListItem label={item.link} key={uuid()} id={uuid()} />
+          )
+        )}
       </LinkListStyle>
       <AddressHead>Netflix 대한민국</AddressHead>
       <AddressStyle>
-        <span>넷플릭스서비시스코리아 유한회사</span>
+        <span>
+          <a href="https://www.ftc.go.kr/www/bizCommView.do?key=232&apv_perm_no=2018300016930200431&pageUnit=10&searchCnd=bup_nm&searchKrwd=%EB%84%B7%ED%94%8C%EB%A6%AD%EC%8A%A4&pageIndex=1">
+            넷플릭스서비시스코리아 유한회사
+          </a>
+        </span>
         <br />
         {addressData.map((item) => (
           <Fragment key={uuid()}>
