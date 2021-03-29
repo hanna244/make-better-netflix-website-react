@@ -1,13 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { v4 as uuid } from 'uuid'
 
-import { Select } from '../../components'
 import { Definition, LinkListItem } from './compound_components'
 import {
   FooterStyle,
   DefinitionStyle,
   LinkListStyle,
-  FooterSelectStyle,
   AddressHead,
   AddressStyle,
 } from './Footer.style'
@@ -31,17 +29,6 @@ const Footer = ({ ...restProps }) => {
 
   // console.log(linkData)
   // console.log(linkData.default)
-
-  const [value, setValue] = useState('')
-
-  const languageItem = [
-    { list: '한국어', value: 'korean' },
-    { list: '영어', value: 'english' },
-  ]
-
-  const hangleOption = (e) => {
-    setValue(e.target.value)
-  }
 
   return (
     <FooterStyle {...restProps}>
@@ -73,16 +60,6 @@ const Footer = ({ ...restProps }) => {
           )
         )}
       </LinkListStyle>
-      {/* Footer에서 Select 컴포넌트 사용 시  */}
-      {/* Cannot read property 'map' of undefined 라는 오류가 뜸. 원인을 알 수 없음  */}
-      <FooterSelectStyle
-        label="언어 선택"
-        id="language"
-        value={value}
-        onChange={hangleOption}
-        optoin={languageItem}
-        labelHidden
-      />
       <AddressHead>Netflix 대한민국</AddressHead>
       <AddressStyle>
         <span>넷플릭스서비시스코리아 유한회사</span>

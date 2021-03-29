@@ -7,15 +7,4 @@ export const SelectStyle = styled.select`
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-
-  padding: 1em 2.12em;
-  color: ${getColor('gray')};
-  font-size: 1.6rem;
-  line-height: 1.2;
-  background: url('./assets/select_global.svg') no-repeat left 1rem center,
-    url('./assets/select_arrow.svg') no-repeat left 8.7rem top 1.95rem;
-`
-
-export const LabelStyle = styled.label`
-  ${(props) => (props.labelHidden ? a11yHidden : null)}
 `
