@@ -14,5 +14,3 @@ export const SelectStyle = styled.select`
   background: url('./assets/select_global.svg') no-repeat left 1rem center,
     url('./assets/select_arrow.svg') no-repeat left 8.7rem top 1.95rem;
 `
-
-export const OptionStyle = styled.option``
