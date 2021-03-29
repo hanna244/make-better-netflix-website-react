@@ -60,12 +60,8 @@ const Footer = ({ ...restProps }) => {
               dtContext={item.title}
               ddContext={item.content}
               id={uuid()}
-            >
-              {item.email ? (
-                <a href={`mailto:${item.email}`}>{item.email}</a>
-              ) : null}
-              {item.tel ? <a href={`tel:${item.tel}`}>{item.tel}</a> : null}
-            </Definition>
+              {item.email || item.tel ? link : null}
+            ></Definition>
             <br />
           </Fragment>
         ))}
