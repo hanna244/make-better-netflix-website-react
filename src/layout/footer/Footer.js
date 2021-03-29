@@ -12,6 +12,7 @@ import footerLinkData from '../../data/footerLink.json'
 import addressData from '../../data/address.json'
 
 const Footer = ({ ...restProps }) => {
+  console.log(addressData[3].email)
   // JSON 데이터 동적 import
   // const [linkData, setLinkData] = useState('')
 
@@ -53,16 +54,21 @@ const Footer = ({ ...restProps }) => {
         <span>넷플릭스서비시스코리아 유한회사</span>
         <br />
         {addressData.map((item) => (
+          // {Object?.keys(item).find(item => item === email || tel)}
           <Fragment key={uuid()}>
             <Definition
               dtContext={item.title}
               ddContext={item.content}
               id={uuid()}
-            />
+            >
+              {item.email ? (
+                <a href={`mailto:${item.email}`}>{item.email}</a>
+              ) : null}
+              {item.tel ? <a href={`tel:${item.tel}`}>{item.tel}</a> : null}
+            </Definition>
             <br />
           </Fragment>
         ))}
-
         <span>공정거래위원회 통신 판매사업자 정보 보기</span>
       </AddressStyle>
     </FooterStyle>
