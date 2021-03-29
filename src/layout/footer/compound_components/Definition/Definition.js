@@ -6,7 +6,7 @@ function Definition({
   className,
   href,
   dtContext,
-  link = true,
+  link,
   ddContext,
   ...resrProps
 }) {
