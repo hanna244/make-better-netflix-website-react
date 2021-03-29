@@ -7,6 +7,7 @@ import {
   FooterStyle,
   DefinitionStyle,
   LinkListStyle,
+  FooterSelectStyle,
   AddressHead,
   AddressStyle,
 } from './Footer.style'
@@ -74,20 +75,17 @@ const Footer = ({ ...restProps }) => {
       </LinkListStyle>
       {/* Footer에서 Select 컴포넌트 사용 시  */}
       {/* Cannot read property 'map' of undefined 라는 오류가 뜸. 원인을 알 수 없음  */}
-      <Select
+      <FooterSelectStyle
         label="언어 선택"
         id="language"
         value={value}
         onChange={hangleOption}
         optoin={languageItem}
+        labelHidden
       />
       <AddressHead>Netflix 대한민국</AddressHead>
       <AddressStyle>
-        <span>
-          <a href="https://www.ftc.go.kr/www/bizCommView.do?key=232&apv_perm_no=2018300016930200431&pageUnit=10&searchCnd=bup_nm&searchKrwd=%EB%84%B7%ED%94%8C%EB%A6%AD%EC%8A%A4&pageIndex=1">
-            넷플릭스서비시스코리아 유한회사
-          </a>
-        </span>
+        <span>넷플릭스서비시스코리아 유한회사</span>
         <br />
         {addressData.map((item) => (
           <Fragment key={uuid()}>
@@ -115,7 +113,15 @@ const Footer = ({ ...restProps }) => {
             <br />
           </Fragment>
         ))}
-        <span>공정거래위원회 통신 판매사업자 정보 보기</span>
+        <span>
+          <a
+            href="https://www.ftc.go.kr/www/bizCommView.do?key=232&apv_perm_no=2018300016930200431&pageUnit=10&searchCnd=bup_nm&searchKrwd=%EB%84%B7%ED%94%8C%EB%A6%AD%EC%8A%A4&pageIndex=1"
+            rel="noreferrer"
+            target="_blank"
+          >
+            공정거래위원회 통신 판매사업자 정보 보기
+          </a>
+        </span>
       </AddressStyle>
     </FooterStyle>
   )

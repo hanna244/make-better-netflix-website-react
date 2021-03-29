@@ -1,7 +1,10 @@
 import styled from 'styled-components'
-import { resetList, resetPara } from '../../styles/common'
-import { getColor } from '../../utils'
+
 import { Definition } from './compound_components'
+import { Select } from '../../components'
+import { a11yHidden, resetList, resetPara } from '../../styles/common'
+
+import { getColor } from '../../utils'
 
 export const FooterStyle = styled.footer`
   color: ${getColor('gray')};
@@ -54,6 +57,14 @@ export const LinkListStyle = styled.ul`
     grid-gap: 1.6rem;
     margin-top: 3.5rem;
     font-size: 1.6rem;
+  }
+`
+
+export const FooterSelectStyle = styled(Select)`
+  margin-top: 3rem;
+
+  @media (min-width: 60em) {
+    margin-top: 8rem;
   }
 `
 
