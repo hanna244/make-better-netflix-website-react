@@ -8,15 +8,16 @@ const Select = ({ label, selected = '', id, option, ...restProps }) => {
   console.log(option)
   return (
     <>
+      {/* style 속성에 SC 컴포넌트 적용하는 방법?  */}
       <label style={{ a11yHidden }} htmlFor={id}>
         {label}
       </label>
       <SelectStyle id={id} {...restProps}>
-        {option.map((item) => (
+        {/* {option.map((item) => (
           <option value={item.value.toLowerCase()} key={uuid()} id={uuid()}>
             {item.list}
           </option>
-        ))}
+        ))} */}
         {/* {option.map((item) => (
           // includes() 메서드 사용 시 오류 
           {item?.includes(selected) ? <option selected value={item.toLowerCase()} key={uuid()} id={uuid()}>
