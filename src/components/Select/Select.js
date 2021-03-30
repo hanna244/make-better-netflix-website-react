@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { v4 as uuid } from 'uuid'
 import { bool, string, array } from 'prop-types'
 
-const Select = ({ id, optionList, labelHidden, ...restProps }) => {
+const Select = ({ id, optionList = [], labelHidden, ...restProps }) => {
   return (
     <Fragment>
       <label labelHidden={labelHidden} htmlFor={id}></label>
