@@ -8,6 +8,7 @@ import {
   StrongTextStyle,
   SignUpStyle,
   PromotionTextStyle,
+  OurStoryPromotion,
 } from './OurStory.style'
 
 const OurStory = ({ headingLevel }) => {
@@ -28,13 +29,13 @@ const OurStory = ({ headingLevel }) => {
   }, [])
 
   return (
-    <ContainerStyle>
+    <ContainerStyle as="section">
       {/* as=section으로 태그이름을 변경하고 싶은데 적용 시 배경이 사라짐.  */}
       <SectionStyle dim>
         <TitleStyle as={headingLevel}>{title}</TitleStyle>
         <StrongTextStyle>{strongText}</StrongTextStyle>
         <SignUpStyle>{signUp}</SignUpStyle>
-        <Promotion />
+        <OurStoryPromotion />
         <PromotionTextStyle>{promotionText}</PromotionTextStyle>
       </SectionStyle>
     </ContainerStyle>

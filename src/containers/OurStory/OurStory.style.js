@@ -43,10 +43,12 @@ export const SignUpStyle = styled.p`
     margin-top: 2rem;
   }
 `
-export const PromotionStyle = styled.p`
+export const PromotionTextStyle = styled.p`
   ${setFont(1.2, 1.35)}
 
   @media (min-width: 60em) {
     ${setFont(1.6, null, 'bold')}
   }
 `
+
+export const OurStoryPromotion = styled(Promotion)``
