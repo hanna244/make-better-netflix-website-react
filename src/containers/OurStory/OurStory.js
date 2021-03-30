@@ -5,6 +5,7 @@ import { SectionStyle } from './OurStory.style'
 
 const OurStory = ({ headingLevel }) => {
   const [homeData, setHomeData] = useState({})
+  const { title, strongText, signUp, promotion } = homeData
   const fetchData = () => {
     return import('../../data/homeContext.json')
       .then((data) => {
@@ -22,10 +23,10 @@ const OurStory = ({ headingLevel }) => {
   return (
     <Container>
       <SectionStyle dim>
-        <h2 as={headingLevel}>{homeData.title}</h2>
-        <p>{homeData.strongText}</p>
-        <p>{homeData.signUp}</p>
-        <p>{homeData.promotion}</p>
+        <h2 as={headingLevel}>{title}</h2>
+        <p>{strongText}</p>
+        <p>{signUp}</p>
+        <p>{promotion}</p>
         <Promotion />
       </SectionStyle>
     </Container>
