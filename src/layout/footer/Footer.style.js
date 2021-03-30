@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { Definition } from './compound_components'
 import { Select } from '../../components'
-import { a11yHidden, resetList, resetPara } from '../../styles/common'
+import { resetList, resetPara } from '../../styles/common'
 
 import { getColor } from '../../utils'
 
@@ -60,7 +60,7 @@ export const LinkListStyle = styled.ul`
   }
 `
 
-export const FooterSelectStyle = styled(Select)`
+export const LanguageSelectStyle = styled(Select)`
   margin-top: 3rem;
 
   @media (min-width: 60em) {
