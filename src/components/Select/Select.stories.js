@@ -8,5 +8,13 @@ export default {
 const Template = (args) => <Select {...args} />
 
 export const NormalSelect = Template.bind({})
-NormalSelect.args = {}
+NormalSelect.args = {
+  id: 'story_select',
+  optionList: [
+    { label: '한국어', value: 'korean' },
+    { label: '영어', value: 'english' },
+  ],
+  label: '언어 선택',
+  labelHidden: true,
+}
 NormalSelect.storyName = '셀렉트(normal)'
