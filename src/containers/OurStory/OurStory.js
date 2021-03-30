@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import { Container } from '../../components'
+import { Background } from '../../components'
 import { Promotion } from '../index'
-import { SectionStyle } from './OurStory.style'
+import {
+  ContainerStyle,
+  SectionStyle,
+  TitleStyle,
+  StrongTextStyle,
+  SignUpStyle,
+  PromotionStyle,
+} from './OurStory.style'
 
 const OurStory = ({ headingLevel }) => {
   const [homeData, setHomeData] = useState({})
-  const { title, strongText, signUp, promotion } = homeData
+  const { title, strongText, signUp, promotionText } = homeData
   const fetchData = () => {
     return import('../../data/homeContext.json')
       .then((data) => {
@@ -21,15 +28,16 @@ const OurStory = ({ headingLevel }) => {
   }, [])
 
   return (
-    <Container>
+    <ContainerStyle>
+      {/* as=section으로 태그이름을 변경하고 싶은데 적용 시 배경이 사라짐.  */}
       <SectionStyle dim>
-        <h2 as={headingLevel}>{title}</h2>
-        <p>{strongText}</p>
-        <p>{signUp}</p>
-        <p>{promotion}</p>
+        <TitleStyle as={headingLevel}>{title}</TitleStyle>
+        <StrongTextStyle>{strongText}</StrongTextStyle>
+        <SignUpStyle>{signUp}</SignUpStyle>
+        <PromotionStyle>{promotionText}</PromotionStyle>
         <Promotion />
       </SectionStyle>
-    </Container>
+    </ContainerStyle>
   )
 }
 
