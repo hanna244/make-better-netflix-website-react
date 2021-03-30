@@ -7,7 +7,7 @@ import {
   TitleStyle,
   StrongTextStyle,
   SignUpStyle,
-  PromotionStyle,
+  PromotionTextStyle,
 } from './OurStory.style'
 
 const OurStory = ({ headingLevel }) => {
@@ -34,8 +34,8 @@ const OurStory = ({ headingLevel }) => {
         <TitleStyle as={headingLevel}>{title}</TitleStyle>
         <StrongTextStyle>{strongText}</StrongTextStyle>
         <SignUpStyle>{signUp}</SignUpStyle>
-        <PromotionStyle>{promotionText}</PromotionStyle>
         <Promotion />
+        <PromotionTextStyle>{promotionText}</PromotionTextStyle>
       </SectionStyle>
     </ContainerStyle>
   )
