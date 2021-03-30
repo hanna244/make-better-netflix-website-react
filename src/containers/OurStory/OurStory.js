@@ -1,34 +1,36 @@
 import React, { useState, useEffect } from 'react'
-import { Background, Container } from '../../components'
+import { Container } from '../../components'
 import { Promotion } from '../index'
 import { SectionStyle } from './OurStory.style'
 
 const OurStory = ({ headingLevel }) => {
   const [homeData, setHomeData] = useState({})
+  // koHomeData에 접근 불가능 ? 왜 ?
+  // https://shhn0509.gitbook.io/netflix-website-react/undefined-3/error-notes#6
+  const { ko: koHomeData } = homeData[0]
+  console.log(koHomeData)
+  // console.log(homeData[0])
+  // const { title, strongText, signUp, promotion } = koHomeData
   const fetchData = () => {
     return import('../../data/homeContext.json')
       .then((data) => {
-        // console.log(data)
-        const { default } = data
-        setHomeData(default)
+        const { default: _default } = data
+        setHomeData(_default)
       })
       .catch((error) => console.error('데이터를 불러오지 못했습니다.'))
   }
-  // const {default} = data
-  // setHomeData(default)
 
   useEffect(() => {
     fetchData()
-    console.log(homeData)
-  }, [homeData])
+  }, [])
 
   return (
     <Container>
-      <SectionStyle>
-        <h2 as={headingLevel}></h2>
-        <p></p>
-        <p></p>
-        <p></p>
+      <SectionStyle dim>
+        {/* <h2 as={headingLevel}>{title}</h2>
+        <p>{strongText}</p>
+        <p>{signUp}</p>
+        <p>{promotion}</p> */}
         <Promotion />
       </SectionStyle>
     </Container>
