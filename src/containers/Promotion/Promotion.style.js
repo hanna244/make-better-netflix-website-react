@@ -62,7 +62,7 @@ export const SignUpButton = styled(PromotionButton)`
   line-height: 1.35;
 
   @media (min-width: 60em) {
-    padding: 0.67em 1.25em;
+    padding: 0.73em 1.25em;
     margin-top: 0;
     border-radius: 0;
     font-size: 2.2rem;
