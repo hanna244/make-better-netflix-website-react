@@ -1,0 +1,17 @@
+[
+  {
+    "ko": {
+      "title": "영화, TV 프로그램을 무제한으로.",
+      "strongText": "다양한 디바이스에서 시청하세요. 언제든 해지하실 수 있습니다.",
+      "signUp": "시청할 준비가 되셨나요? 멤버십을 등록하거나  재시작하려면 이메일 주소를 입력하세요.",
+      "promotion": "신규 회원만 이 프로모션을 이용하실 수 있습니다."
+    },
+    "en": {
+      "title": "Unlimited movies, TV shows, and more.",
+      "strongText": "Watch anywhere. Cancel anytime.",
+      "signUp": "Ready to watch? Enter your email to create or restart your membership.",
+      "promotion": "Only new members are eligible for this offer."
+    },
+    
+  }
+]
