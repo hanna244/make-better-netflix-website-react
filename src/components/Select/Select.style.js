@@ -3,7 +3,7 @@ import { a11yHidden } from '../../styles/common'
 import { getColor } from '../../utils'
 
 export const LabelStyle = styled.label`
-  ${(props) => (props.labelHidden ? a11yHidden : null)}
+  ${(props) => (props.a11yLabel ? a11yHidden : null)}
 `
 
 export const SelectStyle = styled.select`

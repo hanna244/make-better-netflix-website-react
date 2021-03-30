@@ -15,6 +15,6 @@ NormalSelect.args = {
     { label: '영어', value: 'english' },
   ],
   label: '언어 선택',
-  labelHidden: true,
+  a11yLabel: true,
 }
 NormalSelect.storyName = '셀렉트(normal)'

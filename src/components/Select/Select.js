@@ -3,10 +3,10 @@ import { v4 as uuid } from 'uuid'
 import { bool, string, array } from 'prop-types'
 import { SelectStyle, LabelStyle } from './Select.style'
 
-const Select = ({ id, optionList = [], labelHidden, label, ...restProps }) => {
+const Select = ({ id, optionList = [], a11yLabel, label, ...restProps }) => {
   return (
     <Fragment>
-      <LabelStyle labelHidden={labelHidden} htmlFor={id}>
+      <LabelStyle a11yLabel={a11yLabel} htmlFor={id}>
         {label}
       </LabelStyle>
       <SelectStyle id={id} {...restProps}>
@@ -23,7 +23,7 @@ const Select = ({ id, optionList = [], labelHidden, label, ...restProps }) => {
 Select.propTypes = {
   id: string.isRequired,
   optionList: array,
-  labelHidden: bool,
+  a11yLabel: bool,
 }
 
 export default Select
