@@ -14,15 +14,18 @@ const Promotion = ({ className, ...restProps }) => {
   // const passwordRegEx = /^[0-9].{8,60}$/
   console.log(isValidEmail(inputValue))
 
-  const handleInputIsValid = () => {
-    if (!isValidEmail(inputValue) && inputValue.trim().length === 0) {
+  const handleInputIsValid = useCallback(() => {
+    const valueLength = inputValue.trim().length
+    const checkEmail = isValidEmail(inputValue)
+
+    if (!checkEmail && valueLength === 0) {
       setInputAttr({ valid: false, invalid: false })
-    } else if (!isValidEmail(inputValue) && inputValue.trim().length !== 0) {
+    } else if (!checkEmail && valueLength !== 0) {
       setInputAttr({ valid: true, invalid: true })
-    } else if (isValidEmail(inputValue) && inputValue.trim().length !== 0) {
+    } else if (checkEmail && valueLength !== 0) {
       setInputAttr({ valid: true, invalid: false })
     }
-  }
+  }, [inputValue, setInputAttr])
 
   return (
     <PromotionContainer className={className} {...restProps}>
