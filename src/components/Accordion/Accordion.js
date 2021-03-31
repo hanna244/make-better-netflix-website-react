@@ -1,12 +1,8 @@
 import React, { useRef } from 'react'
-// import { string, bool } from 'prop-types'
+import { string, bool } from 'prop-types'
 import { Item, Head, Body, OpenButton, PlusImg } from './Accordion.style'
 import { v4 as uuid } from 'uuid'
 import { useTransition, animated } from 'react-spring'
-
-const getElementStyle = (ref) => {
-  return ref.current ? ref.current.getBoundingClientRect().height : 0
-}
 
 const Accordion = ({
   isVisible,
@@ -16,28 +12,6 @@ const Accordion = ({
   answer,
   ...restProps
 }) => {
-  const { visibleStyle, hiddenStyle } = Accordion
-  const isVisibleOnMount = useRef(isVisible)
-  const bodyRef = useRef(null)
-  const transition = useTransition(isVisible, null, {
-    enter: () => async (next, cancel) => {
-      const height = getElementStyle(bodyRef)
-
-      await next({ height, opacity: 1, overflow: 'visible' })
-      await next(visibleStyle)
-    },
-    leave: () => async (next, cancel) => {
-      const height = getElementStyle(bodyRef)
-
-      await next({ height, opacity: 0 })
-      await next(hiddenStyle)
-
-      isVisibleOnMount.current = false
-    },
-
-    from: isVisibleOnMount.current ? visibleStyle : hiddenStyle,
-  })
-
   return (
     <Item key={uuid()} id={uuid()} onClick={handleOpen} {...restProps}>
       <Head>
@@ -52,19 +26,17 @@ const Accordion = ({
           />
         </OpenButton>
       </Head>
-      {transition.map(({ item: show, key, prop }) => {
-        return show ? (
-          <animated.div>
-            <Body style={prop} key={key} as="dd">
-              {answer
-                ? answer.map((item) => {
-                    return <p>{item}</p>
-                  })
-                : null}
-            </Body>
-          </animated.div>
-        ) : null
-      })}
+      <div>
+        {isOpen ? (
+          <Body as="dd">
+            {answer
+              ? answer.map((item) => {
+                  return <p>{item}</p>
+                })
+              : null}
+          </Body>
+        ) : null}
+      </div>
     </Item>
   )
 }
@@ -74,7 +46,13 @@ Accordion.defaultProps = {
   answer: ['이곳에 답변을 입력하세요.'],
 }
 
-Accordion.visibleStyle = { height: 'auto', opacity: 1, overflow: 'visible' }
-Accordion.hiddenStyle = { height: 'auto', opacity: 1, overflow: 'visible' }
+Accordion.propTypes = {
+  /** 아코디언 메뉴의 헤더에 사용자 정의 질문을 설정할 수 있습니다. */
+  question: string,
+  /** 아코디언 메뉴의 바디(답변)을 열고/닫기 설정할 수 있습니다. */
+  isOpen: bool,
+  /** 아코디언 메뉴의 바디에 사용자 정의 답변을 설정할 수 있습니다. */
+  answer: string,
+}
 
 export default Accordion
