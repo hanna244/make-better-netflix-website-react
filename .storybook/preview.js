@@ -25,8 +25,15 @@ export const decorators = [
 ]
 
 const customViewports = {
-  netflixSmall: {
-    name: 'netflix small',
+  netflixSamll: {
+    name: 'netflix samll',
+    styles: {
+      width: '375px',
+      height: '640px',
+    },
+  },
+  netflixMedium: {
+    name: 'netflix medium',
     styles: {
       width: '640px',
       height: '960px',
