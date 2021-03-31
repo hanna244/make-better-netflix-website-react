@@ -1,7 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Promotion } from '..'
-import { Background, Container } from '../../components'
-import { Head } from './OurStory.style'
+import { Background } from '../../components'
+import {
+  MainContainer,
+  Head,
+  TitleStyle,
+  SubTitleStyle,
+  SignUpStyle,
+  PromotionInfoStyle,
+  OurStoryPromotion,
+} from './OurStory.style'
 
 const OurStory = ({ headingLevel, ...restProps }) => {
   const fetchData = useCallback(() => {
@@ -20,15 +27,15 @@ const OurStory = ({ headingLevel, ...restProps }) => {
   }, [fetchData])
 
   return (
-    <Background as="section" {...restProps}>
-      <Container>
+    <Background dim as="section" {...restProps}>
+      <MainContainer>
         <Head as={headingLevel}>넷플릭스 소개</Head>
-        <p>{title}</p>
-        <p>{subTitle}</p>
-        <p>{signUp}</p>
-        <Promotion />
-        <p>{promotionInfo}</p>
-      </Container>
+        <TitleStyle>{title}</TitleStyle>
+        <SubTitleStyle>{subTitle}</SubTitleStyle>
+        <SignUpStyle>{signUp}</SignUpStyle>
+        <OurStoryPromotion />
+        <PromotionInfoStyle>{promotionInfo}</PromotionInfoStyle>
+      </MainContainer>
     </Background>
   )
 }

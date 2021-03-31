@@ -6,7 +6,7 @@ import {
   SignUpButton,
 } from './Promotion.style'
 
-const Promotion = () => {
+const Promotion = ({ className, ...restProps }) => {
   // Input 컴포넌트에서 value 값을 가져오기 위해 사용
   const [inputValue, setInputValue] = useState('')
   const [inputAttr, setInputAttr] = useState({})
@@ -30,7 +30,7 @@ const Promotion = () => {
   }
 
   return (
-    <PromotionContainer>
+    <PromotionContainer className={className} {...restProps}>
       <PromotionInput
         id="userEmail"
         type="email"
