@@ -6,7 +6,6 @@ export const PromotionContainer = styled(Container)`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  height: 150px;
 
   @media (min-width: 60em) {
     flex-direction: row;
