@@ -1,8 +1,7 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment } from 'react'
 import { v4 as uuid } from 'uuid'
 
 import { Definition, LinkListItem } from './compound_components'
-import { Select } from '../../components'
 import {
   FooterStyle,
   DefinitionStyle,

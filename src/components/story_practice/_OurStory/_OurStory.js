@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Background } from '../..'
-import { Promotion } from '../../../containers/index'
 import {
   ContainerStyle,
   SectionStyle,
