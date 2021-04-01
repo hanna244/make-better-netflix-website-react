@@ -1,7 +1,7 @@
 import Merit from './Merit'
 
 export default {
-  title: 'Containers/Home/Merit',
+  title: 'Containers/Merit/Merit',
   component: Merit,
 }
 
