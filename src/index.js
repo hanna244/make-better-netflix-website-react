@@ -1,13 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App/App'
-import './styles/normalize.css'
+
+import { Provider } from 'react-redux'
+import { store } from './store/store'
+
 import { GlobalStyles } from './styles/GlobalStyles'
+import './styles/normalize.css'
+import App from './App/App'
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyles />
-    <App />
+    <Provider store={store}>
+      <GlobalStyles />
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )
