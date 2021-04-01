@@ -9,15 +9,15 @@ import {
 
 const Promotion = ({ className, ...restProps }) => {
   return (
-    <PromotionContainer className={className} {...restProps}>
+    <PromotionContainer className={className}>
       <PromotionInput
-        id="userEmail"
         type="email"
         label="이메일 주소"
         errorMessege="정확한 이메일 주소를 입력하세요."
         // onInputComplete={(value) => setInputValue(value)}
         // onBlur={handleInputIsValid}
         // {...inputAttr}
+        {...restProps}
       />
       <SignUpButton label="30일 무료 이용" />
     </PromotionContainer>

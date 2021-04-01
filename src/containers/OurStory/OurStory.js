@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Background } from '../../components'
+import { Promotion } from '../'
 import {
   MainContainer,
   Head,
@@ -7,7 +8,7 @@ import {
   SubTitleStyle,
   SignUpStyle,
   PromotionInfoStyle,
-  OurStoryPromotion,
+  // OurStoryPromotion,
 } from './OurStory.style'
 
 const OurStory = ({ headingLevel, ...restProps }) => {
@@ -33,7 +34,8 @@ const OurStory = ({ headingLevel, ...restProps }) => {
         <TitleStyle>{title}</TitleStyle>
         <SubTitleStyle>{subTitle}</SubTitleStyle>
         <SignUpStyle>{signUp}</SignUpStyle>
-        <OurStoryPromotion />
+        {/* <OurStoryPromotion /> */}
+        <Promotion name="ourStoryEmail" id="ourStoryUserEmail" />
         <PromotionInfoStyle>{promotionInfo}</PromotionInfoStyle>
       </MainContainer>
     </Background>
