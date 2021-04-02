@@ -1,4 +1,6 @@
 export { default as FAQ } from './FAQ/FAQ'
+export { default as HomeMerit } from './HomeMerit/HomeMerit'
 export { default as Merit } from './Merit/Merit'
 export { default as OurStory } from './OurStory/OurStory'
 export { default as Promotion } from './Promotion/Promotion'
+export { default as Download } from './Download/Download'
