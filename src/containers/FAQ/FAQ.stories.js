@@ -5,10 +5,12 @@ export default {
   component: FAQ,
 }
 
-const Template = (args) => <FAQ {...args} />
+const Template = (args) => (
+  <div style={{ margin: 30 }}>
+    <FAQ {...args} />
+  </div>
+)
 
 export const FAQGroup = Template.bind({})
-FAQGroup.args = {
-  heddingProps: { as: 'h3', label: '질문과 답변 목록' },
-}
-FAQGroup.storyName = '질문과 답변 목록'
+FAQGroup.args = {}
+FAQGroup.storyName = '자주 묻는 질문'
