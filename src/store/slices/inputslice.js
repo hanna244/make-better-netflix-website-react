@@ -1,5 +1,5 @@
 const initState = {
-  email: { mainEmail: '', subEmail: '' },
+  email: '',
   password: '',
   detect: {
     valid: false,
@@ -7,14 +7,11 @@ const initState = {
   },
 }
 
-export const inputReducer = (state = initState, { type, value }) => {
+export const inputReducer = (state = initState, { type, value, name }) => {
   switch (type) {
-    case mainEmailvalueUpdate.name:
+    case valueUpdate.name:
       // 구조 분해 할당을 하지 않았는데 어떻게 mianEmail, subEmail를 바로 사용할 수 있지?
-      return { ...state, mainEmail: value }
-
-    case subEmailvalueUpdate.name:
-      return { ...state, subEmail: value }
+      return { ...state, [name]: value }
 
     case lengthZeroAction.name:
       return { ...state, invalid: false, valid: false }
@@ -30,13 +27,10 @@ export const inputReducer = (state = initState, { type, value }) => {
   }
 }
 
-export const mainEmailvalueUpdate = (inputValue) => ({
-  type: mainEmailvalueUpdate.name,
+export const valueUpdate = (inputValue, name) => ({
+  type: valueUpdate.name,
   value: inputValue,
-})
-export const subEmailvalueUpdate = (inputValue) => ({
-  type: subEmailvalueUpdate.name,
-  value: inputValue,
+  name: name,
 })
 
 export const lengthZeroAction = () => ({ type: lengthZeroAction.name })
