@@ -12,14 +12,14 @@ const Accordion = ({
   answer = [],
   ...restProps
 }) => {
-  const bodyRef = useRef(null)
+  // const bodyRef = useRef(null)
 
-  const [toggle, setToggle] = useState(false)
-  const transitions = useTransition(toggle, null, {
-    from: { transform: 'translateY(-307px)' },
-    enter: { transform: 'translateY(0px)' },
-    leave: { transform: 'translateY(-307px)' },
-  })
+  // const [toggle, setToggle] = useState(false)
+  // const transitions = useTransition(toggle, null, {
+  //   from: { transform: 'translateY(-307px)' },
+  //   enter: { transform: 'translateY(0px)' },
+  //   leave: { transform: 'translateY(-307px)' },
+  // })
 
   return (
     <Item key={uuid()} id={uuid()} onClick={handleOpen} {...restProps}>
@@ -36,6 +36,18 @@ const Accordion = ({
         </OpenButton>
       </Head>
       <div>
+        {isOpen ? (
+          <Body as="dd">
+            {answer.map((item) => {
+              return (
+                <p key={uuid()} id={uuid()}>
+                  {item}
+                </p>
+              )
+            })}
+          </Body>
+        ) : null}
+
         {/* {transitions.map(({ item, props, key }) => (
           // 현재 애니메이션이 동작되지 않음으로 uuid()를 설정해서 오류 해결 (임시)
           <animated.div key={uuid()} id={uuid()} style={props}>
