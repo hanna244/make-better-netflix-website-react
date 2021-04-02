@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Background } from '../../components'
-import { Promotion } from '../'
-
 import {
   MainContainer,
   Head,
@@ -9,11 +7,10 @@ import {
   SubTitleStyle,
   SignUpStyle,
   PromotionInfoStyle,
-  // OurStoryPromotion,
+  OurStoryPromotion,
 } from './OurStory.style'
 
-const OurStory = ({ promotionprop, ...restProps }) => {
-  // 로컬 데이터 비동기로 받아오기
+const OurStory = ({ headingLevel, ...restProps }) => {
   const fetchData = useCallback(() => {
     import('../../data/homeContext.json').then((module) => {
       const { default: _default } = module
@@ -32,12 +29,11 @@ const OurStory = ({ promotionprop, ...restProps }) => {
   return (
     <Background dim as="section" {...restProps}>
       <MainContainer>
-        <Head>넷플릭스 소개</Head>
+        <Head as={headingLevel}>넷플릭스 소개</Head>
         <TitleStyle>{title}</TitleStyle>
         <SubTitleStyle>{subTitle}</SubTitleStyle>
         <SignUpStyle>{signUp}</SignUpStyle>
-        {/* <OurStoryPromotion /> */}
-        <Promotion id="ourStoryUserEmail" name="email" {...promotionprop} />
+        <OurStoryPromotion />
         <PromotionInfoStyle>{promotionInfo}</PromotionInfoStyle>
       </MainContainer>
     </Background>
