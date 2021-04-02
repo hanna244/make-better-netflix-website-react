@@ -18,7 +18,7 @@ Item.displayName = 'Body'
 
 export const Head = styled.dt`
   position: relative;
-  z-index: -10;
+  z-index: 100;
   padding: 2.1rem 3rem;
   border: solid ${getColor('black')};
   border-width: 1px 0;
@@ -31,7 +31,7 @@ Head.displayName = 'Head'
 export const Body = styled(Head)`
   ${resetList}
   padding: 2.1rem 3rem;
-  z-index: -1000;
+  z-index: -10000000;
   font-size: 2.6rem;
   line-height: 1.5;
 
@@ -41,12 +41,6 @@ export const Body = styled(Head)`
   }
   p:nth-child(1) {
     margin-top: 0;
-  }
-
-  &::before,
-  ::after {
-    content: '';
-    display: block;
   }
 `
 Body.displayName = 'Body'
