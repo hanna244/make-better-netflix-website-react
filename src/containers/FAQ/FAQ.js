@@ -2,6 +2,9 @@ import React, { useEffect, useCallback, useState, Fragment } from 'react'
 import { Accordion } from '../../components'
 import faqData from '../../data/faq.json'
 
+import { useSelector, useDispatch } from 'react-redux'
+import { open, close } from '../../store/slices/faqslice'
+
 const FAQ = ({ as, label, children, ...restProps }) => {
   // const fetchData = useCallback(() => {
   //   import('../../data/faq.json')
@@ -17,6 +20,10 @@ const FAQ = ({ as, label, children, ...restProps }) => {
   // }, [fetchData])
 
   // const [faqData, setFaqData] = useState({})
+
+  const curious = useSelector((state) => state.curious)
+
+  console.log(curious)
 
   return (
     <Fragment>
