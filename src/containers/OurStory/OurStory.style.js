@@ -59,11 +59,12 @@ SubTitleStyle.displayName = 'SubTitleStyle'
 
 export const SignUpStyle = styled(CommonPara)`
   ${setFont(1.3, 1.35)}
-  max-width: 73%;
+  max-width: 24.6rem;
   margin-top: 1rem;
 
   @media (min-width: 60em) {
     ${setFont(1.6, null, 'bold')}
+    max-width: 24.6rem;
     margin-top: 2rem;
   }
 `
