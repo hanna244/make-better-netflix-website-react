@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Frame, InnerVideo } from '../../components'
+import Download from '../Download/Download'
 
 export const Container = styled.article`
   display: flex;
@@ -14,12 +15,23 @@ export const Container = styled.article`
     text-align: left;
     max-width: 120rem;
   }
+
+  /* 추가적인 비디오 및 서브 이미지 스타일링 --------------------------------------------------- */
+
+  .device {
+    video {
+      top: 21.28%;
+      left: 12.93%;
+      width: 73.53%;
+    }
+  }
 `
 Container.displayName = 'Container'
 
 export const TextContainer = styled.div`
   margin-top: 6rem;
   max-width: 33.9rem;
+
   @media (min-width: 60em) {
     margin: auto 0;
     max-width: 50.3rem;
@@ -75,3 +87,15 @@ export const MeritVideo = styled(InnerVideo)`
   width: 60.53%;
 `
 MeritVideo.displayName = 'MeritVideo'
+
+export const DownloadStyle = styled(Download)`
+  position: absolute;
+  bottom: 7.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media (min-width: 60em) {
+    bottom: 2.1rem;
+  }
+`
+DownloadStyle.displayName = 'DownloadStyle'

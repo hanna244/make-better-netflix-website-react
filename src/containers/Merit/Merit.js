@@ -1,6 +1,6 @@
 import { oneOf, string } from 'prop-types'
 import React from 'react'
-
+import { Download } from '../index'
 import {
   Container,
   Head,
@@ -9,6 +9,7 @@ import {
   MeritFrame,
   MeritVideo,
   TextContainer,
+  DownloadStyle,
 } from './Merit.style'
 
 const Merit = ({
@@ -19,16 +20,19 @@ const Merit = ({
   videoType,
   alt,
   direction,
+  classNames,
+  downloadContent,
 }) => {
   return (
     <Container direction={direction}>
-      <TextContainer>
+      <TextContainer className={classNames}>
         <Head as={headingLevel}>{heading}</Head>
         <Description>{description}</Description>
       </TextContainer>
-      <MediaWrapper>
+      <MediaWrapper className={classNames}>
         <MeritFrame type={imageType} alt={alt} />
         <MeritVideo type={videoType}></MeritVideo>
+        {downloadContent ? <DownloadStyle /> : null}
       </MediaWrapper>
     </Container>
   )
@@ -36,6 +40,8 @@ const Merit = ({
 
 Merit.defaultProps = {
   direction: 'row',
+  className: 'tv',
+  downloadContent: false,
 }
 
 Merit.propTypes = {
