@@ -3,8 +3,6 @@ import { v4 as uuid } from 'uuid'
 import { Merit } from '..'
 import { DataContext } from '../../context/context'
 
-import { DeviceVideo } from './HomeMerit.style'
-
 const HomeMerit = () => {
   const meritContext = useContext(DataContext)
   const { meritData } = meritContext
