@@ -20,9 +20,13 @@ export const Container = styled.article`
 
   .device {
     video {
-      top: 21.28%;
+      top: 16.28%;
       left: 12.93%;
       width: 73.53%;
+
+      @media (min-width: 60em) {
+        top: 21.28%;
+      }
     }
   }
 `
