@@ -6,13 +6,15 @@ export const Container = styled.article`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-
+  padding: 2rem 0;
+  margin: 0 auto;
   text-align: center;
 
   @media (min-width: 60em) {
     flex-direction: ${({ direction }) => direction ?? 'row'};
     justify-content: space-between;
     text-align: left;
+    padding: 6rem 0;
     max-width: 120rem;
   }
 
