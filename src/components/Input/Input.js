@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import classNames from 'classnames'
 import { string, bool, number, oneOf } from 'prop-types'
 import {
@@ -43,7 +43,7 @@ const Input = ({
           invalid={invalid}
           style={background}
           type={type}
-          value={value}
+          value={value ?? ''}
           className={inputClass}
           name={name}
           minLength={minLength}
