@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Container } from '../../components'
-import { Promotion } from '..'
+import Promotion from '../Promotion/Promotion'
 import { a11yHidden, resetPara } from '../../styles/common'
 import { setFont } from '../../utils'
 
@@ -22,7 +22,7 @@ export const MainContainer = styled(Container)`
   text-align: center;
 
   @media (min-width: 60em) {
-    padding: 14rem 0;
+    padding: 22.3rem 0 8.3rem;
     margin: 0 auto;
   }
 `
