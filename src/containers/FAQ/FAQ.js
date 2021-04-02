@@ -1,21 +1,28 @@
-import React, { useState, Fragment } from 'react'
+import React, { useEffect, useCallback, useState, Fragment } from 'react'
 import { Accordion } from '../../components'
-import { Promotion } from '../index'
-import { A11yHead } from './FAQ.style'
 
 const FAQ = ({ as, label, children, ...restProps }) => {
-  const [isVisible, setIsvisible] = useState(false)
+  const fetchData = useCallback(() => {
+    import('../../data/faq.json')
+      .then((data) => {
+        const { default: _default } = data
+        setFaqData(_default)
+      })
+      .catch((error) => console.error('데이터를 받아오는데 실패했습니다.'))
+  })
 
-  const handleOpen = () => {
-    setIsvisible(!isVisible)
-  }
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
+
+  const [faqData, setFaqData] = useState({})
 
   return (
     <Fragment>
       <article {...restProps}>
-        {children}
-        <A11yHead as={as}>{label}</A11yHead>
-        <Accordion handleOpen={handleOpen} isVisible={isVisible} />
+        {faqData.map((item) => (
+          <Accordion question={item.question} answer={item.answer} />
+        ))}
       </article>
     </Fragment>
   )
