@@ -22,7 +22,7 @@ export const MainContainer = styled(Container)`
   text-align: center;
 
   @media (min-width: 60em) {
-    padding: 22.3rem 0 8.3rem;
+    padding: 8.3rem 0;
     margin: 0 auto;
   }
 `
@@ -64,7 +64,7 @@ export const SignUpStyle = styled(CommonPara)`
 
   @media (min-width: 60em) {
     ${setFont(1.6, null, 'bold')}
-    max-width: 24.6rem;
+    max-width: 29.6rem;
     margin-top: 2rem;
   }
 `
