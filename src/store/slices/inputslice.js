@@ -7,11 +7,12 @@ const initState = {
   },
 }
 
-export const inputReducer = (state = initState, { type, value, name }) => {
+export const inputReducer = (state = initState, { type, value, inputName }) => {
   switch (type) {
     case valueUpdate.name:
       // 구조 분해 할당을 하지 않았는데 어떻게 mianEmail, subEmail를 바로 사용할 수 있지?
-      return { ...state, [name]: value }
+      // return { ...state, [inputName]: value }
+      return { ...state, email: value }
 
     case lengthZeroAction.name:
       return { ...state, invalid: false, valid: false }
@@ -30,7 +31,7 @@ export const inputReducer = (state = initState, { type, value, name }) => {
 export const valueUpdate = (inputValue, name) => ({
   type: valueUpdate.name,
   value: inputValue,
-  name: name,
+  inputName: name,
 })
 
 export const lengthZeroAction = () => ({ type: lengthZeroAction.name })

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Background } from '../../components'
 import { Promotion } from '../'
+
 import {
   MainContainer,
   Head,
@@ -11,7 +12,8 @@ import {
   // OurStoryPromotion,
 } from './OurStory.style'
 
-const OurStory = ({ headingLevel, ...restProps }) => {
+const OurStory = ({ promotionprop, ...restProps }) => {
+  // 로컬 데이터 비동기로 받아오기
   const fetchData = useCallback(() => {
     import('../../data/homeContext.json').then((module) => {
       const { default: _default } = module
@@ -30,12 +32,12 @@ const OurStory = ({ headingLevel, ...restProps }) => {
   return (
     <Background dim as="section" {...restProps}>
       <MainContainer>
-        <Head as={headingLevel}>넷플릭스 소개</Head>
+        <Head>넷플릭스 소개</Head>
         <TitleStyle>{title}</TitleStyle>
         <SubTitleStyle>{subTitle}</SubTitleStyle>
         <SignUpStyle>{signUp}</SignUpStyle>
         {/* <OurStoryPromotion /> */}
-        <Promotion name="ourStoryEmail" id="ourStoryUserEmail" />
+        <Promotion id="ourStoryUserEmail" name="email" {...promotionprop} />
         <PromotionInfoStyle>{promotionInfo}</PromotionInfoStyle>
       </MainContainer>
     </Background>
