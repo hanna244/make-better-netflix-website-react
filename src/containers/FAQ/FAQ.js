@@ -17,8 +17,6 @@ const FAQ = ({ as, label, children, ...restProps }) => {
         <A11yHead as={as}>{label}</A11yHead>
         <Accordion handleOpen={handleOpen} isVisible={isVisible} />
       </article>
-
-      <Promotion name="faqEmail" id="faqUserEmail" />
     </Fragment>
   )
 }
