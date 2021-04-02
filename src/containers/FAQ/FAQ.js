@@ -1,21 +1,22 @@
 import React, { useEffect, useCallback, useState, Fragment } from 'react'
 import { Accordion } from '../../components'
+import faqData from '../../data/faq.json'
 
 const FAQ = ({ as, label, children, ...restProps }) => {
-  const fetchData = useCallback(() => {
-    import('../../data/faq.json')
-      .then((data) => {
-        const { default: _default } = data
-        setFaqData(_default)
-      })
-      .catch((error) => console.error('데이터를 받아오는데 실패했습니다.'))
-  })
+  // const fetchData = useCallback(() => {
+  //   import('../../data/faq.json')
+  //     .then((data) => {
+  //       const { default: _default } = data
+  //       setFaqData(_default)
+  //     })
+  //     .catch((error) => console.error('데이터를 받아오는데 실패했습니다.'))
+  // })
 
-  useEffect(() => {
-    fetchData()
-  }, [fetchData])
+  // useEffect(() => {
+  //   fetchData()
+  // }, [fetchData])
 
-  const [faqData, setFaqData] = useState({})
+  // const [faqData, setFaqData] = useState({})
 
   return (
     <Fragment>
