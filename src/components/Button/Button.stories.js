@@ -19,7 +19,12 @@ export default {
   },
 }
 
-const Template = (args) => <Button {...args} />
+const Template = (args) => (
+  <div style={{ margin: 30 }}>
+    {' '}
+    <Button {...args} />
+  </div>
+)
 
 export const RouteNormalButton = Template.bind({})
 RouteNormalButton.args = {

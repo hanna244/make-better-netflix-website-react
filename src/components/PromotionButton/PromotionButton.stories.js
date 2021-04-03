@@ -19,7 +19,12 @@ export default {
   },
 }
 
-const Template = (args) => <PromotionButton {...args} />
+const Template = (args) => (
+  <div style={{ margin: 30 }}>
+    {' '}
+    <PromotionButton {...args} />
+  </div>
+)
 
 export const PromotionNormalButton = Template.bind({})
 PromotionNormalButton.args = {

@@ -5,7 +5,12 @@ export default {
   component: Select,
 }
 
-const Template = (args) => <Select {...args} />
+const Template = (args) => (
+  <div style={{ margin: 30 }}>
+    {' '}
+    <Select {...args} />
+  </div>
+)
 
 export const NormalSelect = Template.bind({})
 NormalSelect.args = {

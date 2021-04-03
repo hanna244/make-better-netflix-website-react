@@ -18,7 +18,12 @@ export default {
   },
 }
 
-const Template = (args) => <Input {...args} />
+const Template = (args) => (
+  <div style={{ margin: 30 }}>
+    {' '}
+    <Input {...args} />
+  </div>
+)
 
 /* input Email -------------------------------------------------------------- */
 

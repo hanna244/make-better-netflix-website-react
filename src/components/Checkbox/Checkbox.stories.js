@@ -17,7 +17,12 @@ export default {
   },
 }
 
-const Template = (args) => <Checkbox {...args} />
+const Template = (args) => (
+  <div style={{ margin: 30 }}>
+    {' '}
+    <Checkbox {...args} />
+  </div>
+)
 
 export const InvalidCheckbox = Template.bind({})
 InvalidCheckbox.args = {
