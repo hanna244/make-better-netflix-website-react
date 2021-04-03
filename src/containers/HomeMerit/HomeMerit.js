@@ -14,6 +14,7 @@ const HomeMerit = () => {
         <Merit
           key={uuid()}
           id={uuid()}
+          headingLevel="h3"
           heading={item.title}
           description={item.description}
           imageType={item.imageType}
