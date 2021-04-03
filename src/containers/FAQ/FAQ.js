@@ -43,7 +43,9 @@ const FAQ = ({ as, label, children, ...restProps }) => {
             id={index}
             question={item.question}
             answer={item.answer}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() =>
+              setCurrentIndex(index === currentIndex ? null : index)
+            }
             currentIndex={currentIndex}
             isOpen={curious}
           />
