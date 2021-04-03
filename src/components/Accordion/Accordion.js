@@ -6,10 +6,10 @@ import { useTransition, animated } from 'react-spring'
 
 const Accordion = ({
   isVisible,
-  handleOpen,
   question,
   isOpen,
   answer = [],
+  handleToggle,
   ...restProps
 }) => {
   // const bodyRef = useRef(null)
@@ -22,7 +22,7 @@ const Accordion = ({
   // })
 
   return (
-    <Item key={uuid()} id={uuid()} onClick={handleOpen} {...restProps}>
+    <Item key={uuid()} id={uuid()} onClick={handleToggle} {...restProps}>
       <Head>
         {question}
         <OpenButton>
@@ -31,7 +31,6 @@ const Accordion = ({
             height="40"
             src="./assets/plusIcon.svg"
             alt="답변 보기"
-            isOpen={isOpen}
           />
         </OpenButton>
       </Head>

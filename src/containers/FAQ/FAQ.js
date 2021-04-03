@@ -22,9 +22,17 @@ const FAQ = ({ as, label, children, ...restProps }) => {
 
   // const [faqData, setFaqData] = useState({})
 
-  const curious = useSelector((state) => state.curious)
-
+  const curious = useSelector((state) => state.curious.isOpen)
   console.log(curious)
+
+  const dispatch = useDispatch()
+
+  const answerOpen = () => dispatch(open())
+  const answerClose = () => dispatch(close())
+
+  const handleToggle = () => {
+    !curious ? answerOpen() : answerClose()
+  }
 
   return (
     <Fragment>
@@ -35,6 +43,8 @@ const FAQ = ({ as, label, children, ...restProps }) => {
             id={uuid()}
             question={item.question}
             answer={item.answer}
+            handleToggle={handleToggle}
+            isOpen={curious}
           />
         ))}
       </article>
