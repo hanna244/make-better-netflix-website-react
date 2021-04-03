@@ -8,17 +8,16 @@ const Accordion = ({
   id,
   isVisible,
   question,
-  isOpen,
   answer,
   handleToggle,
   currentIndex,
   ...restProps
 }) => {
   return (
-    <Item key={uuid()} id={id} className="accordionItem" {...restProps}>
+    <Item key={uuid()} className="accordionItem" {...restProps}>
       <Head>
         {question}
-        <OpenButton id={id}>
+        <OpenButton>
           <PlusImg
             width="40"
             height="40"
@@ -27,8 +26,8 @@ const Accordion = ({
           />
         </OpenButton>
       </Head>
-      {currentIndex === id && isOpen ? (
-        <Body as="dd" id={id}>
+      {currentIndex === id ? (
+        <Body as="dd">
           {answer.map((item) => {
             return (
               <p key={uuid()} id={uuid()}>
@@ -59,16 +58,12 @@ const Accordion = ({
 
 Accordion.defaultProps = {
   question: '이곳에 질문을 입력하세요.',
-  answer: ['이곳에 답변을 입력하세요.'],
-  // 스토리북에서 open 토글을 위한 속성
-  isOpen: true,
+  answer: [],
 }
 
 Accordion.propTypes = {
   /** 아코디언 메뉴의 헤더에 사용자 정의 질문을 설정할 수 있습니다. */
   question: string,
-  /** 아코디언 메뉴의 바디(답변)을 열고/닫기 설정할 수 있습니다. */
-  isOpen: bool,
   /** 아코디언 메뉴의 바디에 사용자 정의 답변을 설정할 수 있습니다. */
   answer: any,
 }

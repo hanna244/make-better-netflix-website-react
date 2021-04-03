@@ -4,7 +4,7 @@ import { Accordion } from '../../components'
 import faqData from '../../data/faq.json'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { open, close } from '../../store/slices/faqslice'
+import { open, close, currentNumber } from '../../store/slices/faqslice'
 
 import { List } from './FAQ.style'
 
@@ -22,17 +22,15 @@ const FAQ = ({ as, label, children, ...restProps }) => {
   //   fetchData()
   // }, [fetchData])
 
-  // const [faqData, setFaqData] = useState({})
+  const currentIndex = useSelector((state) => state.curious.currentIndex)
 
-  const curious = useSelector((state) => state.curious.isOpen)
-  console.log(curious)
+  console.log(currentIndex)
 
   const dispatch = useDispatch()
 
-  const answerOpen = () => dispatch(open())
-  const answerClose = () => dispatch(close())
+  const changeIndex = (index) => dispatch(currentNumber(index))
 
-  const [currentIndex, setCurrentIndex] = useState(null)
+  // const [currentIndex, setCurrentIndex] = useState(null)
 
   return (
     <Fragment>
@@ -43,11 +41,8 @@ const FAQ = ({ as, label, children, ...restProps }) => {
             id={index}
             question={item.question}
             answer={item.answer}
-            onClick={() =>
-              setCurrentIndex(index === currentIndex ? null : index)
-            }
+            onClick={() => changeIndex(index === currentIndex ? null : index)}
             currentIndex={currentIndex}
-            isOpen={curious}
           />
         ))}
       </List>
