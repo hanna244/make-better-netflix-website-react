@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import { FAQ } from '..'
+import { FAQ, Promotion } from '..'
 import { Container } from '../../components'
 import { setFont } from '../../utils'
+import { SignUpStyle } from '../../containers/OurStory/OurStory.style'
 
 export const FAQContainerStyle = styled(Container)`
   display: flex;
@@ -41,5 +42,28 @@ export const FAQStyle = styled(FAQ)`
       ${setFont(1.3)}
       padding: 1.1rem;
     }
+  }
+`
+
+export const FAQSignUpStyle = styled(SignUpStyle)`
+  ${setFont(1.3, 1.35, 'normal')}
+  margin-top: 3rem;
+  max-width: 23.6rem;
+  text-align: center;
+
+  @media (min-width: 60em) {
+    ${setFont(1.6, null, 'bold')}
+    margin-top: 6rem;
+    max-width: 100%;
+  }
+`
+
+export const FAQPromotionStyle = styled(Promotion)`
+  margin-top: 2.6rem;
+  padding-bottom: 6rem;
+
+  @media (min-width: 60em) {
+    margin-top: 3rem;
+    padding-bottom: 4.4rem;
   }
 `

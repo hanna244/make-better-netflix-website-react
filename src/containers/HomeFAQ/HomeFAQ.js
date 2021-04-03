@@ -1,12 +1,23 @@
 import React from 'react'
-import { FAQ } from '..'
-import { Head, FAQContainerStyle, FAQStyle } from './HomeFAQ.style'
+
+import {
+  Head,
+  FAQContainerStyle,
+  FAQStyle,
+  FAQSignUpStyle,
+  FAQPromotionStyle,
+} from './HomeFAQ.style'
+import data from '../../data/homeContext.json'
 
 const HomeFAQ = () => {
+  const promotionText = data[0].ko.signUp
+
   return (
     <FAQContainerStyle>
       <Head>자주 묻는 질문</Head>
       <FAQStyle />
+      <FAQSignUpStyle>{promotionText}</FAQSignUpStyle>
+      <FAQPromotionStyle />
     </FAQContainerStyle>
   )
 }
