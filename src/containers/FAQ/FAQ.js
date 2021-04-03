@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback, useState, Fragment } from 'react'
+import { v4 as uuid } from 'uuid'
 import { Accordion } from '../../components'
 import faqData from '../../data/faq.json'
 
@@ -29,7 +30,12 @@ const FAQ = ({ as, label, children, ...restProps }) => {
     <Fragment>
       <article {...restProps}>
         {faqData.map((item) => (
-          <Accordion question={item.question} answer={item.answer} />
+          <Accordion
+            key={uuid()}
+            id={uuid()}
+            question={item.question}
+            answer={item.answer}
+          />
         ))}
       </article>
     </Fragment>
