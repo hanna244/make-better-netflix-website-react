@@ -8,10 +8,11 @@ export const HeaderContainer = styled(Container)`
   align-items: center;
   padding: 2.3rem 0;
   margin: 0 1.8rem;
+  max-width: 144rem;
 
   @media (min-width: 60em) {
     padding: 5.1rem 0;
-    margin: 0 12rem;
+    margin: 0 auto;
   }
 `
 
