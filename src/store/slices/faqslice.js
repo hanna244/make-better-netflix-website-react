@@ -17,7 +17,7 @@ export const faqReducer = (state = initState, action) => {
       }
 
     default:
-      break
+      return state
   }
 }
 
