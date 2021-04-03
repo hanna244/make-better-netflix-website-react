@@ -11,6 +11,7 @@ const Accordion = ({
   answer,
   handleToggle,
   currentIndex,
+  isOpen,
   ...restProps
 }) => {
   return (
@@ -26,7 +27,7 @@ const Accordion = ({
           />
         </OpenButton>
       </Head>
-      {currentIndex === id ? (
+      {isOpen && currentIndex === id ? (
         <Body as="dd">
           {answer.map((item) => {
             return (

@@ -4,7 +4,7 @@ import { Accordion } from '../../components'
 import faqData from '../../data/faq.json'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { open, close, currentNumber } from '../../store/slices/faqslice'
+import { currentNumber, accordionIsOpen } from '../../store/slices/faqslice'
 
 import { List } from './FAQ.style'
 
@@ -22,15 +22,21 @@ const FAQ = ({ as, label, children, ...restProps }) => {
   //   fetchData()
   // }, [fetchData])
 
-  const currentIndex = useSelector((state) => state.curious.currentIndex)
-
-  console.log(currentIndex)
+  const { currentIndex, isOpen } = useSelector((state) => {
+    return {
+      currentIndex: state.curious.currentIndex,
+      isOpen: state.curious.isOpen,
+    }
+  })
 
   const dispatch = useDispatch()
-
   const changeIndex = (index) => dispatch(currentNumber(index))
+  const changeOpenState = () => dispatch(accordionIsOpen())
 
-  // const [currentIndex, setCurrentIndex] = useState(null)
+  const handleAccordionStateandIndex = (index) => {
+    changeOpenState()
+    changeIndex(index === currentIndex ? 0 : index)
+  }
 
   return (
     <Fragment>
@@ -41,8 +47,9 @@ const FAQ = ({ as, label, children, ...restProps }) => {
             id={index}
             question={item.question}
             answer={item.answer}
-            onClick={() => changeIndex(index === currentIndex ? null : index)}
+            onClick={() => handleAccordionStateandIndex(index)}
             currentIndex={currentIndex}
+            isOpen={isOpen}
           />
         ))}
       </List>
