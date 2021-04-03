@@ -10,7 +10,7 @@ import {
   OurStoryPromotion,
 } from './OurStory.style'
 
-const OurStory = ({ headingLevel, ...restProps }) => {
+const OurStory = ({ ...restProps }) => {
   const fetchData = useCallback(() => {
     import('../../data/homeContext.json').then((module) => {
       const { default: _default } = module
@@ -29,7 +29,7 @@ const OurStory = ({ headingLevel, ...restProps }) => {
   return (
     <Background dim as="section" {...restProps}>
       <MainContainer>
-        <Head as={headingLevel}>넷플릭스 소개</Head>
+        <Head>넷플릭스 소개</Head>
         <TitleStyle>{title}</TitleStyle>
         <SubTitleStyle>{subTitle}</SubTitleStyle>
         <SignUpStyle>{signUp}</SignUpStyle>
