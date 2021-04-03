@@ -9,8 +9,9 @@ const Accordion = ({
   isVisible,
   question,
   isOpen,
-  answer = [],
+  answer,
   handleToggle,
+  currentIndex,
   ...restProps
 }) => {
   return (
@@ -26,7 +27,7 @@ const Accordion = ({
           />
         </OpenButton>
       </Head>
-      {isOpen ? (
+      {currentIndex === id && isOpen ? (
         <Body as="dd" id={id}>
           {answer.map((item) => {
             return (
@@ -59,6 +60,8 @@ const Accordion = ({
 Accordion.defaultProps = {
   question: '이곳에 질문을 입력하세요.',
   answer: ['이곳에 답변을 입력하세요.'],
+  // 스토리북에서 open 토글을 위한 속성
+  isOpen: true,
 }
 
 Accordion.propTypes = {

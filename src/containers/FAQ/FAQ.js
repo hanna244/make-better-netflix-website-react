@@ -32,28 +32,19 @@ const FAQ = ({ as, label, children, ...restProps }) => {
   const answerOpen = () => dispatch(open())
   const answerClose = () => dispatch(close())
 
-  const handleToggle = (e) => {
-    !curious ? answerOpen() : answerClose()
-    const idNum = e.target.id
-    const accordionNode = e.target.closest('.accordionItem')
-    console.log(idNum)
-    console.log(accordionNode.id)
-    console.log(accordionNode.lastElementChild)
-    if (accordionNode.id === idNum) {
-      accordionNode.lastElementChild.style.cssText = 'display: none'
-    }
-  }
+  const [currentIndex, setCurrentIndex] = useState(null)
 
   return (
     <Fragment>
-      <List {...restProps} onClick={handleToggle}>
+      <List {...restProps}>
         {faqData.map((item, index) => (
           <Accordion
             key={uuid()}
             id={index}
             question={item.question}
             answer={item.answer}
-            handleToggle={handleToggle}
+            onClick={() => setCurrentIndex(index)}
+            currentIndex={currentIndex}
             isOpen={curious}
           />
         ))}
