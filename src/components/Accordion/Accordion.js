@@ -5,6 +5,7 @@ import { v4 as uuid } from 'uuid'
 import { useTransition, animated } from 'react-spring'
 
 const Accordion = ({
+  id,
   isVisible,
   question,
   isOpen,
@@ -12,20 +13,11 @@ const Accordion = ({
   handleToggle,
   ...restProps
 }) => {
-  // const bodyRef = useRef(null)
-
-  // const [toggle, setToggle] = useState(false)
-  // const transitions = useTransition(toggle, null, {
-  //   from: { transform: 'translateY(-307px)' },
-  //   enter: { transform: 'translateY(0px)' },
-  //   leave: { transform: 'translateY(-307px)' },
-  // })
-
   return (
-    <Item key={uuid()} id={uuid()} onClick={handleToggle} {...restProps}>
+    <Item key={uuid()} id={id} className="accordionItem" {...restProps}>
       <Head>
         {question}
-        <OpenButton>
+        <OpenButton id={id}>
           <PlusImg
             width="40"
             height="40"
@@ -34,20 +26,19 @@ const Accordion = ({
           />
         </OpenButton>
       </Head>
-      <div>
-        {isOpen ? (
-          <Body as="dd">
-            {answer.map((item) => {
-              return (
-                <p key={uuid()} id={uuid()}>
-                  {item}
-                </p>
-              )
-            })}
-          </Body>
-        ) : null}
+      {isOpen ? (
+        <Body as="dd" id={id}>
+          {answer.map((item) => {
+            return (
+              <p key={uuid()} id={uuid()}>
+                {item}
+              </p>
+            )
+          })}
+        </Body>
+      ) : null}
 
-        {/* {transitions.map(({ item, props, key }) => (
+      {/* {transitions.map(({ item, props, key }) => (
           // 현재 애니메이션이 동작되지 않음으로 uuid()를 설정해서 오류 해결 (임시)
           <animated.div key={uuid()} id={uuid()} style={props}>
             <Body ref={bodyRef} as="dd">
@@ -57,7 +48,6 @@ const Accordion = ({
             </Body>
           </animated.div>
         ))} */}
-      </div>
     </Item>
   )
 }

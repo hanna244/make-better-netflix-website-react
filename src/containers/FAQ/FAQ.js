@@ -6,6 +6,8 @@ import faqData from '../../data/faq.json'
 import { useSelector, useDispatch } from 'react-redux'
 import { open, close } from '../../store/slices/faqslice'
 
+import { List } from './FAQ.style'
+
 const FAQ = ({ as, label, children, ...restProps }) => {
   // const fetchData = useCallback(() => {
   //   import('../../data/faq.json')
@@ -30,24 +32,32 @@ const FAQ = ({ as, label, children, ...restProps }) => {
   const answerOpen = () => dispatch(open())
   const answerClose = () => dispatch(close())
 
-  const handleToggle = () => {
+  const handleToggle = (e) => {
     !curious ? answerOpen() : answerClose()
+    const idNum = e.target.id
+    const accordionNode = e.target.closest('.accordionItem')
+    console.log(idNum)
+    console.log(accordionNode.id)
+    console.log(accordionNode.lastElementChild)
+    if (accordionNode.id === idNum) {
+      accordionNode.lastElementChild.style.cssText = 'display: none'
+    }
   }
 
   return (
     <Fragment>
-      <article {...restProps}>
-        {faqData.map((item) => (
+      <List {...restProps} onClick={handleToggle}>
+        {faqData.map((item, index) => (
           <Accordion
             key={uuid()}
-            id={uuid()}
+            id={index}
             question={item.question}
             answer={item.answer}
             handleToggle={handleToggle}
             isOpen={curious}
           />
         ))}
-      </article>
+      </List>
     </Fragment>
   )
 }
