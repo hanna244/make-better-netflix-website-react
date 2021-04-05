@@ -13,10 +13,10 @@ const HomeFAQ = () => {
   const promotionText = data[0].ko.signUp
 
   return (
-    <FAQContainerStyle>
+    <FAQContainerStyle as="section">
       <Head>자주 묻는 질문</Head>
       <FAQStyle />
-      <FAQSignUpStyle>{promotionText}</FAQSignUpStyle>
+      <FAQSignUpStyle as="span">{promotionText}</FAQSignUpStyle>
       <FAQPromotionStyle />
     </FAQContainerStyle>
   )

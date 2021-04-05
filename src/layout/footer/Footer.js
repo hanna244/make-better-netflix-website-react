@@ -9,6 +9,7 @@ import {
   AddressHead,
   AddressStyle,
   LanguageSelectStyle,
+  AddressHeadHidden,
 } from './Footer.style'
 
 import footerLinkData from '../../data/footerLink.json'
@@ -63,11 +64,14 @@ const Footer = ({ ...restProps }) => {
       </LinkListStyle>
       <LanguageSelectStyle
         id="language_select"
+        // potionList 객체는 Footer 컴포넌트 아래 정의되어 있음
         optionList={Footer.List}
         label="언어 선택"
         a11yLabel
       />
-      <AddressHead>Netflix 대한민국</AddressHead>
+      <AddressHead as="h2">
+        Netflix 대한민국<AddressHeadHidden> 연락정보</AddressHeadHidden>
+      </AddressHead>
       <AddressStyle>
         <span>넷플릭스서비시스코리아 유한회사</span>
         <br />
@@ -112,7 +116,7 @@ const Footer = ({ ...restProps }) => {
 }
 
 Footer.List = [
-  { label: '한국어', value: 'korean' },
+  { label: '한국어', value: 'korean', selected: 'selected' },
   { label: 'English', value: 'english' },
 ]
 

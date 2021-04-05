@@ -2,7 +2,8 @@ import { string } from 'prop-types'
 import React from 'react'
 
 import {
-  HeaderContainer,
+  OuterContainer,
+  InnerContainer,
   HeaderHomeLink,
   HeaderLoginLink,
   HeaderLogo,
@@ -15,12 +16,20 @@ const Header = ({ className, ...restProps }) => {
   }
 
   return (
-    <HeaderContainer onClick={controlLink} className={className} {...restProps}>
-      <HeaderHomeLink href="/">
-        <HeaderLogo alt="넷플릭스 홈 링크" />
-      </HeaderHomeLink>
-      <HeaderLoginLink href="login" tag="a" />
-    </HeaderContainer>
+    <OuterContainer>
+      <InnerContainer
+        onClick={controlLink}
+        className={className}
+        {...restProps}
+      >
+        <h1>
+          <HeaderHomeLink href="/">
+            <HeaderLogo alt="넷플릭스 홈" />
+          </HeaderHomeLink>
+        </h1>
+        <HeaderLoginLink href="login" tag="a" />
+      </InnerContainer>
+    </OuterContainer>
   )
 }
 

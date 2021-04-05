@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { Definition } from './compound_components'
 import { Select } from '../../components'
-import { resetList, resetPara } from '../../styles/common'
+import { a11yHidden, resetList, resetPara } from '../../styles/common'
 
 import { getColor } from '../../utils'
 
@@ -87,6 +87,11 @@ export const AddressHead = styled.h4`
     font-size: 2.2rem;
   }
 `
+
+export const AddressHeadHidden = styled.span`
+  ${a11yHidden}
+`
+
 export const AddressStyle = styled.address`
   margin-top: 2rem;
   font-style: normal;

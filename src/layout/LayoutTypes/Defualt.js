@@ -6,7 +6,7 @@ export const Defualt = ({ children, ...restProps }) => {
   return (
     <>
       <Header {...restProps} />
-      {children}
+      <main>{children}</main>
       <Footer />
     </>
   )

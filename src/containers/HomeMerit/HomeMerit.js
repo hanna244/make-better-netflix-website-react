@@ -1,7 +1,8 @@
-import React, { Fragment, useContext } from 'react'
+import React, { useContext } from 'react'
 import { v4 as uuid } from 'uuid'
 import { Merit } from '..'
 import { DataContext } from '../../context/context'
+import { Head } from './HomeMerit.style'
 
 const HomeMerit = () => {
   const meritContext = useContext(DataContext)
@@ -9,7 +10,8 @@ const HomeMerit = () => {
   console.log(meritData)
 
   return (
-    <Fragment>
+    <section>
+      <Head>넷플릭스 장점</Head>
       {meritData.map((item, index) => (
         <Merit
           key={uuid()}
@@ -24,7 +26,7 @@ const HomeMerit = () => {
           downloadContent={index === 1 ? true : false}
         />
       ))}
-    </Fragment>
+    </section>
   )
 }
 

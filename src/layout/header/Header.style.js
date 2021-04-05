@@ -2,17 +2,21 @@ import styled from 'styled-components'
 import { Button, Container, Logo } from '../../components'
 import { resetLink } from '../../styles/common'
 
-export const HeaderContainer = styled(Container)`
+export const OuterContainer = styled.header`
+  margin: 0 auto;
+  max-width: 144rem;
+`
+
+export const InnerContainer = styled(Container)`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2.3rem 0;
   margin: 0 1.8rem;
-  max-width: 144rem;
 
   @media (min-width: 60em) {
     padding: 5.1rem 0;
-    margin: 0 auto;
+    margin: 0 12rem;
   }
 `
 
