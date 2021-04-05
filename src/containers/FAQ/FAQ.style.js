@@ -4,3 +4,4 @@ import { resetDl } from '../../styles/common'
 export const List = styled.dl`
   ${resetDl}
 `
+List.displayName = 'List'

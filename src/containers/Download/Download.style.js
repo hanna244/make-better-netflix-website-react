@@ -20,6 +20,7 @@ export const ContainerStyle = styled(Container)`
     padding: 1.2rem 1.6rem;
   }
 `
+ContainerStyle.displayName = 'ContainerStyle'
 
 export const PosterStyle = styled.img`
   ${resetImg}
@@ -29,6 +30,7 @@ export const PosterStyle = styled.img`
     height: 8.5rem;
   }
 `
+PosterStyle.displayName = 'PosterStyle'
 export const TextContainerStyle = styled.div`
   display: flex;
   flex-flow: nowrap column;
@@ -41,7 +43,7 @@ export const TextContainerStyle = styled.div`
     margin-left: 1.6rem;
   }
 `
-
+TextContainerStyle.displayName = 'TextContainerStyle'
 export const StoryText = styled.span`
   ${setFont(1, 1.2, 'blod')}
 
@@ -49,7 +51,7 @@ export const StoryText = styled.span`
     ${setFont(1.4)}
   }
 `
-
+StoryText.displayName = 'StoryText'
 export const SaveText = styled(StoryText)`
   ${setFont(0.85, 1.5)};
   color: ${getColor('blue')};
@@ -58,7 +60,7 @@ export const SaveText = styled(StoryText)`
     ${setFont(1.2)}
   }
 `
-
+SaveText.displayName = 'SaveText'
 export const DownloadStyle = styled.img`
   ${resetImg}
 
@@ -67,3 +69,4 @@ export const DownloadStyle = styled.img`
     height: auto;
   }
 `
+DownloadStyle.displayName = 'DownloadStyle'

@@ -41,6 +41,8 @@ export const FooterStyle = styled.footer`
     color: ${getColor('lightGray')};
   }
 `
+FooterStyle.displayName = 'FooterStyle'
+
 export const DefinitionStyle = styled(Definition)`
   font-weight: bold;
   font-size: 2rem;
@@ -50,6 +52,7 @@ export const DefinitionStyle = styled(Definition)`
     line-height: 1.2;
   }
 `
+DefinitionStyle.displayName = 'DefinitionStyle'
 
 export const LinkListStyle = styled.ul`
   ${resetList}
@@ -67,6 +70,7 @@ export const LinkListStyle = styled.ul`
     font-size: 1.6rem;
   }
 `
+LinkListStyle.displayName = 'LinkListStyle'
 
 export const LanguageSelectStyle = styled(Select)`
   margin-top: 3rem;
@@ -75,6 +79,7 @@ export const LanguageSelectStyle = styled(Select)`
     margin-top: 8rem;
   }
 `
+LanguageSelectStyle.displayName = 'LanguageSelectStyle'
 
 export const AddressHead = styled.h4`
   margin: 3rem 0 0;
@@ -87,10 +92,12 @@ export const AddressHead = styled.h4`
     font-size: 2.2rem;
   }
 `
+AddressHead.displayName = 'AddressHead'
 
 export const AddressHeadHidden = styled.span`
   ${a11yHidden}
 `
+AddressHeadHidden.displayName = 'AddressHeadHidden'
 
 export const AddressStyle = styled.address`
   margin-top: 2rem;
@@ -102,3 +109,4 @@ export const AddressStyle = styled.address`
     margin-top: 1.6rem;
   }
 `
+AddressStyle.displayName = 'AddressStyle'

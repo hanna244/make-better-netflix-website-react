@@ -13,9 +13,11 @@ export const PromotionButtonStyle = styled(ButtonStyle)`
   background: ${({ hover }) =>
     hover ? `${getColor('vividRed')}` : `${getColor('red')}`};
 `
+PromotionButtonStyle.displayName = 'PromotionButtonStyle'
 
 export const Arrow = styled.img`
   ${resetImg}
   width: 2rem;
   margin: 0.435rem 0 0.735rem 1rem;
 `
+Arrow.displayName = 'Arrow'

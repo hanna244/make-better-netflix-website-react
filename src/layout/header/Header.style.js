@@ -6,6 +6,7 @@ export const OuterContainer = styled.header`
   margin: 0 auto;
   max-width: 144rem;
 `
+OuterContainer.displayName = 'OuterContainer'
 
 export const InnerContainer = styled(Container)`
   display: flex;
@@ -19,6 +20,7 @@ export const InnerContainer = styled(Container)`
     margin: 0 12rem;
   }
 `
+InnerContainer.displayName = 'InnerContainer'
 
 export const HeaderHomeLink = styled.a`
   ${resetLink}
@@ -31,9 +33,12 @@ export const HeaderHomeLink = styled.a`
     height: 3.8rem;
   }
 `
+HeaderHomeLink.displayName = 'HeaderHomeLink'
+
 export const HeaderLogo = styled(Logo)`
   width: 14rem;
 `
+HeaderLogo.displayName = 'HeaderLogo'
 
 export const HeaderLoginLink = styled(Button)`
   ${resetLink}
@@ -48,3 +53,4 @@ export const HeaderLoginLink = styled(Button)`
     line-height: 1;
   }
 `
+HeaderLoginLink.displayName = 'HeaderLoginLink'

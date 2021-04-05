@@ -11,6 +11,8 @@ export const PromotionContainer = styled(Container)`
     flex-direction: row;
   }
 `
+PromotionContainer.displayName = 'PromotionContainer'
+
 export const PromotionInput = styled(Input)`
   width: 23.3rem;
 

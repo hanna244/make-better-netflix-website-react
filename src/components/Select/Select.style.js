@@ -5,6 +5,7 @@ import { getColor } from '../../utils'
 export const LabelStyle = styled.label`
   ${(props) => (props.a11yLabel ? a11yHidden : null)}
 `
+LabelStyle.displayName = 'LabelStyle'
 
 export const SelectStyle = styled.select`
   /* 브라우저 기본 디자인 적용 안 함 */
@@ -23,3 +24,4 @@ export const SelectStyle = styled.select`
   background: url('./assets/select_global.svg') no-repeat left 1rem center,
     url('./assets/select_arrow.svg') no-repeat 8.7rem center;
 `
+SelectStyle.displayName = 'SelectStyle'

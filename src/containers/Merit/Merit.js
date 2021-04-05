@@ -1,12 +1,11 @@
 import { oneOf, string } from 'prop-types'
 import React from 'react'
-import { Download } from '../index'
+import { Frame } from '../../components'
 import {
   Container,
   Head,
   Description,
   MediaWrapper,
-  MeritFrame,
   MeritVideo,
   TextContainer,
   DownloadStyle,
@@ -30,7 +29,7 @@ const Merit = ({
         <Description>{description}</Description>
       </TextContainer>
       <MediaWrapper className={classNames}>
-        <MeritFrame type={imageType} alt={alt} />
+        <Frame type={imageType} alt={alt} />
         <MeritVideo type={videoType}></MeritVideo>
         {downloadContent ? <DownloadStyle /> : null}
       </MediaWrapper>

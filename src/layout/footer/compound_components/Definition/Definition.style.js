@@ -6,3 +6,4 @@ export const DefinitionStyle = styled.span`
     ${resetLink}
   }
 `
+DefinitionStyle.displayName = 'DefinitionStyle'

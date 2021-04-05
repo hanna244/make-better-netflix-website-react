@@ -12,7 +12,7 @@ const CommonPara = styled.p`
     max-width: 100%;
   }
 `
-
+CommonPara.displayName = 'CommonPara'
 export const MainContainer = styled(Container)`
   display: flex;
   flex-flow: column nowrap;

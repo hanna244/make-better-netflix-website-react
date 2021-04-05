@@ -9,3 +9,4 @@ export const LinkItemStyle = styled.li`
     ${resetLink}
   }
 `
+LinkItemStyle.displayName = 'LinkItemStyle'

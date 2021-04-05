@@ -4,3 +4,4 @@ import { rwdVideo } from '../../styles/common'
 export const VideoStyle = styled.video`
   ${rwdVideo}
 `
+VideoStyle.displayName = 'VideoStyle'

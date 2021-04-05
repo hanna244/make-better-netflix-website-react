@@ -11,6 +11,7 @@ export const FAQContainerStyle = styled(Container)`
   padding: 2rem 0;
   margin: 0 1.8rem;
 `
+FAQContainerStyle.displayName = 'FAQContainerStyle'
 
 export const Head = styled.h2`
   ${setFont(2.4, 1.2, 'bold')}
@@ -19,6 +20,7 @@ export const Head = styled.h2`
     ${setFont(4.8)}
   }
 `
+Head.displayName = 'Head'
 
 // 컴포넌트가 데스크탑 버전이기 때문에 60em 보다 작을 때, 스타일을 적용
 export const FAQStyle = styled(FAQ)`
@@ -44,6 +46,7 @@ export const FAQStyle = styled(FAQ)`
     }
   }
 `
+FAQStyle.displayName = 'FAQStyle'
 
 export const FAQSignUpStyle = styled(SignUpStyle)`
   ${setFont(1.3, 1.35, 'normal')}
@@ -57,6 +60,7 @@ export const FAQSignUpStyle = styled(SignUpStyle)`
     max-width: 100%;
   }
 `
+FAQSignUpStyle.displayName = 'FAQSignUpStyle'
 
 export const FAQPromotionStyle = styled(Promotion)`
   margin-top: 2.6rem;
@@ -67,3 +71,4 @@ export const FAQPromotionStyle = styled(Promotion)`
     padding-bottom: 4.4rem;
   }
 `
+FAQPromotionStyle.displayName = 'FAQPromotionStyle'
