@@ -45,7 +45,7 @@ Body.displayName = 'Body'
 
 export const OpenButton = styled.button`
   ${resetButton}
-  position: absolute;
+  position: absolute !important;
   z-index: 100;
   width: 100%;
   top: 0;
