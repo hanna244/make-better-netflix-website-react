@@ -7,7 +7,6 @@ import { Head } from './HomeMerit.style'
 const HomeMerit = () => {
   const meritContext = useContext(DataContext)
   const { meritData } = meritContext
-  console.log(meritData)
 
   return (
     <section>

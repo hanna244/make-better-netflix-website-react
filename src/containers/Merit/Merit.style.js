@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Frame, InnerVideo } from '../../components'
+import { InnerVideo } from '../../components'
 import Download from '../Download/Download'
 
 export const Container = styled.article`
@@ -7,7 +7,7 @@ export const Container = styled.article`
   flex-flow: column nowrap;
   align-items: center;
   padding: 2rem 0;
-  margin: 0 auto;
+  margin: 0 1.8rem;
   text-align: center;
 
   @media (min-width: 60em) {
@@ -15,6 +15,7 @@ export const Container = styled.article`
     justify-content: space-between;
     text-align: left;
     padding: 6rem 0;
+    margin: 0 auto;
     max-width: 120rem;
   }
 
@@ -82,8 +83,7 @@ export const MediaWrapper = styled.figure`
   }
 `
 MediaWrapper.displayName = 'MediaWrapper'
-export const MeritFrame = styled(Frame)``
-MeritFrame.displayName = 'MeritFrame'
+
 export const MeritVideo = styled(InnerVideo)`
   position: absolute;
   z-index: -100;

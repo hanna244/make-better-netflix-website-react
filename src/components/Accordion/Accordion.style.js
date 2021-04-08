@@ -6,6 +6,7 @@ import {
   resetPara,
 } from '../../styles/common'
 import { getColor } from '../../utils'
+import { motion } from 'framer-motion'
 
 export const Item = styled.div`
   width: 90rem;
@@ -46,7 +47,8 @@ Body.displayName = 'Body'
 export const OpenButton = styled.button`
   ${resetButton}
   position: absolute !important;
-  z-index: 100;
+  z-index: 100;import { motion } from 'framer-motion'
+
   width: 100%;
   top: 0;
   left: 0;

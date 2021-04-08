@@ -27,19 +27,27 @@ const Accordion = ({
           />
         </OpenButton>
       </Head>
+      {/* 컴포넌트가 제거될 때 애니메이션을 적용할 수 있다. 
+      하지만 index 값에 대한 조건 처리가 되어 있기 때문에 해당 제거 될 때 어떻게 애니메이션을 적용해야 할지 모르겠음 */}
       <AnimatePresence>
-        {isOpen && currentIndex === id ? (
-          // <Body animate={{ y: 100 }} as={motion.dd}>
+        {isOpen && currentIndex === id && (
           <Body
+            as={motion.dd}
+            // 애니메이션의 기본 요소 스타일
             initial={{ height: 0 }}
+            // 애니메이션이 적용 되었을 때 요소의 스타일
             animate={{ height: 'auto' }}
+            // 애니메이션이 끝날 때 요소의 스타일
             exit={{ height: 0 }}
+            // 애니메이션 트렌지션
             transition={{
+              // spring 처럼 통통 거리지 않는다.
+              // spring으로도 탄성을 제어할 수 있없는가?
+              // tween보다 spring이 더 이후에 나온 최신 속성이다.
               type: 'tween',
               // 애니메이션 지연시간
               duration: 0.3,
             }}
-            as={motion.dd}
           >
             {answer.map((item) => {
               return (
@@ -49,7 +57,7 @@ const Accordion = ({
               )
             })}
           </Body>
-        ) : null}
+        )}
       </AnimatePresence>
     </Item>
   )
