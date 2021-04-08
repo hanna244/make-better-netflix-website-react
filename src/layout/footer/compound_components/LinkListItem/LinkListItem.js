@@ -1,3 +1,4 @@
+import { string } from 'prop-types'
 import { LinkItemStyle } from './LinkListItem.style'
 
 function LinkListItem({ href, label, ...restProps }) {
@@ -8,6 +9,10 @@ function LinkListItem({ href, label, ...restProps }) {
       </a>
     </LinkItemStyle>
   )
+}
+
+LinkListItem.propTypes = {
+  href: string.isRequired,
 }
 
 export default LinkListItem

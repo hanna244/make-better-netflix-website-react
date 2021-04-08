@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react'
-import { string, bool, any } from 'prop-types'
+import React from 'react'
+import { string, any } from 'prop-types'
 import { Item, Head, Body, OpenButton, PlusImg } from './Accordion.style'
 import { v4 as uuid } from 'uuid'
-import { useTransition, animated } from 'react-spring'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const Accordion = ({
   id,
@@ -27,35 +27,33 @@ const Accordion = ({
           />
         </OpenButton>
       </Head>
-      {isOpen && currentIndex === id ? (
-        <Body as="dd">
-          {answer.map((item) => {
-            return (
-              <p key={uuid()} id={uuid()}>
-                {item}
-              </p>
-            )
-          })}
-        </Body>
-      ) : null}
-
-      {/* {transitions.map(({ item, props, key }) => (
-          // 현재 애니메이션이 동작되지 않음으로 uuid()를 설정해서 오류 해결 (임시)
-          <animated.div key={uuid()} id={uuid()} style={props}>
-            <Body ref={bodyRef} as="dd">
-              {answer.map((item) => {
-                return <p>{item}</p>
-              })}
-            </Body>
-          </animated.div>
-        ))} */}
+      <AnimatePresence>
+        {isOpen && currentIndex === id ? (
+          // <Body animate={{ y: 100 }} as={motion.dd}>
+          <Body
+            initial={{ height: 0 }}
+            animate={{ height: 'auto' }}
+            exit={{ height: 0 }}
+            transition={{
+              type: 'tween',
+              // 애니메이션 지연시간
+              duration: 0.3,
+            }}
+            as={motion.dd}
+          >
+            {answer.map((item) => {
+              return (
+                <p key={uuid()} id={uuid()}>
+                  {item}
+                </p>
+              )
+            })}
+          </Body>
+        ) : null}
+      </AnimatePresence>
     </Item>
   )
 }
-
-// return transitions.map(({ item, props, key }) =>
-// <animated.div key={key} style={props}>{item.text}</animated.div>
-// )
 
 Accordion.defaultProps = {
   question: '이곳에 질문을 입력하세요.',

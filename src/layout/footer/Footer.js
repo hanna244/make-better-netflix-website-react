@@ -56,9 +56,10 @@ const Footer = ({ ...restProps }) => {
               }
               key={uuid()}
               id={uuid()}
+              href="/"
             />
           ) : (
-            <LinkListItem label={item.link} key={uuid()} id={uuid()} />
+            <LinkListItem label={item.link} key={uuid()} id={uuid()} href="/" />
           )
         )}
       </LinkListStyle>
