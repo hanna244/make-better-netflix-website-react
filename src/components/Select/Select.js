@@ -10,8 +10,12 @@ const Select = ({ id, optionList = [], a11yLabel, label, ...restProps }) => {
         {label}
       </LabelStyle>
       <SelectStyle id={id} {...restProps}>
-        {optionList.map((item) => (
-          <option key={uuid()} id={uuid()} value={item.value}>
+        {optionList.map((item, index) => (
+          <option
+            key={`option_${index}`}
+            index={`option_${index}`}
+            value={item.value}
+          >
             {item.label}
           </option>
         ))}

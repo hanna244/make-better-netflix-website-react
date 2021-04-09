@@ -12,6 +12,7 @@ import {
   validAction,
 } from '../../store/slices/inputslice'
 import { isValidEmail } from '../../utils'
+import { string } from 'prop-types'
 
 const Promotion = ({ id, name, className, ...restProps }) => {
   // 스토어에서 상태 가져오기
@@ -24,10 +25,6 @@ const Promotion = ({ id, name, className, ...restProps }) => {
       }
     }
   )
-
-  // console.log(inputValid)
-  // console.log(inputInvalid)
-  // console.log(isValidEmail(inputValue))
 
   // 스토어에서 액션 가져오기
   const dispatch = useDispatch()
@@ -79,9 +76,9 @@ const Promotion = ({ id, name, className, ...restProps }) => {
       <PromotionInput
         type="email"
         label="이메일 주소"
-        name="email"
-        id="useEmail"
         errorMessege="정확한 이메일 주소를 입력하세요."
+        id={id}
+        name={name}
         value={inputValue}
         handleChange={handleChange}
         {...restProps}
@@ -89,6 +86,11 @@ const Promotion = ({ id, name, className, ...restProps }) => {
       <SignUpButton label="30일 무료 이용" />
     </PromotionContainer>
   )
+}
+
+Promotion.propTypes = {
+  id: string.isRequired,
+  name: string.isRequired,
 }
 
 export default Promotion

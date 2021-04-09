@@ -13,8 +13,8 @@ const HomeMerit = () => {
       <Head>넷플릭스 장점</Head>
       {meritData.map((item, index) => (
         <Merit
-          key={uuid()}
-          id={uuid()}
+          key={`merit_${index}`}
+          id={`merit_${index}`}
           headingLevel="h3"
           heading={item.title}
           description={item.description}

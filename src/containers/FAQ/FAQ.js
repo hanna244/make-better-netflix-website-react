@@ -1,10 +1,8 @@
 import React, { useEffect, useCallback, useState, Fragment } from 'react'
-import { v4 as uuid } from 'uuid'
 import { Accordion } from '../../components'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { currentNumber, accordionIsOpen } from '../../store/slices/faqslice'
-
+import { currentNumber } from '../../store/slices/faqslice'
 import { List } from './FAQ.style'
 
 const FAQ = ({ as, label, children, ...restProps }) => {
@@ -24,20 +22,17 @@ const FAQ = ({ as, label, children, ...restProps }) => {
   }, [fetchData])
 
   // 스토어에서 상태 가져오기
-  const { currentIndex, isOpen } = useSelector((state) => {
+  const { currentIndex } = useSelector((state) => {
     return {
       currentIndex: state.curious.currentIndex,
-      isOpen: state.curious.isOpen,
     }
   })
   // dispatch를 통해 액션 실행
   const dispatch = useDispatch()
   const changeIndex = (index) => dispatch(currentNumber(index))
-  const changeOpenState = () => dispatch(accordionIsOpen())
 
   const handleAccordionStateandIndex = (index) => {
-    changeOpenState()
-    changeIndex(index === currentIndex ? 0 : index)
+    changeIndex(index === currentIndex ? null : index)
   }
 
   return (
@@ -45,13 +40,14 @@ const FAQ = ({ as, label, children, ...restProps }) => {
       <List {...restProps}>
         {faqData.map((item, index) => (
           <Accordion
-            key={uuid()}
+            key={`Accordion_${index}`}
+            // Accordion open/close 조건 처리를 위해 Accordion_index가 아닌 index로 전달
             id={index}
             question={item.question}
             answer={item.answer}
             onClick={() => handleAccordionStateandIndex(index)}
             currentIndex={currentIndex}
-            isOpen={isOpen}
+            isOpen={index === currentIndex ? true : false}
           />
         ))}
       </List>

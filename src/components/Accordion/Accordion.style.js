@@ -6,7 +6,6 @@ import {
   resetPara,
 } from '../../styles/common'
 import { getColor } from '../../utils'
-import { motion } from 'framer-motion'
 
 export const Item = styled.div`
   width: 90rem;

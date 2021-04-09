@@ -44,22 +44,26 @@ const Footer = ({ ...restProps }) => {
         테스트 입니다.
       </DefinitionStyle>
       <LinkListStyle>
-        {footerLinkData.map((item) =>
+        {footerLinkData.map((item, index) =>
           item.abbr ? (
             <LinkListItem
               label={
                 <>
                   {item.link}
-                  {/* abbr 렌더링 되지 않음  */}
                   <abbr title={item.abbrTitle}>{item.abbr}</abbr>
                 </>
               }
-              key={uuid()}
-              id={uuid()}
+              key={`footer_link_${index}`}
+              id={`footer_link_${index}`}
               href="/"
             />
           ) : (
-            <LinkListItem label={item.link} key={uuid()} id={uuid()} href="/" />
+            <LinkListItem
+              label={item.link}
+              key={`footer_link_${index}`}
+              id={`footer_link_${index}`}
+              href="/"
+            />
           )
         )}
       </LinkListStyle>
@@ -76,27 +80,27 @@ const Footer = ({ ...restProps }) => {
       <AddressStyle>
         <span>넷플릭스서비시스코리아 유한회사</span>
         <br />
-        {addressData.map((item) => (
-          <Fragment key={uuid()}>
+        {addressData.map((item, index) => (
+          <Fragment key={`address_${index}`}>
             {item.email ? (
               <Definition
                 dtContext={item.title}
                 ddContext={item.content}
-                id={uuid()}
+                id={`address_${index}`}
                 emailLink
               />
             ) : item.tel ? (
               <Definition
                 dtContext={item.title}
                 ddContext={item.content}
-                id={uuid()}
+                id={`address_${index}`}
                 telLink
               />
             ) : (
               <Definition
                 dtContext={item.title}
                 ddContext={item.content}
-                id={uuid()}
+                id={`address_${index}`}
               />
             )}
             <br />

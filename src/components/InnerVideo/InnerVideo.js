@@ -8,6 +8,7 @@ const InnerVideo = ({ type = 'tv', isMuted = true, ...restProps }) => {
 
   useEffect(() => {
     isMuted && (videoRef.current.muted = true)
+    // const a = isMuted ? (videoRef.current.muted = true) : null
   })
 
   let src = ''

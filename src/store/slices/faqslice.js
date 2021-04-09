@@ -1,5 +1,4 @@
 const initState = {
-  isOpen: false,
   currentIndex: 0,
 }
 
@@ -10,11 +9,6 @@ export const faqReducer = (state = initState, action) => {
         ...state,
         currentIndex: action.payload,
       }
-    case accordionIsOpen.name:
-      return {
-        ...state,
-        isOpen: !state.isOpen,
-      }
 
     default:
       return state
@@ -24,8 +18,4 @@ export const faqReducer = (state = initState, action) => {
 export const currentNumber = (index) => ({
   type: currentNumber.name,
   payload: index,
-})
-
-export const accordionIsOpen = () => ({
-  type: accordionIsOpen.name,
 })

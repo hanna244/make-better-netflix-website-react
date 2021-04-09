@@ -15,7 +15,7 @@ const Accordion = ({
   ...restProps
 }) => {
   return (
-    <Item key={uuid()} className="accordionItem" {...restProps}>
+    <Item className="accordionItem" {...restProps}>
       <Head>
         {question}
         <OpenButton>
@@ -27,8 +27,6 @@ const Accordion = ({
           />
         </OpenButton>
       </Head>
-      {/* 컴포넌트가 제거될 때 애니메이션을 적용할 수 있다. 
-      하지만 index 값에 대한 조건 처리가 되어 있기 때문에 해당 제거 될 때 어떻게 애니메이션을 적용해야 할지 모르겠음 */}
       <AnimatePresence>
         {isOpen && currentIndex === id && (
           <Body
@@ -41,17 +39,17 @@ const Accordion = ({
             exit={{ height: 0 }}
             // 애니메이션 트렌지션
             transition={{
-              // spring 처럼 통통 거리지 않는다.
-              // spring으로도 탄성을 제어할 수 있없는가?
-              // tween보다 spring이 더 이후에 나온 최신 속성이다.
-              type: 'tween',
+              type: 'spring',
               // 애니메이션 지연시간
               duration: 0.3,
             }}
           >
-            {answer.map((item) => {
+            {answer.map((item, index) => {
               return (
-                <p key={uuid()} id={uuid()}>
+                <p
+                  key={`Accordion_Body_${index}`}
+                  id={`Accordion_Body_${index}`}
+                >
                   {item}
                 </p>
               )
