@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 import { Container, Background } from '../../components'
 
-export const LoginContainer = styled(Container)`
+export const LogInContainer = styled(Container)`
   padding: 2rem 0;
   margin: 0 1.8rem;
 `
 
-export const LoginBackground = styled(Background)`
+export const LogInBackground = styled(Background)`
   background: #111;
   @media (min-width: 60em) {
     background: ${({ dim }) =>

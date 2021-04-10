@@ -2,11 +2,11 @@ import React from 'react'
 import { Checkbox } from '../../components'
 
 import {
-  LoginContainer,
+  LogInContainer,
   Head,
   EmailInput,
   PasswordInput,
-  LoginButton,
+  LogInButton,
   HelpButton,
   RememberAndHelpContainer,
   GoogleFigure,
@@ -14,11 +14,11 @@ import {
   GoogleFigcaption,
   CheckEmail,
   GoogleCaptcha,
-} from './LoginForm.style'
+} from './LogInForm.style'
 
-const LoginForm = ({ headingLevel, ...restProps }) => {
+const LogInForm = ({ headingLevel, ...restProps }) => {
   return (
-    <LoginContainer>
+    <LogInContainer {...restProps}>
       <Head as={headingLevel}>로그인</Head>
       <EmailInput
         type="email"
@@ -33,7 +33,7 @@ const LoginForm = ({ headingLevel, ...restProps }) => {
         name="userPassword"
         darkmode
       />
-      <LoginButton />
+      <LogInButton />
       <RememberAndHelpContainer>
         <Checkbox label="로그인 정보 저장" checked />
         <HelpButton type="button">도움이 필요하신가요?</HelpButton>
@@ -55,8 +55,8 @@ const LoginForm = ({ headingLevel, ...restProps }) => {
         이 페이지는 Google reCAPTCHA의 보호를 받아 사용자가 로봇이 아님을
         확인합니다. <a href="/">자세히 알아보기</a>
       </GoogleCaptcha>
-    </LoginContainer>
+    </LogInContainer>
   )
 }
 
-export default LoginForm
+export default LogInForm

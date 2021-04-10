@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { v4 as uuid } from 'uuid'
 import { bool, string, array } from 'prop-types'
 import { SelectStyle, LabelStyle } from './Select.style'
 

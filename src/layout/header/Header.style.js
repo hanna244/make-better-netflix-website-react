@@ -40,7 +40,7 @@ export const HeaderLogo = styled(Logo)`
 `
 HeaderLogo.displayName = 'HeaderLogo'
 
-export const HeaderLoginLink = styled(Button)`
+export const HeaderLogInLink = styled(Button)`
   ${resetLink}
   font-weight: bold;
   font-size: 1.1rem;
@@ -53,4 +53,4 @@ export const HeaderLoginLink = styled(Button)`
     line-height: 1;
   }
 `
-HeaderLoginLink.displayName = 'HeaderLoginLink'
+HeaderLogInLink.displayName = 'HeaderLogInLink'

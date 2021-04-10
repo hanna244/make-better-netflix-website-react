@@ -1,17 +1,17 @@
 import { Defualt } from '../../layout/LayoutTypes/Defualt'
-import { LoginContainer, LoginBackground } from './Login.style'
-import { LoginForm } from '../../containers'
+import { LogInContainer, LogInBackground } from './LogIn.style'
+import { LogInForm } from '../../containers'
 
-function Login({ ...restProps }) {
+function LogIn({ ...restProps }) {
   return (
-    <Defualt className="login">
-      <LoginBackground dim as="section" {...restProps}>
-        <LoginContainer>
-          <LoginForm />
-        </LoginContainer>
-      </LoginBackground>
+    <Defualt className="LogIn">
+      <LogInBackground dim as="section" {...restProps}>
+        <LogInContainer>
+          <LogInForm />
+        </LogInContainer>
+      </LogInBackground>
     </Defualt>
   )
 }
 
-export default Login
+export default LogIn

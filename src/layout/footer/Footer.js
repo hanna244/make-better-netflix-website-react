@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { v4 as uuid } from 'uuid'
 
 import { Definition, LinkListItem } from './compound_components'
 import {

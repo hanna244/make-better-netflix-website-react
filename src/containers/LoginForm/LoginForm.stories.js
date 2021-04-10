@@ -1,16 +1,16 @@
-import LoginForm from './LoginForm'
+import LogInForm from './LogInForm'
 
 export default {
-  title: 'Containers/LoginForm/LoginForm',
-  component: LoginForm,
+  title: 'Containers/LogInForm/LogInForm',
+  component: LogInForm,
 }
 
 const Template = (args) => (
   <div style={{ background: '#c4c2c2' }}>
-    <LoginForm {...args} />
+    <LogInForm {...args} />
   </div>
 )
 
-export const LoginFormNormal = Template.bind({})
-LoginFormNormal.args = {}
-LoginFormNormal.storyName = '로그인 폼(normal)'
+export const LogInFormNormal = Template.bind({})
+LogInFormNormal.args = {}
+LogInFormNormal.storyName = '로그인 폼(normal)'

@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { v4 as uuid } from 'uuid'
 import { Merit } from '..'
 import { DataContext } from '../../context/context'
 import { Head } from './HomeMerit.style'

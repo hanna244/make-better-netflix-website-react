@@ -5,12 +5,11 @@ import {
   OuterContainer,
   InnerContainer,
   HeaderHomeLink,
-  HeaderLoginLink,
+  HeaderLogInLink,
   HeaderLogo,
 } from './Header.style'
 
 const Header = ({ className, ...restProps }) => {
-  // 작업 중 링크 기본 이벤트 제어 설정
   const controlLink = (e) => {
     e.preventDefault()
   }
@@ -27,7 +26,7 @@ const Header = ({ className, ...restProps }) => {
             <HeaderLogo alt="넷플릭스 홈" />
           </HeaderHomeLink>
         </h1>
-        <HeaderLoginLink href="login" tag="a" />
+        <HeaderLogInLink />
       </InnerContainer>
     </OuterContainer>
   )

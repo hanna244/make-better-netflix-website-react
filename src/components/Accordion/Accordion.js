@@ -1,7 +1,6 @@
 import React from 'react'
 import { string, any } from 'prop-types'
 import { Item, Head, Body, OpenButton, PlusImg } from './Accordion.style'
-import { v4 as uuid } from 'uuid'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const Accordion = ({

@@ -8,7 +8,7 @@ import {
 } from '../../styles/common'
 import { getColor, setFont } from '../../utils'
 
-export const LoginContainer = styled(Container)`
+export const LogInContainer = styled(Container)`
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -44,7 +44,7 @@ export const PasswordInput = styled(EmailInput)`
   }
 `
 
-export const LoginButton = styled(Button)`
+export const LogInButton = styled(Button)`
   ${setFont(1.6, 1, 'bold')}
   padding: 0.937em;
   margin-top: 3rem;
