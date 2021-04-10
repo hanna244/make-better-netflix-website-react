@@ -16,7 +16,7 @@ import {
   GoogleCaptcha,
 } from './LogInForm.style'
 
-const LogInForm = ({ headingLevel, ...restProps }) => {
+const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
   return (
     <LogInContainer {...restProps}>
       <Head as={headingLevel}>로그인</Head>
@@ -33,7 +33,7 @@ const LogInForm = ({ headingLevel, ...restProps }) => {
         name="userPassword"
         darkmode
       />
-      <LogInButton />
+      <LogInButton onClick={handleClick} />
       <RememberAndHelpContainer>
         <Checkbox label="로그인 정보 저장" checked />
         <HelpButton type="button">도움이 필요하신가요?</HelpButton>

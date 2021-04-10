@@ -1,16 +1,24 @@
-import { Defualt } from '../../layout/LayoutTypes/Defualt'
+import { useCallback } from 'react'
+import { LogInType } from '../../layout/LayoutTypes'
 import { LogInContainer, LogInBackground } from './LogIn.style'
 import { LogInForm } from '../../containers'
+import { useHistory } from 'react-router-dom'
 
 function LogIn({ ...restProps }) {
+  let history = useHistory()
+  const handleMoveBrowse = useCallback(() => {
+    console.log('클릭')
+    history.push('/browse')
+  }, [history])
+
   return (
-    <Defualt className="LogIn">
+    <LogInType className="LogIn">
       <LogInBackground dim as="section" {...restProps}>
         <LogInContainer>
-          <LogInForm />
+          <LogInForm handleClick={handleMoveBrowse} />
         </LogInContainer>
       </LogInBackground>
-    </Defualt>
+    </LogInType>
   )
 }
 

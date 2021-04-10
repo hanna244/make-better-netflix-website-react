@@ -27,6 +27,7 @@ export const HeaderHomeLink = styled.a`
   display: block;
   width: 7.4rem;
   height: 2rem;
+  cursor: pointer;
 
   @media (min-width: 60em) {
     width: 14rem;

@@ -1,6 +1,5 @@
 import { string } from 'prop-types'
-import React from 'react'
-
+import React, { useCallback } from 'react'
 import {
   OuterContainer,
   InnerContainer,
@@ -8,25 +7,32 @@ import {
   HeaderLogInLink,
   HeaderLogo,
 } from './Header.style'
+import { useHistory } from 'react-router-dom'
 
-const Header = ({ className, ...restProps }) => {
-  const controlLink = (e) => {
-    e.preventDefault()
-  }
+const Header = ({ className, hasLogInButton, ...restProps }) => {
+  let history = useHistory()
+
+  const handleMoveLogIn = useCallback(() => {
+    history.push('/login')
+  }, [history])
+
+  const handleMoveHome = useCallback(
+    (e) => {
+      e.preventDefault()
+      history.push('/')
+    },
+    [history]
+  )
 
   return (
     <OuterContainer>
-      <InnerContainer
-        onClick={controlLink}
-        className={className}
-        {...restProps}
-      >
+      <InnerContainer className={className} {...restProps}>
         <h1>
-          <HeaderHomeLink href="/">
+          <HeaderHomeLink onClick={handleMoveHome}>
             <HeaderLogo alt="넷플릭스 홈" />
           </HeaderHomeLink>
         </h1>
-        <HeaderLogInLink />
+        {hasLogInButton ? <HeaderLogInLink onClick={handleMoveLogIn} /> : null}
       </InnerContainer>
     </OuterContainer>
   )

@@ -24,11 +24,13 @@ export const LogInContainer = styled(Container)`
     max-width: 38rem;
   }
 `
+LogInContainer.displayName = 'LogInContainer'
 
 export const Head = styled.h2`
   ${setFont(2, 1.2, 'bold')}
   margin: 0;
 `
+Head.displayName = 'Head'
 
 export const EmailInput = styled(Input)`
   margin: 2rem auto 0;
@@ -38,11 +40,14 @@ export const EmailInput = styled(Input)`
     /* min-width: 33.9rem; */
   }
 `
+EmailInput.displayName = 'EmailInput'
+
 export const PasswordInput = styled(EmailInput)`
   @media (max-width: 60em) {
     margin-top: 4.4rem;
   }
 `
+PasswordInput.displayName = 'PasswordInput'
 
 export const LogInButton = styled(Button)`
   ${setFont(1.6, 1, 'bold')}
@@ -53,6 +58,8 @@ export const LogInButton = styled(Button)`
     padding: 0.937em;
   }
 `
+LogInButton.displayName = 'LogInButton'
+
 export const HelpButton = styled.button`
   ${resetButton}
   ${setFont(1.3, 1.35)}
@@ -61,6 +68,7 @@ export const HelpButton = styled.button`
   color: ${getColor('lightGray')};
   background: none;
 `
+HelpButton.displayName = 'HelpButton'
 
 export const RememberAndHelpContainer = styled(Container)`
   display: flex;
@@ -68,6 +76,7 @@ export const RememberAndHelpContainer = styled(Container)`
   justify-content: space-between;
   margin: 1rem 0 0;
 `
+RememberAndHelpContainer.displayName = 'RememberAndHelpContainer'
 
 export const GoogleFigure = styled.figure`
   ${resetFigure}
@@ -76,9 +85,13 @@ export const GoogleFigure = styled.figure`
   align-items: center;
   margin-top: 2rem;
 `
+GoogleFigure.displayName = 'GoogleFigure'
+
 export const GoogleImg = styled.img`
   ${resetImg}
 `
+GoogleImg.displayName = 'GoogleImg'
+
 export const GoogleFigcaption = styled.figcaption`
 ${setFont(1.2, 1.35)}
 color: ${getColor('gray')};
@@ -86,6 +99,7 @@ display: grid;
 align-self: flex-end;
 margin-left: 0.4rem;
 `
+GoogleFigcaption.displayName = 'GoogleFigcaption'
 
 export const CheckEmail = styled.span`
   ${setFont(1.2, 1.35, 'normal')}
@@ -97,9 +111,12 @@ export const CheckEmail = styled.span`
     color: ${getColor('white')};
   }
 `
+CheckEmail.displayName = 'CheckEmail'
+
 export const GoogleCaptcha = styled(CheckEmail)`
   margin-top: 1rem;
   a {
     color: ${getColor('blue')};
   }
 `
+GoogleCaptcha.displayName = 'GoogleCaptcha'

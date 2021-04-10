@@ -13,18 +13,21 @@ import {
 } from '../../store/slices/inputslice'
 import { isValidEmail } from '../../utils'
 import { string } from 'prop-types'
+import { useHistory } from 'react-router'
 
 const Promotion = ({ id, name, className, ...restProps }) => {
+  // 프로모션 버튼 라우터 설정을 위한 history 객체 가져오기
+  const history = useHistory()
+
+  /* 리덕스 상태 관리 ---------------------------------------------------------------- */
   // 스토어에서 상태 가져오기
-  const { inputValue, inputValid, inputInvalid } = useSelector(
-    ({ userInput }) => {
-      return {
-        inputValue: userInput.email,
-        inputValid: userInput.detect.valid,
-        inputInvalid: userInput.detect.invalid,
-      }
+  const { inputValue } = useSelector(({ userInput }) => {
+    return {
+      inputValue: userInput.email,
+      inputValid: userInput.detect.valid,
+      inputInvalid: userInput.detect.invalid,
     }
-  )
+  })
 
   // 스토어에서 액션 가져오기
   const dispatch = useDispatch()
@@ -71,19 +74,24 @@ const Promotion = ({ id, name, className, ...restProps }) => {
     ]
   )
 
+  /* ----------------------------------------------------------------------- */
+
   return (
     <PromotionContainer className={className}>
       <PromotionInput
         type="email"
         label="이메일 주소"
         errorMessege="정확한 이메일 주소를 입력하세요."
-        id={id}
+        id="fndjaskf"
         name={name}
-        value={inputValue}
+        value={' '}
         handleChange={handleChange}
         {...restProps}
       />
-      <SignUpButton label="30일 무료 이용" />
+      <SignUpButton
+        label="30일 무료 이용"
+        onClick={() => history.push('/signup')}
+      />
     </PromotionContainer>
   )
 }

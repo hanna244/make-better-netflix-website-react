@@ -1,13 +1,13 @@
-import { Defualt } from '../../layout/LayoutTypes/Defualt'
+import { HomeType } from '../../layout/LayoutTypes'
 import { OurStory, HomeMerit, HomeFAQ } from '../../containers/index'
 
-function Home() {
+function Home({ ...restProps }) {
   return (
-    <Defualt className="home">
+    <HomeType className="home" {...restProps}>
       <OurStory />
       <HomeMerit />
       <HomeFAQ />
-    </Defualt>
+    </HomeType>
   )
 }
 
