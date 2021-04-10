@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
 
+import { BrowserRouter as Router } from 'react-router-dom'
+
 import { DataContext } from './context/context'
 import addressData from './data/address.json'
 import faqData from './data/faq.json'
@@ -28,7 +30,9 @@ ReactDOM.render(
     >
       <Provider store={store}>
         <GlobalStyles />
-        <App />
+        <Router>
+          <App />
+        </Router>
       </Provider>
     </DataContext.Provider>
   </React.StrictMode>,
