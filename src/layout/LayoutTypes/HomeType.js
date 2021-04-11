@@ -2,12 +2,14 @@ import React from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
-export const Defualt = ({ children, ...restProps }) => {
+const Defualt = ({ children, ...restProps }) => {
   return (
     <>
-      <Header {...restProps} />
+      <Header hasLogInButton {...restProps} />
       <main>{children}</main>
       <Footer />
     </>
   )
 }
+
+export default Defualt
