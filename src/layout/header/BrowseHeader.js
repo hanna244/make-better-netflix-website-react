@@ -35,16 +35,17 @@ const BrowseHeader = ({ className, hasLogInButton, ...restProps }) => {
       <InnerContainer className={className} {...restProps}>
         <h1>
           <HeaderHomeLink onClick={handleMoveHome}>
-            <HeaderLogo alt="넷플릭스 홈" />
+            <HeaderLogo alt="브라우즈 홈" />
           </HeaderHomeLink>
         </h1>
         <nav>
-          <NavLink to={`${url}/browse`}>홈</NavLink>
+          <a href="#go-to-browse" onClick={handleMoveHome}>
+            홈
+          </a>
           <NavLink to={`${url}/genre/tv`}>TV 프로그램</NavLink>
           <NavLink to={`${url}/genre/movie`}>영화</NavLink>
           <NavLink to={`${url}/mylist`}>내가 찜한 콘텐츠</NavLink>
         </nav>
-        <Route path={`${url}/browse`} component={Browse} />
         <Route path={`${url}/genre/tv`} component={TV} />
         <Route path={`${url}/genre/movie`} component={Movie} />
         <Route path={`${url}/mylist`} component={MyList} />
