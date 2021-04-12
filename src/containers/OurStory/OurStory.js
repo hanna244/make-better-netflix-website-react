@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Background } from '../../components'
+import { isValidEmail } from '../../utils/regEx'
 import {
   MainContainer,
   Head,
@@ -29,10 +30,36 @@ const OurStory = ({ ...restProps }) => {
 
   /* 인풋 value 감지 (onchange) --------------------------------------------------- */
   const [value, setValue] = useState('')
+  const [detect, setDetect] = useState({
+    valid: false,
+    invalid: false,
+  })
 
+  // console.log(detect)
   const handleChange = useCallback((e) => {
     setValue(e.target.value)
   }, [])
+
+  const handleDetect = useCallback(() => {
+    if (!isValidEmail(value) && value.trim().length === 0) {
+      setDetect({
+        valid: false,
+        invalid: false,
+      })
+    }
+    if (!isValidEmail(value) && value.trim().length !== 0) {
+      setDetect({
+        valid: false,
+        invalid: true,
+      })
+    }
+    if (isValidEmail(value)) {
+      setDetect({
+        valid: true,
+        invalid: false,
+      })
+    }
+  }, [value])
 
   return (
     <Background dim as="section" {...restProps}>
@@ -44,8 +71,10 @@ const OurStory = ({ ...restProps }) => {
         <OurStoryPromotion
           value={value}
           handleChange={handleChange}
+          handleDetect={handleDetect}
           name="email"
           id="ourStoryEmail"
+          {...detect}
         />
         <PromotionInfoStyle>{promotionInfo}</PromotionInfoStyle>
       </MainContainer>

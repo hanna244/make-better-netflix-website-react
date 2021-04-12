@@ -24,6 +24,7 @@ const Input = ({
   maxLength,
   errorMessege,
   handleChange,
+  handleDetect,
   ...restProps
 }) => {
   const inputClass = classNames(
@@ -51,6 +52,7 @@ const Input = ({
           id={id}
           darkmode={darkmode}
           onChange={handleChange}
+          onBlur={handleDetect}
         />
         <LabelStyle darkmode={darkmode} style={color} htmlFor={id}>
           {label}
