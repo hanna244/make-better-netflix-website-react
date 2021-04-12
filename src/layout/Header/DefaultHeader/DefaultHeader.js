@@ -6,10 +6,10 @@ import {
   HeaderHomeLink,
   HeaderLogInLink,
   HeaderLogo,
-} from './Header.style'
+} from './DefaultHeader.style'
 import { useHistory } from 'react-router-dom'
 
-const Header = ({ className, hasLogInButton, ...restProps }) => {
+const DefaultHeader = ({ className, hasLogInButton, ...restProps }) => {
   let history = useHistory()
 
   const handleMoveLogIn = useCallback(() => {
@@ -38,9 +38,9 @@ const Header = ({ className, hasLogInButton, ...restProps }) => {
   )
 }
 
-Header.propTypes = {
+DefaultHeader.propTypes = {
   /** 사용자 정의 클래스 명을 설정할 수 있습니다. */
   className: string,
 }
 
-export default Header
+export default DefaultHeader

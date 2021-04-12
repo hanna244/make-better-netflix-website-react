@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from '../Header/Header'
+import { DefaultHeader } from '../Header'
 import Footer from '../Footer/Footer'
 
 const LogInType = ({ children, ...restProps }) => {
   return (
     <>
-      <Header {...restProps} />
+      <DefaultHeader {...restProps} />
       <main>{children}</main>
       <Footer />
     </>

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { Button, Container, Logo } from '../../components'
-import { resetLink } from '../../styles/common'
+import { Button, Container, Logo } from '../../../components'
+import { resetLink } from '../../../styles/common'
 
 export const OuterContainer = styled.header`
   margin: 0 auto;

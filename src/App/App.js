@@ -1,5 +1,6 @@
 import { Redirect, Route, Switch } from 'react-router-dom'
-import { Browse, Home, LogIn, PageNotFound, Profile, SignUp } from '../pages'
+import { Home, LogIn, PageNotFound, Profile, SignUp } from '../pages'
+import { Browse } from '../pages'
 
 function App() {
   return (

@@ -1,11 +1,11 @@
 import React from 'react'
-import BrowseHeader from '../Header/BrowseHeader'
+import { NavHeader } from '../Header'
 import Footer from '../Footer/Footer'
 
 const BrowseType = ({ children, ...restProps }) => {
   return (
     <>
-      <BrowseHeader {...restProps} />
+      <NavHeader {...restProps} />
       <main>{children}</main>
       <Footer />
     </>

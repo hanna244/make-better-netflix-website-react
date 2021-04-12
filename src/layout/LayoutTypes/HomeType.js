@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from '../Header/Header'
+import { DefaultHeader } from '../Header'
 import Footer from '../Footer/Footer'
 
 const Defualt = ({ children, ...restProps }) => {
   return (
     <>
-      <Header hasLogInButton {...restProps} />
+      <DefaultHeader hasLogInButton {...restProps} />
       <main>{children}</main>
       <Footer />
     </>
