@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react'
-
+import React, { Fragment, useState, useEffect } from 'react'
 import { Definition, LinkListItem } from './compound_components'
 import {
   FooterStyle,
@@ -11,25 +10,32 @@ import {
   AddressHeadHidden,
 } from './Footer.style'
 
-import footerLinkData from '../../data/footerLink.json'
-import addressData from '../../data/address.json'
-
 const Footer = ({ ...restProps }) => {
   // JSON 데이터 동적 import
-  // const [linkData, setLinkData] = useState('')
+  const [footerLinkData, setFooterLinkData] = useState([])
+  const [addressData, setAddressData] = useState([])
 
-  // const fetchData = () => {
-  //   import('../../data/footerLink.json')
-  //     .then((data) => setLinkData(data))
-  //     .catch((error) => console.error('데이터를 불러오는 것에 실패했습니다.'))
-  // }
+  const fetchAddressData = () => {
+    import('../../data/address.json')
+      .then((data) => {
+        const { default: _default } = data
+        setAddressData(_default)
+      })
+      .catch((error) => console.error('address 데이터를 불러오지 못했습니다.'))
+  }
+  const fetchFppterLinkData = () => {
+    import('../../data/footerLink.json')
+      .then((data) => {
+        const { default: _default } = data
+        setFooterLinkData(_default)
+      })
+      .catch((error) => console.error('address 데이터를 불러오지 못했습니다.'))
+  }
 
-  // useEffect(() => {
-  //   fetchData()
-  // }, [])
-
-  // console.log(linkData)
-  // console.log(linkData.default)
+  useEffect(() => {
+    fetchAddressData()
+    fetchFppterLinkData()
+  }, [])
 
   return (
     <FooterStyle {...restProps}>
