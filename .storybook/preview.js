@@ -1,5 +1,7 @@
 import React from 'react'
 import { GlobalStyles } from '../src/styles/GlobalStyles'
+import { Provider } from 'react-redux'
+import { store } from '../src/store/store'
 
 import {
   layout,
@@ -17,10 +19,10 @@ export const globalTypes = localization
 // 클로벌 스타일 적용
 export const decorators = [
   (Story) => (
-    <>
+    <Provider store={store}>
       <GlobalStyles />
       <Story />
-    </>
+    </Provider>
   ),
 ]
 

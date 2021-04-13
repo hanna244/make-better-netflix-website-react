@@ -3,6 +3,13 @@ import FAQ from './FAQ'
 export default {
   title: 'Containers/FAQ/FAQ',
   component: FAQ,
+  decorators: [
+    (Story) => (
+      <div style={{ margin: 30 }}>
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 const Template = (args) => (
