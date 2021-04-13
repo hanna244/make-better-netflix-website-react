@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, memo, useState } from 'react'
 import { Checkbox } from '../../components'
 import { isValidEmail, isValidPassword } from '../../utils'
 import {} from '../../context/auth'
@@ -17,97 +17,116 @@ import {
   GoogleCaptcha,
 } from './LogInForm.style'
 
-const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
-  const initInputState = {
-    email: '',
-    emailDetect: {
-      valid: false,
-      invalid: false,
-    },
-    password: '',
-    passwordDetect: {
-      valid: false,
-      invalid: false,
-    },
-  }
+const initInputState = {
+  email: '',
+  emailDetect: {
+    valid: false,
+    invalid: false,
+  },
+  password: '',
+  passwordDetect: {
+    valid: false,
+    invalid: false,
+  },
+}
+const MemoEmailInput = memo(EmailInput)
+const MemoPasswordInput = memo(PasswordInput)
 
-  // console.log(initInputState.passwordDetect)
+const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
   const [inputState, setInputState] = useState(initInputState)
 
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setInputState({ [name]: value.trim() })
-  }
+  const handleChange = useCallback(
+    (e) => {
+      const { name, value } = e.target
+      setInputState({ ...inputState, [name]: value })
+    },
+    [inputState]
+  )
 
-  const handleDetect = (e) => {
-    const { name, value } = e.target
-    console.log(name)
+  const handleDetect = useCallback(
+    (e) => {
+      const { name, value } = e.target
+      console.log({ ...inputState })
+      console.log(value)
 
-    switch (name) {
-      case 'email':
-        if (!isValidEmail(value) && value.trim().length === 0) {
-          setInputState({
-            emailDetect: { valid: false, invalid: false },
-          })
-        }
-        if (!isValidEmail(value) && value.trim().length !== 0) {
-          setInputState({
-            emailDetect: { valid: false, invalid: true },
-          })
-        }
-        if (isValidEmail(value)) {
-          setInputState({
-            emailDetect: { valid: true, invalid: false },
-          })
-        }
-        break
+      switch (name) {
+        case 'email':
+          if (!isValidEmail(value) && value.trim().length === 0) {
+            setInputState({
+              ...inputState,
+              email: value,
+              emailDetect: { valid: false, invalid: false },
+            })
+          }
+          if (!isValidEmail(value) && value.trim().length !== 0) {
+            setInputState({
+              ...inputState,
+              email: value,
+              emailDetect: { valid: false, invalid: true },
+            })
+          }
+          if (isValidEmail(value)) {
+            setInputState({
+              ...inputState,
+              email: value,
+              emailDetect: { valid: true, invalid: false },
+            })
+          }
+          break
 
-      case 'password':
-        console.log(isValidPassword(value))
-        if (!isValidPassword(value) && value.trim().length !== 0) {
-          setInputState({
-            passowordDetect: { valid: false, invalid: true },
-          })
-        }
-        if (isValidPassword(value) && value.trim().length !== 0) {
-          setInputState({
-            passowordDetect: { valid: true, invalid: false },
-          })
-        }
+        case 'password':
+          if (!isValidPassword(value) && value.trim().length !== 0) {
+            setInputState({
+              ...inputState,
+              password: value,
+              passwordDetect: { valid: false, invalid: true },
+            })
+          }
+          if (isValidPassword(value) && value.trim().length !== 0) {
+            setInputState({
+              ...inputState,
+              password: value,
+              passwordDetect: { valid: true, invalid: false },
+            })
+          }
+          if (!isValidPassword(value) && value.trim().length === 0) {
+            setInputState({
+              ...inputState,
+              password: value,
+              passwordDetect: { valid: false, invalid: false },
+            })
+          }
+          break
 
-        if (!isValidPassword(value) && value.trim().length === 0) {
-          setInputState({
-            passowordDetect: { valid: false, invalid: false },
-          })
-        }
-
-        break
-
-      default:
-        setInputState(initInputState)
-    }
-  }
+        default:
+          setInputState(initInputState)
+      }
+    },
+    [inputState]
+  )
 
   return (
     <LogInContainer {...restProps}>
       <Head as={headingLevel}>로그인</Head>
-      <EmailInput
+      <MemoEmailInput
         type="email"
         label="이메일 주소 또는 폰 번호"
         errorMessege="정확한 이메일 주소 또는 폰 번호를 입력하세요."
         name="email"
         id="userEmail"
+        value={inputState.email}
         handleChange={handleChange}
         handleDetect={handleDetect}
         darkmode
         {...inputState.emailDetect}
       />
-      <PasswordInput
+      <MemoPasswordInput
         type="password"
         label="비밀번호"
         errorMessege="비밀번호는 4 - 60자 사이의 숫자여야 합니다."
         name="password"
         id="userPassword"
+        value={inputState.password}
         handleChange={handleChange}
         handleDetect={handleDetect}
         darkmode
