@@ -1,4 +1,5 @@
 import { Redirect, Route, Switch } from 'react-router-dom'
+
 import {
   Home,
   LogIn,
@@ -17,7 +18,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route path="/login" component={LogIn} />
       <Route path="/signup" component={SignUp} />
-      <Route path="/browse" component={Browse} />
+      <Route exact path="/browse" component={Browse} />
       <Route path="/browse/genre/tv" component={TV} />
       <Route path="/browse/genre/movie" component={Movie} />
       <Route path="/browse/mylist" component={MyList} />
