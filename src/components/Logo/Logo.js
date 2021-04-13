@@ -1,9 +1,12 @@
 import React from 'react'
 import { string } from 'prop-types'
 import { LogoImage } from './Logo.style'
+import { getPublicAssets } from '../../utils'
 
 const Logo = ({ alt, ...restProps }) => {
-  return <LogoImage src="./assets/Logo.svg" alt={alt} {...restProps} />
+  return (
+    <LogoImage src={getPublicAssets('Logo.svg')} alt={alt} {...restProps} />
+  )
 }
 
 Logo.propTypes = {
