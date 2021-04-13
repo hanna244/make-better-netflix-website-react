@@ -10,6 +10,7 @@ const Button = ({
   hover,
   focus,
   className,
+  handleClick,
   ...restProps
 }) => {
   const customStyle = {
@@ -19,6 +20,7 @@ const Button = ({
 
   return (
     <ButtonStyle
+      onClick={handleClick}
       className={className}
       style={customStyle}
       hover={hover}

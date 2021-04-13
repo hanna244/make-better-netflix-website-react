@@ -11,7 +11,8 @@ import {
 } from './Footer.style'
 
 const Footer = ({ ...restProps }) => {
-  // JSON 데이터 동적 import
+  /* JSON 데이터 동적 import ------------------------------------------------------- */
+
   const [footerLinkData, setFooterLinkData] = useState([])
   const [addressData, setAddressData] = useState([])
 
@@ -45,9 +46,7 @@ const Footer = ({ ...restProps }) => {
         dtContext="문의 전화"
         ddContext="00-308-321-0058"
         telLink
-      >
-        테스트 입니다.
-      </DefinitionStyle>
+      />
       <LinkListStyle>
         {footerLinkData.map((item, index) =>
           item.abbr ? (

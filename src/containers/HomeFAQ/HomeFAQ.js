@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import { isValidEmail } from '../../utils/regEx'
+import { isValidEmail } from '../../utils'
 import data from '../../data/homeContext.json'
 import {
   Head,

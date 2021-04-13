@@ -1,5 +1,5 @@
 const initState = {
-  currentIndex: 0,
+  currentIndex: null,
 }
 
 export const faqReducer = (state = initState, action) => {

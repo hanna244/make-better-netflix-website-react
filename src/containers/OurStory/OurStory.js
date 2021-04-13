@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Background } from '../../components'
-import { isValidEmail } from '../../utils/regEx'
+import { isValidEmail } from '../../utils'
 import {
   MainContainer,
   Head,
