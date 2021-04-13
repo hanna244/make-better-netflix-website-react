@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { NavLink, useHistory, useRouteMatch } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import {
   OuterContainer,
   InnerContainer,
@@ -9,9 +9,6 @@ import {
 
 const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
   const history = useHistory()
-  const { url } = useRouteMatch()
-
-  console.log(url)
 
   const handleMoveHome = useCallback(
     (e) => {

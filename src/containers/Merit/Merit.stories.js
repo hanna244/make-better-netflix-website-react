@@ -1,5 +1,4 @@
 import Merit from './Merit'
-import { classNames } from 'classnames'
 
 export default {
   title: 'Containers/Merit/Merit',

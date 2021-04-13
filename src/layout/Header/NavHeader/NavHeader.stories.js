@@ -7,6 +7,6 @@ export default {
 
 const Template = (args) => <NavHeader {...args} />
 
-export const hasNavHeader = Template.bind({})
-hasNavHeader.args = {}
-hasNavHeader.storyName = '헤더(Nav)'
+export const HasNavHeader = Template.bind({})
+HasNavHeader.args = {}
+HasNavHeader.storyName = '헤더(Nav)'
