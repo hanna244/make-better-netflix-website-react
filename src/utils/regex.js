@@ -6,7 +6,8 @@ const emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+")
 // -(대쉬)없음
 const phoneNumberRegEx = /^[0-9]{3}([0-9]{3}|[0-9]{4})[0-9]{4}$/
 
-const passwordRegEx = /^[0-9].{8,60}$/
+// password가 4자 미만, 60자 초과일 경우 false
+const passwordRegEx = /^[0-9].{3,61}$/
 
 export const isValidEmail = (value) => emailRegEx.test(value)
 export const isValidPhoneNumber = (value) => phoneNumberRegEx.test(value)

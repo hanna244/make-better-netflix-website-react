@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Checkbox } from '../../components'
-
+import { isValidEmail, isValidPassword } from '../../utils'
 import {
   LogInContainer,
   Head,
@@ -17,21 +17,100 @@ import {
 } from './LogInForm.style'
 
 const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
+  const initInputState = {
+    email: '',
+    emailDetect: {
+      valid: false,
+      invalid: false,
+    },
+    password: '',
+    passwordDetect: {
+      valid: false,
+      invalid: false,
+    },
+  }
+
+  // console.log(initInputState.passwordDetect)
+  const [inputState, setInputState] = useState(initInputState)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setInputState({ [name]: value.trim() })
+  }
+
+  const handleDetect = (e) => {
+    const { name, value } = e.target
+    console.log(name)
+
+    switch (name) {
+      case 'email':
+        if (!isValidEmail(value) && value.trim().length === 0) {
+          setInputState({
+            emailDetect: { valid: false, invalid: false },
+          })
+        }
+        if (!isValidEmail(value) && value.trim().length !== 0) {
+          setInputState({
+            emailDetect: { valid: false, invalid: true },
+          })
+        }
+        if (isValidEmail(value)) {
+          setInputState({
+            emailDetect: { valid: true, invalid: false },
+          })
+        }
+        break
+
+      case 'password':
+        console.log(isValidPassword(value))
+        if (!isValidPassword(value) && value.trim().length !== 0) {
+          setInputState({
+            passowordDetect: { valid: false, invalid: true },
+          })
+        }
+        if (isValidPassword(value) && value.trim().length !== 0) {
+          setInputState({
+            passowordDetect: { valid: true, invalid: false },
+          })
+        }
+
+        if (!isValidPassword(value) && value.trim().length === 0) {
+          setInputState({
+            passowordDetect: { valid: false, invalid: false },
+          })
+        }
+
+        break
+
+      default:
+        setInputState(initInputState)
+    }
+  }
+
   return (
     <LogInContainer {...restProps}>
       <Head as={headingLevel}>로그인</Head>
       <EmailInput
         type="email"
         label="이메일 주소 또는 폰 번호"
-        name="userEmail"
+        errorMessege="정확한 이메일 주소 또는 폰 번호를 입력하세요."
+        name="email"
+        id="userEmail"
+        handleChange={handleChange}
+        handleDetect={handleDetect}
         darkmode
+        {...inputState.emailDetect}
       />
       <PasswordInput
-        type="email"
+        type="password"
         label="비밀번호"
-        errorMessege="비밀번호는 4 - 60자 사이여야 합니다."
-        name="userPassword"
+        errorMessege="비밀번호는 4 - 60자 사이의 숫자여야 합니다."
+        name="password"
+        id="userPassword"
+        handleChange={handleChange}
+        handleDetect={handleDetect}
         darkmode
+        {...inputState.passwordDetect}
       />
       <LogInButton onClick={handleClick} />
       <RememberAndHelpContainer>
