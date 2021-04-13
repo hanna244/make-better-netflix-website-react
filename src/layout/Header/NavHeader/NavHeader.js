@@ -29,10 +29,10 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
           </NavHeaderHomeLink>
         </h1>
         <nav>
-          <NavLink to={`${url}`}>홈</NavLink>
-          <NavLink to={`${url}/genre/tv`}>TV 프로그램</NavLink>
-          <NavLink to={`${url}/genre/movie`}>영화</NavLink>
-          <NavLink to={`${url}/mylist`}>내가 찜한 콘텐츠</NavLink>
+          <NavLink to={`/browse`}>홈</NavLink>
+          <NavLink to={`/browse/genre/tv`}>TV 프로그램</NavLink>
+          <NavLink to={`/browse/genre/movie`}>영화</NavLink>
+          <NavLink to={`/browse/mylist`}>내가 찜한 콘텐츠</NavLink>
         </nav>
       </InnerContainer>
     </OuterContainer>
