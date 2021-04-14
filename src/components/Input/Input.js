@@ -73,6 +73,8 @@ Input.defaultProps = {
 Input.propTypes = {
   /** 식별 가능한 고유 아이디 설정은 **필수**입니다. */
   id: string.isRequired,
+  /** 인풋에 입력하는 값은 **필수**입니다. */
+  value: string.isRequired,
   /** 사용자에게 정보를 제공할 레이블 설정은 **필수**입니다. 비록 화면에 표시되지는 않더라도 스크린 리더 사용자에게 정보를 제공하기 때문입니다. */
   label: string.isRequired,
   /** 폼 컨트롤 시, 사용자가 입력한 값과 매칭되는 네임 값을 설정합니다. */
