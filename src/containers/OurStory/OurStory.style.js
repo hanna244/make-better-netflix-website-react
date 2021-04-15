@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { Container } from '../../components'
+import { Container } from 'components'
 import Promotion from '../Promotion/Promotion'
-import { a11yHidden, resetPara } from '../../styles/common'
-import { setFont } from '../../utils'
+import { a11yHidden, resetPara } from 'styles/common'
+import { setFont } from 'utils'
 
 // 아워스토리 p 요소 공통 스타일
 const CommonPara = styled.p`

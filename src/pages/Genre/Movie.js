@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowseType } from '../../layout/LayoutTypes'
+import { BrowseType } from 'layout/LayoutTypes'
 
 const Movie = () => {
   return (

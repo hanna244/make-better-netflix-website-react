@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import { Definition } from './compound_components'
-import { Select } from '../../components'
-import { a11yHidden, resetList, resetPara } from '../../styles/common'
+import { Select } from 'components'
+import { a11yHidden, resetList, resetPara } from 'styles/common'
 
-import { getColor } from '../../utils'
+import { getColor } from 'utils'
 
 export const FooterStyle = styled.footer`
   color: ${getColor('gray')};

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Merit } from '..'
-import { DataContext } from '../../context/context'
+import { DataContext } from 'context/context'
 import { Head } from './HomeMerit.style'
 
 const HomeMerit = () => {

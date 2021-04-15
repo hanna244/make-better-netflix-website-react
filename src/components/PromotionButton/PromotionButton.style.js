@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { resetImg } from '../../styles/common'
-import { getColor } from '../../utils'
+import { resetImg } from 'styles/common'
+import { getColor } from 'utils'
 import { ButtonStyle } from '../Button/Button.style'
 
 export const PromotionButtonStyle = styled(ButtonStyle)`

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { Container } from '../../components'
-import { resetImg } from '../../styles/common'
-import { setFont, getColor } from '../../utils'
+import { Container } from 'components'
+import { resetImg } from 'styles/common'
+import { setFont, getColor } from 'utils'
 
 export const ContainerStyle = styled(Container)`
   display: flex;

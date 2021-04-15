@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Container, Input, PromotionButton } from '../../components'
+import { Container, Input, PromotionButton } from 'components'
 
 export const PromotionContainer = styled(Container)`
   display: flex;

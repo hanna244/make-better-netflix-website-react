@@ -1,11 +1,6 @@
 import styled from 'styled-components'
-import {
-  resetButton,
-  resetImg,
-  resetList,
-  resetPara,
-} from '../../styles/common'
-import { getColor } from '../../utils'
+import { resetButton, resetImg, resetList, resetPara } from 'styles/common'
+import { getColor } from 'utils'
 
 export const Item = styled.div`
   width: 90rem;

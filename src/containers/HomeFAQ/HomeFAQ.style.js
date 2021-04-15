@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { FAQ, Promotion } from '..'
-import { Container } from '../../components'
-import { setFont } from '../../utils'
-import { SignUpStyle } from '../../containers/OurStory/OurStory.style'
+import { Container } from 'components'
+import { setFont } from 'utils'
+import { SignUpStyle } from 'containers/OurStory/OurStory.style'
 
 export const FAQContainerStyle = styled(Container)`
   display: flex;

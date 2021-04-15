@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
-import { isValidEmail } from '../../utils'
-import data from '../../data/homeContext.json'
+import { isValidEmail } from 'utils'
+import data from 'data/homeContext.json'
 import {
   Head,
   FAQContainerStyle,

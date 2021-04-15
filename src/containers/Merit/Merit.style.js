@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { InnerVideo } from '../../components'
+import { InnerVideo } from 'components'
 import Download from '../Download/Download'
 
 export const Container = styled.article`

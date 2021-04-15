@@ -1,5 +1,5 @@
 import React, { Fragment, useCallback } from 'react'
-import { Button } from '../../components'
+import { Button } from 'components'
 import { useHistory } from 'react-router-dom'
 
 const SignUp = () => {

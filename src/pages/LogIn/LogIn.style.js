@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Container, Background } from '../../components'
+import { Container, Background } from 'components'
 
 export const LogInContainer = styled(Container)`
   padding: 2rem 0;

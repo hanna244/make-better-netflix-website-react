@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
-import { LogInType } from '../../layout/LayoutTypes'
+import { LogInType } from 'layout/LayoutTypes'
 import { LogInContainer, LogInBackground } from './LogIn.style'
-import { LogInForm } from '../../containers'
+import { LogInForm } from 'containers'
 import { useHistory } from 'react-router-dom'
 
 function LogIn({ ...restProps }) {

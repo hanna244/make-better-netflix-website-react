@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Background } from '../../components'
-import { isValidEmail } from '../../utils'
+import { Background } from 'components'
+import { isValidEmail } from 'utils'
 import {
   MainContainer,
   Head,
@@ -14,7 +14,7 @@ import {
 const OurStory = ({ ...restProps }) => {
   /* 아워 스토리 데이터 불러오기 ---------------------------------------------------------- */
   const fetchData = useCallback(() => {
-    import('../../data/homeContext.json').then((module) => {
+    import('data/homeContext.json').then((module) => {
       const { default: _default } = module
       const { ko: koHomeData } = _default[0]
       setHomeContent(koHomeData)

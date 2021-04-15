@@ -1,15 +1,15 @@
 import React, { useEffect, useCallback, useState, Fragment } from 'react'
-import { Accordion } from '../../components'
+import { Accordion } from 'components'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { currentNumber } from '../../store/slices/faqslice'
+import { currentNumber } from 'store/slices/faqslice'
 import { List } from './FAQ.style'
 
 const FAQ = ({ as, label, children, ...restProps }) => {
   // 데이터 비동기 통신으로 받아오기
   const [faqData, setFaqData] = useState([])
   const fetchData = useCallback(() => {
-    import('../../data/faq.json')
+    import('data/faq.json')
       .then((data) => {
         const { default: _default } = data
         setFaqData(_default)

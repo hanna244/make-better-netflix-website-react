@@ -1,12 +1,7 @@
 import styled from 'styled-components'
-import { Button, Container, Input } from '../../components'
-import {
-  resetButton,
-  resetFigure,
-  resetImg,
-  resetLink,
-} from '../../styles/common'
-import { getColor, setFont } from '../../utils'
+import { Button, Container, Input } from 'components'
+import { resetButton, resetFigure, resetImg, resetLink } from 'styles/common'
+import { getColor, setFont } from 'utils'
 
 export const LogInContainer = styled(Container)`
   display: flex;

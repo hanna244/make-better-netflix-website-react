@@ -17,7 +17,7 @@ const Footer = ({ ...restProps }) => {
   const [addressData, setAddressData] = useState([])
 
   const fetchAddressData = () => {
-    import('../../data/address.json')
+    import('data/address.json')
       .then((data) => {
         const { default: _default } = data
         setAddressData(_default)
@@ -25,7 +25,7 @@ const Footer = ({ ...restProps }) => {
       .catch((error) => console.error('address 데이터를 불러오지 못했습니다.'))
   }
   const fetchFppterLinkData = () => {
-    import('../../data/footerLink.json')
+    import('data/footerLink.json')
       .then((data) => {
         const { default: _default } = data
         setFooterLinkData(_default)

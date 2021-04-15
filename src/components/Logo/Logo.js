@@ -1,7 +1,7 @@
 import React from 'react'
 import { string } from 'prop-types'
 import { LogoImage } from './Logo.style'
-import { getPublicAssets } from '../../utils'
+import { getPublicAssets } from 'utils'
 
 const Logo = ({ alt, ...restProps }) => {
   return (

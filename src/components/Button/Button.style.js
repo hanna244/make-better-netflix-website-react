@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { resetButton } from '../../styles/common'
-import { getColor } from '../../utils'
+import { resetButton } from 'styles/common'
+import { getColor } from 'utils'
 
 export const ButtonStyle = styled.button`
   ${resetButton}

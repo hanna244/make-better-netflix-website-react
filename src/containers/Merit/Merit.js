@@ -1,6 +1,6 @@
 import { oneOf, string } from 'prop-types'
 import React from 'react'
-import { Frame } from '../../components'
+import { Frame } from 'components'
 import {
   Container,
   Head,

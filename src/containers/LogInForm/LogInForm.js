@@ -1,7 +1,6 @@
 import React, { useCallback, memo, useState } from 'react'
-import { Checkbox } from '../../components'
-import { isValidEmail, isValidPassword } from '../../utils'
-import {} from '../../context/auth'
+import { Checkbox } from 'components'
+import { isValidEmail, isValidPassword } from 'utils'
 import {
   LogInContainer,
   Head,

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { a11yHidden } from '../../styles/common'
-import { getColor } from '../../utils'
+import { a11yHidden } from 'styles/common'
+import { getColor } from 'utils'
 
 export const LabelStyle = styled.label`
   ${(props) => (props.a11yLabel ? a11yHidden : null)}

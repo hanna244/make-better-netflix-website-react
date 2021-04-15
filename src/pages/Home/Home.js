@@ -1,5 +1,5 @@
-import { HomeType } from '../../layout/LayoutTypes'
-import { OurStory, HomeMerit, HomeFAQ } from '../../containers/index'
+import { HomeType } from 'layout/LayoutTypes'
+import { OurStory, HomeMerit, HomeFAQ } from 'containers/index'
 
 function Home({ ...restProps }) {
   return (
