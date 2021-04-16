@@ -1,6 +1,6 @@
 import React, { useCallback, memo, useState } from 'react'
 import { Checkbox } from 'components'
-import { isValidEmail, isValidPassword } from 'utils'
+import { isValidEmail, isValidPassword, getPublicAssets } from 'utils'
 import {
   LogInContainer,
   Head,
@@ -139,7 +139,7 @@ const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
 
       <GoogleFigure>
         <GoogleImg
-          src="./assets/facebook-logo.svg"
+          src={`${getPublicAssets('facebook-logo.svg')}`}
           alt="구글 로고"
           width="16"
           height="16"

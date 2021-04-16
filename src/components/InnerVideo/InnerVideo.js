@@ -1,6 +1,7 @@
 import { bool, oneOf } from 'prop-types'
 import { VideoStyle } from './InnerVideo.style'
 import React, { useEffect, useRef } from 'react'
+import { getPublicAssets } from 'utils'
 
 const InnerVideo = ({ type = 'tv', isMuted = true, ...restProps }) => {
   const { tv, device, noVideo } = InnerVideo.Video
@@ -8,7 +9,6 @@ const InnerVideo = ({ type = 'tv', isMuted = true, ...restProps }) => {
 
   useEffect(() => {
     isMuted && (videoRef.current.muted = true)
-    // const a = isMuted ? (videoRef.current.muted = true) : null
   })
 
   let src = ''
@@ -39,8 +39,8 @@ const InnerVideo = ({ type = 'tv', isMuted = true, ...restProps }) => {
 }
 
 InnerVideo.Video = {
-  tv: './assets/video-tv-0819.m4v',
-  device: './assets/video-devices.m4v',
+  tv: `${getPublicAssets('video-tv-0819.m4v')}`,
+  device: `${getPublicAssets('video-devices.m4v')}`,
   noVideo: '',
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { string, any } from 'prop-types'
 import { Item, Head, Body, OpenButton, PlusImg } from './Accordion.style'
 import { motion, AnimatePresence } from 'framer-motion'
+import { getPublicAssets } from 'utils'
 
 const Accordion = ({
   id,
@@ -21,7 +22,7 @@ const Accordion = ({
           <PlusImg
             width="40"
             height="40"
-            src="./assets/plusIcon.svg"
+            src={`${getPublicAssets('plusIcon.svg')}`}
             alt="답변 보기"
           />
         </OpenButton>

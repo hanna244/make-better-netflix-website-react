@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { getColor } from 'utils'
+import { getPublicAssets } from 'utils'
 
 export const CheckboxWraper = styled.div`
   position: relative;
@@ -10,7 +11,8 @@ export const CheckboxWraper = styled.div`
     left: 0;
     width: 1.1rem;
     height: 1.1rem;
-    background: url('./assets/checkbox_invalid.svg') no-repeat center / cover;
+    background: url(${getPublicAssets('checkbox_invalid.svg')}) no-repeat center /
+      cover;
   }
 
   .checkbox {
@@ -21,7 +23,8 @@ export const CheckboxWraper = styled.div`
     }
   }
   .checked::before {
-    background: url('./assets/checkbox_valid.svg') no-repeat center / cover;
+    background: url(${getPublicAssets('checkbox_valid.svg')}) no-repeat center /
+      cover;
   }
 `
 CheckboxWraper.displayName = 'CheckboxWraper'

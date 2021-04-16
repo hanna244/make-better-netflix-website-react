@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Container, Background } from 'components'
+import { getPublicAssets } from 'utils'
 
 export const LogInContainer = styled(Container)`
   padding: 2rem 0;
@@ -17,7 +18,7 @@ export const LogInBackground = styled(Background)`
       rgba(0, 0, 0, 0.3) 42.95%,
       rgba(0, 0, 0, 0.8) 79.3%
     ),
-    url('./assets/Cover.jpg') no-repeat center center`
-        : "url('./assets/Cover.jpg') no-repeat center center"};
+    url(${getPublicAssets('Cover.jpg')}) no-repeat center center`
+        : `url(${getPublicAssets('Cover.jpg')}) no-repeat center center`};
   }
 `

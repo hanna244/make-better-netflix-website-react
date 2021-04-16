@@ -1,6 +1,7 @@
 import React from 'react'
 import { PromotionButtonStyle, Arrow } from './PromotionButton.style'
 import { oneOf, string, bool, func } from 'prop-types'
+import { getPublicAssets } from 'utils'
 
 const PromotionButton = ({
   bgColor,
@@ -26,7 +27,7 @@ const PromotionButton = ({
       {...restProps}
     >
       {label}
-      <Arrow src="./assets/Arrow.svg" alt="" />
+      <Arrow src={`${getPublicAssets('Arrow.svg')}`} alt="" />
     </PromotionButtonStyle>
   )
 }

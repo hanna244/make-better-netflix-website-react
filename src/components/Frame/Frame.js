@@ -1,6 +1,7 @@
 import React from 'react'
 import { FrameImage } from './Frame.style'
 import { oneOf, string } from 'prop-types'
+import { getPublicAssets } from 'utils'
 
 const Frame = ({ alt = '', type = 'tv', ...restProps }) => {
   const { device, download, tv } = Frame.Image
@@ -25,9 +26,9 @@ const Frame = ({ alt = '', type = 'tv', ...restProps }) => {
 
 // 전역이 오염되는 것을 방지하기 위해 컴파운드 방식 사용
 Frame.Image = {
-  tv: './assets/category=Device.png',
-  download: './assets/category=Download.jpg',
-  device: './assets/category=TV.png',
+  tv: `${getPublicAssets('category=Device.png')}`,
+  download: `${getPublicAssets('category=Download.jpg')}`,
+  device: `${getPublicAssets('category=TV.png')}`,
 }
 
 Frame.propTypes = {

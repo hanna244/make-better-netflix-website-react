@@ -21,7 +21,8 @@ export const SelectStyle = styled.select`
   line-height: 1.2;
   color: ${getColor('gray')};
   background-color: inherit;
-  background: url('./assets/select_global.svg') no-repeat left 1rem center,
-    url('./assets/select_arrow.svg') no-repeat 8.7rem center;
+  background: url(getPublicAssets('select_global.svg')) no-repeat left 1rem
+      center,
+    url(getPublicAssets('select_arrow.svg')) no-repeat 8.7rem center;
 `
 SelectStyle.displayName = 'SelectStyle'

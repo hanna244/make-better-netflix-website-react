@@ -1,5 +1,6 @@
 import React from 'react'
 import { oneOf, string } from 'prop-types'
+import { getPublicAssets } from 'utils'
 
 const SelectIcon = ({ type, alt = '', ...restProps }) => {
   const { arrow, global } = SelectIcon.Image
@@ -20,8 +21,8 @@ const SelectIcon = ({ type, alt = '', ...restProps }) => {
 }
 
 SelectIcon.Image = {
-  arrow: './assets/select_arrow.svg',
-  global: './assets/select_global.svg',
+  arrow: `${getPublicAssets('select_arrow.svg')}`,
+  global: `${getPublicAssets('select_global.svg')}`,
 }
 
 SelectIcon.propTypes = {

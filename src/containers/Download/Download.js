@@ -1,4 +1,5 @@
 import React from 'react'
+import { getPublicAssets } from 'utils'
 import {
   ContainerStyle,
   TextContainerStyle,
@@ -12,7 +13,7 @@ const Download = ({ className, ...restProps }) => {
   return (
     <ContainerStyle className={className}>
       <PosterStyle
-        src="./assets/poster_stranger_things.jpg"
+        src={`${getPublicAssets('poster_stranger_things.jpg')}`}
         alt="영화 포스터"
         width="30"
         height="43"
@@ -22,7 +23,7 @@ const Download = ({ className, ...restProps }) => {
         <SaveText>저장 중...</SaveText>
       </TextContainerStyle>
       <DownloadStyle
-        src="./assets/download-icon.gif"
+        src={`${getPublicAssets('download-icon.gif')}`}
         alt="다운로드 아이콘"
         width="33"
         height="33"

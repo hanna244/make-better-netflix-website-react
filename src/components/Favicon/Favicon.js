@@ -1,8 +1,11 @@
 import React from 'react'
 import { string } from 'prop-types'
+import { getPublicAssets } from 'utils'
 
 const Favicon = ({ alt, ...restProps }) => {
-  return <img src="./assets/Favicon.png" alt={alt} {...restProps} />
+  return (
+    <img src={`${getPublicAssets('Favicon.png')}`} alt={alt} {...restProps} />
+  )
 }
 
 Favicon.propTypes = {
