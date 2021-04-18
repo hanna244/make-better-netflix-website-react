@@ -20,10 +20,10 @@ export const GlobalIcon = Template.bind({})
 GlobalIcon.args = {
   type: 'global',
 }
-GlobalIcon.storyName = '셀렉 아이콘(global)'
+GlobalIcon.storyName = '셀렉트 아이콘(global)'
 
 export const ArrowIcon = Template.bind({})
 ArrowIcon.args = {
   type: 'arrow',
 }
-ArrowIcon.storyName = '셀렉 아이콘(arrow)'
+ArrowIcon.storyName = '셀렉트 아이콘(arrow)'

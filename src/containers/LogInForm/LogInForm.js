@@ -110,7 +110,7 @@ const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
       <MemoEmailInput
         type="email"
         label="이메일 주소 또는 폰 번호"
-        errorMessege="정확한 이메일 주소 또는 폰 번호를 입력하세요."
+        errorMessege="정확한 이메일 주소를 입력하세요."
         name="email"
         id="userEmail"
         value={inputState.email}
@@ -122,7 +122,7 @@ const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
       <MemoPasswordInput
         type="password"
         label="비밀번호"
-        errorMessege="비밀번호는 4 - 60자 사이의 숫자여야 합니다."
+        errorMessege="비밀번호는 4 - 60자 사이이며 숫자를 포함해야 합니다."
         name="password"
         id="userPassword"
         value={inputState.password}
@@ -139,7 +139,7 @@ const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
 
       <GoogleFigure>
         <GoogleImg
-          src={`${getPublicAssets('facebook-logo.svg')}`}
+          src={`${getPublicAssets('google-logo.svg')}`}
           alt="구글 로고"
           width="16"
           height="16"
