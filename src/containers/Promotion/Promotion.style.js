@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Container, Input, PromotionButton } from 'components'
 
-export const PromotionContainer = styled(Container)`
+export const PromotionContainerStyle = styled(Container)`
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -9,11 +9,12 @@ export const PromotionContainer = styled(Container)`
 
   @media (min-width: 60em) {
     flex-direction: row;
+    align-items: start;
   }
 `
-PromotionContainer.displayName = 'PromotionContainer'
+PromotionContainerStyle.displayName = 'PromotionContainerStyle'
 
-export const PromotionInput = styled(Input)`
+export const PromotionInputStyle = styled(Input)`
   width: 23.3rem;
 
   @media (min-width: 60em) {
@@ -54,8 +55,9 @@ export const PromotionInput = styled(Input)`
   }
 `
 
-PromotionInput.displayName = 'PromotionInput'
-export const SignUpButton = styled(PromotionButton)`
+PromotionInputStyle.displayName = 'PromotionInputStyle'
+
+export const SignUpButtonStyle = styled(PromotionButton)`
   padding: 0.75em 1.16em;
   margin-top: 1rem;
   border-radius: 89.7321px;
@@ -74,4 +76,4 @@ export const SignUpButton = styled(PromotionButton)`
     width: 1.14rem;
   }
 `
-SignUpButton.displayName = 'SignUpButton'
+SignUpButtonStyle.displayName = 'SignUpButtonStyle'

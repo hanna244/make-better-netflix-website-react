@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import { getColor } from 'utils'
 
-export const FormContainer = styled.div`
+export const FormContainerStyle = styled.div`
   position: relative;
+  /* display: flex; */
 
-  .inputValidInvalid {
+  .inputValid {
     padding: ${({ valid, invalid }) =>
       valid || invalid ? '1.587em 1.25em 0.687em' : null};
     & + label {
@@ -21,7 +22,7 @@ export const FormContainer = styled.div`
     letter-spacing: -0.5em;
   }
 `
-FormContainer.displayName = 'FormContainer'
+FormContainerStyle.displayName = 'FormContainerStyle'
 
 export const InputStyle = styled.input`
   max-width: 54rem;

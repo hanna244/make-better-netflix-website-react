@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
+import { useHistory } from 'react-router-dom'
 import { LogInType } from 'layout/LayoutTypes'
 import { LogInContainer, LogInBackground } from './LogIn.style'
 import { LogInForm } from 'containers'
-import { useHistory } from 'react-router-dom'
 
 function LogIn({ ...restProps }) {
   let history = useHistory()

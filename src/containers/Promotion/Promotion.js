@@ -2,9 +2,9 @@ import React from 'react'
 import { string } from 'prop-types'
 import { useHistory } from 'react-router'
 import {
-  PromotionContainer,
-  PromotionInput,
-  SignUpButton,
+  PromotionContainerStyle,
+  PromotionInputStyle,
+  SignUpButtonStyle,
 } from './Promotion.style'
 
 const Promotion = ({
@@ -22,8 +22,8 @@ const Promotion = ({
   const history = useHistory()
 
   return (
-    <PromotionContainer className={className}>
-      <PromotionInput
+    <PromotionContainerStyle className={className}>
+      <PromotionInputStyle
         type="email"
         label="이메일 주소"
         errorMessege="정확한 이메일 주소를 입력하세요."
@@ -36,11 +36,11 @@ const Promotion = ({
         invalid={invalid}
         {...restProps}
       />
-      <SignUpButton
+      <SignUpButtonStyle
         label="30일 무료 이용"
         onClick={() => history.push('/signup')}
       />
-    </PromotionContainer>
+    </PromotionContainerStyle>
   )
 }
 

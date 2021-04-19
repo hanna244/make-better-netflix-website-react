@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import classNames from 'classnames'
 import { string, bool, number, oneOf } from 'prop-types'
 import {
-  FormContainer,
+  FormContainerStyle,
   InputStyle,
   LabelStyle,
   AlertStyle,
@@ -28,38 +28,37 @@ const Input = ({
   ...restProps
 }) => {
   const inputClass = classNames(
-    valid || invalid ? 'inputValidInvalid' : null,
+    value ? 'inputValid' : null,
     invalid ? 'inputInvalid' : null
   )
+  console.log(value)
 
   const { background, color } = {
     background: { background: bgColor ?? null },
     color: { color: fgColor ?? null },
   }
   return (
-    <>
-      <FormContainer invalid {...restProps}>
-        <InputStyle
-          valid={valid}
-          invalid={invalid}
-          style={background}
-          type={type}
-          value={value}
-          className={inputClass}
-          name={name}
-          minLength={minLength}
-          maxLength={maxLength}
-          id={id}
-          darkmode={darkmode}
-          onChange={handleChange}
-          onBlur={handleDetect}
-        />
-        <LabelStyle darkmode={darkmode} style={color} htmlFor={id}>
-          {label}
-        </LabelStyle>
-      </FormContainer>
+    <FormContainerStyle invalid {...restProps}>
+      <InputStyle
+        valid={valid}
+        invalid={invalid}
+        style={background}
+        type={type}
+        value={value}
+        className={inputClass}
+        name={name}
+        minLength={minLength}
+        maxLength={maxLength}
+        id={id}
+        darkmode={darkmode}
+        onChange={handleChange}
+        onBlur={handleDetect}
+      />
+      <LabelStyle darkmode={darkmode} style={color} htmlFor={id}>
+        {label}
+      </LabelStyle>
       {invalid ? <AlertStyle role="alert">{errorMessege}</AlertStyle> : null}
-    </>
+    </FormContainerStyle>
   )
 }
 
@@ -68,6 +67,7 @@ Input.defaultProps = {
   invalid: false,
   darkmode: false,
   initialValue: '',
+  value: '',
 }
 
 Input.propTypes = {
@@ -101,4 +101,4 @@ Input.propTypes = {
   errorMessege: string,
 }
 
-export default Input
+export default memo(Input)
