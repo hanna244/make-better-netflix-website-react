@@ -1,9 +1,13 @@
 import styled from 'styled-components'
-import { Button, Container, Input } from 'components'
-import { resetButton, resetFigure, resetImg, resetLink } from 'styles/common'
+import { Button, Container } from 'components'
+import { resetButton, resetFigure, resetImg } from 'styles/common'
 import { getColor, setFont } from 'utils'
+import {
+  FormInputCommonStyle,
+  LoginFormTextCommonStyle,
+} from '../../styles/customCommon'
 
-export const LogInContainer = styled(Container)`
+export const LogInContainerStyle = styled(Container)`
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -19,32 +23,29 @@ export const LogInContainer = styled(Container)`
     max-width: 38rem;
   }
 `
-LogInContainer.displayName = 'LogInContainer'
+LogInContainerStyle.displayName = 'LogInContainerStyle'
 
-export const Head = styled.h2`
+export const LoginHeadStyle = styled.h2`
   ${setFont(2, 1.2, 'bold')}
   margin: 0;
 `
-Head.displayName = 'Head'
+LoginHeadStyle.displayName = 'LoginHeadStyle'
 
-export const EmailInput = styled(Input)`
-  margin: 2rem auto 0;
-  width: 100%;
+export const EmailInputStyle = styled(FormInputCommonStyle)`
   @media (max-width: 60em) {
     margin-top: 3rem;
-    /* min-width: 33.9rem; */
   }
 `
-EmailInput.displayName = 'EmailInput'
+EmailInputStyle.displayName = 'EmailInputStyle'
 
-export const PasswordInput = styled(EmailInput)`
+export const PasswordInputStyle = styled(FormInputCommonStyle)`
   @media (max-width: 60em) {
     margin-top: 4.4rem;
   }
 `
-PasswordInput.displayName = 'PasswordInput'
+EmailInputStyle.displayName = 'EmailInputStyle'
 
-export const LogInButton = styled(Button)`
+export const LogInButtonStyle = styled(Button)`
   ${setFont(1.6, 1, 'bold')}
   padding: 0.937em;
   margin-top: 3rem;
@@ -53,9 +54,9 @@ export const LogInButton = styled(Button)`
     padding: 0.937em;
   }
 `
-LogInButton.displayName = 'LogInButton'
+LogInButtonStyle.displayName = 'LogInButtonStyle'
 
-export const HelpButton = styled.button`
+export const HelpButtonStyle = styled.button`
   ${resetButton}
   ${setFont(1.3, 1.35)}
   border: 0;
@@ -63,55 +64,53 @@ export const HelpButton = styled.button`
   color: ${getColor('lightGray')};
   background: none;
 `
-HelpButton.displayName = 'HelpButton'
+HelpButtonStyle.displayName = 'HelpButtonStyle'
 
-export const RememberAndHelpContainer = styled(Container)`
+export const RememberAndHelpContainerStyle = styled(Container)`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   margin: 1rem 0 0;
 `
-RememberAndHelpContainer.displayName = 'RememberAndHelpContainer'
+RememberAndHelpContainerStyle.displayName = 'RememberAndHelpContainerStyle'
 
-export const GoogleFigure = styled.figure`
+export const GoogleFigureStyle = styled.figure`
   ${resetFigure}
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   margin-top: 2rem;
 `
-GoogleFigure.displayName = 'GoogleFigure'
+GoogleFigureStyle.displayName = 'GoogleFigureStyle'
 
-export const GoogleImg = styled.img`
+export const GoogleImgStyle = styled.img`
   ${resetImg}
 `
-GoogleImg.displayName = 'GoogleImg'
+GoogleImgStyle.displayName = 'GoogleImgStyle'
 
-export const GoogleFigcaption = styled.figcaption`
+export const GoogleFigcaptionStyle = styled.figcaption`
 ${setFont(1.2, 1.35)}
 color: ${getColor('gray')};
 display: grid;
 align-self: flex-end;
 margin-left: 0.4rem;
 `
-GoogleFigcaption.displayName = 'GoogleFigcaption'
+GoogleFigcaptionStyle.displayName = 'GoogleFigcaptionStyle'
 
-export const CheckEmail = styled.span`
-  ${setFont(1.2, 1.35, 'normal')}
-  color: ${getColor('lightGray')};
+export const CheckEmailStyle = styled(LoginFormTextCommonStyle)`
   margin-top: 2rem;
 
   a {
-    ${resetLink}
     color: ${getColor('white')};
   }
 `
-CheckEmail.displayName = 'CheckEmail'
+CheckEmailStyle.displayName = 'CheckEmailStyle'
 
-export const GoogleCaptcha = styled(CheckEmail)`
+export const GoogleCaptchaStyle = styled(LoginFormTextCommonStyle)`
   margin-top: 1rem;
+
   a {
     color: ${getColor('blue')};
   }
 `
-GoogleCaptcha.displayName = 'GoogleCaptcha'
+GoogleCaptchaStyle.displayName = 'GoogleCaptchaStyle'

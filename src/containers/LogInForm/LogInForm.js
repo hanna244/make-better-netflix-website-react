@@ -2,18 +2,18 @@ import React, { useCallback, memo, useState } from 'react'
 import { Checkbox } from 'components'
 import { isValidEmail, isValidPassword, getPublicAssets } from 'utils'
 import {
-  LogInContainer,
-  Head,
-  EmailInput,
-  PasswordInput,
-  LogInButton,
-  HelpButton,
-  RememberAndHelpContainer,
-  GoogleFigure,
-  GoogleImg,
-  GoogleFigcaption,
-  CheckEmail,
-  GoogleCaptcha,
+  LogInContainerStyle,
+  LoginHeadStyle,
+  EmailInputStyle,
+  PasswordInputStyle,
+  LogInButtonStyle,
+  HelpButtonStyle,
+  RememberAndHelpContainerStyle,
+  GoogleFigureStyle,
+  GoogleImgStyle,
+  GoogleFigcaptionStyle,
+  CheckEmailStyle,
+  GoogleCaptchaStyle,
 } from './LogInForm.style'
 
 const initInputState = {
@@ -28,8 +28,8 @@ const initInputState = {
     invalid: false,
   },
 }
-const MemoEmailInput = memo(EmailInput)
-const MemoPasswordInput = memo(PasswordInput)
+const MemoEmailInputStyle = memo(EmailInputStyle)
+const MemoPasswordInputStyle = memo(PasswordInputStyle)
 
 const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
   const [inputState, setInputState] = useState(initInputState)
@@ -105,9 +105,9 @@ const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
   )
 
   return (
-    <LogInContainer {...restProps}>
-      <Head as={headingLevel}>로그인</Head>
-      <MemoEmailInput
+    <LogInContainerStyle {...restProps}>
+      <LoginHeadStyle as={headingLevel}>로그인</LoginHeadStyle>
+      <MemoEmailInputStyle
         type="email"
         label="이메일 주소 또는 폰 번호"
         errorMessege="정확한 이메일 주소를 입력하세요."
@@ -119,7 +119,7 @@ const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
         darkmode
         {...inputState.emailDetect}
       />
-      <MemoPasswordInput
+      <MemoPasswordInputStyle
         type="password"
         label="비밀번호"
         errorMessege="비밀번호는 4 - 60자 사이이며 숫자를 포함해야 합니다."
@@ -131,29 +131,29 @@ const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
         darkmode
         {...inputState.passwordDetect}
       />
-      <LogInButton onClick={handleClick} />
-      <RememberAndHelpContainer>
+      <LogInButtonStyle onClick={handleClick} />
+      <RememberAndHelpContainerStyle>
         <Checkbox label="로그인 정보 저장" checked />
-        <HelpButton type="button">도움이 필요하신가요?</HelpButton>
-      </RememberAndHelpContainer>
+        <HelpButtonStyle type="button">도움이 필요하신가요?</HelpButtonStyle>
+      </RememberAndHelpContainerStyle>
 
-      <GoogleFigure>
-        <GoogleImg
+      <GoogleFigureStyle>
+        <GoogleImgStyle
           src={`${getPublicAssets('google-logo.svg')}`}
           alt="구글 로고"
           width="16"
           height="16"
         />
-        <GoogleFigcaption>Google로 로그인</GoogleFigcaption>
-      </GoogleFigure>
-      <CheckEmail>
+        <GoogleFigcaptionStyle>Google로 로그인</GoogleFigcaptionStyle>
+      </GoogleFigureStyle>
+      <CheckEmailStyle>
         Netflix 회원이 아닌가요? <a href="signup">지금 가입하세요.</a>
-      </CheckEmail>
-      <GoogleCaptcha>
+      </CheckEmailStyle>
+      <GoogleCaptchaStyle>
         이 페이지는 Google reCAPTCHA의 보호를 받아 사용자가 로봇이 아님을
         확인합니다. <a href="/">자세히 알아보기</a>
-      </GoogleCaptcha>
-    </LogInContainer>
+      </GoogleCaptchaStyle>
+    </LogInContainerStyle>
   )
 }
 
