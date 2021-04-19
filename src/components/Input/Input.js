@@ -17,7 +17,6 @@ const Input = ({
   id,
   name,
   initialValue,
-  valid,
   invalid,
   darkmode,
   minLength,
@@ -40,7 +39,6 @@ const Input = ({
   return (
     <FormContainerStyle invalid {...restProps}>
       <InputStyle
-        valid={valid}
         invalid={invalid}
         style={background}
         type={type}
@@ -63,7 +61,6 @@ const Input = ({
 }
 
 Input.defaultProps = {
-  valid: false,
   invalid: false,
   darkmode: false,
   initialValue: '',
@@ -89,8 +86,6 @@ Input.propTypes = {
   type: oneOf(['email', 'text', 'password']),
   /** 화면에 표시 할 초기 입력 값을 설정할 수 있습니다. */
   initialValue: string,
-  /** 인풋을 활성화 합니다. */
-  valid: bool,
   /** 인풋을 비활성화 합니다. */
   invalid: bool,
   /** 패스워드 모드 시 최소 입력 글자 수를 설정합니다. */

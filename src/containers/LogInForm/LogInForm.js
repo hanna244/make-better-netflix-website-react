@@ -1,4 +1,4 @@
-import React, { useCallback, memo, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { Checkbox } from 'components'
 import { isValidEmail, isValidPassword, getPublicAssets } from 'utils'
 import {
@@ -16,131 +16,94 @@ import {
   GoogleCaptchaStyle,
 } from './LogInForm.style'
 
-const initInputState = {
-  email: '',
-  emailDetect: {
-    invalid: false,
-  },
-  password: '',
-  passwordDetect: {
-    invalid: false,
-  },
-}
-const MemoEmailInputStyle = memo(EmailInputStyle)
-const MemoPasswordInputStyle = memo(PasswordInputStyle)
-
 const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
-  const [inputState, setInputState] = useState(initInputState)
+  const [emailValue, setEmailValue] = useState('')
+  const [emailHasError, setEmailHasError] = useState(false)
+  const [passwordValue, setPasswordValue] = useState('')
+  const [passwordHasError, setPasswordHasError] = useState(false)
 
-  const handleChange = useCallback(
-    (e) => {
-      let { name, value } = e.target
+  const handleChange = useCallback((e) => {
+    let { name, value } = e.target
+    value = value.replace(/\s/g, '')
 
-      if (name === 'password') {
-        value = value.replace(/\s/g, '')
-      }
+    switch (name) {
+      case 'email':
+        setEmailValue(value)
+        break
 
-      setInputState({
-        ...inputState,
-        [name]: value.trim(),
-      })
-    },
-    [inputState]
-  )
+      case 'password':
+        setPasswordValue(value)
+        break
 
-  const handleDetect = useCallback(
-    (e) => {
-      const { name, value } = e.target
+      default:
+        throw new Error('`email`과 `password` 인풋 이름만 처리 가능합니다.')
+    }
+  }, [])
 
-      switch (name) {
-        case 'email':
-          if (!isValidEmail(value) && value.trim().length === 0) {
-            setInputState({
-              ...inputState,
-              emailDetect: { valid: false, invalid: false },
-            })
-          }
-          if (!isValidEmail(value) && value.trim().length !== 0) {
-            setInputState({
-              ...inputState,
-              email: value,
-              emailDetect: { valid: false, invalid: true },
-            })
-          }
-          if (isValidEmail(value)) {
-            setInputState({
-              ...inputState,
-              email: value,
-              emailDetect: { valid: true, invalid: false },
-            })
-          }
-          break
+  const handleDetect = useCallback((e) => {
+    let { name, value } = e.target
+    value = value.trim()
 
-        case 'password':
-          if (!isValidPassword(value) && value.trim().length === 0) {
-            setInputState({
-              ...inputState,
-              passwordDetect: { valid: false, invalid: false },
-            })
-          }
+    switch (name) {
+      case 'email':
+        if (!isValidEmail(value)) {
+          setEmailHasError(true)
+        } else {
+          setEmailHasError(false)
+        }
+        if (value.trim().length === 0) {
+          setEmailHasError(false)
+        }
+        break
 
-          if (!isValidPassword(value) && value.trim().length !== 0) {
-            setInputState({
-              ...inputState,
-              password: value,
-              passwordDetect: { valid: false, invalid: true },
-            })
-          }
-          if (isValidPassword(value) && value.trim().length !== 0) {
-            setInputState({
-              ...inputState,
-              password: value,
-              passwordDetect: { valid: true, invalid: false },
-            })
-          }
+      case 'password':
+        if (!isValidPassword(value)) {
+          setPasswordHasError(true)
+        } else {
+          setPasswordHasError(false)
+        }
+        if (value.trim().length === 0) {
+          setPasswordHasError(false)
+        }
+        break
 
-          break
-
-        default:
-          setInputState(initInputState)
-      }
-    },
-    [inputState]
-  )
+      default:
+        throw new Error('`email`과 `password` 인풋 이름만 처리 가능합니다.')
+    }
+  }, [])
 
   return (
     <LogInContainerStyle {...restProps}>
       <LoginHeadStyle as={headingLevel}>로그인</LoginHeadStyle>
-      <MemoEmailInputStyle
+      <EmailInputStyle
         type="email"
         label="이메일 주소 또는 폰 번호"
         errorMessege="정확한 이메일 주소를 입력하세요."
         name="email"
         id="userEmail"
-        value={inputState.email}
+        value={emailValue}
         handleChange={handleChange}
         handleDetect={handleDetect}
+        invalid={emailHasError}
         darkmode
-        {...inputState.emailDetect}
       />
-      <MemoPasswordInputStyle
+      <PasswordInputStyle
         type="password"
         label="비밀번호"
         errorMessege="비밀번호는 4 - 60자 사이이며 숫자를 포함해야 합니다."
         name="password"
         id="userPassword"
-        value={inputState.password}
+        value={passwordValue}
         handleChange={handleChange}
         handleDetect={handleDetect}
+        invalid={passwordHasError}
         darkmode
-        {...inputState.passwordDetect}
       />
       <LogInButtonStyle onClick={handleClick} />
       <RememberAndHelpContainerStyle>
-        <Checkbox label="로그인 정보 저장" checked />
+        <Checkbox label="로그인 정보 저장" />
         <HelpButtonStyle type="button">도움이 필요하신가요?</HelpButtonStyle>
       </RememberAndHelpContainerStyle>
-
       <GoogleFigureStyle>
         <GoogleImgStyle
           src={`${getPublicAssets('google-logo.svg')}`}
