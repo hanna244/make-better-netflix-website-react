@@ -19,12 +19,10 @@ import {
 const initInputState = {
   email: '',
   emailDetect: {
-    valid: false,
     invalid: false,
   },
   password: '',
   passwordDetect: {
-    valid: false,
     invalid: false,
   },
 }
@@ -36,8 +34,16 @@ const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
 
   const handleChange = useCallback(
     (e) => {
-      const { name, value } = e.target
-      setInputState({ ...inputState, [name]: value })
+      let { name, value } = e.target
+
+      if (name === 'password') {
+        value = value.replace(/\s/g, '')
+      }
+
+      setInputState({
+        ...inputState,
+        [name]: value.trim(),
+      })
     },
     [inputState]
   )
@@ -45,15 +51,12 @@ const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
   const handleDetect = useCallback(
     (e) => {
       const { name, value } = e.target
-      console.log({ ...inputState })
-      console.log(value)
 
       switch (name) {
         case 'email':
           if (!isValidEmail(value) && value.trim().length === 0) {
             setInputState({
               ...inputState,
-              email: value,
               emailDetect: { valid: false, invalid: false },
             })
           }
@@ -74,6 +77,13 @@ const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
           break
 
         case 'password':
+          if (!isValidPassword(value) && value.trim().length === 0) {
+            setInputState({
+              ...inputState,
+              passwordDetect: { valid: false, invalid: false },
+            })
+          }
+
           if (!isValidPassword(value) && value.trim().length !== 0) {
             setInputState({
               ...inputState,
@@ -88,13 +98,7 @@ const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
               passwordDetect: { valid: true, invalid: false },
             })
           }
-          if (!isValidPassword(value) && value.trim().length === 0) {
-            setInputState({
-              ...inputState,
-              password: value,
-              passwordDetect: { valid: false, invalid: false },
-            })
-          }
+
           break
 
         default:
