@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom'
 const SignUp = () => {
   let history = useHistory()
   const handleMoveBrowse = useCallback(() => {
-    console.log('클릭')
     history.push('/browse')
   }, [history])
   return (

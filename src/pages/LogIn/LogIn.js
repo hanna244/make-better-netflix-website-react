@@ -7,7 +7,6 @@ import { LogInForm } from 'containers'
 function LogIn({ ...restProps }) {
   let history = useHistory()
   const handleMoveBrowse = useCallback(() => {
-    console.log('클릭')
     history.push('/browse')
   }, [history])
 

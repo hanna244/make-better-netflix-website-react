@@ -30,7 +30,6 @@ const Input = ({
     value ? 'inputValid' : null,
     invalid ? 'inputInvalid' : null
   )
-  console.log(value)
 
   const { background, color } = {
     background: { background: bgColor ?? null },

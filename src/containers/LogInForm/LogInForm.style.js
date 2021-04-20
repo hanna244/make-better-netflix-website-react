@@ -89,7 +89,7 @@ export const GoogleImgStyle = styled.img`
 GoogleImgStyle.displayName = 'GoogleImgStyle'
 
 export const GoogleFigcaptionStyle = styled.figcaption`
-${setFont(1.2, 1.35)}
+${setFont(1.2, 1)}
 color: ${getColor('gray')};
 display: grid;
 align-self: flex-end;

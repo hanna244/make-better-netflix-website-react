@@ -35,7 +35,6 @@ const OurStory = ({ ...restProps }) => {
     invalid: false,
   })
 
-  // console.log(detect)
   const handleChange = useCallback((e) => {
     setValue(e.target.value)
   }, [])

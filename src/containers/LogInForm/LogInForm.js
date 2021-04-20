@@ -15,8 +15,14 @@ import {
   CheckEmailStyle,
   GoogleCaptchaStyle,
 } from './LogInForm.style'
+import { logInWithEmailAndPassword } from 'api/netflixBase'
 
-const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
+const LogInForm = ({
+  headingLevel,
+  handleClick: handleMoveBrowse,
+  ...restProps
+}) => {
+  /* input 상태 관리 및 유효성 검사 ----------------------------------------------------- */
   const [emailValue, setEmailValue] = useState('')
   const [emailHasError, setEmailHasError] = useState(false)
   const [passwordValue, setPasswordValue] = useState('')
@@ -72,6 +78,16 @@ const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
     }
   }, [])
 
+  /* 로그인 인증 ------------------------------------------------------------------- */
+  const handleSubmitAndRoute = useCallback(
+    (e) => {
+      e.preventDefault()
+      handleMoveBrowse()
+      logInWithEmailAndPassword(emailValue, passwordValue)
+    },
+    [handleMoveBrowse, emailValue, passwordValue]
+  )
+
   return (
     <LogInContainerStyle {...restProps}>
       <LoginHeadStyle as={headingLevel}>로그인</LoginHeadStyle>
@@ -99,7 +115,7 @@ const LogInForm = ({ headingLevel, handleClick, ...restProps }) => {
         invalid={passwordHasError}
         darkmode
       />
-      <LogInButtonStyle onClick={handleClick} />
+      <LogInButtonStyle onClick={handleSubmitAndRoute} />
       <RememberAndHelpContainerStyle>
         <Checkbox label="로그인 정보 저장" />
         <HelpButtonStyle type="button">도움이 필요하신가요?</HelpButtonStyle>
