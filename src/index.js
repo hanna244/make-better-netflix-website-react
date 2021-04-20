@@ -14,6 +14,7 @@ import homeContextData from './data/homeContext.json'
 import meritData from './data/merit.json'
 
 import { GlobalStyles } from './styles/GlobalStyles'
+import { ThemeStyleProvider } from 'styles/theme'
 import './styles/normalize.css'
 import App from './App/App'
 
@@ -31,7 +32,9 @@ ReactDOM.render(
       <Provider store={store}>
         <GlobalStyles />
         <Router>
-          <App />
+          <ThemeStyleProvider>
+            <App />
+          </ThemeStyleProvider>
         </Router>
       </Provider>
     </DataContext.Provider>
