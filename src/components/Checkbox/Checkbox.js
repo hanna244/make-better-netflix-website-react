@@ -1,6 +1,10 @@
 import React from 'react'
 import { string, bool } from 'prop-types'
-import { CheckboxWraper, CheckboxLabel, CheckboxInput } from './Checkbox.style'
+import {
+  CheckboxWraperStyle,
+  CheckboxLabelStyle,
+  CheckboxInputStyle,
+} from './Checkbox.style'
 import classNames from 'classnames'
 
 const Checkbox = ({
@@ -11,16 +15,16 @@ const Checkbox = ({
   ...restProps
 }) => {
   return (
-    <CheckboxWraper>
-      <CheckboxInput type="checkbox"></CheckboxInput>
-      <CheckboxLabel
+    <CheckboxWraperStyle>
+      <CheckboxInputStyle type="checkbox" />
+      <CheckboxLabelStyle
         className={classNames('checkbox', { checked })}
         style={{ color: fgColor ?? null }}
         {...restProps}
       >
         {label}
-      </CheckboxLabel>
-    </CheckboxWraper>
+      </CheckboxLabelStyle>
+    </CheckboxWraperStyle>
   )
 }
 

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { getColor } from 'utils'
 import { getPublicAssets } from 'utils'
 
-export const CheckboxWraper = styled.div`
+export const CheckboxWraperStyle = styled.div`
   position: relative;
   .checkbox::before {
     content: '';
@@ -27,18 +27,18 @@ export const CheckboxWraper = styled.div`
       cover;
   }
 `
-CheckboxWraper.displayName = 'CheckboxWraper'
+CheckboxWraperStyle.displayName = 'CheckboxWraperStyle'
 
-export const CheckboxLabel = styled.label`
+export const CheckboxLabelStyle = styled.label`
   cursor: pointer;
   font-size: 1.3rem;
   line-height: 1.35;
   color: ${getColor('lightGray')};
 `
-CheckboxLabel.displayName = 'CheckboxLabel'
+CheckboxLabelStyle.displayName = 'CheckboxLabelStyle'
 
-export const CheckboxInput = styled.input`
+export const CheckboxInputStyle = styled.input`
   margin-right: 0.5rem;
   opacity: 0;
 `
-CheckboxInput.displayName = 'CheckboxInput'
+CheckboxInputStyle.displayName = 'CheckboxInputStyle'

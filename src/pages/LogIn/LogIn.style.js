@@ -1,15 +1,24 @@
 import styled from 'styled-components'
 import { Container, Background } from 'components'
 import { getPublicAssets } from 'utils'
+import { themes } from 'styles/theme'
+
+const {
+  breakpoints: { lg },
+} = themes
 
 export const LogInContainer = styled(Container)`
   padding: 2rem 0;
   margin: 0 1.8rem;
 `
+LogInContainer.displayName = 'LogInContainer'
 
 export const LogInBackground = styled(Background)`
+  display: flex;
+  justify-content: center;
   background: #111;
-  @media (min-width: 60em) {
+
+  @media (min-width: ${lg}em) {
     background: ${({ dim }) =>
       dim
         ? `linear-gradient(
@@ -22,3 +31,4 @@ export const LogInBackground = styled(Background)`
         : `url(${getPublicAssets('Cover.jpg')}) no-repeat center center`};
   }
 `
+LogInBackground.displayName = 'LogInBackground'

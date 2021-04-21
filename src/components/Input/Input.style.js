@@ -3,7 +3,6 @@ import { getColor } from 'utils'
 
 export const FormContainerStyle = styled.div`
   position: relative;
-  /* display: flex; */
 
   .inputValid {
     padding: ${({ valid, invalid }) =>

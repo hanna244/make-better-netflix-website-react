@@ -3,9 +3,7 @@ import { Checkbox } from 'components'
 import { isValidEmail, isValidPassword, getPublicAssets } from 'utils'
 import {
   LogInContainerStyle,
-  LoginHeadStyle,
-  EmailInputStyle,
-  PasswordInputStyle,
+  LogInEmailInputStyle,
   LogInButtonStyle,
   HelpButtonStyle,
   RememberAndHelpContainerStyle,
@@ -16,6 +14,10 @@ import {
   GoogleCaptchaStyle,
 } from './LogInForm.style'
 import { logInWithEmailAndPassword } from 'api/netflixBase'
+import {
+  FormInputHeadCommonStyle,
+  FormInputCommonStyle as PasswordInputStyle,
+} from 'styles/customCommon'
 
 const LogInForm = ({
   headingLevel,
@@ -89,11 +91,13 @@ const LogInForm = ({
   )
 
   return (
-    <LogInContainerStyle {...restProps}>
-      <LoginHeadStyle as={headingLevel}>로그인</LoginHeadStyle>
-      <EmailInputStyle
+    <LogInContainerStyle as="form" {...restProps}>
+      <FormInputHeadCommonStyle as={headingLevel}>
+        로그인
+      </FormInputHeadCommonStyle>
+      <LogInEmailInputStyle
         type="email"
-        label="이메일 주소 또는 폰 번호"
+        label="이메일 주소"
         errorMessege="정확한 이메일 주소를 입력하세요."
         name="email"
         id="userEmail"

@@ -1,12 +1,12 @@
 import LogInForm from './LogInForm'
 
 export default {
-  title: 'Containers/LogInForm/LogInForm',
+  title: 'Containers/Form/LogInForm',
   component: LogInForm,
 }
 
 const Template = (args) => (
-  <div style={{ background: '#c4c2c2' }}>
+  <div style={{ background: '#111' }}>
     <LogInForm {...args} />
   </div>
 )

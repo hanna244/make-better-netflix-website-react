@@ -2,8 +2,12 @@ import React from 'react'
 import { ContainerStyle } from './Container.style'
 import { node } from 'prop-types'
 
-const Container = ({ children, ...restProps }) => {
-  return <ContainerStyle {...restProps}>{children}</ContainerStyle>
+const Container = ({ className, children, ...restProps }) => {
+  return (
+    <ContainerStyle className={className} {...restProps}>
+      {children}
+    </ContainerStyle>
+  )
 }
 
 Container.defaultProps = {
