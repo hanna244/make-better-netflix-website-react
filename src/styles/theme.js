@@ -12,6 +12,6 @@ export const themes = {
   },
 }
 
-export const ThemeStyleProvider = (...props) => (
+export const ThemeStyleProvider = (props) => (
   <ThemeProvider theme={themes} {...props} />
 )

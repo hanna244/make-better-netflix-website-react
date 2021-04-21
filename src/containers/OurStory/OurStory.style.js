@@ -1,18 +1,10 @@
 import styled from 'styled-components'
 import { Container } from 'components'
 import Promotion from '../Promotion/Promotion'
-import { a11yHidden, resetPara } from 'styles/common'
+import { a11yHidden } from 'styles/common'
 import { setFont } from 'utils'
+import { OusStoryParaCommonStyle } from '../../styles/customCommon'
 
-// 아워스토리 p 요소 공통 스타일
-const CommonPara = styled.p`
-  ${resetPara}
-
-  @media (min-width: 60em) {
-    max-width: 100%;
-  }
-`
-CommonPara.displayName = 'CommonPara'
 export const MainContainer = styled(Container)`
   display: flex;
   flex-flow: column nowrap;
@@ -33,7 +25,7 @@ export const Head = styled.h2`
 `
 Head.displayName = 'Head'
 
-export const TitleStyle = styled(CommonPara)`
+export const TitleStyle = styled(OusStoryParaCommonStyle)`
   ${setFont(3, 1.2, 'bold')}
   max-width: 73%;
   margin-top: 5rem;
@@ -46,7 +38,7 @@ export const TitleStyle = styled(CommonPara)`
 `
 TitleStyle.displayName = 'TitleStyle'
 
-export const SubTitleStyle = styled(CommonPara)`
+export const SubTitleStyle = styled(OusStoryParaCommonStyle)`
   ${setFont(1.5, 1.3, 'bold')}
   max-width: 62%;
   margin-top: 3rem;
@@ -57,7 +49,7 @@ export const SubTitleStyle = styled(CommonPara)`
 `
 SubTitleStyle.displayName = 'SubTitleStyle'
 
-export const SignUpStyle = styled(CommonPara)`
+export const SignUpStyle = styled(OusStoryParaCommonStyle)`
   ${setFont(1.3, 1.35)}
   max-width: 24.6rem;
   margin-top: 1rem;
@@ -70,7 +62,7 @@ export const SignUpStyle = styled(CommonPara)`
 `
 SignUpStyle.displayName = 'SignUpStyle'
 
-export const PromotionInfoStyle = styled(CommonPara)`
+export const PromotionInfoStyle = styled(OusStoryParaCommonStyle)`
   ${setFont(1.2, 1.35)}
   margin-top: 1.5rem;
   padding-bottom: 5rem;
