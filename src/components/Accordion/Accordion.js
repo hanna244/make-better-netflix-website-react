@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { string, any } from 'prop-types'
 import { Item, Head, Body, OpenButton, PlusImg } from './Accordion.style'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -7,63 +7,65 @@ import { getPublicAssets } from 'utils'
 const Accordion = ({
   id,
   isVisible,
-  question,
-  answer,
   handleToggle,
   currentIndex,
   isOpen,
+  data,
   ...restProps
 }) => {
   return (
     <Item className="accordionItem" {...restProps}>
-      <Head>
-        {question}
-        <OpenButton>
-          <PlusImg
-            width="40"
-            height="40"
-            src={`${getPublicAssets('plusIcon.svg')}`}
-            alt="답변 보기"
-          />
-        </OpenButton>
-      </Head>
-      <AnimatePresence>
-        {isOpen && currentIndex === id && (
-          <Body
-            as={motion.dd}
-            // 애니메이션의 기본 요소 스타일
-            initial={{ height: 0 }}
-            // 애니메이션이 적용 되었을 때 요소의 스타일
-            animate={{ height: 'auto' }}
-            // 애니메이션이 끝날 때 요소의 스타일
-            exit={{ height: 0 }}
-            // 애니메이션 트렌지션
-            transition={{
-              type: 'spring',
-              // 애니메이션 지연시간
-              duration: 0.3,
-            }}
-          >
-            {answer.map((item, index) => {
-              return (
-                <p
-                  key={`Accordion_Body_${index}`}
-                  id={`Accordion_Body_${index}`}
-                >
-                  {item}
-                </p>
-              )
-            })}
-          </Body>
-        )}
-      </AnimatePresence>
+      {data.map((item, index) => (
+        <Fragment key={`Accordion_${index}`}>
+          <Head>
+            {item.question}
+            <OpenButton>
+              <PlusImg
+                width="40"
+                height="40"
+                src={`${getPublicAssets('plusIcon.svg')}`}
+                alt="답변 보기"
+              />
+            </OpenButton>
+          </Head>
+          <AnimatePresence>
+            {isOpen && currentIndex === id && (
+              <Body
+                as={motion.dd}
+                // 애니메이션의 기본 요소 스타일
+                initial={{ height: 0 }}
+                // 애니메이션이 적용 되었을 때 요소의 스타일
+                animate={{ height: 'auto' }}
+                // 애니메이션이 끝날 때 요소의 스타일
+                exit={{ height: 0 }}
+                // 애니메이션 트렌지션
+                transition={{
+                  type: 'spring',
+                  // 애니메이션 지연시간
+                  duration: 0.3,
+                }}
+              >
+                {item.answer.map((item, index) => {
+                  return (
+                    <p
+                      key={`Accordion_Body_${index}`}
+                      id={`Accordion_Body_${index}`}
+                    >
+                      {item}
+                    </p>
+                  )
+                })}
+              </Body>
+            )}
+          </AnimatePresence>
+        </Fragment>
+      ))}
     </Item>
   )
 }
 
 Accordion.defaultProps = {
-  question: '이곳에 질문을 입력하세요.',
-  answer: [],
+  data: [],
 }
 
 Accordion.propTypes = {
