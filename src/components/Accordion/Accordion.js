@@ -1,8 +1,10 @@
-import React, { Fragment } from 'react'
+import React, { createContext, Fragment, useContext } from 'react'
 import { array } from 'prop-types'
 import { Item, Head, Body, OpenButton, PlusImg } from './Accordion.style'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getPublicAssets } from 'utils'
+
+const AccordionContext = createContext()
 
 const Accordion = ({
   data,
@@ -11,23 +13,24 @@ const Accordion = ({
   isOpen,
   ...restProps
 }) => {
-  console.log(currentIndex)
+  // console.log(currentIndex)
   return (
-    <Fragment>
+    <AccordionContext.Provider
+      value={{ data, handleClick, currentIndex, isOpen }}
+    >
       {data.map((item, index) => (
         <Accordion.Item
           question={item.question}
           answer={item.answer}
           key={`Accordion_${index}`}
           id={`Accordion_${index}`}
-          handleClick={handleClick}
           index={index}
           currentIndex={currentIndex}
           isOpen={isOpen}
           {...restProps}
         />
       ))}
-    </Fragment>
+    </AccordionContext.Provider>
   )
 }
 
@@ -37,15 +40,18 @@ Accordion.defaultProps = {
 Accordion.propTypes = {
   data: array,
 }
+
+/* Accordion 컴파운드 컴포넌트 ------------------------------------------------------ */
+
 Accordion.Item = function AccordionItem({
-  handleClick,
   question,
   answer,
-  isOpen,
   index,
-  currentIndex,
   ...restProps
 }) {
+  const context = useContext(AccordionContext)
+  const { handleClick, currentIndex, isOpen } = context
+  console.log(index)
   return (
     <Item onClick={handleClick}>
       <Accordion.Head {...restProps} children={question} />
@@ -58,9 +64,10 @@ Accordion.Item = function AccordionItem({
     </Item>
   )
 }
-Accordion.Head = function AccordionHead({ children, index, ...restProps }) {
+
+Accordion.Head = function AccordionHead({ index, children, ...restProps }) {
   return (
-    <Head>
+    <Head {...restProps}>
       {children}
       <OpenButton data-index={index}>
         <PlusImg
@@ -73,18 +80,16 @@ Accordion.Head = function AccordionHead({ children, index, ...restProps }) {
     </Head>
   )
 }
-Accordion.Body = function AccordionBody({
-  index,
-  currentIndex,
-  children,
-  isOpen,
-  ...restProps
-}) {
+
+Accordion.Body = function AccordionBody({ children, index, ...restProps }) {
+  const context = useContext(AccordionContext)
+  const { isOpen, currentIndex } = context
   // console.log(index)
   // console.log(currentIndex)
+
   return (
     <AnimatePresence>
-      {isOpen && index === currentIndex && (
+      {isOpen && currentIndex === index && (
         <Body
           as={motion.dd}
           // 애니메이션의 기본 요소 스타일
