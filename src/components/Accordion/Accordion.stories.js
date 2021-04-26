@@ -2,7 +2,7 @@ import Accordion from './Accordion'
 import { withDesign } from 'storybook-addon-designs'
 
 export default {
-  title: 'Components/Home/Accordion',
+  title: 'Components/Accordion/Accordion',
   component: Accordion,
   decorators: [withDesign],
   parameters: {
