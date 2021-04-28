@@ -1,22 +1,22 @@
 import React, { useCallback, useState } from 'react'
 import { Checkbox } from 'components'
 import { isValidEmail, isValidPassword, getPublicAssets } from 'utils'
+import { logInWithEmailAndPassword } from 'api/netflixBase'
 import {
-  LogInContainerStyle,
   LogInEmailInputStyle,
-  LogInButtonStyle,
   HelpButtonStyle,
   RememberAndHelpContainerStyle,
-  GoogleFigureStyle,
-  GoogleImgStyle,
-  GoogleFigcaptionStyle,
   CheckEmailStyle,
   GoogleCaptchaStyle,
 } from './LogInForm.style'
-import { logInWithEmailAndPassword } from 'api/netflixBase'
 import {
   FormInputHeadCommonStyle,
   FormInputCommonStyle as PasswordInputStyle,
+  FormCommonContainerStyle,
+  FormCommonButtonStyle,
+  GoogleCommonFigureStyle,
+  GoogleCommonImgStyle,
+  GoogleCommonFigcaptionStyle,
 } from 'styles/customCommon'
 
 const LogInForm = ({
@@ -80,7 +80,8 @@ const LogInForm = ({
     }
   }, [])
 
-  /* 로그인 인증 ------------------------------------------------------------------- */
+  /* 로그인 인증 및 라우터 ------------------------------------------------------------- */
+
   const handleSubmitAndRoute = useCallback(
     (e) => {
       e.preventDefault()
@@ -91,7 +92,7 @@ const LogInForm = ({
   )
 
   return (
-    <LogInContainerStyle as="form" {...restProps}>
+    <FormCommonContainerStyle as="form" {...restProps}>
       <FormInputHeadCommonStyle as={headingLevel}>
         로그인
       </FormInputHeadCommonStyle>
@@ -119,20 +120,22 @@ const LogInForm = ({
         invalid={passwordHasError}
         darkmode
       />
-      <LogInButtonStyle onClick={handleSubmitAndRoute} />
+      <FormCommonButtonStyle onClick={handleSubmitAndRoute} />
       <RememberAndHelpContainerStyle>
         <Checkbox label="로그인 정보 저장" />
         <HelpButtonStyle type="button">도움이 필요하신가요?</HelpButtonStyle>
       </RememberAndHelpContainerStyle>
-      <GoogleFigureStyle>
-        <GoogleImgStyle
+      <GoogleCommonFigureStyle>
+        <GoogleCommonImgStyle
           src={`${getPublicAssets('google-logo.svg')}`}
           alt="구글 로고"
           width="16"
           height="16"
         />
-        <GoogleFigcaptionStyle>Google로 로그인</GoogleFigcaptionStyle>
-      </GoogleFigureStyle>
+        <GoogleCommonFigcaptionStyle>
+          Google로 로그인
+        </GoogleCommonFigcaptionStyle>
+      </GoogleCommonFigureStyle>
       <CheckEmailStyle>
         Netflix 회원이 아닌가요? <a href="signup">지금 가입하세요.</a>
       </CheckEmailStyle>
@@ -140,7 +143,7 @@ const LogInForm = ({
         이 페이지는 Google reCAPTCHA의 보호를 받아 사용자가 로봇이 아님을
         확인합니다. <a href="/">자세히 알아보기</a>
       </GoogleCaptchaStyle>
-    </LogInContainerStyle>
+    </FormCommonContainerStyle>
   )
 }
 

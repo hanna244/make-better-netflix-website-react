@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { Input } from 'components'
+import { Button, Container, Input } from 'components'
 import { setFont, getColor } from 'utils'
-import { resetLink, resetPara } from './common'
+import { resetFigure, resetImg, resetLink, resetPara } from './common'
 import { themes } from 'styles/theme'
 
 const {
@@ -23,6 +23,21 @@ OusStoryParaCommonStyle.displayName = 'OusStoryParaCommonStyle'
 
 /* Form Input ------------------------------------------ */
 
+export const FormCommonContainerStyle = styled(Container)`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  max-width: 33.9rem;
+
+  @media (min-width: ${lg}em) {
+    padding: 3rem;
+    max-width: 44rem;
+    border-radius: 6px;
+    background: rgba(1, 1, 1, 0.6);
+  }
+`
+FormCommonContainerStyle.displayName = 'FormCommonContainerStyle'
+
 export const FormInputHeadCommonStyle = styled.h2`
   ${setFont(2, 1.2, 'bold')}
   margin: 0;
@@ -40,6 +55,13 @@ export const FormInputCommonStyle = styled(Input)`
 `
 FormInputCommonStyle.displayName = 'FormInputCommonStyle'
 
+export const FormCommonButtonStyle = styled(Button)`
+  ${setFont(1.6, 1, 'bold')}
+  padding: 0.937em;
+  margin-top: 3rem;
+`
+FormCommonButtonStyle.displayName = 'FormCommonButtonStyle'
+
 export const LoginFormTextCommonStyle = styled.span`
   ${setFont(1.2, 1.35, 'normal')}
   color: ${getColor('lightGray')};
@@ -50,3 +72,28 @@ export const LoginFormTextCommonStyle = styled.span`
   }
 `
 LoginFormTextCommonStyle.displayName = 'LoginFormTextCommonStyle'
+
+// 구글 로그인 공용 스타일
+
+export const GoogleCommonFigureStyle = styled.figure`
+  ${resetFigure}
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-top: 2rem;
+`
+GoogleCommonFigureStyle.displayName = 'GoogleCommonFigureStyle'
+
+export const GoogleCommonImgStyle = styled.img`
+  ${resetImg}
+`
+GoogleCommonImgStyle.displayName = 'GoogleCommonImgStyle'
+
+export const GoogleCommonFigcaptionStyle = styled.figcaption`
+  ${setFont(1.2, 1)}
+  color: ${getColor('gray')};
+  display: grid;
+  align-self: flex-end;
+  margin-left: 0.4rem;
+`
+GoogleCommonFigcaptionStyle.displayName = 'GoogleCommonFigcaptionStyle'
