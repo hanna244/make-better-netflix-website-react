@@ -6,7 +6,6 @@ import { currentNumber } from 'store/slices/faqslice'
 import { List } from './FAQ.style'
 
 const FAQ = ({ as, label, children, ...restProps }) => {
-  const [isOpen, setIsOpen] = useState(false)
   // 데이터 비동기 통신으로 받아오기
   const [faqData, setFaqData] = useState([])
   const fetchData = useCallback(() => {
@@ -32,24 +31,25 @@ const FAQ = ({ as, label, children, ...restProps }) => {
   const dispatch = useDispatch()
   const changeIndex = (index) => dispatch(currentNumber(index))
 
-  const handleAccordionStateandIndex = (e) => {
-    let dataIndex = e.target.getAttribute('data-index')
-    let compareIndex = dataIndex === currentIndex
-    changeIndex(compareIndex ? null : dataIndex)
-    setIsOpen(!compareIndex ? true : false)
-    console.log(currentIndex)
-    console.log(dataIndex)
-    console.log(e.target)
+  const handleAccordionStateandIndex = (index) => {
+    changeIndex(index === currentIndex ? null : index)
   }
+
   return (
     <Fragment>
       <List {...restProps}>
-        <Accordion
-          data={faqData}
-          handleClick={handleAccordionStateandIndex}
-          isOpen={isOpen}
-          currentIndex={currentIndex}
-        />
+        {faqData.map((item, index) => (
+          <Accordion
+            key={`Accordion_${index}`}
+            // Accordion open/close 조건 처리를 위해 Accordion_index가 아닌 index로 전달
+            id={index}
+            question={item.question}
+            answer={item.answer}
+            onClick={() => handleAccordionStateandIndex(index)}
+            currentIndex={currentIndex}
+            isOpen={index === currentIndex ? true : false}
+          />
+        ))}
       </List>
     </Fragment>
   )
