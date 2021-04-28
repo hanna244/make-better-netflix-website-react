@@ -6,7 +6,7 @@ export default {
 }
 
 const Template = (args) => (
-  <div style={{ background: 'rgb(146 161 70)' }}>
+  <div style={{ margin: '3rem', background: '#111' }}>
     <SignUpForm {...args} />
   </div>
 )
