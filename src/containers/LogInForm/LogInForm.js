@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { Checkbox } from 'components'
 import { isValidEmail, isValidPassword, getPublicAssets } from 'utils'
-import { logInWithEmailAndPassword } from 'api/netflixBase'
+import { signUpWithEmailAndPassword } from 'api/netflixBase'
 import {
   LogInEmailInputStyle,
   HelpButtonStyle,
@@ -86,13 +86,17 @@ const LogInForm = ({
     (e) => {
       e.preventDefault()
       handleMoveBrowse()
-      logInWithEmailAndPassword(emailValue, passwordValue)
+      signUpWithEmailAndPassword(emailValue, passwordValue)
     },
     [handleMoveBrowse, emailValue, passwordValue]
   )
 
+  const handleSubmit = useCallback((e) => {
+    e.preventDefault()
+  }, [])
+
   return (
-    <FormCommonContainerStyle as="form" {...restProps}>
+    <FormCommonContainerStyle as="form" onSubmit={handleSubmit} {...restProps}>
       <FormInputHeadCommonStyle as={headingLevel}>
         로그인
       </FormInputHeadCommonStyle>
