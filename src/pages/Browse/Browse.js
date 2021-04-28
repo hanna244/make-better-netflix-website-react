@@ -1,11 +1,11 @@
 import React from 'react'
-import { BrowseType } from 'layout/LayoutTypes'
+import { HasNavType } from 'layout/LayoutTypes'
 
 const Browse = () => {
   return (
-    <BrowseType>
+    <HasNavType>
       <div style={{ fontSize: '50px' }}>브라우즈 페이지 입니다.</div>
-    </BrowseType>
+    </HasNavType>
   )
 }
 

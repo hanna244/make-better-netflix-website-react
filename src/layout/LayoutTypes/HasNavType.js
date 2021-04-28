@@ -2,7 +2,7 @@ import React from 'react'
 import { NavHeader } from '../Header'
 import Footer from '../Footer/Footer'
 
-const BrowseType = ({ children, ...restProps }) => {
+const HasNavType = ({ children, ...restProps }) => {
   return (
     <>
       <NavHeader {...restProps} />
@@ -12,4 +12,4 @@ const BrowseType = ({ children, ...restProps }) => {
   )
 }
 
-export default BrowseType
+export default HasNavType

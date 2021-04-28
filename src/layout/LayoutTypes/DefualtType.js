@@ -2,7 +2,7 @@ import React from 'react'
 import { DefaultHeader } from '../Header'
 import Footer from '../Footer/Footer'
 
-const Defualt = ({ children, ...restProps }) => {
+const DefualtType = ({ children, ...restProps }) => {
   return (
     <>
       <DefaultHeader hasLogInButton {...restProps} />
@@ -12,4 +12,4 @@ const Defualt = ({ children, ...restProps }) => {
   )
 }
 
-export default Defualt
+export default DefualtType

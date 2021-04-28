@@ -1,6 +1,8 @@
 import React, { Fragment, useCallback } from 'react'
 import { Button } from 'components'
+import { NoButtonType } from 'layout/LayoutTypes'
 import { useHistory } from 'react-router-dom'
+import SignUpForm from '../../containers/SignUpForm/SignUpForm'
 
 const SignUp = () => {
   let history = useHistory()
@@ -8,10 +10,9 @@ const SignUp = () => {
     history.push('/browse')
   }, [history])
   return (
-    <Fragment>
-      <div style={{ fontSize: '50px' }}>회원가입 페이지 입니다.</div>
-      <Button label="회원가입" handleClick={handleMoveBrowse} />
-    </Fragment>
+    <NoButtonType className="SignUp">
+      <SignUpForm handleClick={handleMoveBrowse} />
+    </NoButtonType>
   )
 }
 
