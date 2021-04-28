@@ -62,7 +62,7 @@ const Accordion = ({
 }
 
 Accordion.defaultProps = {
-  question: '이곳에 질문을 입력하세요.',
+  question: '',
   answer: [],
 }
 
