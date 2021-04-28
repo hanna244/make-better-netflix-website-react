@@ -6,13 +6,6 @@ import { store } from './store/store'
 
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import { DataContext } from './context/context'
-import addressData from './data/address.json'
-import faqData from './data/faq.json'
-import footerLinkData from './data/footerLink.json'
-import homeContextData from './data/homeContext.json'
-import meritData from './data/merit.json'
-
 import { GlobalStyles } from './styles/GlobalStyles'
 import { ThemeStyleProvider } from 'styles/theme'
 import './styles/normalize.css'
@@ -20,24 +13,14 @@ import App from './App/App'
 
 ReactDOM.render(
   <React.StrictMode>
-    <DataContext.Provider
-      value={{
-        addressData: addressData,
-        faqData: faqData,
-        footerLinkData: footerLinkData,
-        homeContextData: homeContextData,
-        meritData: meritData,
-      }}
-    >
-      <Provider store={store}>
-        <GlobalStyles />
-        <Router>
-          <ThemeStyleProvider>
-            <App />
-          </ThemeStyleProvider>
-        </Router>
-      </Provider>
-    </DataContext.Provider>
+    <Provider store={store}>
+      <GlobalStyles />
+      <Router>
+        <ThemeStyleProvider>
+          <App />
+        </ThemeStyleProvider>
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )

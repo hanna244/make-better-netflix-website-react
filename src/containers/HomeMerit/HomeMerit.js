@@ -1,11 +1,21 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Merit } from '..'
-import { DataContext } from 'context/context'
 import { Head } from './HomeMerit.style'
 
 const HomeMerit = () => {
-  const meritContext = useContext(DataContext)
-  const { meritData } = meritContext
+  const [meritData, setMeritData] = useState([])
+  const fetchData = () => {
+    import('data/merit.json')
+      .then((data) => {
+        const { default: _default } = data
+        setMeritData(_default)
+      })
+      .catch((error) => console.error('merit 데이터를 불러오지 못했습니다.'))
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   return (
     <section>
