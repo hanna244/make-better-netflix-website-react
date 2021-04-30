@@ -4,11 +4,9 @@ import {
   FormCommonContainerStyle,
   FormInputCommonStyle,
   FormInputHeadCommonStyle,
-  GoogleCommonFigcaptionStyle,
-  GoogleCommonFigureStyle,
-  GoogleCommonImgStyle,
+  GoogleCommonButtonStyle,
 } from 'styles/customCommon'
-import { getPublicAssets, isValidEmail, isValidPassword } from 'utils'
+import { isValidEmail, isValidPassword } from 'utils'
 import { signUpWithEmailAndPassword } from 'api/netflixBase'
 
 const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
@@ -147,17 +145,7 @@ const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
         darkmode
       />
       <FormCommonButtonStyle label="회원가입" onClick={handleSubmitAndRoute} />
-      <GoogleCommonFigureStyle>
-        <GoogleCommonImgStyle
-          src={`${getPublicAssets('google-logo.svg')}`}
-          alt="구글 로고"
-          width="16"
-          height="16"
-        />
-        <GoogleCommonFigcaptionStyle>
-          Google로 회원가입
-        </GoogleCommonFigcaptionStyle>
-      </GoogleCommonFigureStyle>
+      <GoogleCommonButtonStyle>Google로 회원가입</GoogleCommonButtonStyle>
     </FormCommonContainerStyle>
   )
 }

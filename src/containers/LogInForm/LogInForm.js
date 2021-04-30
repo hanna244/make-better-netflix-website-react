@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import { Checkbox } from 'components'
-import { isValidEmail, isValidPassword, getPublicAssets } from 'utils'
+import { isValidEmail, isValidPassword } from 'utils'
 import { logInWithEmailAndPassword } from 'api/netflixBase'
 import {
   LogInEmailInputStyle,
@@ -14,9 +14,7 @@ import {
   FormInputCommonStyle as PasswordInputStyle,
   FormCommonContainerStyle,
   FormCommonButtonStyle,
-  GoogleCommonFigureStyle,
-  GoogleCommonImgStyle,
-  GoogleCommonFigcaptionStyle,
+  GoogleCommonButtonStyle,
 } from 'styles/customCommon'
 
 const LogInForm = ({
@@ -129,17 +127,7 @@ const LogInForm = ({
         <Checkbox label="로그인 정보 저장" />
         <HelpButtonStyle type="button">도움이 필요하신가요?</HelpButtonStyle>
       </RememberAndHelpContainerStyle>
-      <GoogleCommonFigureStyle>
-        <GoogleCommonImgStyle
-          src={`${getPublicAssets('google-logo.svg')}`}
-          alt=""
-          width="16"
-          height="16"
-        />
-        <GoogleCommonFigcaptionStyle>
-          Google로 로그인
-        </GoogleCommonFigcaptionStyle>
-      </GoogleCommonFigureStyle>
+      <GoogleCommonButtonStyle>Google로 로그인</GoogleCommonButtonStyle>
       <CheckEmailStyle>
         Netflix 회원이 아닌가요? <a href="signup">지금 가입하세요.</a>
       </CheckEmailStyle>

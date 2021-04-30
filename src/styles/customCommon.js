@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Background, Button, Container, Input } from 'components'
 import { setFont, getColor, getPublicAssets } from 'utils'
-import { resetFigure, resetImg, resetLink, resetPara } from './common'
+import { resetButton, resetLink, resetPara } from './common'
 import { themes } from 'styles/theme'
 
 const {
@@ -100,25 +100,28 @@ LoginFormTextCommonStyle.displayName = 'LoginFormTextCommonStyle'
 
 // 구글 로그인 공용 스타일
 
-export const GoogleCommonFigureStyle = styled.figure`
-  ${resetFigure}
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  margin-top: 2rem;
-`
-GoogleCommonFigureStyle.displayName = 'GoogleCommonFigureStyle'
-
-export const GoogleCommonImgStyle = styled.img`
-  ${resetImg}
-`
-GoogleCommonImgStyle.displayName = 'GoogleCommonImgStyle'
-
-export const GoogleCommonFigcaptionStyle = styled.figcaption`
+export const GoogleCommonButtonStyle = styled.button`
+  ${resetButton}
   ${setFont(1.2, 1)}
   color: ${getColor('gray')};
-  display: grid;
-  align-self: flex-end;
-  margin-left: 0.4rem;
+  margin-top: 2rem;
+  width: 11rem;
+  background: none;
+  line-height: 1.4;
+  padding: 0;
+
+  &::before {
+    content: '';
+    background: url(${getPublicAssets('google-logo.svg')}) center/73% no-repeat;
+    width: 16px;
+    height: 15px;
+    float: left;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 `
-GoogleCommonFigcaptionStyle.displayName = 'GoogleCommonFigcaptionStyle'
+GoogleCommonButtonStyle.displayName = 'GoogleCommonButtonStyle'
