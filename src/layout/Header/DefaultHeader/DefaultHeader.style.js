@@ -1,10 +1,26 @@
 import styled from 'styled-components'
 import { Button, Container, Logo } from 'components'
 import { resetLink } from 'styles/common'
+import { themes } from 'styles/theme'
+
+const {
+  breakpoints: { lg },
+} = themes
 
 export const OuterContainer = styled.header`
+  position: fixed;
   margin: 0 auto;
-  max-width: 144rem;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.6) 55%,
+    rgba(0, 0, 0, 0) 90%
+  );
+
+  @media (min-width: ${lg}em) {
+    max-width: 144rem;
+  }
 `
 OuterContainer.displayName = 'OuterContainer'
 
