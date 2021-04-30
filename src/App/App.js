@@ -1,5 +1,11 @@
+import {
+  Redirect,
+  Route,
+  Switch,
+  useHistory,
+  useLocation,
+} from 'react-router-dom'
 import { RouteGuard } from 'components'
-import { Redirect, Route, Switch } from 'react-router-dom'
 import {
   Home,
   LogIn,
@@ -9,8 +15,8 @@ import {
   Profile,
   SignUp,
   TV,
+  Browse,
 } from '../pages'
-import { Browse } from '../pages'
 
 function App() {
   return (
@@ -18,7 +24,12 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route path="/login" component={LogIn} />
       <Route path="/signup" component={SignUp} />
-      <RouteGuard exact path="/browse" component={Browse} />
+      <RouteGuard
+        exact
+        path="/browse"
+        component={Browse}
+        redurect={useLocation().pathname}
+      />
       <Route path="/browse/genre/tv" component={TV} />
       <Route path="/browse/genre/movie" component={Movie} />
       <Route path="/browse/mylist" component={MyList} />
