@@ -24,7 +24,7 @@ const Footer = ({ ...restProps }) => {
       })
       .catch((error) => console.error('address 데이터를 불러오지 못했습니다.'))
   }
-  const fetchFppterLinkData = () => {
+  const fetchFooterLinkData = () => {
     import('data/footerLink.json')
       .then((data) => {
         const { default: _default } = data
@@ -35,7 +35,7 @@ const Footer = ({ ...restProps }) => {
 
   useEffect(() => {
     fetchAddressData()
-    fetchFppterLinkData()
+    fetchFooterLinkData()
   }, [])
 
   return (

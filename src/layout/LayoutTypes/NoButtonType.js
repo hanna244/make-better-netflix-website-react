@@ -15,7 +15,7 @@ const NoButtonType = ({ children, ...restProps }) => {
 
 const NoButtonTypeFooterStyle = styled(Footer)`
   position: absolute;
-  bottom: 0;
+  bottom: -27%;
   left: 0;
   right: 0;
   padding: 1rem;
