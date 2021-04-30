@@ -35,8 +35,8 @@ export const LogInCommonBackgroundStyle = styled(Background)`
     // login, signup 배경 이미지를 다르게 하기 위해 src 속성 전달 받음
     background: ${({ dim, path }) =>
       dim
-        ? `linear-gradient( 180deg, #000000 5.68%, rgba(0,0,0,0.3) 42.95%, rgba(0,0,0,0.8) 79.3% ), url(/assets/Cover.jpg) 100%/251% no-repeat`
-        : `url(${getPublicAssets(path)}) no-repeat center center`};
+        ? `linear-gradient( 180deg,#000000 5.68%,rgba(0,0,0,0.3) 42.95%,rgba(0,0,0,0.8) 79.3% ),url(/assets/Cover.jpg) center/cover no-repeat`
+        : `url(${getPublicAssets(path)}) center/cover no-repeat`};
   }
 
   @media (min-width: ${lg}em) {
