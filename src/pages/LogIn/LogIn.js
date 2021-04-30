@@ -1,8 +1,9 @@
 import { useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
 import { NoButtonType } from 'layout/LayoutTypes'
-import { LogInContainer, LogInBackground } from './LogIn.style'
+import { LogInContainerStyle } from './LogIn.style'
 import { LogInForm } from 'containers'
+import { LogInCommonBackgroundStyle } from 'styles/customCommon'
 
 function LogIn({ ...restProps }) {
   let history = useHistory()
@@ -12,11 +13,16 @@ function LogIn({ ...restProps }) {
 
   return (
     <NoButtonType className="LogIn">
-      <LogInBackground dim as="section" {...restProps}>
-        <LogInContainer>
+      <LogInCommonBackgroundStyle
+        path="Cover.jpg"
+        dim
+        as="section"
+        {...restProps}
+      >
+        <LogInContainerStyle>
           <LogInForm handleClick={handleMoveBrowse} />
-        </LogInContainer>
-      </LogInBackground>
+        </LogInContainerStyle>
+      </LogInCommonBackgroundStyle>
     </NoButtonType>
   )
 }

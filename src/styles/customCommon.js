@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { Button, Container, Input } from 'components'
-import { setFont, getColor } from 'utils'
+import { Background, Button, Container, Input } from 'components'
+import { setFont, getColor, getPublicAssets } from 'utils'
 import { resetFigure, resetImg, resetLink, resetPara } from './common'
 import { themes } from 'styles/theme'
 
@@ -21,7 +21,32 @@ export const OusStoryParaCommonStyle = styled.p`
 `
 OusStoryParaCommonStyle.displayName = 'OusStoryParaCommonStyle'
 
-/* Form Input ------------------------------------------ */
+/* login, signup 페이지 공용 스타일 -------------------------- */
+
+// 컨테이너 스타일
+
+export const LogInCommonBackgroundStyle = styled(Background)`
+  display: flex;
+  justify-content: center;
+  padding: 6.6rem 0 68.3rem;
+  background: #111;
+
+  @media (min-width: ${lg}em) {
+    // login, signup 배경 이미지를 다르게 하기 위해 src 속성 전달 받음
+    background: ${({ dim, path }) =>
+      dim
+        ? `linear-gradient( 180deg, #000000 5.68%, rgba(0,0,0,0.3) 42.95%, rgba(0,0,0,0.8) 79.3% ), url(/assets/Cover.jpg) 100%/251% no-repeat`
+        : `url(${getPublicAssets(path)}) no-repeat center center`};
+  }
+
+  @media (min-width: ${lg}em) {
+    padding: 16rem 0 76.3rem;
+  }
+`
+
+LogInCommonBackgroundStyle.displayName = 'LogInCommonBackgroundStyle'
+
+// input 스타일
 
 export const FormCommonContainerStyle = styled(Container)`
   display: flex;

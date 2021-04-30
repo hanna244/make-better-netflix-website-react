@@ -1,11 +1,6 @@
-import {
-  Redirect,
-  Route,
-  Switch,
-  useHistory,
-  useLocation,
-} from 'react-router-dom'
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom'
 import { RouteGuard } from 'components'
+import styled from 'styled-components'
 import {
   Home,
   LogIn,
@@ -22,14 +17,13 @@ function App() {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route path="/login" component={LogIn} />
-      <Route path="/signup" component={SignUp} />
-      <RouteGuard
-        exact
-        path="/browse"
-        component={Browse}
-        redurect={useLocation().pathname}
-      />
+      <RelativeStyle class="hasPosition">
+        <Route path="/login" component={LogIn} />
+      </RelativeStyle>
+      <RelativeStyle class="hasPosition">
+        <Route path="/signup" component={SignUp} />
+      </RelativeStyle>
+      <RouteGuard exact path="/browse" component={Browse} />
       <Route path="/browse/genre/tv" component={TV} />
       <Route path="/browse/genre/movie" component={Movie} />
       <Route path="/browse/mylist" component={MyList} />
@@ -39,5 +33,10 @@ function App() {
     </Switch>
   )
 }
+
+// login, signup 페이지 footer에 position:ab 적용을 위한 스타일
+const RelativeStyle = styled.div`
+  position: relative;
+`
 
 export default App
