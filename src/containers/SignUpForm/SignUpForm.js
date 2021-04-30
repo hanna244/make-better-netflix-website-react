@@ -95,14 +95,20 @@ const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
   const handleSubmitAndRoute = useCallback(
     (e) => {
       e.preventDefault()
+      // 브라우즈 페이지 라우터
       handleMoveBrowse()
+      // 파이어 베이스 인증 이메일 등록
       signUpWithEmailAndPassword(emailValue, checkPasswordValue)
     },
     [checkPasswordValue, emailValue, handleMoveBrowse]
   )
 
+  const handleSubmit = useCallback((e) => {
+    e.preventDefault()
+  }, [])
+
   return (
-    <FormCommonContainerStyle as="form">
+    <FormCommonContainerStyle as="form" onSubmit={handleSubmit} {...restProps}>
       <FormInputHeadCommonStyle>회원가입</FormInputHeadCommonStyle>
       <FormInputCommonStyle
         type="email"

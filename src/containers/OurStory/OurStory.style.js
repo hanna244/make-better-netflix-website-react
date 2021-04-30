@@ -9,12 +9,12 @@ export const MainContainer = styled(Container)`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  padding: 2rem 0;
+  padding: 8.6rem 0 2rem;
   margin: 0 1.8rem;
   text-align: center;
 
   @media (min-width: 60em) {
-    padding: 8.3rem 0;
+    padding: 14rem 0 8.3rem;
     margin: 0 auto;
   }
 `
