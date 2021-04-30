@@ -1,7 +1,6 @@
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
 import { netflixAuth } from 'api/netflixBase'
-import { any } from 'prop-types'
 
 const RouteGuard = ({ redirect, ...restProps }) => {
   console.log(redirect)

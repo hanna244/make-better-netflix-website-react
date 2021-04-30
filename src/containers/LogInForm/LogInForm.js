@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { Checkbox } from 'components'
 import { isValidEmail, isValidPassword, getPublicAssets } from 'utils'
-import { signUpWithEmailAndPassword } from 'api/netflixBase'
+import { logInWithEmailAndPassword } from 'api/netflixBase'
 import {
   LogInEmailInputStyle,
   HelpButtonStyle,
@@ -86,7 +86,7 @@ const LogInForm = ({
     (e) => {
       e.preventDefault()
       handleMoveBrowse()
-      signUpWithEmailAndPassword(emailValue, passwordValue)
+      logInWithEmailAndPassword(emailValue, passwordValue)
     },
     [handleMoveBrowse, emailValue, passwordValue]
   )
@@ -132,7 +132,7 @@ const LogInForm = ({
       <GoogleCommonFigureStyle>
         <GoogleCommonImgStyle
           src={`${getPublicAssets('google-logo.svg')}`}
-          alt="구글 로고"
+          alt=""
           width="16"
           height="16"
         />

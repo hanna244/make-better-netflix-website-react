@@ -1,4 +1,4 @@
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import { RouteGuard } from 'components'
 import styled from 'styled-components'
 import {
@@ -19,8 +19,6 @@ function App() {
       <Route exact path="/" component={Home} />
       <RelativeStyle class="hasPosition">
         <Route path="/login" component={LogIn} />
-      </RelativeStyle>
-      <RelativeStyle class="hasPosition">
         <Route path="/signup" component={SignUp} />
       </RelativeStyle>
       <RouteGuard exact path="/browse" component={Browse} />
