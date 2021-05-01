@@ -11,6 +11,7 @@ import {
   signUpWithEmailAndPassword,
   signInWithGoogle,
   signInWithGithub,
+  socialAuth,
 } from 'api/netflixBase'
 
 const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
@@ -113,12 +114,14 @@ const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
 
   const handleSocialAuth = useCallback((e) => {
     let { name } = e.target
+
+    socialAuth(name)
     // if (name === 'google') {
     //   signInWithGoogle()
     // }
-    if (name === 'github') {
-      signInWithGithub()
-    }
+    // if (name === 'github') {
+    //   signInWithGithub()
+    // }
   }, [])
 
   return (
