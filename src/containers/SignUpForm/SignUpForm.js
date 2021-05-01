@@ -7,12 +7,7 @@ import {
   SocialCommonButtonStyle,
 } from 'styles/customCommon'
 import { isValidEmail, isValidPassword } from 'utils'
-import {
-  signUpWithEmailAndPassword,
-  signInWithGoogle,
-  signInWithGithub,
-  socialAuth,
-} from 'api/netflixBase'
+import { signUpWithEmailAndPassword, socialAuth } from 'api/netflixBase'
 
 const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
   /* input 유효성 검사 ------------------------------------------------------------- */
@@ -114,14 +109,7 @@ const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
 
   const handleSocialAuth = useCallback((e) => {
     let { name } = e.target
-
     socialAuth(name)
-    // if (name === 'google') {
-    //   signInWithGoogle()
-    // }
-    // if (name === 'github') {
-    //   signInWithGithub()
-    // }
   }, [])
 
   return (

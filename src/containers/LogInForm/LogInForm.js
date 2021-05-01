@@ -14,7 +14,7 @@ import {
   FormInputCommonStyle as PasswordInputStyle,
   FormCommonContainerStyle,
   FormCommonButtonStyle,
-  GoogleCommonButtonStyle,
+  SocialCommonButtonStyle,
 } from 'styles/customCommon'
 
 const LogInForm = ({
@@ -127,7 +127,12 @@ const LogInForm = ({
         <Checkbox label="로그인 정보 저장" />
         <HelpButtonStyle type="button">도움이 필요하신가요?</HelpButtonStyle>
       </RememberAndHelpContainerStyle>
-      <GoogleCommonButtonStyle>Google로 로그인</GoogleCommonButtonStyle>
+      <SocialCommonButtonStyle path={'google-logo.svg'} hasMarginTop={'2rem'}>
+        Google로 로그인
+      </SocialCommonButtonStyle>
+      <SocialCommonButtonStyle path={'github-logo.svg'} hasMarginTop={'0.5rem'}>
+        Github로 로그인
+      </SocialCommonButtonStyle>
       <CheckEmailStyle>
         Netflix 회원이 아닌가요? <a href="signup">지금 가입하세요.</a>
       </CheckEmailStyle>

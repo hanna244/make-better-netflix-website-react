@@ -100,11 +100,11 @@ LoginFormTextCommonStyle.displayName = 'LoginFormTextCommonStyle'
 
 // 구글 로그인 공용 스타일
 
-export const GoogleCommonButtonStyle = styled.button`
+export const SocialCommonButtonStyle = styled.button`
   ${resetButton}
   ${setFont(1.2, 1)}
   color: ${getColor('gray')};
-  margin-top: 2rem;
+  margin-top: ${({ hasMarginTop }) => `${hasMarginTop}`};
   width: 11rem;
   background: none;
   line-height: 1.4;
@@ -112,7 +112,8 @@ export const GoogleCommonButtonStyle = styled.button`
 
   &::before {
     content: '';
-    background: url(${getPublicAssets('google-logo.svg')}) center/73% no-repeat;
+    background: ${({ path }) =>
+      `url(${getPublicAssets(path)}) center/73% no-repeat`};
     width: 16px;
     height: 15px;
     float: left;
@@ -124,4 +125,4 @@ export const GoogleCommonButtonStyle = styled.button`
     clear: both;
   }
 `
-GoogleCommonButtonStyle.displayName = 'GoogleCommonButtonStyle'
+SocialCommonButtonStyle.displayName = 'SocialCommonButtonStyle'
