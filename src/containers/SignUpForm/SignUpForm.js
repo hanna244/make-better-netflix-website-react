@@ -4,10 +4,14 @@ import {
   FormCommonContainerStyle,
   FormInputCommonStyle,
   FormInputHeadCommonStyle,
-  GoogleCommonButtonStyle,
+  SocialCommonButtonStyle,
 } from 'styles/customCommon'
 import { isValidEmail, isValidPassword } from 'utils'
-import { signUpWithEmailAndPassword } from 'api/netflixBase'
+import {
+  signUpWithEmailAndPassword,
+  signInWithGoogle,
+  signInWithGithub,
+} from 'api/netflixBase'
 
 const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
   /* input 유효성 검사 ------------------------------------------------------------- */
@@ -105,6 +109,18 @@ const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
     e.preventDefault()
   }, [])
 
+  /* 구글, 깃헙 회원가입 ------------------------------------------------------------- */
+
+  const handleSocialAuth = useCallback((e) => {
+    let { name } = e.target
+    // if (name === 'google') {
+    //   signInWithGoogle()
+    // }
+    if (name === 'github') {
+      signInWithGithub()
+    }
+  }, [])
+
   return (
     <FormCommonContainerStyle as="form" onSubmit={handleSubmit} {...restProps}>
       <FormInputHeadCommonStyle>회원가입</FormInputHeadCommonStyle>
@@ -145,7 +161,22 @@ const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
         darkmode
       />
       <FormCommonButtonStyle label="회원가입" onClick={handleSubmitAndRoute} />
-      <GoogleCommonButtonStyle>Google로 회원가입</GoogleCommonButtonStyle>
+      <SocialCommonButtonStyle
+        onClick={handleSocialAuth}
+        name="google"
+        path={'google-logo.svg'}
+        hasMarginTop={'2rem'}
+      >
+        Google로 회원가입
+      </SocialCommonButtonStyle>
+      <SocialCommonButtonStyle
+        onClick={handleSocialAuth}
+        name="github"
+        path={'github-logo.svg'}
+        hasMarginTop={'0.5rem'}
+      >
+        Github로 회원가입
+      </SocialCommonButtonStyle>
     </FormCommonContainerStyle>
   )
 }
