@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import { Button, Container, Logo } from 'components'
-import { resetLink } from 'styles/common'
+import { resetHeading, resetLink } from 'styles/common'
 import { themes } from 'styles/theme'
 
 const {
   breakpoints: { lg },
 } = themes
 
-export const OuterContainer = styled.header`
+export const OuterContainerStyle = styled.header`
   position: fixed;
   margin: 0 auto;
   width: 100%;
@@ -17,14 +17,10 @@ export const OuterContainer = styled.header`
     rgba(0, 0, 0, 0.6) 55%,
     rgba(0, 0, 0, 0) 90%
   );
-
-  @media (min-width: ${lg}em) {
-    max-width: 144rem;
-  }
 `
-OuterContainer.displayName = 'OuterContainer'
+OuterContainerStyle.displayName = 'OuterContainerStyle'
 
-export const InnerContainer = styled(Container)`
+export const InnerContainerStyle = styled(Container)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,13 +32,17 @@ export const InnerContainer = styled(Container)`
     margin: 0 12rem;
   }
 `
-InnerContainer.displayName = 'InnerContainer'
+InnerContainerStyle.displayName = 'InnerContainerStyle'
 
-export const HeaderHomeLink = styled.a`
+export const HeaderHeadingStyle = styled.h1`
+  ${resetHeading}
+`
+HeaderHeadingStyle.displayName = 'HeaderHeadingStyle'
+
+export const HeaderHomeLinkStyle = styled.a`
   ${resetLink}
   display: block;
   width: 7.4rem;
-  height: 2rem;
   cursor: pointer;
 
   @media (min-width: 60em) {
@@ -50,14 +50,14 @@ export const HeaderHomeLink = styled.a`
     height: 3.8rem;
   }
 `
-HeaderHomeLink.displayName = 'HeaderHomeLink'
+HeaderHomeLinkStyle.displayName = 'HeaderHomeLinkStyle'
 
-export const HeaderLogo = styled(Logo)`
+export const HeaderLogoStyle = styled(Logo)`
   width: 14rem;
 `
-HeaderLogo.displayName = 'HeaderLogo'
+HeaderLogoStyle.displayName = 'HeaderLogoStyle'
 
-export const HeaderLogInLink = styled(Button)`
+export const HeaderLogInLinkStyle = styled(Button)`
   ${resetLink}
   font-weight: bold;
   font-size: 1.1rem;
@@ -70,4 +70,4 @@ export const HeaderLogInLink = styled(Button)`
     line-height: 1;
   }
 `
-HeaderLogInLink.displayName = 'HeaderLogInLink'
+HeaderLogInLinkStyle.displayName = 'HeaderLogInLinkStyle'

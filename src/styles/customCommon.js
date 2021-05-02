@@ -8,8 +8,6 @@ const {
   breakpoints: { lg },
 } = themes
 
-// 공용으로 사용할 styled-components를 만들어서 사용합니다.
-
 /* OurStory -------------------------------------------- */
 
 export const OusStoryParaCommonStyle = styled.p`

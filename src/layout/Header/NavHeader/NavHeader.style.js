@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import {
-  OuterContainer as DefaultOuterContainer,
-  InnerContainer as DefaultInnerContainer,
-  HeaderHomeLink as DefaultHeaderHomeLink,
-  HeaderLogo as DefaultHeaderLogo,
+  OuterContainerStyle as DefaultOuterContainer,
+  InnerContainerStyle as DefaultInnerContainer,
+  HeaderHomeLinkStyle as DefaultHeaderHomeLink,
+  HeaderLogoStyle as DefaultHeaderLogo,
 } from '../DefaultHeader/DefaultHeader.style'
 
 export const OuterContainer = styled(DefaultOuterContainer)``

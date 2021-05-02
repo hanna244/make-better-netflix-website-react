@@ -1,11 +1,12 @@
 import { string } from 'prop-types'
 import React, { useCallback } from 'react'
 import {
-  OuterContainer,
-  InnerContainer,
-  HeaderHomeLink,
-  HeaderLogInLink,
-  HeaderLogo,
+  OuterContainerStyle,
+  InnerContainerStyle,
+  HeaderHeadingStyle,
+  HeaderHomeLinkStyle,
+  HeaderLogInLinkStyle,
+  HeaderLogoStyle,
 } from './DefaultHeader.style'
 import { useHistory } from 'react-router-dom'
 
@@ -25,16 +26,18 @@ const DefaultHeader = ({ className, hasLogInButton, ...restProps }) => {
   )
 
   return (
-    <OuterContainer>
-      <InnerContainer className={className} {...restProps}>
-        <h1>
-          <HeaderHomeLink onClick={handleMoveHome}>
-            <HeaderLogo alt="넷플릭스 홈" />
-          </HeaderHomeLink>
-        </h1>
-        {hasLogInButton ? <HeaderLogInLink onClick={handleMoveLogIn} /> : null}
-      </InnerContainer>
-    </OuterContainer>
+    <OuterContainerStyle>
+      <InnerContainerStyle className={className} {...restProps}>
+        <HeaderHeadingStyle>
+          <HeaderHomeLinkStyle onClick={handleMoveHome}>
+            <HeaderLogoStyle alt="넷플릭스 홈" />
+          </HeaderHomeLinkStyle>
+        </HeaderHeadingStyle>
+        {hasLogInButton ? (
+          <HeaderLogInLinkStyle onClick={handleMoveLogIn} />
+        ) : null}
+      </InnerContainerStyle>
+    </OuterContainerStyle>
   )
 }
 

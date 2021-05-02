@@ -5,21 +5,24 @@ import styled from 'styled-components'
 
 const NoButtonType = ({ children, ...restProps }) => {
   return (
-    <>
+    <NoButtonTypeRelativeStyle>
       <DefaultHeader {...restProps} />
       <main>{children}</main>
-      <NoButtonTypeFooterStyle />
-    </>
+      <NoButtonTypeFooterStyle onTypeFooterStyle />
+    </NoButtonTypeRelativeStyle>
   )
 }
 
+const NoButtonTypeRelativeStyle = styled.div`
+  position: relative;
+`
+
 const NoButtonTypeFooterStyle = styled(Footer)`
   position: absolute;
-  bottom: -27%;
+  bottom: 0;
   left: 0;
   right: 0;
   padding: 1rem;
-  margin: 0 2rem;
   background: rgba(1, 1, 1, 0.5);
   max-width: 133rem;
 
