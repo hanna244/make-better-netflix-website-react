@@ -1,11 +1,9 @@
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
-import { netflixAuth } from 'api/netflixBase'
 
-const RouteGuard = ({ redirect, ...restProps }) => {
-  console.log(redirect)
-
-  if (netflixAuth.currentUser) {
+const RouteGuard = ({ isLoggedIn, redirect, ...restProps }) => {
+  console.log(`RouteGuard_isLoggedIn : ${isLoggedIn}`)
+  if (isLoggedIn) {
     return <Route {...restProps} />
   } else {
     return <Redirect to={redirect} />
