@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { Checkbox } from 'components'
 import { isValidEmail, isValidPassword } from 'utils'
-import { logInWithEmailAndPassword } from 'api/netflixBase'
+import { logInWithEmailAndPassword, socialAuth } from 'api/netflixBase'
 import {
   LogInEmailInputStyle,
   HelpButtonStyle,
@@ -80,6 +80,12 @@ const LogInForm = ({
 
   /* 로그인 인증 및 라우터 ------------------------------------------------------------- */
 
+  const handleSubmit = useCallback((e) => {
+    e.preventDefault()
+  }, [])
+
+  // 이메일 패스워드
+
   const handleSubmitAndRoute = useCallback(
     (e) => {
       e.preventDefault()
@@ -89,8 +95,11 @@ const LogInForm = ({
     [handleMoveBrowse, emailValue, passwordValue]
   )
 
-  const handleSubmit = useCallback((e) => {
-    e.preventDefault()
+  // 소셜
+
+  const handleSocialAuth = useCallback((e) => {
+    let { name } = e.target
+    socialAuth(name)
   }, [])
 
   return (
@@ -127,10 +136,20 @@ const LogInForm = ({
         <Checkbox label="로그인 정보 저장" />
         <HelpButtonStyle type="button">도움이 필요하신가요?</HelpButtonStyle>
       </RememberAndHelpContainerStyle>
-      <SocialCommonButtonStyle path={'google-logo.svg'} hasMarginTop={'2rem'}>
+      <SocialCommonButtonStyle
+        onClick={handleSocialAuth}
+        name="google"
+        path={'google-logo.svg'}
+        hasMarginTop={'2rem'}
+      >
         Google로 로그인
       </SocialCommonButtonStyle>
-      <SocialCommonButtonStyle path={'github-logo.svg'} hasMarginTop={'0.5rem'}>
+      <SocialCommonButtonStyle
+        onClick={handleSocialAuth}
+        name="google"
+        path={'github-logo.svg'}
+        hasMarginTop={'0.5rem'}
+      >
         Github로 로그인
       </SocialCommonButtonStyle>
       <CheckEmailStyle>

@@ -90,6 +90,12 @@ const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
 
   /* 로그인 인증 및 라우터 ------------------------------------------------------------- */
 
+  const handleSubmit = useCallback((e) => {
+    e.preventDefault()
+  }, [])
+
+  // 이메일 패스워드
+
   const handleSubmitAndRoute = useCallback(
     (e) => {
       e.preventDefault()
@@ -101,11 +107,7 @@ const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
     [checkPasswordValue, emailValue, handleMoveBrowse]
   )
 
-  const handleSubmit = useCallback((e) => {
-    e.preventDefault()
-  }, [])
-
-  /* 구글, 깃헙 회원가입 ------------------------------------------------------------- */
+  // 소셜
 
   const handleSocialAuth = useCallback((e) => {
     let { name } = e.target
