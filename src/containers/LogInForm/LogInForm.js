@@ -27,6 +27,7 @@ const LogInForm = ({
   const [emailHasError, setEmailHasError] = useState(false)
   const [passwordValue, setPasswordValue] = useState('')
   const [passwordHasError, setPasswordHasError] = useState(false)
+  const [checked, setChecked] = useState(false)
 
   const handleChange = useCallback((e) => {
     let { name, value } = e.target
@@ -77,6 +78,12 @@ const LogInForm = ({
         throw new Error('`email`과 `password` 인풋 이름만 처리 가능합니다.')
     }
   }, [])
+
+  /* 체크 박스 -------------------------------------------------------------------- */
+
+  const handleChecked = useCallback(() => {
+    setChecked(!checked)
+  }, [checked])
 
   /* 로그인 인증 및 라우터 ------------------------------------------------------------- */
 
@@ -133,7 +140,11 @@ const LogInForm = ({
       />
       <FormCommonButtonStyle onClick={handleSubmitAndRoute} />
       <RememberAndHelpContainerStyle>
-        <Checkbox label="로그인 정보 저장" />
+        <Checkbox
+          onClick={handleChecked}
+          checked={checked}
+          label="로그인 정보 저장"
+        />
         <HelpButtonStyle type="button">도움이 필요하신가요?</HelpButtonStyle>
       </RememberAndHelpContainerStyle>
       <SocialCommonButtonStyle

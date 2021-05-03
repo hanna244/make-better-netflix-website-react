@@ -4,13 +4,15 @@ import { getPublicAssets } from 'utils'
 
 export const CheckboxWraperStyle = styled.div`
   position: relative;
+  user-select: none;
+
   .checkbox::before {
     content: '';
     position: absolute;
     top: 3px;
     left: 0;
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 1.2rem;
+    height: 1.2rem;
     background: url(${getPublicAssets('checkbox_invalid.svg')}) no-repeat center /
       cover;
   }
