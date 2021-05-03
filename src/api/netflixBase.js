@@ -20,6 +20,7 @@ firebase.initializeApp(config)
 /* 모듈 ----------------------------------------------------------------------- */
 
 export const netflixAuth = firebase.auth()
+export const netflixDatabase = firebase.firestore()
 
 /* 이메일, 비밀번호 인증 ------------------------------------------------------------- */
 

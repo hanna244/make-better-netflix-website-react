@@ -8,5 +8,7 @@ export default {
 const Template = (args) => <DefaultHeader {...args} />
 
 export const NormalHeader = Template.bind({})
-NormalHeader.args = {}
+NormalHeader.args = {
+  hasLogInButton: true,
+}
 NormalHeader.storyName = '헤더(normal)'

@@ -26,7 +26,7 @@ OusStoryParaCommonStyle.displayName = 'OusStoryParaCommonStyle'
 export const LogInCommonBackgroundStyle = styled(Background)`
   display: flex;
   justify-content: center;
-  padding: 6.6rem 0 68.3rem;
+  padding: 6.6rem 0 79.3rem;
   background: #111;
 
   @media (min-width: ${lg}em) {
@@ -50,7 +50,7 @@ export const FormCommonContainerStyle = styled(Container)`
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  max-width: 33.9rem;
+  min-width: 33.9rem;
 
   @media (min-width: ${lg}em) {
     padding: 3rem;
@@ -108,7 +108,7 @@ export const SocialCommonButtonStyle = styled.button`
   margin-top: ${({ hasMarginTop }) => `${hasMarginTop}`};
   width: 11rem;
   background: none;
-  line-height: 1.4;
+  line-height: 1.5;
   padding: 0;
 
   &::before {

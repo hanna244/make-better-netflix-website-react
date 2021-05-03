@@ -10,7 +10,7 @@ export const FooterStyle = styled.footer`
   color: ${getColor('gray')};
   padding: 2rem 0;
   margin: 0 1.8rem;
-  max-width: 120rem;
+  min-width: 37.5rem;
 
   @media (min-width: 60em) {
     padding: 5rem 0;
