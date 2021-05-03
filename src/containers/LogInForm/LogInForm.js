@@ -93,7 +93,7 @@ const LogInForm = ({
 
   // 이메일 패스워드
 
-  const authAndRoute = useCallback(
+  const handleAuthAndRoute = useCallback(
     (e) => {
       e.preventDefault()
       handleMoveBrowse()
@@ -138,7 +138,7 @@ const LogInForm = ({
         invalid={passwordHasError}
         darkmode
       />
-      <FormCommonButtonStyle onClick={authAndRoute} />
+      <FormCommonButtonStyle onClick={handleAuthAndRoute} />
       <RememberAndHelpContainerStyle>
         <Checkbox
           onClick={handleChecked}

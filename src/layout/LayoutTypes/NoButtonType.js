@@ -25,6 +25,7 @@ const NoButtonTypeFooterStyle = styled(Footer)`
   padding: 0;
   background: rgba(1, 1, 1, 0.5);
   max-width: 100%;
+  margin: 0 2rem;
 
   .footerInnerContainer {
     max-width: 133rem;
