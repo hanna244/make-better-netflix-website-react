@@ -246,4 +246,19 @@ export const GlobalStyles = createGlobalStyle`
     position: relative;
     z-index: 100;
   }
+
+  // 크롬에서 input 옵션 선택 시 input의 배경 색상 변하는 오류 해결 
+  // https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+  box-shadow: 0 0 0px 1000px inherit inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
 `

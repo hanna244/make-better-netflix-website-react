@@ -74,6 +74,9 @@ export const FormInputCommonStyle = styled(Input)`
 
   input {
     border-radius: 5px;
+    // 크롬에서 input 옵션 선택 시 input의 배경 색상 변하는 오류 해결 customCommon.js 참고
+    -webkit-text-fill-color: ${({ darkmode }) =>
+      `${getColor(darkmode ? 'white' : 'black')}`};
   }
 `
 FormInputCommonStyle.displayName = 'FormInputCommonStyle'
