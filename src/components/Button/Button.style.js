@@ -10,11 +10,9 @@ export const ButtonStyle = styled.button`
   font-weight: bold;
   font-size: 16rem.6rem;
   line-height: 1;
-  background: ${({ hover }) =>
-    hover ? `${getColor('vividRed')}` : `${getColor('red')}`};
+  background: ${`${getColor('red')}`};
 
-  box-shadow: ${({ focus }) =>
-    focus ? `0 0 0 0.3rem ${getColor('focusVisible')}` : null};
+  box-shadow: ${`0 0 0 0.3rem ${getColor('focusVisible')}`};
 
   &:hover {
     background: ${getColor('vividRed')};

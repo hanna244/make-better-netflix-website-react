@@ -14,7 +14,7 @@ export const CheckboxWraperStyle = styled.div`
     width: 1.2rem;
     height: 1.2rem;
     background: url(${getPublicAssets('checkbox_invalid.svg')}) no-repeat center /
-      cover;
+      100%;
   }
 
   .checkbox {
@@ -26,7 +26,7 @@ export const CheckboxWraperStyle = styled.div`
   }
   .checked::before {
     background: url(${getPublicAssets('checkbox_valid.svg')}) no-repeat center /
-      cover;
+      100%;
   }
 `
 CheckboxWraperStyle.displayName = 'CheckboxWraperStyle'

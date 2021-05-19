@@ -7,8 +7,6 @@ const Button = ({
   fgColor,
   tag,
   label,
-  hover,
-  focus,
   className,
   handleClick,
   ...restProps
@@ -23,8 +21,6 @@ const Button = ({
       onClick={handleClick}
       className={className}
       style={customStyle}
-      hover={hover}
-      focus={focus}
       as={tag}
       href={tag === 'a' ? '' : null}
       type={tag === 'a' ? null : 'button'}

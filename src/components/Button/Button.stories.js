@@ -1,5 +1,6 @@
 import Button from './Button'
 import { withDesign } from 'storybook-addon-designs'
+import { getColor } from 'utils'
 
 export default {
   title: 'Components/From/Button',
@@ -35,13 +36,13 @@ RouteNormalButton.storyName = '링크 버튼(normal)'
 export const RouteHoverButton = Template.bind({})
 RouteHoverButton.args = {
   ...RouteNormalButton.args,
-  hover: true,
+  style: { background: `${getColor('vividRed')}` },
 }
 RouteHoverButton.storyName = '링크 버튼(hover)'
 
 export const RouteFocusButton = Template.bind({})
 RouteFocusButton.args = {
   ...RouteNormalButton.args,
-  focus: true,
+  style: { boxShadow: `0 0 0 0.3rem ${getColor('focusVisible')}` },
 }
 RouteFocusButton.storyName = '링크 버튼(focus)'
