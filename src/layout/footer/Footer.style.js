@@ -14,7 +14,6 @@ export const FooterStyle = styled.footer`
 
   @media (min-width: 60em) {
     padding: 5rem 0;
-    margin: 0 auto;
   }
 
   p {
@@ -42,6 +41,14 @@ export const FooterStyle = styled.footer`
   }
 `
 FooterStyle.displayName = 'FooterStyle'
+
+export const InnerContainerStyle = styled.div`
+  @media (min-width: 60em) {
+    margin: 0 auto;
+    max-width: 120rem;
+  }
+`
+InnerContainerStyle.displayName = 'InnerContainerStyle'
 
 export const DefinitionStyle = styled(Definition)`
   font-weight: bold;

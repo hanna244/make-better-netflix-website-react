@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { Definition, LinkListItem } from './compound_components'
 import {
   FooterStyle,
+  InnerContainerStyle,
   DefinitionStyle,
   LinkListStyle,
   AddressHead,
@@ -40,7 +41,7 @@ const Footer = ({ ...restProps }) => {
 
   return (
     <FooterStyle {...restProps}>
-      <div className="footerInnerContainer">
+      <InnerContainerStyle className="footerInnerContainer">
         <p>질문이 있으신가요? &nbsp;</p>
         <br className="linkBreak" />
         <DefinitionStyle
@@ -121,7 +122,7 @@ const Footer = ({ ...restProps }) => {
             </a>
           </span>
         </AddressStyle>
-      </div>
+      </InnerContainerStyle>
     </FooterStyle>
   )
 }
