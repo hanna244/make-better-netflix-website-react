@@ -1,7 +1,11 @@
 import React, { useCallback, useState } from 'react'
 import { Checkbox } from 'components'
 import { isValidEmail, isValidPassword } from 'utils'
-import { logInWithEmailAndPassword, socialAuth } from 'api/netflixBase'
+import {
+  logInWithEmailAndPassword,
+  socialAuth,
+  netflixAuth,
+} from 'api/netflixBase'
 import {
   LogInEmailInputStyle,
   HelpButtonStyle,
@@ -94,10 +98,14 @@ const LogInForm = ({
   // 이메일 패스워드
 
   const handleAuthAndRoute = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault()
-      handleMoveBrowse()
-      logInWithEmailAndPassword(emailValue, passwordValue)
+
+      await logInWithEmailAndPassword(emailValue, passwordValue)
+
+      if (netflixAuth.currentUser) {
+        handleMoveBrowse()
+      }            
     },
     [handleMoveBrowse, emailValue, passwordValue]
   )

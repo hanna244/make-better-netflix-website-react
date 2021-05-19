@@ -10,6 +10,8 @@ import { isValidEmail, isValidPassword } from 'utils'
 import {
   signUpWithEmailAndPassword,
   socialAuth,
+  signInWithGoogle,
+  signInWithGithub,
   netflixDatabase,
 } from 'api/netflixBase'
 
@@ -120,7 +122,7 @@ const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
 
   const authAndRoute = useCallback(async () => {
     // 브라우즈 페이지 라우터
-    handleMoveBrowse()
+    await handleMoveBrowse()
     // 파이어 베이스 인증 이메일 등록
     await signUpWithEmailAndPassword(emailValue, checkPasswordValue)
   }, [checkPasswordValue, emailValue, handleMoveBrowse])
@@ -129,8 +131,19 @@ const SignUpForm = ({ handleClick: handleMoveBrowse, ...restProps }) => {
 
   const handleSocialAuth = useCallback((e) => {
     let { name } = e.target
-    socialAuth(name)
+
+    if (name === 'google') {
+      signInWithGoogle()
+    }
+    if (name === 'github') {
+      signInWithGithub()
+    }
   }, [])
+
+  // const handleSocialAuth = useCallback((e) => {
+  //   let { name } = e.target
+  //   socialAuth(name)
+  // }, [])
 
   /* 데이터 베이스 ------------- */
 

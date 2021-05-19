@@ -50,6 +50,25 @@ export const signUpWithEmailAndPassword = async (email, password) => {
 
 /* 구글, 깃헙 인증 --------------------------------------------------------------- */
 
+// --------------- 구글
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
+
+// 사용자의 컴퓨터에 등록되어 있는 Google 계정 중 하나를 사용자가 선택할 수 있도록 설정.
+googleAuthProvider.setCustomParameters({ prompt: 'select_account' })
+
+// 로그인 함수
+export const signInWithGoogle = () =>
+  netflixAuth.signInWithPopup(googleAuthProvider)
+
+// --------------- 깃헙
+const githubAuthProvider = new firebase.auth.GithubAuthProvider()
+
+githubAuthProvider.setCustomParameters({ prompt: 'select_account' })
+
+// 로그인 함수
+export const signInWithGithub = () =>
+  netflixAuth.signInWithPopup(githubAuthProvider)
+
 export const socialAuth = (name) => {
   let provider
 

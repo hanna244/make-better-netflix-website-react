@@ -6,7 +6,7 @@ export default {
 }
 
 const Template = (args) => (
-  <div style={{ margin: '3rem', background: '#111' }}>
+  <div style={{ margin: '3rem', background: '#111', maxWidth: '380px' }}>
     <LogInForm {...args} />
   </div>
 )
