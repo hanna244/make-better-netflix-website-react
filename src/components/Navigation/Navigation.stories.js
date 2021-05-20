@@ -11,6 +11,6 @@ const Template = (args) => (
   </div>
 )
 
-export const Normal = Template.bind({})
-Normal.args = {}
-Normal.storyName = 'Normal'
+export const NormalNav = Template.bind({})
+NormalNav.args = {}
+NormalNav.storyName = '네비게이션(normal)'

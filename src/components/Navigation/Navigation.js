@@ -1,16 +1,17 @@
 import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
+import { NavStyle, NavLinkStyle } from './Navigation.style'
+import { string, array } from 'prop-types'
 
 const Navigation = ({ linkTag, linkArray, ...restProps }) => {
   let LinkTag = linkTag
 
   return (
     <Fragment>
-      <nav {...restProps}>
+      <NavStyle>
         {linkArray.map((item) => (
-          <LinkTag to={item.to}>{item.label}</LinkTag>
+          <NavLinkStyle href={item.to}>{item.label}</NavLinkStyle>
         ))}
-      </nav>
+      </NavStyle>
     </Fragment>
   )
 }
@@ -25,6 +26,9 @@ Navigation.defaultProps = {
   ],
 }
 
-Navigation.propTypes = {}
+Navigation.propTypes = {
+  linkTag: string,
+  linkArray: array,
+}
 
 export default Navigation
