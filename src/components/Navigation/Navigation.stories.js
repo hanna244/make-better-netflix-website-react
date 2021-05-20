@@ -1,14 +1,13 @@
-import Sample from './Sample'
+import Navigation from './Navigation'
 
 export default {
-  title: 'Components/From/Sample',
-  component: Sample,
+  title: 'Components/From/Navigation',
+  component: Navigation,
 }
 
 const Template = (args) => (
   <div style={{ margin: 30 }}>
-    {' '}
-    <Sample {...args} />
+    <Navigation {...args} />
   </div>
 )
 
