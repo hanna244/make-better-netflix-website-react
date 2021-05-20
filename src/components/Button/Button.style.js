@@ -10,9 +10,11 @@ export const ButtonStyle = styled.button`
   font-weight: bold;
   font-size: 16rem.6rem;
   line-height: 1;
-  background: ${`${getColor('red')}`};
-
+  background: ${({ disable }) =>
+    disable ? `${getColor('gray')}` : `${getColor('red')}`};
+  /* background: ${`${getColor('red')}`}; */
   box-shadow: ${`0 0 0 0.3rem ${getColor('focusVisible')}`};
+  pointer-events: ${({ disable }) => (disable ? `none` : `auto`)};
 
   &:hover {
     background: ${getColor('vividRed')};

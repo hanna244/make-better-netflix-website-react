@@ -7,6 +7,7 @@ const Button = ({
   fgColor,
   tag,
   label,
+  disable,
   className,
   handleClick,
   ...restProps
@@ -24,6 +25,7 @@ const Button = ({
       as={tag}
       href={tag === 'a' ? '' : null}
       type={tag === 'a' ? null : 'button'}
+      disable={disable}
       {...restProps}
     >
       {label}
@@ -36,6 +38,7 @@ Button.defaultProps = {
   tag: 'button',
   hover: false,
   focus: false,
+  disable: true,
 }
 
 Button.propTypes = {
@@ -55,6 +58,8 @@ Button.propTypes = {
   hover: bool,
   /** 버튼의 focus 상태를 설정할 수 있습니다. */
   focus: bool,
+  /** 버튼의 활성화/비활성화 상태를 설정할 수 있습니다. */
+  disable: bool,
 }
 
 export default Button

@@ -33,6 +33,9 @@ const LogInForm = ({
   const [passwordHasError, setPasswordHasError] = useState(false)
   const [checked, setChecked] = useState(false)
 
+  // input의 value에 값이 없을 때 버튼은 비활성화 된다.
+  const isInvalidButton = emailValue === '' || passwordValue === ''
+
   const handleChange = useCallback((e) => {
     let { name, value } = e.target
     value = value.replace(/\s/g, '')
@@ -105,7 +108,7 @@ const LogInForm = ({
 
       if (netflixAuth.currentUser) {
         handleMoveBrowse()
-      }            
+      }
     },
     [handleMoveBrowse, emailValue, passwordValue]
   )
@@ -146,7 +149,10 @@ const LogInForm = ({
         invalid={passwordHasError}
         darkmode
       />
-      <FormCommonButtonStyle onClick={handleAuthAndRoute} />
+      <FormCommonButtonStyle
+        disable={isInvalidButton}
+        onClick={handleAuthAndRoute}
+      />
       <RememberAndHelpContainerStyle>
         <Checkbox
           onClick={handleChecked}
