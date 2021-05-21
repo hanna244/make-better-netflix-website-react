@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { resetLink, resetList } from 'styles/common'
 import { getColor } from 'utils'
+import { NavLink } from 'react-router-dom'
 
 export const NavStyle = styled.div`
   ${resetList}
@@ -11,7 +12,7 @@ export const NavStyle = styled.div`
 `
 NavStyle.displayName = 'NavStyle'
 
-export const NavLinkStyle = styled.div`
+export const NavLinkStyle = styled(NavLink)`
   ${resetLink}
   margin-right: 1.8rem;
 

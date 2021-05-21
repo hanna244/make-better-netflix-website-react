@@ -3,13 +3,13 @@ import { NavStyle, NavLinkStyle } from './Navigation.style'
 import { string, array } from 'prop-types'
 
 const Navigation = ({ linkTag, linkArray, ...restProps }) => {
-  let LinkTag = linkTag
-
   return (
     <Fragment>
       <NavStyle>
         {linkArray.map((item) => (
-          <NavLinkStyle href={item.to}>{item.label}</NavLinkStyle>
+          <NavLinkStyle as={linkTag} to={item.to}>
+            {item.label}
+          </NavLinkStyle>
         ))}
       </NavStyle>
     </Fragment>
@@ -17,7 +17,6 @@ const Navigation = ({ linkTag, linkArray, ...restProps }) => {
 }
 
 Navigation.defaultProps = {
-  linkTag: 'a',
   linkArray: [
     { to: `/browse`, label: '홈' },
     { to: `/browse/genre/tv`, label: 'TV 프로그램' },

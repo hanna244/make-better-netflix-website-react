@@ -1,12 +1,13 @@
 import React, { useCallback } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
-import { Navigation } from 'components'
 import {
   OuterContainer,
   InnerContainer,
   NavHeaderHomeLink,
   NavHeaderLogo,
   AriaStyle,
+  NavHeaderNavStyle,
+  NavHeaderNavLinkStyle,
   NavHeaderIconListStyle,
   NavHeaderSearchIconStyle,
   NavHeaderBellIconStyle,
@@ -30,21 +31,27 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
             <NavHeaderLogo alt="브라우즈 홈" />
           </NavHeaderHomeLink>
         </h1>
-        <Navigation
-          linkTag="NavLink"
-          linkArray={[
-            { to: `/browse`, label: '홈' },
-            { to: `/browse/genre/tv`, label: 'TV 프로그램' },
-            { to: `/browse/genre/movie`, label: '영화' },
-            { to: `/browse/mylist`, label: '내가 찜한 콘텐츠' },
-          ]}
-        />
-        {/* <nav>
-          <NavLink to={`/browse`}>홈</NavLink>
-          <NavLink to={`/browse/genre/tv`}>TV 프로그램</NavLink>
-          <NavLink to={`/browse/genre/movie`}>영화</NavLink>
-          <NavLink to={`/browse/mylist`}>내가 찜한 콘텐츠</NavLink>
-        </nav> */}
+        <NavHeaderNavStyle>
+          <NavHeaderNavLinkStyle
+            linkTag={NavLink}
+            linkArray={[
+              { to: `/browse`, label: '홈' },
+              { to: `/browse/genre/tv`, label: 'TV 프로그램' },
+              { to: `/browse/genre/movie`, label: '영화' },
+              { to: `/browse/mylist`, label: '내가 찜한 콘텐츠' },
+            ]}
+          />
+          {/* <NavHeaderNavLinkStyle to={`/browse`}>홈</NavHeaderNavLinkStyle>
+          <NavHeaderNavLinkStyle to={`/browse/genre/tv`}>
+            TV 프로그램
+          </NavHeaderNavLinkStyle>
+          <NavHeaderNavLinkStyle to={`/browse/genre/movie`}>
+            영화
+          </NavHeaderNavLinkStyle>
+          <NavHeaderNavLinkStyle to={`/browse/mylist`}>
+            내가 찜한 콘텐츠
+          </NavHeaderNavLinkStyle> */}
+        </NavHeaderNavStyle>
         <NavHeaderIconListStyle>
           <li>
             <NavHeaderSearchIconStyle type="button">

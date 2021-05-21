@@ -1,6 +1,8 @@
+import { Navigation } from 'components'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { a11yHidden, resetButton, resetList } from 'styles/common'
-import { getPublicAssets } from 'utils'
+import { a11yHidden, resetButton, resetLink, resetList } from 'styles/common'
+import { getPublicAssets, getColor } from 'utils'
 import {
   OuterContainerStyle as DefaultOuterContainer,
   InnerContainerStyle as DefaultInnerContainer,
@@ -36,6 +38,23 @@ NavHeaderHomeLink.displayName = 'NavHeaderHomeLink'
 
 export const NavHeaderLogo = styled(DefaultHeaderLogo)``
 NavHeaderLogo.displayName = 'NavHeaderLogo'
+
+export const NavHeaderNavStyle = styled.nav`
+  flex: 1;
+  margin-left: 2.3rem;
+`
+NavHeaderNavStyle.displayName = 'NavHeaderNavStyle'
+
+/* export const NavHeaderNavLinkStyle = styled(NavLink)` */
+export const NavHeaderNavLinkStyle = styled(Navigation)`
+  ${resetLink}
+  margin-right: 1.8rem;
+
+  :hover {
+    color: ${getColor('white')};
+  }
+`
+NavHeaderNavLinkStyle.displayName = 'NavHeaderNavLinkStyle'
 
 export const AriaStyle = styled.span`
   ${a11yHidden}
