@@ -10,19 +10,25 @@ import {
   HeaderLogoStyle as DefaultHeaderLogo,
 } from '../DefaultHeader/DefaultHeader.style'
 
-// 네브 헤더 아이콘 공용 스타일 ----------------------------------------- //
-export const IconCommonStyle = styled.button`
+/* 네브 해더 공용 버튼 스타일 */
+const NavHeaderCommonButton = styled.button`
   ${resetButton}
   background: inherit;
+  padding: 0;
 
   &::before {
     content: '';
     display: inline-block;
-    width: 2.1rem;
-    height: 2.1rem;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
   }
 `
+NavHeaderCommonButton.displayName = 'NavHeaderCommonButton'
 
+/* ----------------------------------------------------------------------- */
 export const OuterContainer = styled(DefaultOuterContainer)``
 OuterContainer.displayName = 'OuterContainer'
 
@@ -42,11 +48,11 @@ NavHeaderLogo.displayName = 'NavHeaderLogo'
 export const NavHeaderNavStyle = styled.nav`
   flex: 1;
   margin-left: 2.3rem;
+  color: ${getColor('lightGray')};
 `
 NavHeaderNavStyle.displayName = 'NavHeaderNavStyle'
 
-/* export const NavHeaderNavLinkStyle = styled(NavLink)` */
-export const NavHeaderNavLinkStyle = styled(Navigation)`
+export const NavHeaderNavLinkStyle = styled(NavLink)`
   ${resetLink}
   margin-right: 1.8rem;
 
@@ -61,24 +67,29 @@ export const AriaStyle = styled.span`
 `
 AriaStyle.displayName = 'AriaStyle'
 
-export const NavHeaderIconListStyle = styled.ul`
-  ${resetList}
-  display: flex;
-  flex-flow: row nowrap;
-`
-NavHeaderIconListStyle.displayName = 'NavHeaderIconListStyle'
+export const NavHeaderSearchIconStyle = styled(NavHeaderCommonButton)`
+  margin-right: 2.1rem;
 
-export const NavHeaderSearchIconStyle = styled(IconCommonStyle)`
   &::before {
     background: url(${getPublicAssets('search.svg')}) no-repeat;
+    width: 1.8rem;
+    height: 2rem;
+    margin-top: 0.9rem;
   }
 `
 NavHeaderSearchIconStyle.displayName = 'NavHeaderSearchIconStyle'
 
-export const NavHeaderBellIconStyle = styled(IconCommonStyle)`
-  &::before {
-    background: url(${getPublicAssets('bell.svg')}) no-repeat center/100%;
-    width: 2.2rem;
+export const NavHeaderProfileStyle = styled(NavHeaderCommonButton)`
+  &::after {
+    background: url(${getPublicAssets('profile-arrow.svg')}) no-repeat -0.2px -2px/96%;
+    width: 1rem;
+    height: 0.5rem;
+    margin-left: 1rem;
   }
 `
-NavHeaderBellIconStyle.displayName = 'NavHeaderBellIconStyle'
+NavHeaderProfileStyle.displayName = 'NavHeaderProfileStyle'
+
+export const NavHeaderProfileImgStyle = styled.img`
+  width: 3.2rem;
+`
+NavHeaderProfileImgStyle.displayName = 'NavHeaderProfileImgStyle'

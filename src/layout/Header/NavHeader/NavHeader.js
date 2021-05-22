@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
-import { NavLink, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import { getPublicAssets } from 'utils'
 import {
   OuterContainer,
   InnerContainer,
@@ -8,9 +9,9 @@ import {
   AriaStyle,
   NavHeaderNavStyle,
   NavHeaderNavLinkStyle,
-  NavHeaderIconListStyle,
   NavHeaderSearchIconStyle,
-  NavHeaderBellIconStyle,
+  NavHeaderProfileStyle,
+  NavHeaderProfileImgStyle,
 } from './NavHeader.style'
 
 const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
@@ -32,16 +33,7 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
           </NavHeaderHomeLink>
         </h1>
         <NavHeaderNavStyle>
-          <NavHeaderNavLinkStyle
-            linkTag={NavLink}
-            linkArray={[
-              { to: `/browse`, label: '홈' },
-              { to: `/browse/genre/tv`, label: 'TV 프로그램' },
-              { to: `/browse/genre/movie`, label: '영화' },
-              { to: `/browse/mylist`, label: '내가 찜한 콘텐츠' },
-            ]}
-          />
-          {/* <NavHeaderNavLinkStyle to={`/browse`}>홈</NavHeaderNavLinkStyle>
+          <NavHeaderNavLinkStyle to={`/browse`}>홈</NavHeaderNavLinkStyle>
           <NavHeaderNavLinkStyle to={`/browse/genre/tv`}>
             TV 프로그램
           </NavHeaderNavLinkStyle>
@@ -50,20 +42,17 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
           </NavHeaderNavLinkStyle>
           <NavHeaderNavLinkStyle to={`/browse/mylist`}>
             내가 찜한 콘텐츠
-          </NavHeaderNavLinkStyle> */}
+          </NavHeaderNavLinkStyle>
         </NavHeaderNavStyle>
-        <NavHeaderIconListStyle>
-          <li>
-            <NavHeaderSearchIconStyle type="button">
-              <AriaStyle>영화 검색</AriaStyle>
-            </NavHeaderSearchIconStyle>
-          </li>
-          <li>
-            <NavHeaderBellIconStyle type="button">
-              <AriaStyle>새로운 알림</AriaStyle>
-            </NavHeaderBellIconStyle>
-          </li>
-        </NavHeaderIconListStyle>
+        <NavHeaderSearchIconStyle type="button">
+          <AriaStyle>영화 검색</AriaStyle>
+        </NavHeaderSearchIconStyle>
+        <NavHeaderProfileStyle type="button">
+          <NavHeaderProfileImgStyle
+            src={`${getPublicAssets('profile.png')}`}
+            alt="사용자 프로필"
+          />
+        </NavHeaderProfileStyle>
       </InnerContainer>
     </OuterContainer>
   )

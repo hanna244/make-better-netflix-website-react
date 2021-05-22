@@ -15,6 +15,18 @@ export default {
 
 const Template = (args) => <NavHeader {...args} />
 
-export const HasNavHeader = Template.bind({})
-HasNavHeader.args = {}
-HasNavHeader.storyName = '헤더(Nav)'
+export const NormalNavHeader = Template.bind({})
+NormalNavHeader.args = {}
+NormalNavHeader.storyName = '헤더(normal)'
+
+export const SelectNavHeader = Template.bind({})
+SelectNavHeader.args = {
+  ...NormalNavHeader.args,
+}
+SelectNavHeader.storyName = '헤더(select)'
+
+export const ShowSelectNavHeader = Template.bind({})
+ShowSelectNavHeader.args = {
+  ...SelectNavHeader.args,
+}
+ShowSelectNavHeader.storyName = '헤더(show dropdown)'

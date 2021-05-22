@@ -34,7 +34,7 @@ const DefaultHeader = ({ className, hasLogInButton, ...restProps }) => {
           </HeaderHomeLinkStyle>
         </HeaderHeadingStyle>
         {hasLogInButton ? (
-          <HeaderLogInLinkStyle onClick={handleMoveLogIn} />
+          <HeaderLogInLinkStyle disable={false} onClick={handleMoveLogIn} />
         ) : null}
       </InnerContainerStyle>
     </OuterContainerStyle>
