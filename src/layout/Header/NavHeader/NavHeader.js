@@ -8,6 +8,10 @@ import {
   NavHeaderLogo,
   AriaStyle,
   NavHeaderNavStyle,
+  NavHeaderNavInnerContainer,
+  NavHeaderNavOpenButtonStyle,
+  NavHeaderNavListStyle,
+  NavHeaderNavListItemStyle,
   NavHeaderNavLinkStyle,
   NavHeaderSearchIconStyle,
   NavHeaderProfileStyle,
@@ -33,16 +37,63 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
           </NavHeaderHomeLink>
         </h1>
         <NavHeaderNavStyle>
-          <NavHeaderNavLinkStyle to={`/browse`}>홈</NavHeaderNavLinkStyle>
-          <NavHeaderNavLinkStyle to={`/browse/genre/tv`}>
-            TV 프로그램
-          </NavHeaderNavLinkStyle>
-          <NavHeaderNavLinkStyle to={`/browse/genre/movie`}>
-            영화
-          </NavHeaderNavLinkStyle>
-          <NavHeaderNavLinkStyle to={`/browse/mylist`}>
-            내가 찜한 콘텐츠
-          </NavHeaderNavLinkStyle>
+          <NavHeaderNavInnerContainer className="mobileScreen">
+            <NavHeaderNavOpenButtonStyle type="button">
+              메뉴
+            </NavHeaderNavOpenButtonStyle>
+            <NavHeaderNavListStyle rolr="menu" className="">
+              <NavHeaderNavListItemStyle>
+                <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
+                  홈
+                </NavHeaderNavLinkStyle>
+              </NavHeaderNavListItemStyle>
+              <NavHeaderNavListItemStyle>
+                <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse/genre/tv`}>
+                  TV 프로그램
+                </NavHeaderNavLinkStyle>
+              </NavHeaderNavListItemStyle>
+              <NavHeaderNavListItemStyle>
+                <NavHeaderNavLinkStyle
+                  rolr="menuitem"
+                  to={`/browse/genre/movie`}
+                >
+                  영화
+                </NavHeaderNavLinkStyle>
+              </NavHeaderNavListItemStyle>
+              <NavHeaderNavListItemStyle>
+                <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse/mylist`}>
+                  내가 찜한 콘텐츠
+                </NavHeaderNavLinkStyle>
+              </NavHeaderNavListItemStyle>
+            </NavHeaderNavListStyle>
+          </NavHeaderNavInnerContainer>
+          <NavHeaderNavInnerContainer className="deskTopScreen">
+            <NavHeaderNavListStyle rolr="menu">
+              <NavHeaderNavListItemStyle>
+                <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
+                  홈
+                </NavHeaderNavLinkStyle>
+              </NavHeaderNavListItemStyle>
+              <NavHeaderNavListItemStyle>
+                <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse/genre/tv`}>
+                  TV 프로그램
+                </NavHeaderNavLinkStyle>
+              </NavHeaderNavListItemStyle>
+              <NavHeaderNavListItemStyle>
+                <NavHeaderNavLinkStyle
+                  rolr="menuitem"
+                  to={`/browse/genre/movie`}
+                >
+                  영화
+                </NavHeaderNavLinkStyle>
+              </NavHeaderNavListItemStyle>
+              <NavHeaderNavListItemStyle>
+                <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse/mylist`}>
+                  내가 찜한 콘텐츠
+                </NavHeaderNavLinkStyle>
+              </NavHeaderNavListItemStyle>
+            </NavHeaderNavListStyle>
+          </NavHeaderNavInnerContainer>
         </NavHeaderNavStyle>
         <NavHeaderSearchIconStyle type="button">
           <AriaStyle>영화 검색</AriaStyle>

@@ -9,6 +9,11 @@ import {
   HeaderHomeLinkStyle as DefaultHeaderHomeLink,
   HeaderLogoStyle as DefaultHeaderLogo,
 } from '../DefaultHeader/DefaultHeader.style'
+import { themes } from 'styles/theme'
+
+const {
+  breakpoints: { lg },
+} = themes
 
 /* 네브 해더 공용 버튼 스타일 */
 const NavHeaderCommonButton = styled.button`
@@ -33,9 +38,11 @@ export const OuterContainer = styled(DefaultOuterContainer)``
 OuterContainer.displayName = 'OuterContainer'
 
 export const InnerContainer = styled(DefaultInnerContainer)`
-  padding: 0;
-  margin: 0 6rem;
-  max-width: 145rem;
+  @media (min-width: ${lg}em) {
+    padding: 0;
+    margin: 0 6rem;
+    max-width: 145rem;
+  }
 `
 InnerContainer.displayName = 'InnerContainer'
 
@@ -49,8 +56,45 @@ export const NavHeaderNavStyle = styled.nav`
   flex: 1;
   margin-left: 2.3rem;
   color: ${getColor('lightGray')};
+
+  .mobileScreen {
+    display: block;
+
+    @media (min-width: ${lg}em) {
+      display: none;
+    }
+  }
+
+  .deskTopScreen {
+    display: none;
+
+    @media (min-width: ${lg}em) {
+      display: block;
+    }
+  }
 `
 NavHeaderNavStyle.displayName = 'NavHeaderNavStyle'
+
+export const NavHeaderNavInnerContainer = styled.div``
+NavHeaderNavInnerContainer.displayName = 'NavHeaderNavInnerContainer'
+export const NavHeaderNavOpenButtonStyle = styled(NavHeaderCommonButton)`
+  color: ${getColor('white')};
+
+  &::after {
+    background: url(${getPublicAssets('profile-arrow.svg')}) no-repeat -0.2px -2px/96%;
+    width: 1rem;
+    height: 1rem;
+    margin-left: 1rem;
+  }
+`
+NavHeaderNavOpenButtonStyle.displayName = 'NavHeaderNavOpenButtonStyle'
+export const NavHeaderNavListStyle = styled.ul`
+  ${resetList}
+`
+NavHeaderNavListStyle.displayName = 'NavHeaderNavListStyle'
+
+export const NavHeaderNavListItemStyle = styled.li``
+NavHeaderNavListItemStyle.displayName = 'NavHeaderNavListItemStyle'
 
 export const NavHeaderNavLinkStyle = styled(NavLink)`
   ${resetLink}
