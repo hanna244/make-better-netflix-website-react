@@ -44,7 +44,6 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
               <NavHeaderNavOpenButtonStyle
                 aria-expanded={showMenu}
                 type="button"
-                tabIndex="0"
                 onClick={() => setShowMenu(!showMenu)}
                 onBlur={() => setShowMenu(false)}
               >
@@ -52,18 +51,13 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
               </NavHeaderNavOpenButtonStyle>
               <NavHeaderNavListStyle style={menuDisplay} rolr="menu">
                 <NavHeaderNavListItemStyle role="none">
-                  <NavHeaderNavLinkStyle
-                    rolr="menuitem"
-                    tabIndex="-1"
-                    to={`/browse`}
-                  >
+                  <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
                     홈
                   </NavHeaderNavLinkStyle>
                 </NavHeaderNavListItemStyle>
                 <NavHeaderNavListItemStyle role="none">
                   <NavHeaderNavLinkStyle
                     rolr="menuitem"
-                    tabIndex="-1"
                     to={`/browse/genre/tv`}
                   >
                     TV 프로그램
@@ -72,18 +66,13 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
                 <NavHeaderNavListItemStyle role="none">
                   <NavHeaderNavLinkStyle
                     rolr="menuitem"
-                    tabIndex="-1"
                     to={`/browse/genre/movie`}
                   >
                     영화
                   </NavHeaderNavLinkStyle>
                 </NavHeaderNavListItemStyle>
                 <NavHeaderNavListItemStyle role="none">
-                  <NavHeaderNavLinkStyle
-                    rolr="menuitem"
-                    tabIndex="-1"
-                    to={`/browse/mylist`}
-                  >
+                  <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse/mylist`}>
                     내가 찜한 콘텐츠
                   </NavHeaderNavLinkStyle>
                 </NavHeaderNavListItemStyle>
@@ -93,19 +82,14 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
           <div className="deskTopScreen">
             <NavHeaderNavStyle>
               <NavHeaderNavListStyle rolr="menu">
-                <NavHeaderNavListItemStyle role="none">
-                  <NavHeaderNavLinkStyle
-                    rolr="menuitem"
-                    tabIndex="-1"
-                    to={`/browse`}
-                  >
+                <li role="none">
+                  <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
                     홈
                   </NavHeaderNavLinkStyle>
-                </NavHeaderNavListItemStyle>
+                </li>
                 <NavHeaderNavListItemStyle role="none">
                   <NavHeaderNavLinkStyle
                     rolr="menuitem"
-                    tabIndex="-1"
                     to={`/browse/genre/tv`}
                   >
                     TV 프로그램
@@ -114,18 +98,13 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
                 <NavHeaderNavListItemStyle role="none">
                   <NavHeaderNavLinkStyle
                     rolr="menuitem"
-                    tabIndex="-1"
                     to={`/browse/genre/movie`}
                   >
                     영화
                   </NavHeaderNavLinkStyle>
                 </NavHeaderNavListItemStyle>
                 <NavHeaderNavListItemStyle role="none">
-                  <NavHeaderNavLinkStyle
-                    rolr="menuitem"
-                    tabIndex="-1"
-                    to={`/browse/mylist`}
-                  >
+                  <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse/mylist`}>
                     내가 찜한 콘텐츠
                   </NavHeaderNavLinkStyle>
                 </NavHeaderNavListItemStyle>
