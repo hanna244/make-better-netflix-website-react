@@ -8,6 +8,7 @@ import {
   NavHeaderLogo,
   AriaStyle,
   NavHeaderNavContainerStyle,
+  NavHeaderNavStyle,
   NavHeaderNavOpenButtonStyle,
   NavHeaderNavListStyle,
   NavHeaderNavListItemStyle,
@@ -19,7 +20,7 @@ import {
 
 const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
   const [showMenu, setShowMenu] = useState(false)
-  console.log(`showMenu: ${showMenu}`)
+  const menuDisplay = showMenu ? { display: 'block' } : { display: 'none' }
   const history = useHistory()
 
   const handleMoveHome = useCallback(
@@ -39,60 +40,30 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
         </h1>
         <NavHeaderNavContainerStyle>
           <div className="mobileScreen">
-            <nav>
+            <NavHeaderNavStyle onMouseEnter={() => setShowMenu(!showMenu)}>
               <NavHeaderNavOpenButtonStyle
                 aria-expanded={showMenu}
                 type="button"
+                tabIndex="0"
                 onClick={() => setShowMenu(!showMenu)}
+                onBlur={() => setShowMenu(false)}
               >
                 메뉴
               </NavHeaderNavOpenButtonStyle>
-              {showMenu ? (
-                <NavHeaderNavListStyle rolr="menu" className="">
-                  <NavHeaderNavListItemStyle role="none">
-                    <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
-                      홈
-                    </NavHeaderNavLinkStyle>
-                  </NavHeaderNavListItemStyle>
-                  <NavHeaderNavListItemStyle role="none">
-                    <NavHeaderNavLinkStyle
-                      rolr="menuitem"
-                      to={`/browse/genre/tv`}
-                    >
-                      TV 프로그램
-                    </NavHeaderNavLinkStyle>
-                  </NavHeaderNavListItemStyle>
-                  <NavHeaderNavListItemStyle role="none">
-                    <NavHeaderNavLinkStyle
-                      rolr="menuitem"
-                      to={`/browse/genre/movie`}
-                    >
-                      영화
-                    </NavHeaderNavLinkStyle>
-                  </NavHeaderNavListItemStyle>
-                  <NavHeaderNavListItemStyle role="none">
-                    <NavHeaderNavLinkStyle
-                      rolr="menuitem"
-                      to={`/browse/mylist`}
-                    >
-                      내가 찜한 콘텐츠
-                    </NavHeaderNavLinkStyle>
-                  </NavHeaderNavListItemStyle>
-                </NavHeaderNavListStyle>
-              ) : null}
-            </nav>
-          </div>
-          <div className="deskTopScreen">
-            <nav>
-              <NavHeaderNavListStyle rolr="menu">
+              <NavHeaderNavListStyle style={menuDisplay} rolr="menu">
                 <NavHeaderNavListItemStyle role="none">
-                  <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
+                  <NavHeaderNavLinkStyle
+                    rolr="menuitem"
+                    tabIndex="-1"
+                    to={`/browse`}
+                  >
                     홈
                   </NavHeaderNavLinkStyle>
                 </NavHeaderNavListItemStyle>
                 <NavHeaderNavListItemStyle role="none">
                   <NavHeaderNavLinkStyle
                     rolr="menuitem"
+                    tabIndex="-1"
                     to={`/browse/genre/tv`}
                   >
                     TV 프로그램
@@ -101,18 +72,65 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
                 <NavHeaderNavListItemStyle role="none">
                   <NavHeaderNavLinkStyle
                     rolr="menuitem"
+                    tabIndex="-1"
                     to={`/browse/genre/movie`}
                   >
                     영화
                   </NavHeaderNavLinkStyle>
                 </NavHeaderNavListItemStyle>
                 <NavHeaderNavListItemStyle role="none">
-                  <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse/mylist`}>
+                  <NavHeaderNavLinkStyle
+                    rolr="menuitem"
+                    tabIndex="-1"
+                    to={`/browse/mylist`}
+                  >
                     내가 찜한 콘텐츠
                   </NavHeaderNavLinkStyle>
                 </NavHeaderNavListItemStyle>
               </NavHeaderNavListStyle>
-            </nav>
+            </NavHeaderNavStyle>
+          </div>
+          <div className="deskTopScreen">
+            <NavHeaderNavStyle>
+              <NavHeaderNavListStyle rolr="menu">
+                <NavHeaderNavListItemStyle role="none">
+                  <NavHeaderNavLinkStyle
+                    rolr="menuitem"
+                    tabIndex="-1"
+                    to={`/browse`}
+                  >
+                    홈
+                  </NavHeaderNavLinkStyle>
+                </NavHeaderNavListItemStyle>
+                <NavHeaderNavListItemStyle role="none">
+                  <NavHeaderNavLinkStyle
+                    rolr="menuitem"
+                    tabIndex="-1"
+                    to={`/browse/genre/tv`}
+                  >
+                    TV 프로그램
+                  </NavHeaderNavLinkStyle>
+                </NavHeaderNavListItemStyle>
+                <NavHeaderNavListItemStyle role="none">
+                  <NavHeaderNavLinkStyle
+                    rolr="menuitem"
+                    tabIndex="-1"
+                    to={`/browse/genre/movie`}
+                  >
+                    영화
+                  </NavHeaderNavLinkStyle>
+                </NavHeaderNavListItemStyle>
+                <NavHeaderNavListItemStyle role="none">
+                  <NavHeaderNavLinkStyle
+                    rolr="menuitem"
+                    tabIndex="-1"
+                    to={`/browse/mylist`}
+                  >
+                    내가 찜한 콘텐츠
+                  </NavHeaderNavLinkStyle>
+                </NavHeaderNavListItemStyle>
+              </NavHeaderNavListStyle>
+            </NavHeaderNavStyle>
           </div>
         </NavHeaderNavContainerStyle>
         <NavHeaderSearchIconStyle type="button">

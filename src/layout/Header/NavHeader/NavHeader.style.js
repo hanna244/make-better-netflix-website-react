@@ -15,6 +15,8 @@ const {
   breakpoints: { lg },
 } = themes
 
+/* common style ---------------------------------------------------------- */
+
 /* 네브 해더 공용 버튼 스타일 */
 const NavHeaderCommonButton = styled.button`
   ${resetButton}
@@ -76,8 +78,29 @@ export const NavHeaderNavContainerStyle = styled.div`
 `
 NavHeaderNavContainerStyle.displayName = 'NavHeaderNavContainerStyle'
 
+export const NavHeaderNavStyle = styled.nav`
+  /* 메뉴 텍스트에 hover 시 dropdown이 보여질 수 있도록 width 설정 */
+  width: 5rem;
+
+  &:hover {
+    ul {
+      display: block;
+    }
+  }
+
+  @media (min-width: ${lg}em) {
+    width: auto;
+
+    &:hover {
+      pointer-events: none;
+    }
+  }
+`
+NavHeaderNavStyle.displayName = 'NavHeaderNavStyle'
+
 export const NavHeaderNavOpenButtonStyle = styled(NavHeaderCommonButton)`
   color: ${getColor('white')};
+  padding: 3rem 0;
 
   &::after {
     background: url(${getPublicAssets('profile-arrow.svg')}) no-repeat -0.2px -2px/96%;
@@ -89,10 +112,11 @@ export const NavHeaderNavOpenButtonStyle = styled(NavHeaderCommonButton)`
 NavHeaderNavOpenButtonStyle.displayName = 'NavHeaderNavOpenButtonStyle'
 export const NavHeaderNavListStyle = styled.ul`
   ${resetList}
+  display: block;
+  opacity: 1;
   position: absolute;
   left: -100px;
   width: 26rem;
-  margin-top: 3rem;
   text-align: center;
   border-top: 2px solid ${getColor('white')};
 
@@ -108,6 +132,7 @@ export const NavHeaderNavListStyle = styled.ul`
 
   @media (min-width: ${lg}em) {
     position: static;
+    /* display: block; */
     display: flex;
     flex-flow: row nowrap;
     border: 0;
