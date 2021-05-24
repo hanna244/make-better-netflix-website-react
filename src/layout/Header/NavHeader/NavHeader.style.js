@@ -52,7 +52,8 @@ NavHeaderHomeLink.displayName = 'NavHeaderHomeLink'
 export const NavHeaderLogo = styled(DefaultHeaderLogo)``
 NavHeaderLogo.displayName = 'NavHeaderLogo'
 
-export const NavHeaderNavStyle = styled.nav`
+export const NavHeaderNavContainerStyle = styled.div`
+  position: relative;
   flex: 1;
   margin-left: 2.3rem;
   color: ${getColor('lightGray')};
@@ -73,10 +74,8 @@ export const NavHeaderNavStyle = styled.nav`
     }
   }
 `
-NavHeaderNavStyle.displayName = 'NavHeaderNavStyle'
+NavHeaderNavContainerStyle.displayName = 'NavHeaderNavContainerStyle'
 
-export const NavHeaderNavInnerContainer = styled.div``
-NavHeaderNavInnerContainer.displayName = 'NavHeaderNavInnerContainer'
 export const NavHeaderNavOpenButtonStyle = styled(NavHeaderCommonButton)`
   color: ${getColor('white')};
 
@@ -90,7 +89,37 @@ export const NavHeaderNavOpenButtonStyle = styled(NavHeaderCommonButton)`
 NavHeaderNavOpenButtonStyle.displayName = 'NavHeaderNavOpenButtonStyle'
 export const NavHeaderNavListStyle = styled.ul`
   ${resetList}
+  position: absolute;
+  left: -100px;
+  width: 26rem;
+  margin-top: 3rem;
+  text-align: center;
+  border-top: 2px solid ${getColor('white')};
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -11px;
+    transform: translateX(-50%);
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid ${getColor('white')};
+  }
+
+  @media (min-width: ${lg}em) {
+    position: static;
+    display: flex;
+    flex-flow: row nowrap;
+    border: 0;
+    margin-top: 0;
+    width: auto;
+
+    &::before {
+      content: none;
+    }
+  }
 `
+
 NavHeaderNavListStyle.displayName = 'NavHeaderNavListStyle'
 
 export const NavHeaderNavListItemStyle = styled.li``
@@ -98,10 +127,16 @@ NavHeaderNavListItemStyle.displayName = 'NavHeaderNavListItemStyle'
 
 export const NavHeaderNavLinkStyle = styled(NavLink)`
   ${resetLink}
-  margin-right: 1.8rem;
+  display: block;
+  padding: 1em 2em;
 
   :hover {
     color: ${getColor('white')};
+  }
+
+  @media (min-width: ${lg}em) {
+    margin-right: 1.8rem;
+    padding: 0;
   }
 `
 NavHeaderNavLinkStyle.displayName = 'NavHeaderNavLinkStyle'

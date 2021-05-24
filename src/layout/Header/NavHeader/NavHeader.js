@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { getPublicAssets } from 'utils'
 import {
@@ -7,8 +7,7 @@ import {
   NavHeaderHomeLink,
   NavHeaderLogo,
   AriaStyle,
-  NavHeaderNavStyle,
-  NavHeaderNavInnerContainer,
+  NavHeaderNavContainerStyle,
   NavHeaderNavOpenButtonStyle,
   NavHeaderNavListStyle,
   NavHeaderNavListItemStyle,
@@ -19,6 +18,8 @@ import {
 } from './NavHeader.style'
 
 const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
+  const [showMenu, setShowMenu] = useState(false)
+  console.log(`showMenu: ${showMenu}`)
   const history = useHistory()
 
   const handleMoveHome = useCallback(
@@ -36,65 +37,84 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
             <NavHeaderLogo alt="브라우즈 홈" />
           </NavHeaderHomeLink>
         </h1>
-        <NavHeaderNavStyle>
-          <NavHeaderNavInnerContainer className="mobileScreen">
-            <NavHeaderNavOpenButtonStyle type="button">
-              메뉴
-            </NavHeaderNavOpenButtonStyle>
-            <NavHeaderNavListStyle rolr="menu" className="">
-              <NavHeaderNavListItemStyle>
-                <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
-                  홈
-                </NavHeaderNavLinkStyle>
-              </NavHeaderNavListItemStyle>
-              <NavHeaderNavListItemStyle>
-                <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse/genre/tv`}>
-                  TV 프로그램
-                </NavHeaderNavLinkStyle>
-              </NavHeaderNavListItemStyle>
-              <NavHeaderNavListItemStyle>
-                <NavHeaderNavLinkStyle
-                  rolr="menuitem"
-                  to={`/browse/genre/movie`}
-                >
-                  영화
-                </NavHeaderNavLinkStyle>
-              </NavHeaderNavListItemStyle>
-              <NavHeaderNavListItemStyle>
-                <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse/mylist`}>
-                  내가 찜한 콘텐츠
-                </NavHeaderNavLinkStyle>
-              </NavHeaderNavListItemStyle>
-            </NavHeaderNavListStyle>
-          </NavHeaderNavInnerContainer>
-          <NavHeaderNavInnerContainer className="deskTopScreen">
-            <NavHeaderNavListStyle rolr="menu">
-              <NavHeaderNavListItemStyle>
-                <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
-                  홈
-                </NavHeaderNavLinkStyle>
-              </NavHeaderNavListItemStyle>
-              <NavHeaderNavListItemStyle>
-                <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse/genre/tv`}>
-                  TV 프로그램
-                </NavHeaderNavLinkStyle>
-              </NavHeaderNavListItemStyle>
-              <NavHeaderNavListItemStyle>
-                <NavHeaderNavLinkStyle
-                  rolr="menuitem"
-                  to={`/browse/genre/movie`}
-                >
-                  영화
-                </NavHeaderNavLinkStyle>
-              </NavHeaderNavListItemStyle>
-              <NavHeaderNavListItemStyle>
-                <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse/mylist`}>
-                  내가 찜한 콘텐츠
-                </NavHeaderNavLinkStyle>
-              </NavHeaderNavListItemStyle>
-            </NavHeaderNavListStyle>
-          </NavHeaderNavInnerContainer>
-        </NavHeaderNavStyle>
+        <NavHeaderNavContainerStyle>
+          <div className="mobileScreen">
+            <nav>
+              <NavHeaderNavOpenButtonStyle
+                aria-expanded={showMenu}
+                type="button"
+                onClick={() => setShowMenu(!showMenu)}
+              >
+                메뉴
+              </NavHeaderNavOpenButtonStyle>
+              {showMenu ? (
+                <NavHeaderNavListStyle rolr="menu" className="">
+                  <NavHeaderNavListItemStyle role="none">
+                    <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
+                      홈
+                    </NavHeaderNavLinkStyle>
+                  </NavHeaderNavListItemStyle>
+                  <NavHeaderNavListItemStyle role="none">
+                    <NavHeaderNavLinkStyle
+                      rolr="menuitem"
+                      to={`/browse/genre/tv`}
+                    >
+                      TV 프로그램
+                    </NavHeaderNavLinkStyle>
+                  </NavHeaderNavListItemStyle>
+                  <NavHeaderNavListItemStyle role="none">
+                    <NavHeaderNavLinkStyle
+                      rolr="menuitem"
+                      to={`/browse/genre/movie`}
+                    >
+                      영화
+                    </NavHeaderNavLinkStyle>
+                  </NavHeaderNavListItemStyle>
+                  <NavHeaderNavListItemStyle role="none">
+                    <NavHeaderNavLinkStyle
+                      rolr="menuitem"
+                      to={`/browse/mylist`}
+                    >
+                      내가 찜한 콘텐츠
+                    </NavHeaderNavLinkStyle>
+                  </NavHeaderNavListItemStyle>
+                </NavHeaderNavListStyle>
+              ) : null}
+            </nav>
+          </div>
+          <div className="deskTopScreen">
+            <nav>
+              <NavHeaderNavListStyle rolr="menu">
+                <NavHeaderNavListItemStyle role="none">
+                  <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
+                    홈
+                  </NavHeaderNavLinkStyle>
+                </NavHeaderNavListItemStyle>
+                <NavHeaderNavListItemStyle role="none">
+                  <NavHeaderNavLinkStyle
+                    rolr="menuitem"
+                    to={`/browse/genre/tv`}
+                  >
+                    TV 프로그램
+                  </NavHeaderNavLinkStyle>
+                </NavHeaderNavListItemStyle>
+                <NavHeaderNavListItemStyle role="none">
+                  <NavHeaderNavLinkStyle
+                    rolr="menuitem"
+                    to={`/browse/genre/movie`}
+                  >
+                    영화
+                  </NavHeaderNavLinkStyle>
+                </NavHeaderNavListItemStyle>
+                <NavHeaderNavListItemStyle role="none">
+                  <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse/mylist`}>
+                    내가 찜한 콘텐츠
+                  </NavHeaderNavLinkStyle>
+                </NavHeaderNavListItemStyle>
+              </NavHeaderNavListStyle>
+            </nav>
+          </div>
+        </NavHeaderNavContainerStyle>
         <NavHeaderSearchIconStyle type="button">
           <AriaStyle>영화 검색</AriaStyle>
         </NavHeaderSearchIconStyle>
