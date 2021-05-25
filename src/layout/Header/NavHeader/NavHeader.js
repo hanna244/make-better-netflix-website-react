@@ -1,4 +1,5 @@
-import React, { useCallback, useState } from 'react'
+import { Profile } from 'components'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { getPublicAssets } from 'utils'
 import {
@@ -9,8 +10,8 @@ import {
   AriaStyle,
   NavHeaderNavContainerStyle,
   NavHeaderNavStyle,
-  NavHeaderNavOpenButtonStyle,
-  NavHeaderNavListStyle,
+  NavHeaderNavControlButtonStyle,
+  DropdownListStyle,
   NavHeaderNavListItemStyle,
   NavHeaderNavLinkStyle,
   NavHeaderSearchIconStyle,
@@ -19,8 +20,7 @@ import {
 } from './NavHeader.style'
 
 const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
-  const [showMenu, setShowMenu] = useState(false)
-  const menuDisplay = showMenu ? { display: 'block' } : { display: 'none' }
+  const [showMenu, setShowMenu] = useState(true)
   const history = useHistory()
 
   const handleMoveHome = useCallback(
@@ -30,6 +30,12 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
     },
     [history]
   )
+
+  // dropdown 메뉴가 열리고 마우스 포커스가 이동하기 전 메뉴가 닫히는 현상 방지를 위해 setTimeout 설정
+  const handleCloseMenu = useCallback(() => {
+    window.setTimeout(() => setShowMenu(false), 2000)
+  }, [])
+
   return (
     <OuterContainer>
       <InnerContainer className={className} {...restProps}>
@@ -40,48 +46,59 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
         </h1>
         <NavHeaderNavContainerStyle>
           <div className="mobileScreen">
-            <NavHeaderNavStyle onMouseEnter={() => setShowMenu(!showMenu)}>
-              <NavHeaderNavOpenButtonStyle
+            <NavHeaderNavStyle
+              onMouseEnter={() => setShowMenu(true)}
+              onMouseLeave={() => handleCloseMenu()}
+              onClick={() => setShowMenu(!showMenu)}
+              onBlur={() => setShowMenu(false)}
+            >
+              <NavHeaderNavControlButtonStyle
                 aria-expanded={showMenu}
                 type="button"
-                onClick={() => setShowMenu(!showMenu)}
-                onBlur={() => setShowMenu(false)}
               >
                 메뉴
-              </NavHeaderNavOpenButtonStyle>
-              <NavHeaderNavListStyle style={menuDisplay} rolr="menu">
-                <NavHeaderNavListItemStyle role="none">
-                  <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
-                    홈
-                  </NavHeaderNavLinkStyle>
-                </NavHeaderNavListItemStyle>
-                <NavHeaderNavListItemStyle role="none">
-                  <NavHeaderNavLinkStyle
-                    rolr="menuitem"
-                    to={`/browse/genre/tv`}
-                  >
-                    TV 프로그램
-                  </NavHeaderNavLinkStyle>
-                </NavHeaderNavListItemStyle>
-                <NavHeaderNavListItemStyle role="none">
-                  <NavHeaderNavLinkStyle
-                    rolr="menuitem"
-                    to={`/browse/genre/movie`}
-                  >
-                    영화
-                  </NavHeaderNavLinkStyle>
-                </NavHeaderNavListItemStyle>
-                <NavHeaderNavListItemStyle role="none">
-                  <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse/mylist`}>
-                    내가 찜한 콘텐츠
-                  </NavHeaderNavLinkStyle>
-                </NavHeaderNavListItemStyle>
-              </NavHeaderNavListStyle>
+              </NavHeaderNavControlButtonStyle>
+              {showMenu ? (
+                <DropdownListStyle
+                  style={{ opacity: 1, transitionDuration: '150ms' }}
+                  rolr="menu"
+                >
+                  <NavHeaderNavListItemStyle role="none">
+                    <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
+                      홈
+                    </NavHeaderNavLinkStyle>
+                  </NavHeaderNavListItemStyle>
+                  <NavHeaderNavListItemStyle role="none">
+                    <NavHeaderNavLinkStyle
+                      rolr="menuitem"
+                      to={`/browse/genre/tv`}
+                    >
+                      TV 프로그램
+                    </NavHeaderNavLinkStyle>
+                  </NavHeaderNavListItemStyle>
+                  <NavHeaderNavListItemStyle role="none">
+                    <NavHeaderNavLinkStyle
+                      rolr="menuitem"
+                      to={`/browse/genre/movie`}
+                    >
+                      영화
+                    </NavHeaderNavLinkStyle>
+                  </NavHeaderNavListItemStyle>
+                  <NavHeaderNavListItemStyle role="none">
+                    <NavHeaderNavLinkStyle
+                      rolr="menuitem"
+                      to={`/browse/mylist`}
+                    >
+                      내가 찜한 콘텐츠
+                    </NavHeaderNavLinkStyle>
+                  </NavHeaderNavListItemStyle>
+                </DropdownListStyle>
+              ) : null}
             </NavHeaderNavStyle>
           </div>
           <div className="deskTopScreen">
             <NavHeaderNavStyle>
-              <NavHeaderNavListStyle rolr="menu">
+              <DropdownListStyle rolr="menu">
                 <li role="none">
                   <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
                     홈
@@ -108,19 +125,14 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
                     내가 찜한 콘텐츠
                   </NavHeaderNavLinkStyle>
                 </NavHeaderNavListItemStyle>
-              </NavHeaderNavListStyle>
+              </DropdownListStyle>
             </NavHeaderNavStyle>
           </div>
         </NavHeaderNavContainerStyle>
         <NavHeaderSearchIconStyle type="button">
           <AriaStyle>영화 검색</AriaStyle>
         </NavHeaderSearchIconStyle>
-        <NavHeaderProfileStyle type="button">
-          <NavHeaderProfileImgStyle
-            src={`${getPublicAssets('profile.png')}`}
-            alt="사용자 프로필"
-          />
-        </NavHeaderProfileStyle>
+        <Profile />
       </InnerContainer>
     </OuterContainer>
   )
