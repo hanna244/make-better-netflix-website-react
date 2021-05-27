@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 import { Background, Button, Container, Input } from 'components'
 import { setFont, getColor, getPublicAssets } from 'utils'
-import { resetButton, resetLink, resetPara } from './common'
+import { resetButton, resetLink, resetList, resetPara } from './common'
 import { themes } from 'styles/theme'
 
 const {
   breakpoints: { lg },
 } = themes
 
-/* OurStory -------------------------------------------- */
+/* OurStory ----------------------------------------------------------------- */
 
 export const OusStoryParaCommonStyle = styled.p`
   ${resetPara}
@@ -19,7 +19,7 @@ export const OusStoryParaCommonStyle = styled.p`
 `
 OusStoryParaCommonStyle.displayName = 'OusStoryParaCommonStyle'
 
-/* login, signup 페이지 공용 스타일 -------------------------- */
+/* login, signup 페이지 공용 스타일 ------------------------------------------------- */
 
 // 컨테이너 스타일
 
@@ -127,3 +127,51 @@ export const SocialCommonButtonStyle = styled.button`
   }
 `
 SocialCommonButtonStyle.displayName = 'SocialCommonButtonStyle'
+
+/* NavHeader ---------------------------------------------------------------- */
+
+/* 네브 해더 공용 버튼 스타일 */
+export const CommonNavButtonStyle = styled.button`
+  ${resetButton}
+  background: inherit;
+  padding: 0;
+
+  &::before {
+    content: '';
+    display: inline-block;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+  }
+`
+CommonNavButtonStyle.displayName = 'CommonNavButtonStyle'
+
+export const DropdownCommonListStyle = styled.div`
+  position: absolute;
+
+  &::before {
+    content: '';
+    position: absolute;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid ${getColor('white')};
+  }
+
+  @media (min-width: ${lg}em) {
+    &::before {
+      content: none;
+    }
+  }
+`
+DropdownCommonListStyle.displayName = 'DropdownCommonListStyle'
+
+/* Profile ------------------------------------------------------------------ */
+
+export const DropdownCommonButtonStyle = styled.button`
+  ${resetButton}
+  background: inherit;
+  color: ${getColor('white')};
+`
+DropdownCommonButtonStyle.displayName = 'DropdownCommonButtonStyle'

@@ -2,6 +2,10 @@ import { Navigation } from 'components'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { a11yHidden, resetButton, resetLink, resetList } from 'styles/common'
+import {
+  DropdownCommonListStyle,
+  CommonNavButtonStyle,
+} from 'styles/customCommon'
 import { getPublicAssets, getColor } from 'utils'
 import {
   OuterContainerStyle as DefaultOuterContainer,
@@ -15,27 +19,6 @@ const {
   breakpoints: { lg },
 } = themes
 
-/* common style ---------------------------------------------------------- */
-
-/* 네브 해더 공용 버튼 스타일 */
-const NavHeaderCommonButton = styled.button`
-  ${resetButton}
-  background: inherit;
-  padding: 0;
-
-  &::before {
-    content: '';
-    display: inline-block;
-  }
-
-  &::after {
-    content: '';
-    display: inline-block;
-  }
-`
-NavHeaderCommonButton.displayName = 'NavHeaderCommonButton'
-
-/* ----------------------------------------------------------------------- */
 export const OuterContainer = styled(DefaultOuterContainer)``
 OuterContainer.displayName = 'OuterContainer'
 
@@ -82,25 +65,14 @@ export const NavHeaderNavStyle = styled.nav`
   /* 메뉴 텍스트에 hover 시 dropdown이 보여질 수 있도록 width 설정 */
   width: 5rem;
 
-  &:hover {
-    ul {
-      display: block;
-    }
-  }
-
   @media (min-width: ${lg}em) {
     width: auto;
-
-    &:hover {
-      pointer-events: none;
-    }
   }
 `
 NavHeaderNavStyle.displayName = 'NavHeaderNavStyle'
 
-export const NavHeaderNavOpenButtonStyle = styled(NavHeaderCommonButton)`
+export const NavHeaderNavControlButtonStyle = styled(CommonNavButtonStyle)`
   color: ${getColor('white')};
-  padding: 3rem 0;
 
   &::after {
     background: url(${getPublicAssets('profile-arrow.svg')}) no-repeat -0.2px -2px/96%;
@@ -109,43 +81,32 @@ export const NavHeaderNavOpenButtonStyle = styled(NavHeaderCommonButton)`
     margin-left: 1rem;
   }
 `
-NavHeaderNavOpenButtonStyle.displayName = 'NavHeaderNavOpenButtonStyle'
-export const NavHeaderNavListStyle = styled.ul`
+NavHeaderNavControlButtonStyle.displayName = 'NavHeaderNavControlButtonStyle'
+
+export const NavHeaderDropdownListStyle = styled(DropdownCommonListStyle)`
   ${resetList}
-  display: block;
-  opacity: 1;
-  position: absolute;
   left: -100px;
+  top: 45px;
   width: 26rem;
   text-align: center;
   border-top: 2px solid ${getColor('white')};
 
   &::before {
-    content: '';
-    position: absolute;
     top: -11px;
     transform: translateX(-50%);
-    border-right: 10px solid transparent;
-    border-left: 10px solid transparent;
-    border-bottom: 10px solid ${getColor('white')};
   }
 
   @media (min-width: ${lg}em) {
     position: static;
-    /* display: block; */
     display: flex;
     flex-flow: row nowrap;
     border: 0;
     margin-top: 0;
     width: auto;
-
-    &::before {
-      content: none;
-    }
   }
 `
 
-NavHeaderNavListStyle.displayName = 'NavHeaderNavListStyle'
+NavHeaderDropdownListStyle.displayName = 'NavHeaderDropdownListStyle'
 
 export const NavHeaderNavListItemStyle = styled.li``
 NavHeaderNavListItemStyle.displayName = 'NavHeaderNavListItemStyle'
@@ -171,7 +132,7 @@ export const AriaStyle = styled.span`
 `
 AriaStyle.displayName = 'AriaStyle'
 
-export const NavHeaderSearchIconStyle = styled(NavHeaderCommonButton)`
+export const NavHeaderSearchIconStyle = styled(CommonNavButtonStyle)`
   margin-right: 2.1rem;
 
   &::before {
@@ -182,18 +143,3 @@ export const NavHeaderSearchIconStyle = styled(NavHeaderCommonButton)`
   }
 `
 NavHeaderSearchIconStyle.displayName = 'NavHeaderSearchIconStyle'
-
-export const NavHeaderProfileStyle = styled(NavHeaderCommonButton)`
-  &::after {
-    background: url(${getPublicAssets('profile-arrow.svg')}) no-repeat -0.2px -2px/96%;
-    width: 1rem;
-    height: 0.5rem;
-    margin-left: 1rem;
-  }
-`
-NavHeaderProfileStyle.displayName = 'NavHeaderProfileStyle'
-
-export const NavHeaderProfileImgStyle = styled.img`
-  width: 3.2rem;
-`
-NavHeaderProfileImgStyle.displayName = 'NavHeaderProfileImgStyle'
