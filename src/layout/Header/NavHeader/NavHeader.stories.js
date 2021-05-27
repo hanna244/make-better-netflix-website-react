@@ -19,14 +19,8 @@ export const NormalNavHeader = Template.bind({})
 NormalNavHeader.args = {}
 NormalNavHeader.storyName = '헤더(normal)'
 
-export const SelectNavHeader = Template.bind({})
-SelectNavHeader.args = {
-  ...NormalNavHeader.args,
-}
-SelectNavHeader.storyName = '헤더(select)'
-
 export const ShowSelectNavHeader = Template.bind({})
 ShowSelectNavHeader.args = {
-  ...SelectNavHeader.args,
+  ...NormalNavHeader.args,
 }
 ShowSelectNavHeader.storyName = '헤더(show dropdown)'

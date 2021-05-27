@@ -11,16 +11,14 @@ import {
   NavHeaderNavContainerStyle,
   NavHeaderNavStyle,
   NavHeaderNavControlButtonStyle,
-  DropdownListStyle,
+  NavHeaderDropdownListStyle,
   NavHeaderNavListItemStyle,
   NavHeaderNavLinkStyle,
   NavHeaderSearchIconStyle,
-  NavHeaderProfileStyle,
-  NavHeaderProfileImgStyle,
 } from './NavHeader.style'
 
 const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
-  const [showMenu, setShowMenu] = useState(true)
+  const [showMenu, setShowMenu] = useState(false)
   const history = useHistory()
 
   const handleMoveHome = useCallback(
@@ -59,7 +57,7 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
                 메뉴
               </NavHeaderNavControlButtonStyle>
               {showMenu ? (
-                <DropdownListStyle
+                <NavHeaderDropdownListStyle
                   style={{ opacity: 1, transitionDuration: '150ms' }}
                   rolr="menu"
                 >
@@ -92,13 +90,13 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
                       내가 찜한 콘텐츠
                     </NavHeaderNavLinkStyle>
                   </NavHeaderNavListItemStyle>
-                </DropdownListStyle>
+                </NavHeaderDropdownListStyle>
               ) : null}
             </NavHeaderNavStyle>
           </div>
           <div className="deskTopScreen">
             <NavHeaderNavStyle>
-              <DropdownListStyle rolr="menu">
+              <NavHeaderDropdownListStyle as="ul" rolr="menu">
                 <li role="none">
                   <NavHeaderNavLinkStyle rolr="menuitem" to={`/browse`}>
                     홈
@@ -125,7 +123,7 @@ const NavHeader = ({ className, hasLogInButton, ...restProps }) => {
                     내가 찜한 콘텐츠
                   </NavHeaderNavLinkStyle>
                 </NavHeaderNavListItemStyle>
-              </DropdownListStyle>
+              </NavHeaderDropdownListStyle>
             </NavHeaderNavStyle>
           </div>
         </NavHeaderNavContainerStyle>
